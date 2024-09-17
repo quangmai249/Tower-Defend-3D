@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -7,13 +6,17 @@ public class FilePath
 {
     private string name;
     private string path;
-    private List<GameObject> lsPos;
+    private List<Transform> lsPos;
     public FilePath(string path, string name)
     {
         this.name = name;
         this.path = path;
     }
-    public void SetListVector(List<GameObject> position)
+    public string GetPath()
+    {
+        return $"{this.path}/{this.name}";
+    }
+    public void SetListVector(List<Transform> position)
     {
         this.lsPos = position;
     }
@@ -22,11 +25,11 @@ public class FilePath
         using (StreamWriter streamWriter = new StreamWriter($"{this.path}/{this.name}", append: false))
         {
             foreach (var item in lsPos)
-                streamWriter.WriteLine(JsonUtility.ToJson(item.transform.position));
+                streamWriter.WriteLine(JsonUtility.ToJson(item.position));
             streamWriter.Close();
         }
     }
-    public List<Vector3> ReadPathFromFile()
+    public Vector3[] ReadPathFromFile()
     {
         List<Vector3> res = new List<Vector3>();
         string read_line = string.Empty;
@@ -39,6 +42,6 @@ public class FilePath
             }
             streamReader.Close();
         }
-        return res;
+        return res.ToArray();
     }
 }

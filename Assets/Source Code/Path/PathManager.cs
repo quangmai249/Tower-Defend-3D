@@ -1,19 +1,42 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 public class PathManager : MonoBehaviour
 {
-    [SerializeField] WaveManager waveManager;
-    [SerializeField] FollowPath FollowPath;
+    [SerializeField] LevelManager levelManager;
+
+    [SerializeField] TextMeshProUGUI textLevel;
+
+    [SerializeField] Transform objectPath;
+
     [SerializeField] FilePath filePath;
-    [SerializeField] bool isSaveThisPath = true;
+
+    private List<Transform> ls = new List<Transform>();
+    private string path = "Assets/Path Enemy";
     private void Start()
     {
-        filePath = new FilePath("Assets/Path Enemy", waveManager.ToString());
-        if (isSaveThisPath)
+        textLevel.text = levelManager.ToString().Replace('_', ' ');
+        filePath = new FilePath(path, levelManager.ToString());
+
+        if (File.Exists(filePath.GetPath()))
+            Debug.Log("File existed");
+        else
         {
-            filePath.SetListVector(FollowPath.GetListVec());
+            foreach (Transform go in objectPath.GetComponentInChildren<Transform>())
+                ls.Add(go);
+            filePath.SetListVector(ls);
             filePath.StartSavePathToFile();
+            Debug.Log("Create a new file to Save Path successfully!");
         }
+    }
+    public string GetFolderPath()
+    {
+        return this.path;
+    }
+    public string GetLevelManager()
+    {
+        return this.levelManager.ToString();
     }
 }

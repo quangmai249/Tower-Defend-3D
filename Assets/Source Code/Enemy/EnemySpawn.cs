@@ -5,52 +5,61 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    [Header("Canvas")]
     [SerializeField] TextMeshProUGUI textCountdown;
 
+    [Header("Enemy")]
     [SerializeField] GameObject enemy;
+    [SerializeField] GameObject listEnemy;
 
-    [SerializeField] int secondCountdown = 5;
+    [Header("Countdown")]
+    [SerializeField] int secondStartCountdown = 1;
+    [SerializeField] int secondCountdownPerWave = 5;
 
+    [Header("Wave")]
     [SerializeField] int wave = 1;
+    [SerializeField] int maxWave = 5;
 
+    [Header("Spawn Enemy")]
     [SerializeField] int quantity = 1;
-
-    [SerializeField] float timeSpawn = 0.2f;
+    [SerializeField] float timeSpawn = 1f;
     void Start()
     {
         StartCoroutine(nameof(StartCountdown));
     }
     void Update()
     {
-        if (secondCountdown < 0 && wave < 6)
+        if (secondStartCountdown < 0 && wave < 6)
         {
             StartCoroutine(nameof(StartSpawn));
-            secondCountdown = 5;
+            secondStartCountdown = secondCountdownPerWave;
             StartCoroutine(nameof(StartCountdown));
         }
 
-        if (wave > 5)
+        if (wave > maxWave)
             textCountdown.text = "";
         else
-            textCountdown.text = secondCountdown.ToString();
+            textCountdown.text = secondStartCountdown.ToString();
     }
     IEnumerator StartSpawn()
     {
-        yield return new WaitForSeconds(secondCountdown);
+        yield return new WaitForSeconds(secondStartCountdown);
+
         for (int i = 0; i < quantity; i++)
         {
             Instantiate(enemy, gameObject.transform.position, enemy.transform.rotation);
             yield return new WaitForSeconds(timeSpawn);
         }
+
         quantity++;
         wave++;
     }
     IEnumerator StartCountdown()
     {
-        while (secondCountdown >= 0)
+        while (secondStartCountdown >= 0)
         {
             yield return new WaitForSeconds(1);
-            secondCountdown--;
+            secondStartCountdown--;
         }
     }
 }

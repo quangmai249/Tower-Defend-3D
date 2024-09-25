@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class EnemyMoving : MonoBehaviour
 {
-    [SerializeField] GameObject protectThisHome;
-
-    [SerializeField] float timeDuration = 20f;
+    [SerializeField] float timeDuration = 100f;
 
     [SerializeField] string pathManagerTag = "Path Manager";
 
@@ -27,14 +25,12 @@ public class EnemyMoving : MonoBehaviour
         filePath = new FilePath(pathManager.GetFolderPath(), pathManager.GetLevelManager());
 
         StartCoroutine(nameof(StartMoving));
-
-        protectThisHome.transform.position = arrayPoint[arrayPoint.Length - 1];
     }
     private void Update()
     {
-        if (gameObject.transform.position == protectThisHome.transform.position)
+        if (gameObject.transform.position == arrayPoint[arrayPoint.Length - 1])
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
     void StartMoving()
@@ -56,9 +52,5 @@ public class EnemyMoving : MonoBehaviour
             Debug.LogError("Path Manager is null!");
             return;
         }
-    }
-    public void SetTimeDuration(float t)
-    {
-        this.timeDuration = t;
     }
 }

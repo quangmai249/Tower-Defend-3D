@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Path Manager
   - Enemy
+  - Turrets
+  - Bullet
   layers:
   - Default
   - TransparentFX

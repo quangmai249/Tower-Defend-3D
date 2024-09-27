@@ -1,11 +1,10 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
-public class TurretsFollow : MonoBehaviour
+public class Turrets : MonoBehaviour
 {
     [Header("Bullets")]
     [SerializeField] GameObject bullet;
@@ -17,12 +16,20 @@ public class TurretsFollow : MonoBehaviour
     [SerializeField] float distance;
 
     [Header("Enemies")]
-    [SerializeField] string enemyTag = "Enemy";
     [SerializeField] GameObject target;
+    [SerializeField] string enemyTag = "Enemy";
+
+    [SerializeField] GameObject nodeBuilding;
 
     private GameObject[] enemies;
+    private Renderer rend;
+    private Color color;
+    private SingletonBuilding singletonBuilding;
     private void Start()
     {
+        this.singletonBuilding = SingletonBuilding.Instance;
+        this.rend = GetComponent<Renderer>();
+        this.color = this.rend.material.color;
         StartCoroutine(nameof(SelectTarget));
     }
     private void Update()
@@ -34,6 +41,25 @@ public class TurretsFollow : MonoBehaviour
             gameObject.transform.LookAt(target.transform.position);
             StartSpawnBullet();
         }
+    }
+    private void OnMouseEnter()
+    {
+        rend.material.color = Color.green;
+    }
+    private void OnMouseExit()
+    {
+        rend.material.color = this.color;
+    }
+    private void OnMouseDown()
+    {
+        singletonBuilding.InstantiateAt(this.gameObject);
+        DOTween.Kill(this.gameObject.transform);
+        Destroy(this.gameObject);
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(gameObject.transform.position, range);
     }
     private void StartSpawnBullet()
     {
@@ -77,10 +103,5 @@ public class TurretsFollow : MonoBehaviour
             Debug.LogError($"{g.name} is not null!");
             return;
         }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(gameObject.transform.position, range);
     }
 }

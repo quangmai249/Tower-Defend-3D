@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    [SerializeField] GameObject turretsPrefab;
     private Renderer rend;
     private Color color;
+    private SingletonTurrets singletonTurrets;
     private void Start()
     {
+        this.singletonTurrets = SingletonTurrets.Instance;
         this.rend = GetComponent<Renderer>();
         this.color = this.rend.material.color;
     }
@@ -22,7 +23,7 @@ public class Node : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Instantiate(turretsPrefab, this.gameObject.transform.position, turretsPrefab.transform.rotation);
+        singletonTurrets.InstantiateTurretsAt(this.gameObject);
         Destroy(this.gameObject);
     }
 }

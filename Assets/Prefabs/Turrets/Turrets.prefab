@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 625774424498428341}
   - component: {fileID: 506676639564287826}
   - component: {fileID: 7817674391239492667}
-  - component: {fileID: 2606966529425918135}
-  - component: {fileID: 7079400011973598760}
+  - component: {fileID: 5851984839577998476}
   m_Layer: 0
   m_Name: Turrets
   m_TagString: Untagged
@@ -107,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2606966529425918135
+--- !u!114 &5851984839577998476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5572517066504377506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a08403b5ab62b974390c032a7599e578, type: 3}
+  m_Script: {fileID: 11500000, guid: a2553be2c4fb06642bf41e50de793991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7555623238895228688, guid: 7ee231ebd1ec60b4585b3ca834915304, type: 3}
@@ -124,18 +123,6 @@ MonoBehaviour:
   defaultFireCountdown: 1
   range: 6
   distance: 0
-  enemyTag: Enemy
   target: {fileID: 0}
---- !u!114 &7079400011973598760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5572517066504377506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 554b26e0933a1eb4bb42502278e0162a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  enemyTag: Enemy
   nodeBuilding: {fileID: 5891008328017837091, guid: 8e7486aaca2e0d54c8a1198b7e361d91, type: 3}

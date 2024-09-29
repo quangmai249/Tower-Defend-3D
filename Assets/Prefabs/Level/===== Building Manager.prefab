@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 5303209706936370366}
   - component: {fileID: 9138276656129093444}
   m_Layer: 0
-  m_Name: ===== Building
+  m_Name: ===== Building Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

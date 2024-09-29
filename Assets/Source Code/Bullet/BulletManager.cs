@@ -32,7 +32,7 @@ public class BulletManager : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Instantiate(particleBulletEffect, other.transform);
+            Instantiate(particleBulletEffect, other.transform).transform.parent = this.gameObject.transform;
 
             DOTween.Kill(this.gameObject.transform);
             Destroy(this.gameObject);

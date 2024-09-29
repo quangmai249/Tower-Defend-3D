@@ -19,6 +19,8 @@ public class SingletonBuilding : MonoBehaviour
     }
     public GameObject InstantiateAt(Vector3 pos)
     {
-        return Instantiate(this.nodeBuilding, pos, this.nodeBuilding.transform.rotation);
+        GameObject res = Instantiate(this.nodeBuilding, pos, this.nodeBuilding.transform.rotation);
+        res.transform.parent = this.gameObject.transform;
+        return res;
     }
 }

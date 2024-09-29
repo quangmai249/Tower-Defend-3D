@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -66,7 +65,7 @@ public class EnemySpawn : MonoBehaviour
 
         for (int i = 0; i < quantity; i++)
         {
-            singletonEnemy.InstantiateTurretsAt(pathManager.GetPosSpawnEneny());
+            singletonEnemy.InstantiateTurretsAt(pathManager.GetPosSpawnEneny()).transform.parent = this.gameObject.transform;
             yield return new WaitForSeconds(timeSpawn);
         }
         quantity++;

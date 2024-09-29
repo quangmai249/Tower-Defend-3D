@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletonNodePath : MonoBehaviour
+public class SingletonBullet : MonoBehaviour
 {
-    [SerializeField] GameObject nodePath;
-    public static SingletonNodePath Instance;
+    [SerializeField] GameObject bullet;
+    public static SingletonBullet Instance;
     void Awake()
     {
         if (Instance != null)
@@ -15,9 +15,9 @@ public class SingletonNodePath : MonoBehaviour
         }
         Instance = this;
     }
-    public GameObject InstantiateNodePathAt(Vector3 pos)
+    public GameObject InstantiateBulletAt(Vector3 pos)
     {
-        GameObject res = Instantiate(this.nodePath, pos, this.nodePath.transform.rotation);
+        GameObject res = Instantiate(this.bullet, pos, this.bullet.transform.rotation);
         res.transform.parent = this.gameObject.transform;
         return res;
     }

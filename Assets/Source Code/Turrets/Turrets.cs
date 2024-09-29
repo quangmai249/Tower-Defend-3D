@@ -17,17 +17,20 @@ public class Turrets : MonoBehaviour
 
     [Header("Enemies")]
     [SerializeField] GameObject target;
-    [SerializeField] string enemyTag = "Enemy";
+    [SerializeField] readonly string enemyTag = "Enemy";
 
     [SerializeField] GameObject nodeBuilding;
 
     private GameObject[] enemies;
     private Renderer rend;
     private Color color;
+
     private SingletonBuilding singletonBuilding;
+    private SingletonBullet singletonBullet;
     private void Start()
     {
-        this.singletonBuilding = SingletonBuilding.Instance;
+        singletonBullet = SingletonBullet.Instance;
+        singletonBuilding = SingletonBuilding.Instance;
         this.rend = GetComponent<Renderer>();
         this.color = this.rend.material.color;
         StartCoroutine(nameof(SelectTarget));
@@ -73,8 +76,9 @@ public class Turrets : MonoBehaviour
     }
     private void SpawnBullet()
     {
-        GameObject g = Instantiate(this.bullet, this.gameObject.transform);
-        BulletManager bulletManager = g.GetComponent<BulletManager>();
+        GameObject go = singletonBullet.InstantiateBulletAt(this.gameObject.transform.position);
+
+        BulletManager bulletManager = go.GetComponent<BulletManager>();
         if (bulletManager != null)
             bulletManager.SetTarget(target);
     }

@@ -15,6 +15,8 @@ public class SingletonTurrets : MonoBehaviour
     }
     public GameObject InstantiateTurretsAt(Vector3 pos)
     {
-        return Instantiate(this.turret, pos, this.turret.transform.rotation);
+        GameObject res = Instantiate(this.turret, pos, this.turret.transform.rotation);
+        res.transform.parent = this.gameObject.transform;
+        return res;
     }
 }

@@ -1,9 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletonTurrets : MonoBehaviour
+public class SingletonEnemy : MonoBehaviour
 {
-    [SerializeField] GameObject turret;
-    public static SingletonTurrets Instance;
+    [SerializeField] GameObject enemy;
+    public static SingletonEnemy Instance;
     private void Awake()
     {
         if (Instance != null)
@@ -15,6 +17,6 @@ public class SingletonTurrets : MonoBehaviour
     }
     public GameObject InstantiateTurretsAt(Vector3 pos)
     {
-        return Instantiate(this.turret, pos, this.turret.transform.rotation);
+        return Instantiate(this.enemy, pos, this.enemy.transform.rotation);
     }
 }

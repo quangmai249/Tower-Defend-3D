@@ -6,37 +6,34 @@ using UnityEngine;
 
 public class EnemyMoving : MonoBehaviour
 {
-    [SerializeField] float timeDuration = 100f;
-
-    [SerializeField] string pathManagerTag = "Path Manager";
-
+    [SerializeField] readonly string pathManagerTag = "Path Manager";
+    [SerializeField] readonly string levelDesignTag = "Level Design";
     [SerializeField] Vector3[] arrayPoint;
 
+    [SerializeField] float timeDuration = 100f;
+
+    private LevelDesign levelDesign;
     private PathManager pathManager;
     private FilePath filePath;
+    private void Awake()
+    {
+        levelDesign = GameObject.FindGameObjectWithTag(levelDesignTag).GetComponent<LevelDesign>();
+        pathManager = GameObject.FindGameObjectWithTag(pathManagerTag).GetComponent<PathManager>();
+        filePath = new FilePath(pathManager.GetPath(), levelDesign.GetLevel());
+
+        arrayPoint = filePath.ReadFromFile();
+    }
     private void Start()
     {
-        pathManager = GameObject
-            .FindGameObjectWithTag(pathManagerTag)
-            .GetComponent<PathManager>();
-
-        CheckPathManager();
-
-        filePath = new FilePath(pathManager.GetFolderPath(), pathManager.GetLevelManager());
-
-        StartCoroutine(nameof(StartMoving));
+        StartCoroutine(nameof(Moving));
     }
     private void Update()
     {
         if (gameObject.transform.position == arrayPoint[arrayPoint.Length - 1])
         {
+            DOTween.Kill(this.gameObject.transform);
             Destroy(this.gameObject);
         }
-    }
-    void StartMoving()
-    {
-        arrayPoint = filePath.ReadPathFromFile();
-        Moving();
     }
     private void Moving()
     {
@@ -44,13 +41,5 @@ public class EnemyMoving : MonoBehaviour
             .DOPath(arrayPoint, timeDuration, PathType.Linear)
             .SetEase(Ease.Linear)
             .SetLookAt(0.001f);
-    }
-    private void CheckPathManager()
-    {
-        if (pathManager == null)
-        {
-            Debug.LogError("Path Manager is null!");
-            return;
-        }
     }
 }

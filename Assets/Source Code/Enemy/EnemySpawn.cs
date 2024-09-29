@@ -7,6 +7,7 @@ public class EnemySpawn : MonoBehaviour
 {
     [Header("Canvas")]
     [SerializeField] TextMeshProUGUI textCountdown;
+    [SerializeField] TextMeshProUGUI textWave;
 
     [Header("Enemy")]
     [SerializeField] GameObject enemy;
@@ -23,8 +24,18 @@ public class EnemySpawn : MonoBehaviour
     [Header("Spawn Enemy")]
     [SerializeField] int quantity = 1;
     [SerializeField] float timeSpawn = 1f;
+
+    [SerializeField] readonly string pathManagerTag = "Path Manager";
+    private PathManager pathManager;
+    private SingletonEnemy singletonEnemy;
     void Start()
     {
+        singletonEnemy = SingletonEnemy.Instance;
+
+        pathManager = GameObject
+            .FindGameObjectWithTag(pathManagerTag)
+            .GetComponent<PathManager>();
+
         StartCoroutine(nameof(StartCountdown));
     }
     void Update()
@@ -35,11 +46,19 @@ public class EnemySpawn : MonoBehaviour
             secondStartCountdown = secondCountdownPerWave;
             StartCoroutine(nameof(StartCountdown));
         }
-
+        SetTextCountdown();
+    }
+    void SetTextCountdown()
+    {
         if (wave > maxWave)
+        {
             textCountdown.text = "";
+            textWave.text = $"Last wave";
+        }
         else
+        {
             textCountdown.text = secondStartCountdown.ToString();
+        }
     }
     IEnumerator StartSpawn()
     {
@@ -47,19 +66,19 @@ public class EnemySpawn : MonoBehaviour
 
         for (int i = 0; i < quantity; i++)
         {
-            Instantiate(enemy, gameObject.transform.position, enemy.transform.rotation);
+            singletonEnemy.InstantiateTurretsAt(pathManager.GetPosSpawnEneny());
             yield return new WaitForSeconds(timeSpawn);
         }
-
         quantity++;
-        wave++;
     }
     IEnumerator StartCountdown()
     {
+        textWave.text = $"Wave {wave} is coming...";
         while (secondStartCountdown >= 0)
         {
             yield return new WaitForSeconds(1);
             secondStartCountdown--;
         }
+        wave++;
     }
 }

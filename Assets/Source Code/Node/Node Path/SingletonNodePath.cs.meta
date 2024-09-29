@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 4920baf92e0a92242bbb1a65033f9cea
+guid: 89cfacb839a87234e9897e6bc4293892
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - nodeBuilding: {fileID: 5891008328017837091, guid: 8e7486aaca2e0d54c8a1198b7e361d91, type: 3}
   - nodePath: {fileID: 8300154019933769101, guid: 4ea82e007252166479c8f72a01d6ed28, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}

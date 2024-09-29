@@ -52,7 +52,7 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        singletonBuilding.InstantiateAt(this.gameObject);
+        singletonBuilding.InstantiateAt(this.gameObject.transform.position);
         DOTween.Kill(this.gameObject.transform);
         Destroy(this.gameObject);
     }

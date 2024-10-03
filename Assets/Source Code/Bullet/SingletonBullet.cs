@@ -18,7 +18,7 @@ public class SingletonBullet : MonoBehaviour
     public GameObject InstantiateBulletAt(Vector3 pos)
     {
         GameObject res = Instantiate(this.bullet, pos, this.bullet.transform.rotation);
-        res.transform.parent = this.gameObject.transform;
+        res.transform.SetParent(this.gameObject.transform, false);
         return res;
     }
 }

@@ -20,7 +20,7 @@ public class SingletonBuilding : MonoBehaviour
     public GameObject InstantiateAt(Vector3 pos)
     {
         GameObject res = Instantiate(this.nodeBuilding, pos, this.nodeBuilding.transform.rotation);
-        res.transform.parent = this.gameObject.transform;
+        res.transform.SetParent(this.gameObject.transform, false);
         return res;
     }
 }

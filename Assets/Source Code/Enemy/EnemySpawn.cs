@@ -22,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
 
     [Header("Spawn Enemy")]
     [SerializeField] int quantity = 1;
-    [SerializeField] float timeSpawn = 1f;
+    [SerializeField] float timeSpawn = 1.5f;
 
     [SerializeField] readonly string pathManagerTag = "Path Manager";
     private PathManager pathManager;
@@ -65,7 +65,7 @@ public class EnemySpawn : MonoBehaviour
 
         for (int i = 0; i < quantity; i++)
         {
-            singletonEnemy.InstantiateTurretsAt(pathManager.GetPosSpawnEneny()).transform.parent = this.gameObject.transform;
+            singletonEnemy.InstantiateTurretsAt(pathManager.GetPosSpawnEneny(), this.gameObject);
             yield return new WaitForSeconds(timeSpawn);
         }
         quantity++;

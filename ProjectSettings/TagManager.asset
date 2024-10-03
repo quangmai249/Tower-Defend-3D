@@ -9,6 +9,8 @@ TagManager:
   - Turrets
   - Bullet
   - Level Design
+  - Shop Turrets
+  - Node Building
   layers:
   - Default
   - TransparentFX

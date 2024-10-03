@@ -15,8 +15,10 @@ public class SingletonEnemy : MonoBehaviour
         }
         Instance = this;
     }
-    public GameObject InstantiateTurretsAt(Vector3 pos)
+    public GameObject InstantiateTurretsAt(Vector3 pos, GameObject parent)
     {
-        return Instantiate(this.enemy, pos, this.enemy.transform.rotation);
+        GameObject res = Instantiate(this.enemy, pos, this.enemy.transform.rotation);
+        res.transform.SetParent(parent.transform, false);
+        return res;
     }
 }

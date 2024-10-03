@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1355709400005799692}
   m_Layer: 0
   m_Name: NodeBuilding
-  m_TagString: Untagged
+  m_TagString: Node Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522dc39702e4f864e8e840c42b58289e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangeGizmos: 6

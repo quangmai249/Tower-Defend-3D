@@ -1,7 +1,9 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class Turrets : MonoBehaviour
@@ -31,6 +33,7 @@ public class Turrets : MonoBehaviour
     {
         singletonBullet = SingletonBullet.Instance;
         singletonBuilding = SingletonBuilding.Instance;
+
         this.rend = GetComponent<Renderer>();
         this.color = this.rend.material.color;
         StartCoroutine(nameof(SelectTarget));

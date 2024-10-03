@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2588116315408038025
+--- !u!1 &2336177751641074710
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1514903468052994744}
-  - component: {fileID: 9214751507628584297}
-  - component: {fileID: 2684719997402572929}
+  - component: {fileID: 7277880963922993232}
+  - component: {fileID: 4182405971096183641}
+  - component: {fileID: 8004831309456872985}
+  - component: {fileID: 3955726007665411388}
   m_Layer: 0
-  m_Name: ===== Turrets Manager
+  m_Name: ===== Shop Turrets Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1514903468052994744
+--- !u!4 &7277880963922993232
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2588116315408038025}
+  m_GameObject: {fileID: 2336177751641074710}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,26 +34,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9214751507628584297
+--- !u!114 &4182405971096183641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2588116315408038025}
+  m_GameObject: {fileID: 2336177751641074710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432212435c3601a4dab6bfaaf0b511b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopTurrets: {fileID: 8496268391385609106, guid: a8977c3c26e70e6408c24c852bdc6f7d, type: 3}
+--- !u!114 &8004831309456872985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2336177751641074710}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e46e5abc35956594f93f1b90db524985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 5572517066504377506, guid: 860c267cc9def2646bb22786ecb4b92f, type: 3}
---- !u!114 &2684719997402572929
+--- !u!114 &3955726007665411388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2588116315408038025}
+  m_GameObject: {fileID: 2336177751641074710}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32c02f33d7937eb43b6e13c0003059ff, type: 3}

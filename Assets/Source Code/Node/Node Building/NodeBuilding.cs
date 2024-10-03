@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class NodeBuilding : MonoBehaviour
 {
+    [SerializeField] float rangeGizmos = 6f;
     private Renderer rend;
     private Color color;
     private SingletonTurrets singletonTurrets;
+    private SingletonShopTurrets singletonShopTurrets;
+    private void Awake()
+    {
+        singletonTurrets = SingletonTurrets.Instance;
+        singletonShopTurrets = SingletonShopTurrets.Instance;
+        singletonShopTurrets.SetActiveShopTurrets(true, this.gameObject.transform.position);
+    }
     private void Start()
     {
-        this.singletonTurrets = SingletonTurrets.Instance;
+        singletonShopTurrets.SetActiveShopTurrets(false, this.gameObject.transform.position);
         this.rend = GetComponent<Renderer>();
         this.color = this.rend.material.color;
     }
@@ -23,7 +32,11 @@ public class NodeBuilding : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        singletonTurrets.InstantiateTurretsAt(this.gameObject.transform.position);
-        Destroy(this.gameObject);
+        singletonShopTurrets.SetActiveShopTurrets(true, this.gameObject.transform.position);
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(gameObject.transform.position, rangeGizmos);
     }
 }

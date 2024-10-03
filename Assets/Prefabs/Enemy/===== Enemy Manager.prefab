@@ -67,4 +67,4 @@ MonoBehaviour:
   wave: 1
   maxWave: 5
   quantity: 1
-  timeSpawn: 1
+  timeSpawn: 1.5

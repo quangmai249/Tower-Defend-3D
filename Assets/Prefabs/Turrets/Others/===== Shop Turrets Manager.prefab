@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7277880963922993232}
   - component: {fileID: 4182405971096183641}
   - component: {fileID: 8004831309456872985}
-  - component: {fileID: 3955726007665411388}
   m_Layer: 0
   m_Name: ===== Shop Turrets Manager
   m_TagString: Untagged
@@ -60,16 +59,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 5572517066504377506, guid: 860c267cc9def2646bb22786ecb4b92f, type: 3}
---- !u!114 &3955726007665411388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2336177751641074710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c02f33d7937eb43b6e13c0003059ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 7555623238895228688, guid: 7ee231ebd1ec60b4585b3ca834915304, type: 3}

@@ -958,6 +958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ===== Shop Turrets Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 3955726007665411388, guid: 51e940f2662a8614fb9cbd49290f95c4, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7555623238895228688, guid: c204afbe271033d428efe89ec8e98044, type: 3}
     - target: {fileID: 7277880963922993232, guid: 51e940f2662a8614fb9cbd49290f95c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -998,6 +1002,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8004831309456872985, guid: 51e940f2662a8614fb9cbd49290f95c4, type: 3}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

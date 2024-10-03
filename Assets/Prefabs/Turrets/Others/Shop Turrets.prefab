@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1377998211873482078}
   serializedVersion: 2
   m_LocalRotation: {x: 0.60876137, y: 0, z: 0, w: 0.7933534}
-  m_LocalPosition: {x: 0, y: 0.5, z: 5}
+  m_LocalPosition: {x: 2.5, y: 0.5, z: 5}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -119,10 +119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db11e21045475f49a6c276bdcfd5ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turret: {fileID: 5572517066504377506, guid: 483fb39ff3e951645b892efde6bc6e96, type: 3}
   objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
   go: {fileID: 0}
   objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
   go_timeConfirm: {fileID: 0}
+  nodeBuildingParent: {fileID: 0}
   textTimeBuilding: {fileID: 0}
   timeBuildingTurrets: 0
   defaultTimeBuildingTurrets: 2
@@ -156,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 4148632838284962280}
   serializedVersion: 2
   m_LocalRotation: {x: 0.60876137, y: 0, z: 0, w: 0.7933534}
-  m_LocalPosition: {x: 0, y: 0.5, z: -5}
+  m_LocalPosition: {x: 2.5, y: 0.5, z: -5}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -246,10 +248,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db11e21045475f49a6c276bdcfd5ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turret: {fileID: 5572517066504377506, guid: f03e61fb93ee06d44b68fadcdf9873b4, type: 3}
   objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
   go: {fileID: 0}
   objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
   go_timeConfirm: {fileID: 0}
+  nodeBuildingParent: {fileID: 0}
   textTimeBuilding: {fileID: 0}
   timeBuildingTurrets: 0
   defaultTimeBuildingTurrets: 2
@@ -269,7 +273,7 @@ GameObject:
   - component: {fileID: 3616226908094964260}
   - component: {fileID: 8810679913881080834}
   m_Layer: 0
-  m_Name: Turret White
+  m_Name: Cancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,8 +288,8 @@ Transform:
   m_GameObject: {fileID: 5224856623241491174}
   serializedVersion: 2
   m_LocalRotation: {x: 0.60876137, y: 0, z: 0, w: 0.7933534}
-  m_LocalPosition: {x: -5, y: 0.5, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: -4, y: 0.5, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4878395231028081236}
@@ -318,7 +322,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3dddb75587b3ef0448264b83d2e66521, type: 2}
+  - {fileID: 2100000, guid: 588294ff539c9e94498f29dfe4973d26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -382,10 +386,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db11e21045475f49a6c276bdcfd5ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turret: {fileID: 0}
   objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
   go: {fileID: 0}
   objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
   go_timeConfirm: {fileID: 0}
+  nodeBuildingParent: {fileID: 0}
   textTimeBuilding: {fileID: 0}
   timeBuildingTurrets: 0
   defaultTimeBuildingTurrets: 2
@@ -509,10 +515,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db11e21045475f49a6c276bdcfd5ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turret: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
   objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
   go: {fileID: 0}
   objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
   go_timeConfirm: {fileID: 0}
+  nodeBuildingParent: {fileID: 0}
   textTimeBuilding: {fileID: 0}
   timeBuildingTurrets: 0
   defaultTimeBuildingTurrets: 2

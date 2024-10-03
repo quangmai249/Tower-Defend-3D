@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 public class ShopTurrets : MonoBehaviour
 {
+    [SerializeField] GameObject turret;
+
     [Header("Confirm")]
     [SerializeField] GameObject objConfirm;
     [SerializeField] GameObject go;
@@ -48,13 +50,19 @@ public class ShopTurrets : MonoBehaviour
 
         if (this.timeBuildingTurrets <= 0)
         {
+            singletonTurrets.SetTurretBuilding(this.turret);
             singletonTurrets.InstantiateTurretsAt(this.gameObject.transform.parent.position);
-            this.timeBuildingTurrets = defaultTimeBuildingTurrets;
-            this.isBuilding = false;
 
+            this.timeBuildingTurrets = defaultTimeBuildingTurrets;
             this.nodeBuildingParent = FindGameObjectWithPos(this.gameObject.transform.parent.position, nodeBuildingTag);
-            StartCoroutine(nameof(HiddenMenuShopTurrets));
             this.nodeBuildingParent.SetActive(false);
+
+            singletonShopTurrets.SetActiveShopTurrets(false, this.nodeBuildingParent.transform.position);
+
+            this.go.gameObject.gameObject.SetActive(false);
+            this.go_timeConfirm.gameObject.SetActive(false);
+
+            this.isBuilding = false;
             return;
         }
 
@@ -65,11 +73,17 @@ public class ShopTurrets : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (this.gameObject.name.Equals("Cancel"))
+        {
+            singletonShopTurrets.SetActiveShopTurrets(false, this.transform.position);
+            return;
+        }
+
         this.go.gameObject.SetActive(true);
         this.go.transform.position
             = this.gameObject.transform.position + new Vector3(0, 0.1f, 0);
 
-        this.go_timeConfirm.SetActive(true);
+        this.go_timeConfirm.gameObject.SetActive(true);
         this.go_timeConfirm.transform.position
             = this.gameObject.transform.position + new Vector3(0, 0, 2f);
 
@@ -77,8 +91,8 @@ public class ShopTurrets : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        this.go.gameObject.SetActive(false);
-        this.go_timeConfirm.SetActive(false);
+        this.go.gameObject.gameObject.SetActive(false);
+        this.go_timeConfirm.gameObject.SetActive(false);
         this.isBuilding = false;
     }
     private GameObject FindGameObjectWithPos(Vector3 pos, string tag)
@@ -87,10 +101,5 @@ public class ShopTurrets : MonoBehaviour
             if (g.transform.position == pos)
                 return g;
         return null;
-    }
-    private IEnumerator HiddenMenuShopTurrets()
-    {
-        yield return null;
-        singletonShopTurrets.SetActiveShopTurrets(false, this.nodeBuildingParent.transform.position);
     }
 }

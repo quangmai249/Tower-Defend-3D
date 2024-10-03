@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SingletonTurrets : MonoBehaviour
 {
-    [SerializeField] GameObject turret;
+    private GameObject turret;
     public static SingletonTurrets Instance;
     private void Awake()
     {
@@ -12,6 +12,10 @@ public class SingletonTurrets : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+    public void SetTurretBuilding(GameObject tur)
+    {
+        this.turret = tur;
     }
     public GameObject InstantiateTurretsAt(Vector3 pos)
     {

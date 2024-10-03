@@ -33,13 +33,17 @@ public class BulletManager : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Instantiate(particleBulletEffect, other.transform).transform.parent = this.gameObject.transform;
-
-            DOTween.Kill(this.gameObject.transform);
-            Destroy(this.gameObject);
+            StartCoroutine(nameof(KillBullets));
 
             EnemyManager enemy = other.gameObject.GetComponent<EnemyManager>();
             if (enemy != null)
                 enemy.SetEnemyHP(-damage);
         }
+    }
+    private IEnumerator KillBullets()
+    {
+        yield return new WaitForSeconds(.25f);
+        DOTween.Kill(this.gameObject.transform);
+        Destroy(this.gameObject);
     }
 }

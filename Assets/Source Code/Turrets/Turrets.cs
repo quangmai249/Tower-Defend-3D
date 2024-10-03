@@ -28,14 +28,13 @@ public class Turrets : MonoBehaviour
     private Color color;
 
     private SingletonBuilding singletonBuilding;
-    private SingletonBullet singletonBullet;
     private void Start()
     {
-        singletonBullet = SingletonBullet.Instance;
         singletonBuilding = SingletonBuilding.Instance;
 
         this.rend = GetComponent<Renderer>();
         this.color = this.rend.material.color;
+
         StartCoroutine(nameof(SelectTarget));
     }
     private void Update()
@@ -58,9 +57,11 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        singletonBuilding.InstantiateAt(this.gameObject.transform.position);
-        DOTween.Kill(this.gameObject.transform);
-        Destroy(this.gameObject);
+        //singletonBuilding.InstantiateAt(this.gameObject.transform.position);
+        //DOTween.Kill(this.gameObject.transform);
+        //Destroy(this.gameObject);
+        Debug.Log("This position had a turret!");
+        return;
     }
     private void OnDrawGizmos()
     {
@@ -79,8 +80,7 @@ public class Turrets : MonoBehaviour
     }
     private void SpawnBullet()
     {
-        GameObject go = singletonBullet.InstantiateBulletAt(this.gameObject.transform.position);
-
+        GameObject go = Instantiate(this.bullet.gameObject, this.gameObject.transform.position, this.bullet.transform.rotation);
         BulletManager bulletManager = go.GetComponent<BulletManager>();
         if (bulletManager != null)
             bulletManager.SetTarget(target);

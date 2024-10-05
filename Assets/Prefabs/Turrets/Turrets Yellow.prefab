@@ -125,3 +125,4 @@ MonoBehaviour:
   distance: 0
   target: {fileID: 0}
   nodeBuilding: {fileID: 5891008328017837091, guid: 8e7486aaca2e0d54c8a1198b7e361d91, type: 3}
+  textNotifyNotEnoughMoney: {fileID: 6393662810224779449, guid: 4f86c522846a44c4cb6e8cdc28e516e8, type: 3}

@@ -6,7 +6,8 @@ using TMPro;
 using UnityEngine;
 public class PathManager : MonoBehaviour
 {
-    [SerializeField] readonly string path = "Assets/SaveFile/FileNodePath";
+    //[SerializeField] readonly string path = "Assets/Resources/FileNodePath";
+    [SerializeField] readonly string path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/FileNodePath";
     [SerializeField] readonly string levelDesignTag = "Level Design";
     [SerializeField] Vector3[] arrPosNodePath;
 

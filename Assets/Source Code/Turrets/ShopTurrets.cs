@@ -53,16 +53,16 @@ public class ShopTurrets : MonoBehaviour
             singletonTurrets.SetTurretBuilding(this.turret);
             singletonTurrets.InstantiateTurretsAt(this.gameObject.transform.parent.position);
 
-            this.timeBuildingTurrets = defaultTimeBuildingTurrets;
             this.nodeBuildingParent = FindGameObjectWithPos(this.gameObject.transform.parent.position, nodeBuildingTag);
             this.nodeBuildingParent.SetActive(false);
-
             singletonShopTurrets.SetActiveShopTurrets(false, this.nodeBuildingParent.transform.position);
 
+            this.timeBuildingTurrets = defaultTimeBuildingTurrets;
             this.go.gameObject.gameObject.SetActive(false);
             this.go_timeConfirm.gameObject.SetActive(false);
 
             this.isBuilding = false;
+            Destroy(this.nodeBuildingParent);
             return;
         }
 

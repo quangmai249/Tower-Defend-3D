@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class NodeBuildingManager : MonoBehaviour
 {
-    [SerializeField] readonly string path = "Assets/SaveFile/FileNodeBuilding";
+    //[SerializeField] readonly string path = "Assets/Resources/FileNodeBuilding";
+    [SerializeField] readonly string path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/FileNodeBuilding";
     [SerializeField] readonly string levelDesignTag = "Level Design";
     [SerializeField] Vector3[] arrPosNodeBuilding;
 
@@ -32,5 +33,10 @@ public class NodeBuildingManager : MonoBehaviour
         {
             singletonBuilding.InstantiateAt(item);
         }
+    }
+    public void GetArrayPosNodeBuilding()
+    {
+        Debug.Log("Get Array node building");
+        return;
     }
 }

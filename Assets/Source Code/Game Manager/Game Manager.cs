@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float goldStart = 1000;
+    public static GameManager Instance;
+    private void Awake()
     {
-
+        if (Instance != null)
+        {
+            Debug.LogError($"{this.gameObject.name} is NOT SINGLE!");
+            return;
+        }
+        Instance = this;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
+        if (this.goldStart <= 0)
+        {
+            this.goldStart = 0;
+        }
+    }
+    public void SetGold(float gold)
+    {
+        this.goldStart += gold;
+    }
+    public float GetGold()
+    {
+        return this.goldStart;
     }
 }

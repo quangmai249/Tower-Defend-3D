@@ -1,10 +1,10 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class Turrets : MonoBehaviour
 {
@@ -28,9 +28,30 @@ public class Turrets : MonoBehaviour
     private Color color;
 
     private SingletonBuilding singletonBuilding;
-    private void Start()
+    private SingletonUpgradeTurrets singletonUpgradeTurrets;
+    private GameManager gameManager;
+    private UIManager uiManager;
+    private void Awake()
     {
         singletonBuilding = SingletonBuilding.Instance;
+        singletonUpgradeTurrets = SingletonUpgradeTurrets.Instance;
+        gameManager = GameManager.Instance;
+        uiManager = UIManager.Instance;
+    }
+    private void Start()
+    {
+        if (gameManager.GetGold() < GetPriceGameObject())
+        {
+            GameObject nodeBuilding = singletonBuilding.InstantiateAt(this.gameObject.transform.position);
+            nodeBuilding.transform.parent = this.gameObject.transform.parent.transform;
+            Destroy(this.gameObject);
+            Debug.Log("Not enough money!");
+            return;
+        }
+        else
+        {
+            gameManager.SetGold(-GetPriceGameObject());
+        }
 
         this.rend = GetComponent<Renderer>();
         this.color = this.rend.material.color;
@@ -57,10 +78,7 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        //singletonBuilding.InstantiateAt(this.gameObject.transform.position);
-        //DOTween.Kill(this.gameObject.transform);
-        //Destroy(this.gameObject);
-        Debug.Log("This position had a turret!");
+        singletonUpgradeTurrets.SetActiveShopTurrets(true, new Vector3(this.gameObject.transform.position.x, -2f, this.transform.position.z));
         return;
     }
     private void OnDrawGizmos()
@@ -81,6 +99,7 @@ public class Turrets : MonoBehaviour
     private void SpawnBullet()
     {
         GameObject go = Instantiate(this.bullet.gameObject, this.gameObject.transform.position, this.bullet.transform.rotation);
+        go.gameObject.transform.parent = this.gameObject.transform;
         BulletManager bulletManager = go.GetComponent<BulletManager>();
         if (bulletManager != null)
             bulletManager.SetTarget(target);
@@ -110,5 +129,16 @@ public class Turrets : MonoBehaviour
             Debug.LogError($"{g.name} is not null!");
             return;
         }
+    }
+    private float GetPriceGameObject()
+    {
+        if (this.gameObject.name.Equals("Turrets Red(Clone)"))
+            return 500f;
+        else if (this.gameObject.name.Equals("Turrets Yellow(Clone)"))
+            return 300f;
+        else if (this.gameObject.name.Equals("Turrets Blue(Clone)"))
+            return 100f;
+        else
+            return 0;
     }
 }

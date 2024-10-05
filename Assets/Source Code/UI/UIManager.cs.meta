@@ -3,7 +3,9 @@ guid: 6eaf1f5bd46e11640b0655149249f33d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - textGold: {fileID: 1912986899242090157, guid: 78e3221bb9df40c4a87bafdc54cf665f, type: 3}
+  - textNotifyNotEnoughMoney: {fileID: 7909031701005766342, guid: 4f86c522846a44c4cb6e8cdc28e516e8, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

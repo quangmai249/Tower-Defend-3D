@@ -36,13 +36,14 @@ public class BulletManager : MonoBehaviour
             StartCoroutine(nameof(KillBullets));
 
             EnemyManager enemy = other.gameObject.GetComponent<EnemyManager>();
+
             if (enemy != null)
                 enemy.SetEnemyHP(-damage);
         }
     }
     private IEnumerator KillBullets()
     {
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(speedBullet / 3);
         DOTween.Kill(this.gameObject.transform);
         Destroy(this.gameObject);
     }

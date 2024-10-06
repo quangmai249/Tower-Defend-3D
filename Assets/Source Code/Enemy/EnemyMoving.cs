@@ -10,6 +10,7 @@ public class EnemyMoving : MonoBehaviour
     [SerializeField] readonly string levelDesignTag = "Level Design";
     [SerializeField] Vector3[] arrayPoint;
 
+    [SerializeField] float randPath = 0.5f;
     [SerializeField] float timeDuration = 100f;
 
     private LevelDesign levelDesign;
@@ -43,8 +44,23 @@ public class EnemyMoving : MonoBehaviour
     private void Moving()
     {
         gameObject.transform
-            .DOPath(arrayPoint, timeDuration, PathType.Linear)
+            .DOPath(NewArrayPoint(), timeDuration, PathType.Linear)
             .SetEase(Ease.Linear)
             .SetLookAt(0.001f);
+    }
+    private Vector3[] NewArrayPoint()
+    {
+        Vector3[] res = new Vector3[arrayPoint.Length];
+        res[0] = arrayPoint[0];
+        res[res.Length - 1] = arrayPoint[arrayPoint.Length - 1];
+        for (int i = 1; i < arrayPoint.Length - 1; i++)
+        {
+            res[i] = arrayPoint[i] + RandomVector3Path(randPath);
+        }
+        return res;
+    }
+    private Vector3 RandomVector3Path(float rand)
+    {
+        return new Vector3(Random.Range(-rand, rand), 0, Random.Range(-rand, rand));
     }
 }

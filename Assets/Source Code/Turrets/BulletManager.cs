@@ -10,9 +10,9 @@ public class BulletManager : MonoBehaviour
     [SerializeField] GameObject particleBulletEffect;
     void Update()
     {
-        if (target != null)
+        if (this.target != null)
         {
-            this.gameObject.transform.DOMove(target.transform.position, speedBullet);
+            this.gameObject.transform.DOMove(this.target.transform.position, speedBullet);
         }
         else
         {

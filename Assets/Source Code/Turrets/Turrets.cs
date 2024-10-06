@@ -10,6 +10,8 @@ public class Turrets : MonoBehaviour
 {
     [Header("Bullets")]
     [SerializeField] GameObject bullet;
+    [SerializeField] bool isLaser = false;
+    [SerializeField] float priceTurrets = 100f;
     [SerializeField] float fireCountdown = 1f;
     [SerializeField] float defaultFireCountdown = 1f;
 
@@ -31,15 +33,23 @@ public class Turrets : MonoBehaviour
     private SingletonUpgradeTurrets singletonUpgradeTurrets;
     private GameManager gameManager;
     private UIManager uiManager;
+
+    private LineRenderer lineRenderer;
+    private float damageTurretsLaser = 1f;
     private void Awake()
     {
         singletonBuilding = SingletonBuilding.Instance;
         singletonUpgradeTurrets = SingletonUpgradeTurrets.Instance;
         gameManager = GameManager.Instance;
         uiManager = UIManager.Instance;
+
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 2;
     }
     private void Start()
     {
+        lineRenderer.enabled = false;
+
         if (gameManager.GetGold() < GetPriceGameObject())
         {
             GameObject nodeBuilding = singletonBuilding.InstantiateAt(this.gameObject.transform.position);
@@ -61,7 +71,10 @@ public class Turrets : MonoBehaviour
     private void Update()
     {
         if (target == null)
+        {
+            lineRenderer.enabled = false;
             return;
+        }
         else
         {
             gameObject.transform.LookAt(target.transform.position);
@@ -88,13 +101,26 @@ public class Turrets : MonoBehaviour
     }
     private void StartSpawnBullet()
     {
-        if (fireCountdown <= 0)
+        if (isLaser == false)
         {
-            CheckGameObjectIsNotNull(this.bullet);
-            SpawnBullet();
-            fireCountdown = defaultFireCountdown;
+            if (fireCountdown <= 0)
+            {
+                CheckGameObjectIsNotNull(this.bullet);
+                SpawnBullet();
+                fireCountdown = defaultFireCountdown;
+            }
+            fireCountdown -= Time.deltaTime;
         }
-        fireCountdown -= Time.deltaTime;
+        else
+        {
+            lineRenderer.enabled = true;
+            lineRenderer.SetPosition(0, this.gameObject.transform.position);
+            lineRenderer.SetPosition(1, this.target.transform.position);
+
+            BulletRaycast.Shooting(this.gameObject.transform.position
+                , (this.target.transform.position - this.gameObject.transform.position)
+                , damageTurretsLaser);
+        }
     }
     private void SpawnBullet()
     {
@@ -132,13 +158,6 @@ public class Turrets : MonoBehaviour
     }
     private float GetPriceGameObject()
     {
-        if (this.gameObject.name.Equals("Turrets Red(Clone)"))
-            return 500f;
-        else if (this.gameObject.name.Equals("Turrets Yellow(Clone)"))
-            return 300f;
-        else if (this.gameObject.name.Equals("Turrets Blue(Clone)"))
-            return 100f;
-        else
-            return 0;
+        return this.priceTurrets;
     }
 }

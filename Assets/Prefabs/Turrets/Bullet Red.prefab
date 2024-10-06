@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  speedBullet: 2
+  speedBullet: 1
+  isLazer: 0
   target: {fileID: 0}
   particleBulletEffect: {fileID: 1515743908040052809, guid: 2f9a09daeddea8e4ba9a6e2094ccec91, type: 3}

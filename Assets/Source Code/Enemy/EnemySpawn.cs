@@ -39,7 +39,7 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
-        if (secondStartCountdown < 0 && wave < 6)
+        if (secondStartCountdown < 0 && wave < maxWave + 1)
         {
             StartCoroutine(nameof(StartSpawn));
             secondStartCountdown = secondCountdownPerWave;

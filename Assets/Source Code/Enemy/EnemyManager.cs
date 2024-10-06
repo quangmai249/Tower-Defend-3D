@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] float goldReward = 100f;
     [SerializeField] float enemyHP = 100f;
     [SerializeField] GameObject parEnemyDeath;
     private GameObject parDeath;
@@ -15,9 +16,9 @@ public class EnemyManager : MonoBehaviour
     }
     private void Update()
     {
-        if (enemyHP == 0)
+        if (enemyHP <= 0)
         {
-            this.gameManager.SetGold(100);
+            this.gameManager.SetGold(goldReward);
 
             this.parDeath = Instantiate(this.parEnemyDeath.gameObject, this.gameObject.transform.position, this.parEnemyDeath.transform.rotation);
             this.parDeath.transform.parent = this.gameObject.transform.parent.transform;

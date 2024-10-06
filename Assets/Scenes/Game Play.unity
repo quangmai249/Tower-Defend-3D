@@ -687,13 +687,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2981995721392159231, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
+      propertyPath: maxWave
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2981995721392159231, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
       propertyPath: textWave
       value: 
       objectReference: {fileID: 1551810371}
     - target: {fileID: 2981995721392159231, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
+      propertyPath: timeSpawn
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2981995721392159231, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
       propertyPath: textCountdown
       value: 
       objectReference: {fileID: 1336127002}
+    - target: {fileID: 2981995721392159231, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
+      propertyPath: secondCountdownPerWave
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1083,10 +1095,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Text Lives
       objectReference: {fileID: 0}
-    - target: {fileID: 3456998593901541399, guid: 65ecccf2f11170a43b6e29c6ea8c21c8, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5396128283473340129, guid: 65ecccf2f11170a43b6e29c6ea8c21c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1355,6 +1363,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
+      propertyPath: goldStart
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 3121309707161660943, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: m_Name
       value: Game Manager

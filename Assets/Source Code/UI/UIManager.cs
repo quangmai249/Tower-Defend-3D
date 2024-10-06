@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textGold;
+    [SerializeField] TextMeshProUGUI textLives;
     private GameManager gameManager;
     public static UIManager Instance;
     private void Awake()
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        textGold.text = $"$ {gameManager.GetGold().ToString()}";
+        textGold.text = $"{gameManager.GetGold()}$";
+        textLives.text = $"{gameManager.GetLives()} LIVES";
     }
 }

@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrayPoint: []
-  timeDuration: 100
+  timeDuration: 60
 --- !u!114 &679558603191680367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHP: 100
+  parEnemyDeath: {fileID: 2332766499615351008, guid: 5f10c0110c6dda94094fdeaa295078df, type: 3}

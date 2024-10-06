@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] float goldStart = 1000;
+    [SerializeField] int lives = 3;
     public static GameManager Instance;
     private void Awake()
     {
@@ -21,6 +22,10 @@ public class GameManager : MonoBehaviour
         {
             this.goldStart = 0;
         }
+        if (this.lives <= 0)
+        {
+            this.lives = 0;
+        }
     }
     public void SetGold(float gold)
     {
@@ -29,5 +34,13 @@ public class GameManager : MonoBehaviour
     public float GetGold()
     {
         return this.goldStart;
+    }
+    public void SetLives(int lives)
+    {
+        this.lives += lives;
+    }
+    public int GetLives()
+    {
+        return this.lives;
     }
 }

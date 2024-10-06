@@ -32,13 +32,17 @@ public class BulletManager : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Instantiate(particleBulletEffect, other.transform).transform.parent = this.gameObject.transform;
+            GameObject par = Instantiate(particleBulletEffect, other.transform);
+            par.transform.parent = this.gameObject.transform;
+
             StartCoroutine(nameof(KillBullets));
 
             EnemyManager enemy = other.gameObject.GetComponent<EnemyManager>();
 
             if (enemy != null)
                 enemy.SetEnemyHP(-damage);
+
+            return;
         }
     }
     private IEnumerator KillBullets()

@@ -15,8 +15,12 @@ public class EnemyMoving : MonoBehaviour
     private LevelDesign levelDesign;
     private PathManager pathManager;
     private FilePath filePath;
+
+    private GameManager gameManager;
     private void Awake()
     {
+        gameManager = GameManager.Instance;
+
         levelDesign = GameObject.FindGameObjectWithTag(levelDesignTag).GetComponent<LevelDesign>();
         pathManager = GameObject.FindGameObjectWithTag(pathManagerTag).GetComponent<PathManager>();
         filePath = new FilePath(pathManager.GetPath(), levelDesign.GetLevel());
@@ -31,6 +35,7 @@ public class EnemyMoving : MonoBehaviour
     {
         if (gameObject.transform.position == arrayPoint[arrayPoint.Length - 1])
         {
+            gameManager.SetLives(-1);
             DOTween.Kill(this.gameObject.transform);
             Destroy(this.gameObject);
         }

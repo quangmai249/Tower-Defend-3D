@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3839a657f017c4c9446859213daddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 10
   speedBullet: 0.5
   target: {fileID: 0}
   particleBulletEffect: {fileID: 6187243265628504873, guid: 068c605b784ecb847a8ff8b1224efca8, type: 3}

@@ -1,31 +1,11 @@
-using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Turrets : MonoBehaviour
 {
-    [Header("Bullets")]
-    [SerializeField] GameObject bullet;
-    [SerializeField] bool isLaser = false;
     [SerializeField] float priceTurrets = 100f;
-    [SerializeField] float fireCountdown = 1f;
-    [SerializeField] float defaultFireCountdown = 1f;
-
-    [Header("Turrets")]
     [SerializeField] float range = 6f;
-    [SerializeField] float distance;
-
-    [Header("Enemies")]
-    [SerializeField] GameObject target;
-    [SerializeField] readonly string enemyTag = "Enemy";
-
     [SerializeField] GameObject nodeBuilding;
 
-    private GameObject[] enemies;
     private Renderer rend;
     private Color color;
 
@@ -33,23 +13,15 @@ public class Turrets : MonoBehaviour
     private SingletonUpgradeTurrets singletonUpgradeTurrets;
     private GameManager gameManager;
     private UIManager uiManager;
-
-    private LineRenderer lineRenderer;
-    private float damageTurretsLaser = 1f;
     private void Awake()
     {
         singletonBuilding = SingletonBuilding.Instance;
         singletonUpgradeTurrets = SingletonUpgradeTurrets.Instance;
         gameManager = GameManager.Instance;
         uiManager = UIManager.Instance;
-
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
     }
     private void Start()
     {
-        lineRenderer.enabled = false;
-
         if (gameManager.GetGold() < GetPriceGameObject())
         {
             GameObject nodeBuilding = singletonBuilding.InstantiateAt(this.gameObject.transform.position);
@@ -65,21 +37,6 @@ public class Turrets : MonoBehaviour
 
         this.rend = GetComponent<Renderer>();
         this.color = this.rend.material.color;
-
-        StartCoroutine(nameof(SelectTarget));
-    }
-    private void Update()
-    {
-        if (target == null)
-        {
-            lineRenderer.enabled = false;
-            return;
-        }
-        else
-        {
-            gameObject.transform.LookAt(target.transform.position);
-            StartSpawnBullet();
-        }
     }
     private void OnMouseEnter()
     {
@@ -98,63 +55,6 @@ public class Turrets : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(gameObject.transform.position, range);
-    }
-    private void StartSpawnBullet()
-    {
-        if (isLaser == false)
-        {
-            if (fireCountdown <= 0)
-            {
-                CheckGameObjectIsNotNull(this.bullet);
-                SpawnBullet();
-                fireCountdown = defaultFireCountdown;
-            }
-            fireCountdown -= Time.deltaTime;
-        }
-        else
-        {
-            lineRenderer.enabled = true;
-            lineRenderer.SetPosition(0, this.gameObject.transform.position);
-            lineRenderer.SetPosition(1, this.target.transform.position);
-
-            BulletRaycast.Shooting(this.gameObject.transform.position
-                , (this.target.transform.position - this.gameObject.transform.position)
-                , damageTurretsLaser);
-        }
-    }
-    private void SpawnBullet()
-    {
-        GameObject go = Instantiate(this.bullet.gameObject, this.gameObject.transform.position, this.bullet.transform.rotation);
-        go.gameObject.transform.parent = this.gameObject.transform;
-        BulletManager bulletManager = go.GetComponent<BulletManager>();
-        if (bulletManager != null)
-            bulletManager.SetTarget(target);
-    }
-    private IEnumerator SelectTarget()
-    {
-        while (true)
-        {
-            yield return null;
-            enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-            foreach (GameObject item in enemies)
-            {
-                distance = Vector3.Distance(gameObject.transform.position, item.transform.position);
-                if (distance < range)
-                {
-                    target = item;
-                    break;
-                }
-                else target = null;
-            }
-        }
-    }
-    private void CheckGameObjectIsNotNull(GameObject g)
-    {
-        if (g == null)
-        {
-            Debug.LogError($"{g.name} is not null!");
-            return;
-        }
     }
     private float GetPriceGameObject()
     {

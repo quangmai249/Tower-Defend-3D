@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 506676639564287826}
   - component: {fileID: 7817674391239492667}
   - component: {fileID: 5851984839577998476}
+  - component: {fileID: -3668544928689665656}
   m_Layer: 0
   m_Name: Turrets Red
   m_TagString: Turrets
@@ -118,13 +119,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2553be2c4fb06642bf41e50de793991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7555623238895228688, guid: af049cf2a944d314691f7222fd82a9cd, type: 3}
-  isLaser: 0
   priceTurrets: 200
+  range: 6
+  nodeBuilding: {fileID: 5891008328017837091, guid: 8e7486aaca2e0d54c8a1198b7e361d91, type: 3}
+--- !u!114 &-3668544928689665656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572517066504377506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8921b3e0957e24c9e1da99b6e2614f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7555623238895228688, guid: af049cf2a944d314691f7222fd82a9cd, type: 3}
+  damage: 20
   fireCountdown: 1
   defaultFireCountdown: 1
   range: 6
-  distance: 0
   target: {fileID: 0}
-  nodeBuilding: {fileID: 5891008328017837091, guid: 8e7486aaca2e0d54c8a1198b7e361d91, type: 3}
-  lineRenderer: {fileID: 5318838830318060777, guid: 09bac480f80f99f4da40481d2d83ab4d, type: 3}

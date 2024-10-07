@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-    [SerializeField] float damage = 25f;
     [SerializeField] float speedBullet = 0.5f;
     [SerializeField] GameObject target;
     [SerializeField] GameObject particleBulletEffect;
@@ -24,24 +23,13 @@ public class BulletManager : MonoBehaviour
     {
         this.target = _t;
     }
-    public void SetSpeedBullet(float s)
-    {
-        this.speedBullet = s;
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            GameObject par = Instantiate(particleBulletEffect, other.transform);
+            GameObject par = Instantiate(this.particleBulletEffect, other.transform);
             par.transform.parent = this.gameObject.transform;
-
             StartCoroutine(nameof(KillBullets));
-
-            EnemyManager enemy = other.gameObject.GetComponent<EnemyManager>();
-
-            if (enemy != null)
-                enemy.SetEnemyHP(-damage);
-
             return;
         }
     }

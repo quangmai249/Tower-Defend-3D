@@ -27,13 +27,20 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] readonly string pathManagerTag = "Path Manager";
     private PathManager pathManager;
     private SingletonEnemy singletonEnemy;
+    private GameManager gameManager;
+    private GameStats gameStats;
     void Start()
     {
         singletonEnemy = SingletonEnemy.Instance;
+        gameManager = GameManager.Instance;
+
+        gameStats = gameManager.GetGameStats();
 
         pathManager = GameObject
             .FindGameObjectWithTag(pathManagerTag)
             .GetComponent<PathManager>();
+
+        wave = gameStats.GetCurrentWave();
 
         StartCoroutine(nameof(StartCountdown));
     }
@@ -73,6 +80,8 @@ public class EnemySpawn : MonoBehaviour
     IEnumerator StartCountdown()
     {
         textWave.text = $"Wave {wave} is coming...";
+        gameStats.SetWave(wave - 1);
+
         while (secondStartCountdown >= 0)
         {
             yield return new WaitForSeconds(1);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2981995721392159231}
   m_Layer: 0
   m_Name: Enemy Manager
-  m_TagString: Untagged
+  m_TagString: Enemy Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,8 +63,8 @@ MonoBehaviour:
   enemy: {fileID: 4371903954904197440, guid: b78a702b44659d0469cbbc5dc9a1f3e2, type: 3}
   listEnemy: {fileID: 0}
   secondStartCountdown: 1
-  secondCountdownPerWave: 5
+  secondCountdownPerWave: 7
   wave: 1
-  maxWave: 5
+  maxWave: 10
   quantity: 1
   timeSpawn: 1.5

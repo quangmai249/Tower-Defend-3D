@@ -14,9 +14,7 @@ public static class BulletRaycast
         {
             enemyManager = hit.collider.gameObject.GetComponent<EnemyManager>();
             if (enemyManager != null)
-            {
                 enemyManager.SetEnemyHP(-damage);
-            }
         }
     }
 }

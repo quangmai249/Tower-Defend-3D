@@ -10,18 +10,19 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject parEnemyDeath;
     private GameObject parDeath;
     private GameManager gameManager;
+    private GameStats gameStats;
     private void Awake()
     {
-        this.gameManager = GameManager.Instance;
+        gameManager = GameManager.Instance;
+        gameStats = gameManager.GetGameStats();
 
         this.defaultHP = this.enemyHP;
-
     }
     private void Update()
     {
         if (this.enemyHP <= 0)
         {
-            this.gameManager.SetGold(this.goldReward);
+            gameStats.SetGold(this.goldReward);
 
             this.parDeath = Instantiate(this.parEnemyDeath.gameObject, this.gameObject.transform.position, this.parEnemyDeath.transform.rotation);
             this.parDeath.transform.parent = this.gameObject.transform.parent.transform;

@@ -53,6 +53,8 @@ public class BulletLaser : MonoBehaviour
             BulletRaycast.Shooting(this.gameObject
                 , (this.target.transform.position - this.gameObject.transform.position)
                 , this.damageTurretsLaser, true);
+
+            this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true);
         }
     }
 }

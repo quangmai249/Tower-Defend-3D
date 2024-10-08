@@ -32,9 +32,9 @@ public class BulletSimple : MonoBehaviour
         if (this.fireCountdown <= 0)
         {
             CheckGameObjectIsNotNull(this.bullet);
+            SpawnBullet();
             BulletRaycast.Shooting(this.gameObject, (this.target.transform.position - this.gameObject.transform.position)
                 , this.damage, false);
-            SpawnBullet();
             this.fireCountdown = defaultFireCountdown;
         }
         this.fireCountdown -= Time.deltaTime;

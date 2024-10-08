@@ -11,6 +11,7 @@ TagManager:
   - Level Design
   - Shop Turrets
   - Node Building
+  - Enemy Manager
   layers:
   - Default
   - TransparentFX

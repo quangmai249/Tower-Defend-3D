@@ -13,16 +13,18 @@ public class Turrets : MonoBehaviour
     private SingletonUpgradeTurrets singletonUpgradeTurrets;
     private GameManager gameManager;
     private UIManager uiManager;
+    private GameStats gameStats;
     private void Awake()
     {
         singletonBuilding = SingletonBuilding.Instance;
         singletonUpgradeTurrets = SingletonUpgradeTurrets.Instance;
         gameManager = GameManager.Instance;
+        gameStats = gameManager.GetGameStats();
         uiManager = UIManager.Instance;
     }
     private void Start()
     {
-        if (gameManager.GetGold() < GetPriceGameObject())
+        if (gameStats.GetGold() < GetPriceGameObject())
         {
             GameObject nodeBuilding = singletonBuilding.InstantiateAt(this.gameObject.transform.position);
             nodeBuilding.transform.parent = this.gameObject.transform.parent.transform;
@@ -32,7 +34,7 @@ public class Turrets : MonoBehaviour
         }
         else
         {
-            gameManager.SetGold(-GetPriceGameObject());
+            gameStats.SetGold(-GetPriceGameObject());
         }
 
         this.rend = GetComponent<Renderer>();

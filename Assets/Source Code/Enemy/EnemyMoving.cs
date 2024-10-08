@@ -11,16 +11,21 @@ public class EnemyMoving : MonoBehaviour
     [SerializeField] Vector3[] arrayPoint;
 
     [SerializeField] float randPath = 0.5f;
-    [SerializeField] float timeDuration = 100f;
+    [SerializeField] float timeDuration = 30f;
+    [SerializeField] float timeDurationSlowing = 0.75f;
+    [SerializeField] bool isSlowing = false;
 
     private LevelDesign levelDesign;
     private PathManager pathManager;
-    private FilePath filePath;
-
     private GameManager gameManager;
+    private FilePath filePath;
+    private GameStats gameStats;
+    private Tween t;
+
     private void Awake()
     {
         gameManager = GameManager.Instance;
+        gameStats = gameManager.GetGameStats();
 
         levelDesign = GameObject.FindGameObjectWithTag(levelDesignTag).GetComponent<LevelDesign>();
         pathManager = GameObject.FindGameObjectWithTag(pathManagerTag).GetComponent<PathManager>();
@@ -36,13 +41,25 @@ public class EnemyMoving : MonoBehaviour
     {
         if (gameObject.transform.position == arrayPoint[arrayPoint.Length - 1])
         {
-            gameManager.SetLives(-1);
+            gameStats.SetLives(-1);
             DOTween.Kill(this.gameObject.transform);
             Destroy(this.gameObject);
+        }
+        if (isSlowing == true)
+        {
+            this.t.timeScale = timeDurationSlowing;
+            isSlowing = false;
+            return;
+        }
+        else
+        {
+            this.t.timeScale = 1;
+            return;
         }
     }
     private void Moving()
     {
+        this.t =
         gameObject.transform
             .DOPath(NewArrayPoint(), timeDuration, PathType.Linear)
             .SetEase(Ease.Linear)
@@ -62,5 +79,9 @@ public class EnemyMoving : MonoBehaviour
     private Vector3 RandomVector3Path(float rand)
     {
         return new Vector3(Random.Range(-rand, rand), 0, Random.Range(-rand, rand));
+    }
+    public void SetIsSlowing(bool b)
+    {
+        this.isSlowing = b;
     }
 }

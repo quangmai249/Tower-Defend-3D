@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] float goldStart = 1000;
+    [Header("Game Stats")]
+    [SerializeField] int waveStart = 1;
     [SerializeField] int lives = 3;
+    [SerializeField] float gold = 800;
+    [SerializeField] bool isGameOver = false;
+
+    private GameStats gameStats;
     public static GameManager Instance;
     private void Awake()
     {
+        this.gameStats = new GameStats(this.gold, this.lives, this.waveStart);
         if (Instance != null)
         {
             Debug.LogError($"{this.gameObject.name} is NOT SINGLE!");
@@ -18,29 +24,21 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (this.goldStart <= 0)
+        if (this.gameStats.GetGold() <= 0)
+            this.gameStats.SetGold(0);
+
+        if (this.gameStats.GetLives() <= 0)
         {
-            this.goldStart = 0;
-        }
-        if (this.lives <= 0)
-        {
-            this.lives = 0;
+            this.gameStats.SetLives(0);
+            this.isGameOver = true;
         }
     }
-    public void SetGold(float gold)
+    public GameStats GetGameStats()
     {
-        this.goldStart += gold;
+        return this.gameStats;
     }
-    public float GetGold()
+    public bool GetIsGameOver()
     {
-        return this.goldStart;
-    }
-    public void SetLives(int lives)
-    {
-        this.lives += lives;
-    }
-    public int GetLives()
-    {
-        return this.lives;
+        return this.isGameOver;
     }
 }

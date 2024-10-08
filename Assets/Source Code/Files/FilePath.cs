@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class FilePath
     private string name;
     private string path;
     private List<Transform> lsPos;
+    private StreamWriter streamWriter = null;
     public FilePath(string path, string name)
     {
         this.name = name;
@@ -18,25 +20,18 @@ public class FilePath
     }
     public void StartSaveToFile()
     {
-        if (File.Exists(this.GetPath()))
-        {
-            Debug.LogError($"File {this.GetPath()} EXISTED!");
-            return;
-        }
+        CheckPathExisted();
         if (this.lsPos.Count > 0)
         {
-            StreamWriter streamWriter = null;
             try
             {
                 SaveData(streamWriter, this.lsPos);
+                Debug.Log($"Saved file {this.path} SUCCESSFULLY!");
             }
-            catch
+            catch (Exception ex)
             {
-                Directory.CreateDirectory(this.path);
-                SaveData(streamWriter, this.lsPos);
-                Debug.Log($"Create new folder {this.path} SUCCESSFULLY!");
+                Debug.LogError(ex);
             }
-            Debug.Log($"Saved file {this.path} SUCCESSFULLY!");
         }
         else
         {
@@ -58,6 +53,20 @@ public class FilePath
             streamReader.Close();
         }
         return res.ToArray();
+    }
+    private void CheckPathExisted()
+    {
+        if (File.Exists(this.GetPath()))
+        {
+            Debug.LogError($"File {this.GetPath()} EXISTED!");
+            return;
+        }
+        else
+        {
+            Directory.CreateDirectory(this.path);
+            SaveData(streamWriter, this.lsPos);
+            Debug.Log($"Create new folder {this.path} SUCCESSFULLY!");
+        }
     }
     public string GetPath()
     {

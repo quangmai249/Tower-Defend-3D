@@ -23,20 +23,17 @@ public class BulletManager : MonoBehaviour
     {
         this.target = _t;
     }
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            GameObject par = Instantiate(this.particleBulletEffect, other.transform);
-            par.transform.parent = this.gameObject.transform;
-            StartCoroutine(nameof(KillBullets));
-            return;
+            GameObject go = Instantiate(particleBulletEffect, other.transform);
+            go.transform.parent = this.gameObject.transform;
+
+            yield return new WaitForSeconds(.5f);
+
+            DOTween.Kill(this.gameObject.transform);
+            Destroy(this.gameObject);
         }
-    }
-    private IEnumerator KillBullets()
-    {
-        yield return new WaitForSeconds(speedBullet / 3);
-        DOTween.Kill(this.gameObject.transform);
-        Destroy(this.gameObject);
     }
 }

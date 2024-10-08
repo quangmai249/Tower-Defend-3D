@@ -6,24 +6,16 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] float goldReward = 100f;
     [SerializeField] float enemyHP = 100f;
-    [SerializeField] float timeLaserDamaged = 5f;
+    [SerializeField] float defaultHP;
     [SerializeField] GameObject parEnemyDeath;
     private GameObject parDeath;
     private GameManager gameManager;
-    private Light lightLaser;
-    private float defaultHP;
     private void Awake()
     {
         this.gameManager = GameManager.Instance;
 
         this.defaultHP = this.enemyHP;
 
-        this.lightLaser = GetComponent<Light>();
-        this.lightLaser.enabled = true;
-    }
-    private void Start()
-    {
-        this.lightLaser.enabled = false;
     }
     private void Update()
     {
@@ -42,14 +34,5 @@ public class EnemyManager : MonoBehaviour
     public void SetEnemyHP(float t)
     {
         this.enemyHP += t;
-    }
-    public void SetLightLaser(bool b)
-    {
-        this.lightLaser.enabled = b;
-    }
-    public IEnumerator InActiveLaser()
-    {
-        yield return new WaitForSeconds(timeLaserDamaged);
-        this.lightLaser.enabled = false;
     }
 }

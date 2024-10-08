@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 5572517066504377506, guid: 483fb39ff3e951645b892efde6bc6e96, type: 3}
+  textPrice: {fileID: 7701537657698233643}
   objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
   go: {fileID: 0}
   objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
@@ -593,6 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 5572517066504377506, guid: f03e61fb93ee06d44b68fadcdf9873b4, type: 3}
+  textPrice: {fileID: 5583846355810413697}
   objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
   go: {fileID: 0}
   objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
@@ -615,7 +617,7 @@ GameObject:
   - component: {fileID: 783860489220172319}
   - component: {fileID: 6685727737931092022}
   - component: {fileID: 3616226908094964260}
-  - component: {fileID: 8810679913881080834}
+  - component: {fileID: 651405049434314788}
   m_Layer: 0
   m_Name: Cancel
   m_TagString: Untagged
@@ -718,7 +720,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5224856623241491174}
   m_CullTransparentMesh: 1
---- !u!114 &8810679913881080834
+--- !u!114 &651405049434314788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -727,19 +729,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5224856623241491174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8db11e21045475f49a6c276bdcfd5ffe, type: 3}
+  m_Script: {fileID: 11500000, guid: d1e7af05211063d48908f5fab9d66795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turret: {fileID: 0}
-  objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
-  go: {fileID: 0}
-  objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
-  go_timeConfirm: {fileID: 0}
-  nodeBuildingParent: {fileID: 0}
-  textTimeBuilding: {fileID: 0}
-  timeBuildingTurrets: 0
-  defaultTimeBuildingTurrets: 1
-  isBuilding: 0
 --- !u!1 &5249767498874437572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,6 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
+  textPrice: {fileID: 7200986397857612173}
   objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
   go: {fileID: 0}
   objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}

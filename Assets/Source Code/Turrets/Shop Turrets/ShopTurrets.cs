@@ -4,7 +4,9 @@ using TMPro;
 using UnityEngine;
 public class ShopTurrets : MonoBehaviour
 {
+    [Header("Turrets")]
     [SerializeField] GameObject turret;
+    [SerializeField] TextMeshPro textPrice;
 
     [Header("Confirm")]
     [SerializeField] GameObject objConfirm;
@@ -43,6 +45,7 @@ public class ShopTurrets : MonoBehaviour
     {
         this.timeBuildingTurrets = this.defaultTimeBuildingTurrets;
         this.textTimeBuilding = this.go_timeConfirm.GetComponent<TextMeshPro>();
+        this.textPrice.text = this.turret.GetComponent<Turrets>().GetPrice().ToString();
     }
     private void Update()
     {
@@ -73,12 +76,6 @@ public class ShopTurrets : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (this.gameObject.name.Equals("Cancel"))
-        {
-            singletonShopTurrets.SetActiveShopTurrets(false, this.transform.position);
-            return;
-        }
-
         this.go.gameObject.SetActive(true);
         this.go.transform.position
             = this.gameObject.transform.position + new Vector3(0, 0.1f, 0);

@@ -60,4 +60,8 @@ public class Turrets : MonoBehaviour
     {
         return this.priceTurrets;
     }
+    public float GetPrice()
+    {
+        return this.priceTurrets;
+    }
 }

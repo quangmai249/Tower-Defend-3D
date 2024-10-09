@@ -3,21 +3,24 @@ using UnityEngine;
 public class BulletSimple : MonoBehaviour
 {
     [Header("Bullets")]
-    [SerializeField] GameObject bullet;
-    [SerializeField] float damage = 10f;
     [SerializeField] float fireCountdown = 1f;
     [SerializeField] float defaultFireCountdown = 1f;
-    [SerializeField] float range = 6f;
 
     [Header("Enemies")]
     [SerializeField] GameObject target;
     [SerializeField] readonly string enemyTag = "Enemy";
 
-    private GameObject[] enemies;
+    private GameManager gameManager;
+    private TurretStats turretStats;
+    private void Awake()
+    {
+        gameManager = GameManager.Instance;
+        turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
+    }
     void Update()
     {
-        target = SelectTarget.StartSelectTarget(this.enemies, this.gameObject.transform.position, this.range, this.enemyTag);
-        if (this.target == null)
+        this.target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
+        if (this.target == null || gameManager.GetIsGameOver() == true)
         {
             return;
         }
@@ -31,29 +34,10 @@ public class BulletSimple : MonoBehaviour
     {
         if (this.fireCountdown <= 0)
         {
-            CheckGameObjectIsNotNull(this.bullet);
-            SpawnBullet();
             BulletRaycast.Shooting(this.gameObject, (this.target.transform.position - this.gameObject.transform.position)
-                , this.damage, false);
+                , turretStats.DamagedTurret, false);
             this.fireCountdown = defaultFireCountdown;
         }
         this.fireCountdown -= Time.deltaTime;
-    }
-    private void SpawnBullet()
-    {
-        GameObject go = Instantiate(this.bullet.gameObject, this.gameObject.transform.position, this.bullet.transform.rotation);
-        go.gameObject.transform.parent = this.gameObject.transform;
-
-        BulletManager bulletManager = go.GetComponent<BulletManager>();
-        if (bulletManager != null)
-            bulletManager.SetTarget(target);
-    }
-    private void CheckGameObjectIsNotNull(GameObject g)
-    {
-        if (g == null)
-        {
-            Debug.LogError($"{g.name} is not null!");
-            return;
-        }
     }
 }

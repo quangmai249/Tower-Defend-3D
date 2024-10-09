@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 286d7c8fc4520664e9b588e208736772
+guid: 5af921e83bdcaae42bf93387d8d06a52
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - upgradeTurret: {fileID: 4258813667221512801, guid: c7b807154f590824997920d3c7cadfb9, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

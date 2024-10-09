@@ -4,9 +4,9 @@ using UnityEngine;
 
 public static class SelectTarget
 {
-    public static GameObject StartSelectTarget(GameObject[] lsEnemies, Vector3 posOrigin, float range, string enemyTag)
+    public static GameObject StartSelectTarget(Vector3 posOrigin, float range, string enemyTag)
     {
-        lsEnemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] lsEnemies = GameObject.FindGameObjectsWithTag(enemyTag);
         foreach (GameObject item in lsEnemies)
         {
             if (Vector3.Distance(posOrigin, item.transform.position) < range)
@@ -14,6 +14,13 @@ public static class SelectTarget
                 return item;
             }
         }
+        return null;
+    }
+    public static GameObject SelectFirstTargetWithPos(Vector3 pos, string tag)
+    {
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag(tag))
+            if (g.transform.position == pos)
+                return g;
         return null;
     }
 }

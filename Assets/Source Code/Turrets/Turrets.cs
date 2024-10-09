@@ -1,44 +1,65 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Turrets : MonoBehaviour
 {
-    [SerializeField] float priceTurrets = 100f;
-    [SerializeField] float range = 6f;
     [SerializeField] GameObject nodeBuilding;
+
+    [Header("Turret Stats")]
+    [SerializeField] float priceTurrets = 100f;
+    [SerializeField] float priceUpgrade = 50f;
+    [SerializeField] float priceSell = 50f;
+    [SerializeField] float range = 6f;
+    [SerializeField] float damage = 10f;
 
     private Renderer rend;
     private Color color;
 
     private SingletonBuilding singletonBuilding;
     private SingletonUpgradeTurrets singletonUpgradeTurrets;
+
     private GameManager gameManager;
     private UIManager uiManager;
+
     private GameStats gameStats;
+    private TurretStats turretStats;
     private void Awake()
     {
         singletonBuilding = SingletonBuilding.Instance;
         singletonUpgradeTurrets = SingletonUpgradeTurrets.Instance;
         gameManager = GameManager.Instance;
-        gameStats = gameManager.GetGameStats();
         uiManager = UIManager.Instance;
+
+        gameStats = gameManager.GetGameStats();
     }
     private void Start()
     {
-        if (gameStats.GetGold() < GetPriceGameObject())
+        turretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage);
+
+        if (gameStats.Gold < turretStats.PriceTurret)
         {
+            uiManager.SetActiveTextNotEnoughGold(true);
+            uiManager.SetTextNotEnoughGold($"You do not have enough money to build {(this.gameObject.name).Replace("(Clone)", "")}!");
+
             GameObject nodeBuilding = singletonBuilding.InstantiateAt(this.gameObject.transform.position);
             nodeBuilding.transform.parent = this.gameObject.transform.parent.transform;
             Destroy(this.gameObject);
-            Debug.Log("Not enough money!");
-            return;
         }
         else
         {
-            gameStats.SetGold(-GetPriceGameObject());
+            uiManager.SetActiveTextNotEnoughGold(false);
+            gameStats.Gold -= turretStats.PriceTurret;
+            this.rend = GetComponent<Renderer>();
+            this.color = this.rend.material.color;
         }
-
-        this.rend = GetComponent<Renderer>();
-        this.color = this.rend.material.color;
+    }
+    private void Update()
+    {
+        this.priceTurrets = this.turretStats.PriceTurret;
+        this.priceUpgrade = this.turretStats.PriceUpgradeTurret;
+        this.priceSell = this.turretStats.PriceSellTurret;
+        this.range = this.turretStats.RangeTurret;
     }
     private void OnMouseEnter()
     {
@@ -50,20 +71,18 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        singletonUpgradeTurrets.SetActiveShopTurrets(true, new Vector3(this.gameObject.transform.position.x, -2f, this.transform.position.z));
-        return;
+        if (gameManager.GetIsGameOver() == true)
+            return;
+        singletonUpgradeTurrets.SetActiveUpgradeTurrets(true, new Vector3(this.gameObject.transform.position.x, 0, this.transform.position.z));
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(gameObject.transform.position, range);
+        if (turretStats != null && gameObject != null)
+            Gizmos.DrawWireSphere(gameObject.transform.position, turretStats.RangeTurret);
     }
-    private float GetPriceGameObject()
+    public TurretStats GetTurretStats()
     {
-        return this.priceTurrets;
-    }
-    public float GetPrice()
-    {
-        return this.priceTurrets;
+        return new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage);
     }
 }

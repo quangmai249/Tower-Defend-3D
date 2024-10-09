@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject panelGameOver;
     [SerializeField] TextMeshProUGUI textNumberRoundSurvived;
-
+    [SerializeField] TextMeshProUGUI textNotEnoughGold;
     [SerializeField] TextMeshProUGUI textGold;
     [SerializeField] TextMeshProUGUI textLives;
 
@@ -28,18 +29,27 @@ public class UIManager : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         gameStats = gameManager.GetGameStats();
+        this.textNotEnoughGold.text = string.Empty;
         this.panelGameOver.SetActive(false);
     }
     private void Update()
     {
-        textGold.text = $"{gameStats.GetGold()}$";
-        textLives.text = $"{gameStats.GetLives()} LIVES";
+        textGold.text = $"{gameStats.Gold}$";
+        textLives.text = $"{gameStats.Lives} LIVES";
 
         if (gameManager.GetIsGameOver() == true)
         {
             this.panelGameOver.SetActive(true);
-            this.textNumberRoundSurvived.text = (gameStats.GetCurrentWave()).ToString();
-            Time.timeScale = 0;
+            this.textNumberRoundSurvived.text = (gameStats.WaveStart).ToString();
+            DOTween.PauseAll();
         }
+    }
+    public void SetTextNotEnoughGold(string text)
+    {
+        this.textNotEnoughGold.text = text;
+    }
+    public void SetActiveTextNotEnoughGold(bool b)
+    {
+        this.textNotEnoughGold.gameObject.SetActive(b);
     }
 }

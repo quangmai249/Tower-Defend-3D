@@ -41,7 +41,7 @@ public class EnemyMoving : MonoBehaviour
     {
         if (gameObject.transform.position == arrayPoint[arrayPoint.Length - 1])
         {
-            gameStats.SetLives(-1);
+            gameStats.Lives -= 1;
             DOTween.Kill(this.gameObject.transform);
             Destroy(this.gameObject);
         }

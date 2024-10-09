@@ -10,24 +10,28 @@ public class ShopTurrets : MonoBehaviour
 
     [Header("Confirm")]
     [SerializeField] GameObject objConfirm;
-    [SerializeField] GameObject go;
+    private GameObject go;
 
     [Header("Time Confirm Building")]
     [SerializeField] GameObject objTimeConfirm;
-    [SerializeField] GameObject go_timeConfirm;
+    private GameObject go_timeConfirm;
 
     [Header("Node Building Parent")]
+    [SerializeField] Vector3 rangeFindNodeBuilding = new Vector3(1, 1, 1);
     [SerializeField] GameObject nodeBuildingParent;
+    [SerializeField] float distanceFindNodeBuilding;
     [SerializeField] readonly string nodeBuildingTag = "Node Building";
 
-    [SerializeField] TextMeshPro textTimeBuilding;
 
+    [Header("Stats")]
+    [SerializeField] TextMeshPro textTimeBuilding;
     [SerializeField] float timeBuildingTurrets;
     [SerializeField] float defaultTimeBuildingTurrets = 2f;
     [SerializeField] bool isBuilding = false;
 
     private SingletonShopTurrets singletonShopTurrets;
     private SingletonTurrets singletonTurrets;
+    private TurretStats turretStats;
     private void Awake()
     {
         singletonShopTurrets = SingletonShopTurrets.Instance;
@@ -40,12 +44,14 @@ public class ShopTurrets : MonoBehaviour
         this.go_timeConfirm = Instantiate(objTimeConfirm);
         this.go_timeConfirm.gameObject.SetActive(false);
         this.go_timeConfirm.transform.SetParent(this.go.transform);
+
+        this.turretStats = this.turret.gameObject.GetComponent<Turrets>().GetTurretStats();
     }
     private void Start()
     {
         this.timeBuildingTurrets = this.defaultTimeBuildingTurrets;
         this.textTimeBuilding = this.go_timeConfirm.GetComponent<TextMeshPro>();
-        this.textPrice.text = this.turret.GetComponent<Turrets>().GetPrice().ToString();
+        this.textPrice.text = this.turretStats.PriceTurret.ToString();
     }
     private void Update()
     {
@@ -53,19 +59,27 @@ public class ShopTurrets : MonoBehaviour
 
         if (this.timeBuildingTurrets <= 0)
         {
-            singletonTurrets.SetTurretBuilding(this.turret);
-            singletonTurrets.InstantiateTurretsAt(this.gameObject.transform.parent.position);
+            this.distanceFindNodeBuilding = Vector3.Distance(this.go.transform.parent.position, rangeFindNodeBuilding);
+            this.nodeBuildingParent = SelectTarget.StartSelectTarget(this.gameObject.transform.parent.position, this.distanceFindNodeBuilding, this.nodeBuildingTag);
 
-            this.nodeBuildingParent = FindGameObjectWithPos(this.gameObject.transform.parent.position, nodeBuildingTag);
-            this.nodeBuildingParent.SetActive(false);
-            singletonShopTurrets.SetActiveShopTurrets(false, this.nodeBuildingParent.transform.position);
+            if (this.nodeBuildingParent != null)
+            {
+                this.nodeBuildingParent.SetActive(false);
+                singletonShopTurrets.SetActiveShopTurrets(false, this.nodeBuildingParent.transform.position);
+            }
+
+            singletonTurrets.SetTurretBuilding(this.turret);
+            singletonTurrets
+                .InstantiateTurretsAt(new Vector3(this.gameObject.transform.parent.position.x
+                , this.turret.transform.position.y, this.gameObject.transform.parent.position.z));
 
             this.timeBuildingTurrets = defaultTimeBuildingTurrets;
             this.go.gameObject.gameObject.SetActive(false);
             this.go_timeConfirm.gameObject.SetActive(false);
 
             this.isBuilding = false;
-            Destroy(this.nodeBuildingParent);
+
+            Destroy(this.nodeBuildingParent.gameObject);
             return;
         }
 
@@ -91,12 +105,5 @@ public class ShopTurrets : MonoBehaviour
         this.go.gameObject.gameObject.SetActive(false);
         this.go_timeConfirm.gameObject.SetActive(false);
         this.isBuilding = false;
-    }
-    private GameObject FindGameObjectWithPos(Vector3 pos, string tag)
-    {
-        foreach (GameObject g in GameObject.FindGameObjectsWithTag(tag))
-            if (g.transform.position == pos)
-                return g;
-        return null;
     }
 }

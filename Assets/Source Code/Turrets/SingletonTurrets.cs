@@ -23,8 +23,4 @@ public class SingletonTurrets : MonoBehaviour
         res.transform.SetParent(this.gameObject.transform, false);
         return res;
     }
-    public float GetPriceTurrets()
-    {
-        return this.turret.GetComponent<Turrets>().GetPrice();
-    }
 }

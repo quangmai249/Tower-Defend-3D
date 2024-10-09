@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class BulletLaser : MonoBehaviour
 {
+    [Header("Bullets")]
     [SerializeField] GameObject objEffectLaser;
-    [SerializeField] float damageTurretsLaser = 0.25f;
-    [SerializeField] float range = 6f;
 
     [Header("Enemies")]
     [SerializeField] GameObject target;
     [SerializeField] readonly string enemyTag = "Enemy";
 
-    private GameObject[] enemies;
     private GameObject effectLaser;
     private LineRenderer lineRenderer;
+
+    private GameManager gameManager;
+    private TurretStats turretStats;
     private void Awake()
     {
+        gameManager = GameManager.Instance;
+        turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
         this.lineRenderer = GetComponent<LineRenderer>();
         this.lineRenderer.positionCount = 2;
     }
@@ -28,9 +31,9 @@ public class BulletLaser : MonoBehaviour
     }
     void Update()
     {
-        target = SelectTarget.StartSelectTarget(this.enemies, this.gameObject.transform.position, this.range, this.enemyTag);
+        target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
 
-        if (this.target == null)
+        if (this.target == null || gameManager.GetIsGameOver() == true)
         {
             this.lineRenderer.enabled = false;
 
@@ -52,7 +55,7 @@ public class BulletLaser : MonoBehaviour
 
             BulletRaycast.Shooting(this.gameObject
                 , (this.target.transform.position - this.gameObject.transform.position)
-                , this.damageTurretsLaser, true);
+                , turretStats.DamagedTurret, true);
 
             this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true);
         }

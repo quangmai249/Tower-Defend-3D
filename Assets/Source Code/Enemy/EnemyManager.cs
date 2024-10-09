@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (this.enemyHP <= 0)
         {
-            gameStats.SetGold(this.goldReward);
+            gameStats.Gold += this.goldReward;
 
             this.parDeath = Instantiate(this.parEnemyDeath.gameObject, this.gameObject.transform.position, this.parEnemyDeath.transform.rotation);
             this.parDeath.transform.parent = this.gameObject.transform.parent.transform;

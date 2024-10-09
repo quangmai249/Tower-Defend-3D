@@ -6,6 +6,7 @@ public class SingletonUpgradeTurrets : MonoBehaviour
 {
     public static SingletonUpgradeTurrets Instance;
     [SerializeField] GameObject upgradeTurret;
+    [SerializeField] float yPos = 0f;
     private GameObject go;
     void Awake()
     {
@@ -23,9 +24,9 @@ public class SingletonUpgradeTurrets : MonoBehaviour
     {
         this.go.SetActive(false);
     }
-    public void SetActiveShopTurrets(bool _b, Vector3 pos)
+    public void SetActiveUpgradeTurrets(bool _b, Vector3 pos)
     {
-        this.go.gameObject.transform.position = pos;
+        this.go.gameObject.transform.position = new Vector3(pos.x, yPos, pos.z);
         this.go.SetActive(_b);
     }
 }

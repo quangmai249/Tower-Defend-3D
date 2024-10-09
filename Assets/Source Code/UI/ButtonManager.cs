@@ -1,13 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    public void ButtonRetry()
+    public void ButtonIncreaseSpeed(float speed)
     {
-        SceneManager.LoadScene("Game Play");
+        Time.timeScale = speed;
+    }
+    public void ButtonDecreaseSpeed()
+    {
+        Time.timeScale = 1f;
+    }
+    public void ButtonRestart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void ButtonMenu()
     {
@@ -15,6 +23,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonPlay()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Game Play");
     }
 }

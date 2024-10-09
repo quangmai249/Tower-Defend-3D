@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286d7c8fc4520664e9b588e208736772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeTurret: {fileID: 1927431949303017461, guid: f3b6b217923af9449ba795d5feb59ee2, type: 3}
+  upgradeTurret: {fileID: 4258813667221512801, guid: c7b807154f590824997920d3c7cadfb9, type: 3}
+  yPos: 0

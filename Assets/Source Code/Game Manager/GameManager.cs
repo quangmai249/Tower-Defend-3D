@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +7,16 @@ public class GameManager : MonoBehaviour
 {
     [Header("Game Stats")]
     [SerializeField] int waveStart = 1;
+    [SerializeField] int maxWave = 10;
     [SerializeField] int lives = 3;
     [SerializeField] float gold = 800;
     [SerializeField] bool isGameOver = false;
 
-    private GameStats gameStats;
     public static GameManager Instance;
+    private GameStats gameStats;
     private void Awake()
     {
-        this.gameStats = new GameStats(this.gold, this.lives, this.waveStart);
+        this.gameStats = new GameStats(this.gold, this.lives, this.waveStart, this.maxWave);
         if (Instance != null)
         {
             Debug.LogError($"{this.gameObject.name} is NOT SINGLE!");
@@ -24,12 +26,12 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (this.gameStats.GetGold() <= 0)
-            this.gameStats.SetGold(0);
+        if (this.gameStats.Gold <= 0)
+            this.gameStats.Gold = 0;
 
-        if (this.gameStats.GetLives() <= 0)
+        if (this.gameStats.Lives <= 0)
         {
-            this.gameStats.SetLives(0);
+            this.gameStats.Lives = 0;
             this.isGameOver = true;
         }
     }

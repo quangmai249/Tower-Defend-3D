@@ -120,9 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2553be2c4fb06642bf41e50de793991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priceTurrets: 400
-  range: 6
   nodeBuilding: {fileID: 5891008328017837091, guid: 8e7486aaca2e0d54c8a1198b7e361d91, type: 3}
+  priceTurrets: 400
+  priceUpgrade: 50
+  priceSell: 300
+  range: 6
+  damage: 0.25
 --- !u!114 &6314540640832565271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objEffectLaser: {fileID: 6187243265628504873, guid: c71cc21380c132b41a1807e8509bb5a0, type: 3}
-  damageTurretsLaser: 0.25
-  range: 6
   target: {fileID: 0}
 --- !u!120 &8673979000082310654
 LineRenderer:

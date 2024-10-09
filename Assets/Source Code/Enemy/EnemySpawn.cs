@@ -21,7 +21,6 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] int maxWave = 5;
 
     [Header("Spawn Enemy")]
-    [SerializeField] int quantity = 1;
     [SerializeField] float timeSpawn = 1.5f;
 
     [SerializeField] readonly string pathManagerTag = "Path Manager";
@@ -40,18 +39,25 @@ public class EnemySpawn : MonoBehaviour
             .FindGameObjectWithTag(pathManagerTag)
             .GetComponent<PathManager>();
 
-        wave = gameStats.GetCurrentWave();
+        wave = gameStats.WaveStart;
+        maxWave = gameStats.MaxWave;
 
         StartCoroutine(nameof(StartCountdown));
     }
     void Update()
     {
-        if (secondStartCountdown < 0 && wave < maxWave + 1)
+        if (gameManager.GetIsGameOver() == true)
+        {
+            return;
+        }
+
+        if (secondStartCountdown < 0 && wave <= maxWave + 1)
         {
             StartCoroutine(nameof(StartSpawn));
             secondStartCountdown = secondCountdownPerWave;
             StartCoroutine(nameof(StartCountdown));
         }
+
         SetTextCountdown();
     }
     void SetTextCountdown()
@@ -70,17 +76,16 @@ public class EnemySpawn : MonoBehaviour
     {
         yield return new WaitForSeconds(secondStartCountdown);
 
-        for (int i = 0; i < quantity; i++)
+        for (int i = 0; i < this.wave; i++)
         {
             singletonEnemy.InstantiateTurretsAt(pathManager.GetPosSpawnEneny(), this.gameObject);
             yield return new WaitForSeconds(timeSpawn);
         }
-        quantity++;
     }
     IEnumerator StartCountdown()
     {
         textWave.text = $"Wave {wave} is coming...";
-        gameStats.SetWave(wave - 1);
+        gameStats.WaveStart = wave - 1;
 
         while (secondStartCountdown >= 0)
         {

@@ -6,32 +6,28 @@ using UnityEngine.UIElements;
 
 public class NodeBuilding : MonoBehaviour
 {
-    [SerializeField] GameObject panelShopTurrets;
+    [SerializeField] GameObject shopTurretCanvas;
     private Renderer rend;
     private Color color;
-    private SingletonShopTurrets singletonShopTurrets;
     private GameManager gameManager;
-
+    private GameObject shopCanvas;
     private void Awake()
     {
-        singletonShopTurrets = SingletonShopTurrets.Instance;
         gameManager = GameManager.Instance;
-
-        singletonShopTurrets.SetActiveShopTurrets(true, this.gameObject.transform.position);
-        panelShopTurrets.SetActive(true);
     }
     private void Start()
     {
-        singletonShopTurrets.SetActiveShopTurrets(false, this.gameObject.transform.position);
-        panelShopTurrets.SetActive(false);
+        this.shopCanvas = Instantiate(shopTurretCanvas);
+        this.shopCanvas.transform.SetParent(this.gameObject.transform);
+        this.shopCanvas.gameObject.SetActive(false);
+
         this.rend = GetComponent<Renderer>();
         this.color = this.rend.material.color;
     }
     private void OnMouseEnter()
     {
-        if (gameManager.GetIsGameOver() == true)
-            return;
-        rend.material.color = Color.green;
+        if (gameManager.GetIsGameOver() == false)
+            rend.material.color = Color.green;
     }
     private void OnMouseExit()
     {
@@ -39,9 +35,10 @@ public class NodeBuilding : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (gameManager.GetIsGameOver() == true)
-            return;
-        singletonShopTurrets.SetActiveShopTurrets(true, this.gameObject.transform.position);
-        panelShopTurrets.SetActive(true);
+        if (gameManager.GetIsGameOver() == false)
+        {
+            this.shopCanvas.gameObject.SetActive(true);
+            this.shopCanvas.gameObject.transform.position = this.gameObject.transform.position + (3 * Vector3.up);
+        }
     }
 }

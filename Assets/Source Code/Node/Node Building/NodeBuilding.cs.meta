@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - objRange: {fileID: 6542900052337018653, guid: c8f1dd7631e36084f9eff4ec1fc46aed, type: 3}
+  - shopTurretCanvas: {fileID: 1108018951759142075, guid: 8189ef2e8c0949d408a93350eee11f56, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

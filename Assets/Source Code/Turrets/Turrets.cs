@@ -63,7 +63,8 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        rend.material.color = Color.green;
+        if (gameManager.GetIsGameOver() == false)
+            rend.material.color = Color.green;
     }
     private void OnMouseExit()
     {

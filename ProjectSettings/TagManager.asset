@@ -12,6 +12,7 @@ TagManager:
   - Shop Turrets
   - Node Building
   - Enemy Manager
+  - Button Confirm Shop Turret
   layers:
   - Default
   - TransparentFX

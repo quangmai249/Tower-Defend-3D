@@ -15,10 +15,10 @@ public class BulletSimple : MonoBehaviour
     private void Awake()
     {
         gameManager = GameManager.Instance;
-        turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
     }
     void Update()
     {
+        this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
         this.target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
         if (this.target == null || gameManager.GetIsGameOver() == true)
         {
@@ -35,7 +35,7 @@ public class BulletSimple : MonoBehaviour
         if (this.fireCountdown <= 0)
         {
             BulletRaycast.Shooting(this.gameObject, (this.target.transform.position - this.gameObject.transform.position)
-                , turretStats.DamagedTurret, false);
+                , this.turretStats.DamagedTurret, false);
             this.fireCountdown = defaultFireCountdown;
         }
         this.fireCountdown -= Time.deltaTime;

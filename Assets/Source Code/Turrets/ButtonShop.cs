@@ -10,12 +10,14 @@ public class ButtonShop : MonoBehaviour
     [SerializeField] GameObject turret;
     [SerializeField] GameObject confirm;
     [SerializeField] TextMeshPro textPrice;
+    [SerializeField] string btnConfirmTag = "Button Confirm Shop Turret";
 
     private Vector3 nodePos;
     private SingletonTurrets singletonTurrets;
     private TurretStats turretStats;
 
     private GameObject nodeBuildingParent;
+    private GameObject menuShop;
     private void Awake()
     {
         singletonTurrets = SingletonTurrets.Instance;
@@ -28,6 +30,7 @@ public class ButtonShop : MonoBehaviour
         this.textPrice.text = turretStats.PriceTurret.ToString();
 
         this.nodeBuildingParent = this.gameObject.transform.parent.parent.parent.gameObject;
+        this.menuShop = this.gameObject.transform.parent.parent.gameObject;
 
         if (this.nodeBuildingParent == null)
         {
@@ -39,16 +42,16 @@ public class ButtonShop : MonoBehaviour
     }
     public void ButtonCloseShopTurret()
     {
-        foreach (var item in GameObject.FindGameObjectsWithTag("Button Confirm Shop Turret"))
-            item.gameObject.SetActive(false);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
 
-        this.gameObject.transform.parent.parent.gameObject.SetActive(false);
+        this.menuShop.gameObject.SetActive(false);
         return;
     }
     public void ButtonSelectTurret()
     {
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
+
         this.confirm.SetActive(true);
-        StartCoroutine(nameof(InActiveButtonConfirm));
         return;
     }
     public void ButtonConfirmSelectTurret()
@@ -61,10 +64,5 @@ public class ButtonShop : MonoBehaviour
         singletonTurrets.SetTurretBuilding(this.turret);
         singletonTurrets.InstantiateTurretsAt(this.nodePos);
         Destroy(this.nodeBuildingParent.gameObject);
-    }
-    private IEnumerator InActiveButtonConfirm()
-    {
-        yield return new WaitForSeconds(3f);
-        this.confirm.SetActive(false);
     }
 }

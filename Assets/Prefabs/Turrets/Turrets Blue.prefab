@@ -119,9 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2553be2c4fb06642bf41e50de793991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nodeBuilding: {fileID: 3573715583782016384, guid: c8b39bdaf00bdaf409d4b02c03fbbdc7, type: 3}
+  menuUpgradeTurrets: {fileID: 1594684375454613307, guid: bac054b9a46b9b049a67e50a668ef4e2, type: 3}
   priceTurrets: 100
+  priceUpgrade: 50
+  priceSell: 75
   range: 6
-  nodeBuilding: {fileID: 5891008328017837091, guid: 8e7486aaca2e0d54c8a1198b7e361d91, type: 3}
+  damage: 10
 --- !u!114 &-3341426001252509530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8921b3e0957e24c9e1da99b6e2614f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7555623238895228688, guid: e91e3cb6bc362e145904e989df9dd2c8, type: 3}
   fireCountdown: 1
   defaultFireCountdown: 1
-  range: 6
   target: {fileID: 0}

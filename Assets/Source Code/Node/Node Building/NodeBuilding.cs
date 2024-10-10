@@ -7,6 +7,9 @@ using UnityEngine.UIElements;
 public class NodeBuilding : MonoBehaviour
 {
     [SerializeField] GameObject shopTurretCanvas;
+    [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
+    [SerializeField] string btnConfirmTag = "Button Confirm Shop Turret";
+
     private Renderer rend;
     private Color color;
     private GameManager gameManager;
@@ -26,8 +29,10 @@ public class NodeBuilding : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        if (gameManager.GetIsGameOver() == false)
-            rend.material.color = Color.green;
+        if (gameManager.GetIsGameOver() == true)
+            return;
+
+        rend.material.color = Color.green;
     }
     private void OnMouseExit()
     {
@@ -35,10 +40,13 @@ public class NodeBuilding : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (gameManager.GetIsGameOver() == false)
-        {
-            this.shopCanvas.gameObject.SetActive(true);
-            this.shopCanvas.gameObject.transform.position = this.gameObject.transform.position + (3 * Vector3.up);
-        }
+        if (gameManager.GetIsGameOver() == true)
+            return;
+
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
+
+        this.shopCanvas.gameObject.SetActive(true);
+        this.shopCanvas.gameObject.transform.position = this.gameObject.transform.position + (3 * Vector3.up);
     }
 }

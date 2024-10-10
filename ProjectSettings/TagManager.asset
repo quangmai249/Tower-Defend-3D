@@ -13,6 +13,9 @@ TagManager:
   - Node Building
   - Enemy Manager
   - Button Confirm Shop Turret
+  - Button Confirm Upgrade Turret
+  - Canvas Shop Turrets
+  - Canvas Upgrade Turrets
   layers:
   - Default
   - TransparentFX

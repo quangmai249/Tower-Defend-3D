@@ -23,4 +23,9 @@ public static class SelectTarget
                 return g;
         return null;
     }
+    public static void SetActiveGameObjecstWithTag(bool b, string tag)
+    {
+        foreach (var item in GameObject.FindGameObjectsWithTag(tag))
+            item.gameObject.SetActive(b);
+    }
 }

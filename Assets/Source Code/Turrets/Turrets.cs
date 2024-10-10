@@ -5,6 +5,9 @@ using UnityEngine;
 public class Turrets : MonoBehaviour
 {
     [SerializeField] GameObject nodeBuilding;
+    [SerializeField] GameObject menuUpgradeTurrets;
+    [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";
+    [SerializeField] string btnConfirmTag = "Button Confirm Upgrade Turret";
 
     [Header("Turret Stats")]
     [SerializeField] float priceTurrets = 100f;
@@ -15,10 +18,9 @@ public class Turrets : MonoBehaviour
 
     private Renderer rend;
     private Color color;
+    private GameObject upgradeTurrets;
 
     private SingletonBuilding singletonBuilding;
-    private SingletonUpgradeTurrets singletonUpgradeTurrets;
-
     private GameManager gameManager;
     private UIManager uiManager;
 
@@ -27,7 +29,6 @@ public class Turrets : MonoBehaviour
     private void Awake()
     {
         singletonBuilding = SingletonBuilding.Instance;
-        singletonUpgradeTurrets = SingletonUpgradeTurrets.Instance;
         gameManager = GameManager.Instance;
         uiManager = UIManager.Instance;
 
@@ -36,6 +37,11 @@ public class Turrets : MonoBehaviour
     private void Start()
     {
         turretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage);
+        this.upgradeTurrets
+            = Instantiate(menuUpgradeTurrets, this.gameObject.transform.position + new Vector3(0, this.menuUpgradeTurrets.transform.position.y, 0)
+                , menuUpgradeTurrets.transform.rotation);
+        this.upgradeTurrets.transform.SetParent(this.gameObject.transform);
+        this.upgradeTurrets.gameObject.SetActive(false);
 
         if (gameStats.Gold < turretStats.PriceTurret)
         {
@@ -60,11 +66,14 @@ public class Turrets : MonoBehaviour
         this.priceUpgrade = this.turretStats.PriceUpgradeTurret;
         this.priceSell = this.turretStats.PriceSellTurret;
         this.range = this.turretStats.RangeTurret;
+        this.damage = this.turretStats.DamagedTurret;
     }
     private void OnMouseEnter()
     {
-        if (gameManager.GetIsGameOver() == false)
-            rend.material.color = Color.green;
+        if (gameManager.GetIsGameOver() == true)
+            return;
+
+        rend.material.color = Color.green;
     }
     private void OnMouseExit()
     {
@@ -74,7 +83,12 @@ public class Turrets : MonoBehaviour
     {
         if (gameManager.GetIsGameOver() == true)
             return;
-        singletonUpgradeTurrets.SetActiveUpgradeTurrets(true, new Vector3(this.gameObject.transform.position.x, 0, this.transform.position.z));
+
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
+
+        this.upgradeTurrets.gameObject.SetActive(true);
+        return;
     }
     private void OnDrawGizmos()
     {
@@ -84,6 +98,14 @@ public class Turrets : MonoBehaviour
     }
     public TurretStats GetTurretStats()
     {
-        return new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage);
+        return new TurretStats(Mathf.Round(this.priceTurrets)
+            , Mathf.Round(this.priceUpgrade)
+            , Mathf.Round(this.priceSell)
+            , this.range
+            , this.damage);
+    }
+    public void SetTurretStats(TurretStats tStats)
+    {
+        this.turretStats = tStats;
     }
 }

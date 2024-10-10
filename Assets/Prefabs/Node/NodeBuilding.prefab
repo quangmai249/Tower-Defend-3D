@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 02375137e41304740a877176a55734f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,3 +121,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopTurretCanvas: {fileID: 1108018951759142075, guid: 8189ef2e8c0949d408a93350eee11f56, type: 3}
+  canvasShopTag: Canvas Shop Turrets
+  btnConfirmTag: Button Confirm Shop Turret

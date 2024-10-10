@@ -19,7 +19,6 @@ public class BulletLaser : MonoBehaviour
     private void Awake()
     {
         gameManager = GameManager.Instance;
-        turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
         this.lineRenderer = GetComponent<LineRenderer>();
         this.lineRenderer.positionCount = 2;
     }
@@ -31,6 +30,7 @@ public class BulletLaser : MonoBehaviour
     }
     void Update()
     {
+        this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
         target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
 
         if (this.target == null || gameManager.GetIsGameOver() == true)
@@ -55,7 +55,7 @@ public class BulletLaser : MonoBehaviour
 
             BulletRaycast.Shooting(this.gameObject
                 , (this.target.transform.position - this.gameObject.transform.position)
-                , turretStats.DamagedTurret, true);
+                , this.turretStats.DamagedTurret, true);
 
             this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true);
         }

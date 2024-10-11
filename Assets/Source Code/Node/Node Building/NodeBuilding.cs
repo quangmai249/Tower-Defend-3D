@@ -47,6 +47,6 @@ public class NodeBuilding : MonoBehaviour
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
 
         this.shopCanvas.gameObject.SetActive(true);
-        this.shopCanvas.gameObject.transform.position = this.gameObject.transform.position + (3 * Vector3.up);
+        this.shopCanvas.gameObject.transform.position = this.gameObject.transform.position;
     }
 }

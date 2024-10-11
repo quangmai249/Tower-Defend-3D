@@ -8,6 +8,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     [SerializeField] GameObject btnConfirm;
     [SerializeField] TextMeshProUGUI textPriceUpgrade;
     [SerializeField] TextMeshProUGUI textSellTurret;
+    [SerializeField] Vector3 defaultRotaion = new Vector3(90f, 0, 0);
     [SerializeField] string btnConfirmTag = "Button Confirm Upgrade Turret";
 
     private GameObject turret;
@@ -40,7 +41,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         this.textPriceUpgrade.text = this.turretStats.PriceUpgradeTurret.ToString();
         this.textSellTurret.text = this.turretStats.PriceSellTurret.ToString();
 
-        this.menuUpgrade.transform.rotation = Quaternion.Euler(75f, 0, 0);
+        this.menuUpgrade.transform.rotation = Quaternion.Euler(this.defaultRotaion);
     }
     public void ButtonCloseUpgradeTurret()
     {

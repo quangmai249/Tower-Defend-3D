@@ -122,9 +122,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeBuilding: {fileID: 3573715583782016384, guid: c8b39bdaf00bdaf409d4b02c03fbbdc7, type: 3}
   menuUpgradeTurrets: {fileID: 1594684375454613307, guid: bac054b9a46b9b049a67e50a668ef4e2, type: 3}
-  priceTurrets: 400
+  canvasUpgradeTag: Canvas Upgrade Turrets
+  btnConfirmTag: Button Confirm Upgrade Turret
+  priceTurrets: 300
   priceUpgrade: 200
-  priceSell: 300
+  priceSell: 200
   range: 6
   damage: 0.25
 --- !u!114 &6314540640832565271

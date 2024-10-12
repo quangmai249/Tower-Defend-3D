@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        Time.timeScale = 1;
         this.isGameOver = false;
         this.isGamePause = false;
+        Time.timeScale = 1;
     }
     private void Update()
     {

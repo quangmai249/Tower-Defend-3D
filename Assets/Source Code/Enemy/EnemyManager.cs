@@ -9,6 +9,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] float enemyHP = 100f;
     [SerializeField] float defaultHP;
     [SerializeField] Image imgHPBar;
+    [SerializeField] Image imgHPBarFade;
+    [SerializeField] Image imgHPBarBackground;
     [SerializeField] GameObject parEnemyDeath;
     private GameObject parDeath;
     private GameManager gameManager;
@@ -24,11 +26,18 @@ public class EnemyManager : MonoBehaviour
     {
         this.imgHPBar.color = Color.green;
         this.imgHPBar.fillAmount = this.enemyHP / this.defaultHP;
+
+        this.imgHPBarFade.color = Color.white;
+        this.imgHPBarFade.fillAmount = this.enemyHP / this.defaultHP;
+
+        this.imgHPBarBackground.color = Color.black;
+        this.imgHPBarBackground.fillAmount = this.enemyHP / this.defaultHP;
     }
     private void Update()
     {
         this.imgHPBar.gameObject.transform.rotation = Quaternion.Euler(75f, 0f, 0f);
-        this.imgHPBar.fillAmount = this.enemyHP / this.defaultHP;
+        this.imgHPBarFade.gameObject.transform.rotation = Quaternion.Euler(75f, 0f, 0f);
+        this.imgHPBarBackground.gameObject.transform.rotation = Quaternion.Euler(75f, 0f, 0f);
 
         if (this.enemyHP <= 0)
         {
@@ -45,6 +54,9 @@ public class EnemyManager : MonoBehaviour
     public void SetEnemyHP(float t)
     {
         this.enemyHP += t;
+        this.imgHPBar.fillAmount = this.enemyHP / this.defaultHP;
+        StartCoroutine(nameof(ChangeImageHPBarFade));
+
         if (this.enemyHP <= 25)
         {
             this.imgHPBar.color = Color.red;
@@ -56,5 +68,11 @@ public class EnemyManager : MonoBehaviour
             return;
         }
         return;
+    }
+    private IEnumerator ChangeImageHPBarFade()
+    {
+        float res = this.enemyHP / this.defaultHP;
+        yield return new WaitForSeconds(1f);
+        this.imgHPBarFade.fillAmount = res;
     }
 }

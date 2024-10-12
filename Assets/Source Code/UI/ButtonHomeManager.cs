@@ -7,16 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHomeManager : MonoBehaviour
 {
-    GameManager gameManager;
-    private void Awake()
-    {
-        gameManager = GameManager.Instance;
-    }
     public void ButtonPlay()
     {
-        gameManager.SetIsGameOver(false);
-        gameManager.SetIsGamePause(false);
-        SceneManager.LoadScene("Game Play");
+        SceneManager.LoadScene("Level Scene");
         return;
     }
     public void ExitGame()

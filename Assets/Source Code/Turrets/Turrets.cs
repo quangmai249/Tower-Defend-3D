@@ -70,7 +70,7 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        if (gameManager.GetIsGameOver() == true)
+        if (gameManager.GetIsGameOver() == true || gameManager.GetIsGamePause() == true)
             return;
 
         rend.material.color = Color.green;
@@ -81,7 +81,7 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (gameManager.GetIsGameOver() == true)
+        if (gameManager.GetIsGameOver() == true || gameManager.GetIsGamePause() == true)
             return;
 
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);

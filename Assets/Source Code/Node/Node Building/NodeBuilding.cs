@@ -29,7 +29,7 @@ public class NodeBuilding : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        if (gameManager.GetIsGameOver() == true)
+        if (gameManager.GetIsGameOver() == true || gameManager.GetIsGamePause() == true)
             return;
 
         rend.material.color = Color.green;
@@ -40,7 +40,7 @@ public class NodeBuilding : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (gameManager.GetIsGameOver() == true)
+        if (gameManager.GetIsGameOver() == true || gameManager.GetIsGamePause() == true)
             return;
 
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);

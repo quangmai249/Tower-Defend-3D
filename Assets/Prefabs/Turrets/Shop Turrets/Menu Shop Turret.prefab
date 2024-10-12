@@ -523,7 +523,6 @@ GameObject:
   - component: {fileID: 1765204722887018910}
   - component: {fileID: 142461019488421910}
   - component: {fileID: 6599623511068038629}
-  - component: {fileID: 1039850687111647408}
   - component: {fileID: 5277407364035496986}
   m_Layer: 5
   m_Name: Button Blue Turret
@@ -647,29 +646,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1039850687111647408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413598749448173826}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8db11e21045475f49a6c276bdcfd5ffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
-  textPrice: {fileID: 4773372534168437273}
-  objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
-  objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
-  rangeFindNodeBuilding: {x: 1, y: 1, z: 1}
-  nodeBuildingParent: {fileID: 0}
-  distanceFindNodeBuilding: 0
-  textTimeBuilding: {fileID: 8592314167501483243, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
-  timeBuildingTurrets: 0
-  defaultTimeBuildingTurrets: 1
-  isBuilding: 0
 --- !u!114 &5277407364035496986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,6 +660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
   confirm: {fileID: 6995434670252520572}
+  textPrice: {fileID: 0}
+  btnConfirmTag: Button Confirm Shop Turret
 --- !u!1 &4543455886686266236
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +845,6 @@ GameObject:
   - component: {fileID: 3818451882166138771}
   - component: {fileID: 2562594368548625380}
   - component: {fileID: 9210905046898534973}
-  - component: {fileID: 7547546422492171153}
   - component: {fileID: 6122790239132277856}
   m_Layer: 5
   m_Name: Button Red Turret
@@ -991,29 +968,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7547546422492171153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4650567009917475996}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8db11e21045475f49a6c276bdcfd5ffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 5572517066504377506, guid: 483fb39ff3e951645b892efde6bc6e96, type: 3}
-  textPrice: {fileID: 8307676877182601727}
-  objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
-  objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
-  rangeFindNodeBuilding: {x: 1, y: 1, z: 1}
-  nodeBuildingParent: {fileID: 0}
-  distanceFindNodeBuilding: 0
-  textTimeBuilding: {fileID: 8592314167501483243, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
-  timeBuildingTurrets: 0
-  defaultTimeBuildingTurrets: 1
-  isBuilding: 0
 --- !u!114 &6122790239132277856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,6 +982,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 5572517066504377506, guid: 483fb39ff3e951645b892efde6bc6e96, type: 3}
   confirm: {fileID: 4654215782516090828}
+  textPrice: {fileID: 0}
+  btnConfirmTag: Button Confirm Shop Turret
 --- !u!1 &4654215782516090828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1431,6 @@ GameObject:
   - component: {fileID: 5952404766394967178}
   - component: {fileID: 8659614566970785125}
   - component: {fileID: 168945700818377568}
-  - component: {fileID: 1268624213586511660}
   - component: {fileID: 8383958173898170884}
   m_Layer: 5
   m_Name: Button Yellow Turret
@@ -1599,29 +1554,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1268624213586511660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8323837584428786156}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8db11e21045475f49a6c276bdcfd5ffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 5572517066504377506, guid: f03e61fb93ee06d44b68fadcdf9873b4, type: 3}
-  textPrice: {fileID: 2270649699571222833}
-  objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
-  objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
-  rangeFindNodeBuilding: {x: 1, y: 1, z: 1}
-  nodeBuildingParent: {fileID: 0}
-  distanceFindNodeBuilding: 0
-  textTimeBuilding: {fileID: 8592314167501483243, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
-  timeBuildingTurrets: 0
-  defaultTimeBuildingTurrets: 1
-  isBuilding: 0
 --- !u!114 &8383958173898170884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1636,6 +1568,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 5572517066504377506, guid: f03e61fb93ee06d44b68fadcdf9873b4, type: 3}
   confirm: {fileID: 3411753820103820918}
+  textPrice: {fileID: 0}
+  btnConfirmTag: Button Confirm Shop Turret
 --- !u!1 &8725963374904001558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1582,6 @@ GameObject:
   - component: {fileID: 1321929530954923363}
   - component: {fileID: 4045020253739343456}
   - component: {fileID: 8163063231572295808}
-  - component: {fileID: 3087956052728499272}
   - component: {fileID: 4094080513209388984}
   m_Layer: 5
   m_Name: Button White Turret
@@ -1772,29 +1705,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3087956052728499272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8725963374904001558}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8db11e21045475f49a6c276bdcfd5ffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turret: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
-  textPrice: {fileID: 7086893357319061260}
-  objConfirm: {fileID: 1897774979122694169, guid: 5949c1e707bc15e4d84a33aed633e6d3, type: 3}
-  objTimeConfirm: {fileID: 7100662726075365467, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
-  rangeFindNodeBuilding: {x: 1, y: 1, z: 1}
-  nodeBuildingParent: {fileID: 0}
-  distanceFindNodeBuilding: 0
-  textTimeBuilding: {fileID: 8592314167501483243, guid: e8d7d08eebc94b4448ba3d73e21bbd4e, type: 3}
-  timeBuildingTurrets: 0
-  defaultTimeBuildingTurrets: 1
-  isBuilding: 0
 --- !u!114 &4094080513209388984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,6 +1719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
   confirm: {fileID: 1904586551944663253}
+  textPrice: {fileID: 0}
+  btnConfirmTag: Button Confirm Shop Turret
 --- !u!1 &8830586354813508445
 GameObject:
   m_ObjectHideFlags: 0

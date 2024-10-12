@@ -1,4 +1,5 @@
 using DG.Tweening;
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int lives = 3;
     [SerializeField] float gold = 800;
     [SerializeField] bool isGameOver = false;
+    [SerializeField] bool isGamePause = false;
 
     public static GameManager Instance;
     private GameStats gameStats;
@@ -23,6 +25,12 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+    private void Start()
+    {
+        Time.timeScale = 1;
+        this.isGameOver = false;
+        this.isGamePause = false;
     }
     private void Update()
     {
@@ -39,8 +47,22 @@ public class GameManager : MonoBehaviour
     {
         return this.gameStats;
     }
+    public void SetIsGameOver(bool b)
+    {
+        this.isGameOver = b;
+        return;
+    }
     public bool GetIsGameOver()
     {
         return this.isGameOver;
+    }
+    public void SetIsGamePause(bool b)
+    {
+        this.isGamePause = b;
+        return;
+    }
+    public bool GetIsGamePause()
+    {
+        return this.isGamePause;
     }
 }

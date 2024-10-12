@@ -41,7 +41,10 @@ public class UIManager : MonoBehaviour
         {
             this.panelGameOver.SetActive(true);
             this.textNumberRoundSurvived.text = (gameStats.WaveStart).ToString();
-            DOTween.PauseAll();
+
+            DOTween.KillAll();
+            Time.timeScale = 0f;
+            return;
         }
     }
     public void SetTextNotEnoughGold(string text)

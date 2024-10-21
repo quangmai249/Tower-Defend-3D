@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objEffectLaser: {fileID: 6187243265628504873, guid: c71cc21380c132b41a1807e8509bb5a0, type: 3}
+  timeDurationSlowing: 0.75
   target: {fileID: 0}
 --- !u!120 &8673979000082310654
 LineRenderer:

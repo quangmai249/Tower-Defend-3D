@@ -21,23 +21,6 @@ public class FilePath
     public void StartSaveToFile()
     {
         CheckPathExisted();
-        if (this.lsPos.Count > 0)
-        {
-            try
-            {
-                SaveData(streamWriter, this.lsPos);
-                Debug.Log($"Saved file {this.path} SUCCESSFULLY!");
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError(ex);
-            }
-        }
-        else
-        {
-            Debug.LogError("List transform is NULL!");
-            return;
-        }
     }
     public Vector3[] ReadFromFile()
     {
@@ -54,27 +37,36 @@ public class FilePath
         }
         return res.ToArray();
     }
+    public string GetPath()
+    {
+        return $"{this.path}/{this.name}";
+    }
     private void CheckPathExisted()
     {
         if (File.Exists(this.GetPath()))
         {
-            Debug.LogError($"File {this.GetPath()} EXISTED!");
+            Debug.LogError($"File {this.path} EXISTED!");
             return;
         }
         else
         {
             Directory.CreateDirectory(this.path);
-            SaveData(streamWriter, this.lsPos);
             Debug.Log($"Create new folder {this.path} SUCCESSFULLY!");
+
+            if (this.lsPos.Count > 0)
+            {
+                SaveDataListTramsform(this.streamWriter, this.lsPos);
+                Debug.Log($"Saved file {this.path} SUCCESSFULLY!");
+            }
+            else
+                Debug.LogError("List transform is NULL!");
+
+            return;
         }
     }
-    public string GetPath()
+    private void SaveDataListTramsform(StreamWriter s, List<Transform> ls)
     {
-        return $"{this.path}/{this.name}";
-    }
-    private void SaveData(StreamWriter s, List<Transform> ls)
-    {
-        using (s = new StreamWriter(this.GetPath(), append: false))
+        using (s = new StreamWriter(this.path + "/" + this.name, append: false))
         {
             foreach (var item in ls)
                 s.WriteLine(JsonUtility.ToJson(item.position));

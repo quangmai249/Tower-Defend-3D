@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SingletonEnemy : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    [SerializeField] List<GameObject> lsEnemy;
     public static SingletonEnemy Instance;
     private void Awake()
     {
@@ -15,9 +15,9 @@ public class SingletonEnemy : MonoBehaviour
         }
         Instance = this;
     }
-    public GameObject InstantiateTurretsAt(Vector3 pos, GameObject parent)
+    public GameObject InstantiateTurretsAt(Vector3 pos, GameObject parent, int numEnemy)
     {
-        GameObject res = Instantiate(this.enemy, pos, this.enemy.transform.rotation);
+        GameObject res = Instantiate(this.lsEnemy[numEnemy], pos, this.lsEnemy[numEnemy].transform.rotation);
         res.transform.SetParent(parent.transform, false);
         return res;
     }

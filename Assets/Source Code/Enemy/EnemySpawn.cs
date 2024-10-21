@@ -1,48 +1,56 @@
-using System.Collections;
+﻿using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawn : MonoBehaviour
 {
     [Header("Canvas")]
+    [SerializeField] Button btnReadyPlayGame;
     [SerializeField] TextMeshProUGUI textCountdown;
     [SerializeField] TextMeshProUGUI textWave;
 
-    [Header("Enemy")]
-    [SerializeField] GameObject enemy;
-    [SerializeField] GameObject listEnemy;
-
     [Header("Countdown")]
-    [SerializeField] int secondStartCountdown = 1;
-    [SerializeField] int secondCountdownPerWave = 5;
+    [SerializeField] bool isReady = false;
+    [SerializeField] int secondStartCountdown = -1;
+    [SerializeField] int defaultSecondCountdownPerWave = 3;
 
     [Header("Wave")]
     [SerializeField] int wave = 1;
-    [SerializeField] int maxWave = 5;
+    [SerializeField] int maxWave = 20;
 
     [Header("Spawn Enemy")]
+    [SerializeField] Vector3 posSpawn;
     [SerializeField] float timeSpawn = 1.5f;
 
+    [SerializeField] readonly string levelDesignTag = "Level Design";
     [SerializeField] readonly string pathManagerTag = "Path Manager";
+    [SerializeField] readonly string enemyManagerTag = "Enemy Manager";
+    [SerializeField] readonly string gameManagerTag = "GameController";
+
+    private LevelDesign levelDesign;
     private PathManager pathManager;
     private SingletonEnemy singletonEnemy;
     private GameManager gameManager;
     private GameStats gameStats;
+    private void Awake()
+    {
+        singletonEnemy = GameObject.FindGameObjectWithTag(enemyManagerTag).GetComponent<SingletonEnemy>();
+        gameManager = GameObject.FindGameObjectWithTag(gameManagerTag).GetComponent<GameManager>();
+        levelDesign = GameObject.FindGameObjectWithTag(levelDesignTag).GetComponent<LevelDesign>();
+        pathManager = GameObject.FindGameObjectWithTag(pathManagerTag).GetComponent<PathManager>();
+    }
     void Start()
     {
-        singletonEnemy = SingletonEnemy.Instance;
-        gameManager = GameManager.Instance;
-
         gameStats = gameManager.GetGameStats();
-
-        pathManager = GameObject
-            .FindGameObjectWithTag(pathManagerTag)
-            .GetComponent<PathManager>();
 
         wave = gameStats.WaveStart;
         maxWave = gameStats.MaxWave;
 
-        StartCoroutine(nameof(StartCountdown));
+        this.isReady = false;
+        textWave.text = string.Empty;
+        textCountdown.text = string.Empty;
     }
     void Update()
     {
@@ -51,26 +59,38 @@ public class EnemySpawn : MonoBehaviour
             return;
         }
 
-        if (secondStartCountdown < 0 && wave <= maxWave + 1)
+        if (this.isReady == true)
         {
-            StartCoroutine(nameof(StartSpawn));
-            secondStartCountdown = secondCountdownPerWave;
+            this.btnReadyPlayGame.gameObject.SetActive(false);
+        }
+
+        if (wave <= maxWave + 1 && this.isReady == true)
+        {
             StartCoroutine(nameof(StartCountdown));
+            StartCoroutine(nameof(StartSpawn));
+            this.isReady = false;
         }
 
         SetTextCountdown();
+    }
+    public void ButtonReadyPlayGame()
+    {
+        isReady = true;
+        secondStartCountdown = defaultSecondCountdownPerWave;
     }
     void SetTextCountdown()
     {
         if (wave > maxWave)
         {
             textCountdown.text = "";
-            textWave.text = $"Last wave";
+            textWave.text = $"Final wave";
         }
-        else
+        else if (secondStartCountdown >= 0)
         {
             textCountdown.text = secondStartCountdown.ToString();
         }
+        else
+            textCountdown.text = string.Empty;
     }
     IEnumerator StartSpawn()
     {
@@ -78,13 +98,28 @@ public class EnemySpawn : MonoBehaviour
 
         for (int i = 0; i < this.wave; i++)
         {
-            singletonEnemy.InstantiateTurretsAt(pathManager.GetPosSpawnEneny(), this.gameObject);
+            if (this.wave <= 3)
+            {
+                this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First();
+                GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject, 0);
+                temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
+            }
+            else
+            {
+                for (int j = 0; j < pathManager.GetListFileNodePath().Count; j++)
+                {
+                    this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First();
+                    GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject, j);
+                    temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (j + 1)));
+                }
+            }
             yield return new WaitForSeconds(timeSpawn);
+            this.btnReadyPlayGame.gameObject.SetActive(true);
         }
     }
     IEnumerator StartCountdown()
     {
-        textWave.text = $"Wave {wave} is coming...";
+        textWave.text = $"Wave {wave}";
         gameStats.WaveStart = wave - 1;
 
         while (secondStartCountdown >= 0)

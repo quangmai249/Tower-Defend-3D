@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,52 +5,75 @@ public class LevelManager : MonoBehaviour
 {
     [Header("Path")]
     [SerializeField] Level level = Level.LEVEL_1;
-    [SerializeField] readonly string pathFileNode = "Assets/Resources/FileNodePath";
-    [SerializeField] readonly string pathFileNodeBuilding = "Assets/Resources/FileNodeBuilding";
-
-    private readonly string hidden_path_node = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/FileNodePath";
-    private readonly string hidden_path_node_building = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/FileNodeBuilding";
 
     [Header("Node Building")]
     [SerializeField] GameObject nodeBuilding;
     [SerializeField] List<Transform> lsBuilding;
+
     [Header("Node Path")]
     [SerializeField] GameObject nodePath;
     [SerializeField] List<Transform> lsNodePath;
 
-    private FilePath filePathNode;
-    private FilePath filePathBuilding;
-    private FilePath hidden1;
-    private FilePath hidden2;
+    private readonly string hidden_path_node = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/FileNodePath/";
+    private readonly string hidden_path_node_building = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/FileNodeBuilding/";
+
+    private FilePath hidden_file_node_path;
+    private FilePath hidden_file_node_building;
     private void Start()
     {
-        AddGameObjectToList(this.nodeBuilding, this.lsBuilding);
-        AddGameObjectToList(this.nodePath, this.lsNodePath);
-
-        this.filePathNode = new FilePath(this.pathFileNode, this.GetLevel());
-        this.filePathNode.SetListVector(this.lsNodePath);
-        this.filePathNode.StartSaveToFile();
-
-        this.filePathBuilding = new FilePath(this.pathFileNodeBuilding, this.GetLevel());
-        this.filePathBuilding.SetListVector(this.lsBuilding);
-        this.filePathBuilding.StartSaveToFile();
-
-        //hidden
-        this.hidden1 = new FilePath(this.hidden_path_node, this.GetLevel());
-        this.hidden2 = new FilePath(this.hidden_path_node_building, this.GetLevel());
-        this.hidden1.SetListVector(this.lsNodePath);
-        this.hidden1.StartSaveToFile();
-        this.hidden2.SetListVector(this.lsBuilding);
-        this.hidden2.StartSaveToFile();
+        StartSaveListNodePathToFile();
+        StartSaveListNodeBuildingToFile();
     }
-    private void AddGameObjectToList(GameObject go, List<Transform> ls)
+    private void StartSaveListNodeBuildingToFile()
     {
-        foreach (Transform t in go.GetComponentsInChildren<Transform>())
-            ls.Add(t);
-        ls.RemoveAt(0);
+        this.lsBuilding = ListGameObjectNodeBuilding(this.nodeBuilding);
+        this.lsBuilding.RemoveAt(0);
+
+        this.hidden_file_node_building
+            = new FilePath(this.hidden_path_node_building + this.level.ToString(), this.level.ToString());
+        this.hidden_file_node_building.SetListVector(this.lsBuilding);
+        this.hidden_file_node_building.StartSaveToFile();
     }
-    private string GetLevel()
+    private void StartSaveListNodePathToFile()
     {
-        return this.level.ToString();
+        int count = 1;
+        Transform[] temp = null;
+        foreach (var item in ListGameObjectNodePath(this.nodePath))
+        {
+            temp = item.GetComponentsInChildren<Transform>();
+            for (int i = 1; i < temp.Length; i++)
+            {
+                this.lsNodePath.Add(temp[i]);
+            }
+
+            this.hidden_file_node_path
+                = new FilePath(this.hidden_path_node + this.level.ToString(), this.level.ToString() + count);
+            this.hidden_file_node_path.SetListVector(this.lsNodePath);
+            this.hidden_file_node_path.StartSaveToFile();
+
+            count++;
+            this.lsNodePath.Clear();
+        }
+    }
+    private List<Transform> ListGameObjectNodeBuilding(GameObject go)
+    {
+        List<Transform> ls = new List<Transform>();
+        foreach (var item in go.GetComponentsInChildren<Transform>())
+        {
+            ls.Add(item);
+        }
+        return ls;
+    }
+    private List<Transform> ListGameObjectNodePath(GameObject go)
+    {
+        List<Transform> lsChild = new List<Transform>();
+
+        foreach (var item in go.GetComponentsInChildren<Transform>())
+        {
+            if (item.parent == go.transform)
+                lsChild.Add(item);
+        }
+
+        return lsChild;
     }
 }

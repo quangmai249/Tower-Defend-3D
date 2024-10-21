@@ -9,6 +9,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     [SerializeField] TextMeshProUGUI textPriceUpgrade;
     [SerializeField] TextMeshProUGUI textSellTurret;
     [SerializeField] Vector3 defaultRotaion = new Vector3(90f, 0, 0);
+    [SerializeField] float upgradeturretStatsPercent = 10f;
     [SerializeField] string btnConfirmTag = "Button Confirm Upgrade Turret";
 
     private GameObject turret;
@@ -69,14 +70,17 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         //
         TurretStats res = this.turretStats;
         res.PriceTurret = this.turretStats.PriceTurret;
-        res.PriceUpgradeTurret += Mathf.Round(this.turretStats.PriceUpgradeTurret * 0.5f);
-        res.PriceSellTurret += Mathf.Round(this.turretStats.PriceSellTurret * 0.75f);
-        res.RangeTurret += this.turretStats.RangeTurret * 0.1f;
-        res.DamagedTurret += this.turretStats.DamagedTurret * 0.25f;
+        res.PriceUpgradeTurret += Mathf.Round(this.turretStats.PriceUpgradeTurret * (upgradeturretStatsPercent / 100));
+        res.PriceSellTurret += Mathf.Round(this.turretStats.PriceSellTurret * (upgradeturretStatsPercent / 100));
+        res.RangeTurret += this.turretStats.RangeTurret * (upgradeturretStatsPercent / 100);
+        res.DamagedTurret += this.turretStats.DamagedTurret * (upgradeturretStatsPercent / 100);
+
+        BulletLaser bulletLaser = this.turret.GetComponent<BulletLaser>();
+        if (bulletLaser != null)
+            bulletLaser.SetTimeSlowing(bulletLaser.GetTimeSlowing() - (bulletLaser.GetTimeSlowing() * 0.1f));
         //
 
         this.turret.GetComponent<Turrets>().SetTurretStats(res);
-
         this.btnConfirm.SetActive(false);
         return;
     }

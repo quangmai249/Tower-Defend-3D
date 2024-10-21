@@ -6,6 +6,7 @@ public class BulletLaser : MonoBehaviour
 {
     [Header("Bullets")]
     [SerializeField] GameObject objEffectLaser;
+    [SerializeField] float timeDurationSlowing = 0.75f;
 
     [Header("Enemies")]
     [SerializeField] GameObject target;
@@ -57,7 +58,15 @@ public class BulletLaser : MonoBehaviour
                 , (this.target.transform.position - this.gameObject.transform.position)
                 , this.turretStats.DamagedTurret, true);
 
-            this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true);
+            this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true, this.timeDurationSlowing);
         }
+    }
+    public float GetTimeSlowing()
+    {
+        return this.timeDurationSlowing;
+    }
+    public void SetTimeSlowing(float time)
+    {
+        this.timeDurationSlowing = time;
     }
 }

@@ -6,32 +6,22 @@ using UnityEngine;
 
 public class EnemyMoving : MonoBehaviour
 {
-    [SerializeField] readonly string pathManagerTag = "Path Manager";
-    [SerializeField] readonly string levelDesignTag = "Level Design";
     [SerializeField] Vector3[] arrayPoint;
+    [SerializeField] Vector3 lastPoint;
 
-    [SerializeField] float randPath = 0.5f;
+    [SerializeField] float randPath = 1f;
     [SerializeField] float timeDuration = 30f;
-    [SerializeField] float timeDurationSlowing = 0.75f;
+    [SerializeField] float timeDurationSlowing;
     [SerializeField] bool isSlowing = false;
 
-    private LevelDesign levelDesign;
-    private PathManager pathManager;
     private GameManager gameManager;
-    private FilePath filePath;
     private GameStats gameStats;
-    private Tween t;
+    private Tween tween;
 
     private void Awake()
     {
         gameManager = GameManager.Instance;
         gameStats = gameManager.GetGameStats();
-
-        levelDesign = GameObject.FindGameObjectWithTag(levelDesignTag).GetComponent<LevelDesign>();
-        pathManager = GameObject.FindGameObjectWithTag(pathManagerTag).GetComponent<PathManager>();
-        filePath = new FilePath(pathManager.GetPath(), levelDesign.GetLevel());
-
-        arrayPoint = filePath.ReadFromFile();
     }
     private void Start()
     {
@@ -39,7 +29,7 @@ public class EnemyMoving : MonoBehaviour
     }
     private void Update()
     {
-        if (gameObject.transform.position == arrayPoint[arrayPoint.Length - 1])
+        if (gameObject.transform.position == this.lastPoint)
         {
             gameStats.Lives -= 1;
             DOTween.Kill(this.gameObject.transform);
@@ -47,41 +37,45 @@ public class EnemyMoving : MonoBehaviour
         }
         if (isSlowing == true)
         {
-            this.t.timeScale = timeDurationSlowing;
+            this.tween.timeScale = timeDurationSlowing;
             isSlowing = false;
             return;
         }
         else
         {
-            this.t.timeScale = 1;
+            this.tween.timeScale = 1;
             return;
         }
     }
+    public void SetArrayPoint(FilePath f)
+    {
+        this.arrayPoint = f.ReadFromFile();
+        this.lastPoint = this.arrayPoint[this.arrayPoint.Length - 1];
+    }
+    public void SetIsSlowing(bool b, float timeDurationSlowing)
+    {
+        this.isSlowing = b;
+        this.timeDurationSlowing = timeDurationSlowing;
+    }
     private void Moving()
     {
-        this.t =
+        this.tween =
         gameObject.transform
-            .DOPath(NewArrayPoint(), timeDuration, PathType.Linear)
+            .DOPath(ArrayPointEnemyMoving(), timeDuration, PathType.Linear)
             .SetEase(Ease.Linear)
             .SetLookAt(0.001f);
     }
-    private Vector3[] NewArrayPoint()
+    private Vector3[] ArrayPointEnemyMoving()
     {
-        Vector3[] res = new Vector3[arrayPoint.Length];
-        res[0] = arrayPoint[0];
-        res[res.Length - 1] = arrayPoint[arrayPoint.Length - 1];
-        for (int i = 1; i < arrayPoint.Length - 1; i++)
-        {
-            res[i] = arrayPoint[i] + RandomVector3Path(randPath);
-        }
+        Vector3[] res = new Vector3[this.arrayPoint.Length];
+        res[0] = this.arrayPoint[1];
+        res[this.arrayPoint.Length - 1] = this.arrayPoint[this.arrayPoint.Length - 1];
+        for (int i = 1; i < this.arrayPoint.Length - 1; i++)
+            res[i] = this.arrayPoint[i] + RandomVector3Path(this.randPath);
         return res;
     }
     private Vector3 RandomVector3Path(float rand)
     {
         return new Vector3(Random.Range(-rand, rand), 0, Random.Range(-rand, rand));
-    }
-    public void SetIsSlowing(bool b)
-    {
-        this.isSlowing = b;
     }
 }

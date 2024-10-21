@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrayPoint: []
-  randPath: 0.5
+  randPath: 1
   timeDuration: 60
   timeDurationSlowing: 0.75
   isSlowing: 0

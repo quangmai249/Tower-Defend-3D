@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8921b3e0957e24c9e1da99b6e2614f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletParent: {fileID: 3552117830979223341, guid: 241dc00d7af670b41829035afe13c4da, type: 3}
   fireCountdown: 1
   defaultFireCountdown: 1
   target: {fileID: 0}

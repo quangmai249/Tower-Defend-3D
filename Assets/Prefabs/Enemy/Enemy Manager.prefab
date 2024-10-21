@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2193313950615711225}
   - component: {fileID: 2469453237291751300}
-  - component: {fileID: 2981995721392159231}
   m_Layer: 0
   m_Name: Enemy Manager
   m_TagString: Enemy Manager
@@ -45,26 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089bd338904375b4c88344f01ae00303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 4371903954904197440, guid: b78a702b44659d0469cbbc5dc9a1f3e2, type: 3}
---- !u!114 &2981995721392159231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702010837863626328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aebc99651811a9459d5881be2f04b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textCountdown: {fileID: 0}
-  textWave: {fileID: 0}
-  enemy: {fileID: 4371903954904197440, guid: b78a702b44659d0469cbbc5dc9a1f3e2, type: 3}
-  listEnemy: {fileID: 0}
-  secondStartCountdown: 1
-  secondCountdownPerWave: 7
-  wave: 1
-  maxWave: 10
-  quantity: 1
-  timeSpawn: 1.5
+  lsEnemy:
+  - {fileID: 4371903954904197440, guid: b78a702b44659d0469cbbc5dc9a1f3e2, type: 3}
+  - {fileID: 4371903954904197440, guid: 6ce41a3a983fa104fbf149222d644390, type: 3}
+  - {fileID: 4371903954904197440, guid: 1853c3e217b8f924792fb4e8cb534a16, type: 3}

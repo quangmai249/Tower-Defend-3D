@@ -40,13 +40,6 @@ public class ButtonShop : MonoBehaviour
 
         nodePos = this.nodeBuildingParent.transform.position;
     }
-    public void ButtonCloseShopTurret()
-    {
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
-
-        this.menuShop.gameObject.SetActive(false);
-        return;
-    }
     public void ButtonSelectTurret()
     {
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);

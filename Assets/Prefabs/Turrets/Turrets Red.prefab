@@ -61,6 +61,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -120,14 +123,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeBuilding: {fileID: 3573715583782016384, guid: c8b39bdaf00bdaf409d4b02c03fbbdc7, type: 3}
-  menuUpgradeTurrets: {fileID: 1594684375454613307, guid: bac054b9a46b9b049a67e50a668ef4e2, type: 3}
+  menuUpgradeTurrets: {fileID: 5451835207022191732, guid: bac054b9a46b9b049a67e50a668ef4e2, type: 3}
   canvasUpgradeTag: Canvas Upgrade Turrets
   btnConfirmTag: Button Confirm Upgrade Turret
-  priceTurrets: 500
-  priceUpgrade: 250
-  priceSell: 300
+  priceTurrets: 200
+  priceUpgrade: 100
+  priceSell: 150
   range: 6
-  damage: 20
+  damage: 15
 --- !u!114 &-3668544928689665656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8921b3e0957e24c9e1da99b6e2614f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletParent: {fileID: 3552117830979223341, guid: 241dc00d7af670b41829035afe13c4da, type: 3}
   fireCountdown: 1
   defaultFireCountdown: 1
   target: {fileID: 0}

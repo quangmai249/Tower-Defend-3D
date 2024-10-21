@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     private void Awake()
     {
         gameManager = GameManager.Instance;
-        gameStats = gameManager.GetGameStats();
+        gameStats = gameManager.GameStats;
 
         this.defaultHP = this.enemyHP;
     }

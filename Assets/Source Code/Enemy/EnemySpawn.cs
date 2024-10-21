@@ -43,7 +43,7 @@ public class EnemySpawn : MonoBehaviour
     }
     void Start()
     {
-        gameStats = gameManager.GetGameStats();
+        gameStats = gameManager.GameStats;
 
         wave = gameStats.WaveStart;
         maxWave = gameStats.MaxWave;
@@ -54,14 +54,9 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
-        if (gameManager.GetIsGameOver() == true)
+        if (gameManager.IsGameOver == true)
         {
             return;
-        }
-
-        if (this.isReady == true)
-        {
-            this.btnReadyPlayGame.gameObject.SetActive(false);
         }
 
         if (wave <= maxWave + 1 && this.isReady == true)
@@ -71,12 +66,18 @@ public class EnemySpawn : MonoBehaviour
             this.isReady = false;
         }
 
+        if (wave == maxWave && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            gameManager.IsGameWinLevel = true;
+        }
+
         SetTextCountdown();
     }
     public void ButtonReadyPlayGame()
     {
-        isReady = true;
-        secondStartCountdown = defaultSecondCountdownPerWave;
+        this.isReady = true;
+        this.btnReadyPlayGame.gameObject.SetActive(false);
+        this.secondStartCountdown = this.defaultSecondCountdownPerWave;
     }
     void SetTextCountdown()
     {
@@ -114,8 +115,10 @@ public class EnemySpawn : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(timeSpawn);
-            this.btnReadyPlayGame.gameObject.SetActive(true);
         }
+
+        yield return new WaitForSeconds(5f);
+        this.btnReadyPlayGame.gameObject.SetActive(true);
     }
     IEnumerator StartCountdown()
     {

@@ -22,7 +22,7 @@ public class BulletSimple : MonoBehaviour
     {
         this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
         this.target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
-        if (this.target == null || gameManager.GetIsGameOver() == true)
+        if (this.target == null || gameManager.IsGameOver == true)
         {
             return;
         }

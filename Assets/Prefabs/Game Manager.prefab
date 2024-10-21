@@ -44,4 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21219a25de52554daab6e6194f8fde7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldStart: 500
+  waveStart: 1
+  maxWave: 10
+  lives: 10
+  gold: 1000
+  timeDurationEnemyMoving: 30
+  isGameWinLevel: 0
+  isGameOver: 0
+  isGamePause: 0

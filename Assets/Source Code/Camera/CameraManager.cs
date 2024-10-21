@@ -14,6 +14,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] float rangeHorizontalMoving = 5;
     [SerializeField] float speedMoveCamera = 10;
     [SerializeField] float locationYCamera;
+
+    [SerializeField] Vector3 pos;
     private void Start()
     {
         locationYCamera = this.gameObject.transform.position.y;
@@ -24,13 +26,12 @@ public class CameraManager : MonoBehaviour
     }
     private void OnGUI()
     {
-        Vector3 pos = transform.position;
-
+        pos = transform.position;
         pos.y -= Input.mouseScrollDelta.y;
 
-        if (pos.y > maxScale)
+        if (pos.y >= maxScale)
             pos.y = maxScale;
-        if (pos.y < minScale)
+        if (pos.y <= minScale)
             pos.y = minScale;
 
         this.gameObject.transform.position = pos;
@@ -42,12 +43,12 @@ public class CameraManager : MonoBehaviour
             this.gameObject.transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * speedMoveCamera * Time.deltaTime);
             if (this.gameObject.transform.position.x <= -rangeHorizontalMoving)
             {
-                this.gameObject.transform.position = new Vector3(-rangeHorizontalMoving, locationYCamera, this.gameObject.transform.position.z);
+                this.gameObject.transform.position = this.pos;
                 return;
             }
-            else if (this.gameObject.transform.position.x >= rangeHorizontalMoving)
+            if (this.gameObject.transform.position.x >= rangeHorizontalMoving)
             {
-                this.gameObject.transform.position = new Vector3(rangeHorizontalMoving, locationYCamera, this.gameObject.transform.position.z);
+                this.gameObject.transform.position = this.pos;
                 return;
             }
         }
@@ -57,12 +58,12 @@ public class CameraManager : MonoBehaviour
             this.gameObject.transform.Translate(Vector3.up * Input.GetAxis("Vertical") * speedMoveCamera * Time.deltaTime);
             if (this.gameObject.transform.position.z <= minVerticalMoving)
             {
-                this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, locationYCamera, minVerticalMoving);
+                this.gameObject.transform.position = this.pos;
                 return;
             }
-            else if (this.gameObject.transform.position.z >= maxVerticalMoving)
+            if (this.gameObject.transform.position.z >= maxVerticalMoving)
             {
-                this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, locationYCamera, maxVerticalMoving);
+                this.gameObject.transform.position = this.pos;
                 return;
             }
         }

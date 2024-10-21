@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.Instance;
-        gameStats = gameManager.GetGameStats();
+        gameStats = gameManager.GameStats;
         this.textNotEnoughGold.text = string.Empty;
         this.panelGameOver.SetActive(false);
     }
@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
         textGold.text = $"{gameStats.Gold}$";
         textLives.text = $"{gameStats.Lives} LIVES";
 
-        if (gameManager.GetIsGameOver() == true)
+        if (gameManager.IsGameOver == true)
         {
             this.panelGameOver.SetActive(true);
             this.textNumberRoundSurvived.text = (gameStats.WaveStart).ToString();

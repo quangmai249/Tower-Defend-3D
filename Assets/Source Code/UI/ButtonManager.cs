@@ -17,8 +17,8 @@ public class ButtonManager : MonoBehaviour
     }
     private void Start()
     {
-        gameManager.SetIsGameOver(false);
-        gameManager.SetIsGamePause(false);
+        gameManager.IsGameOver = false;
+        gameManager.IsGamePause = false;
         this.btnIncreaseSpeed.gameObject.SetActive(true);
         this.btnDecreaseSpeed.gameObject.SetActive(false);
         this.btnPauseGame.gameObject.SetActive(true);
@@ -26,7 +26,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonPauseGame()
     {
-        if (gameManager.GetIsGameOver() == true)
+        if (gameManager.IsGameOver == true)
             return;
 
         this.btnPauseGame.gameObject.SetActive(false);
@@ -37,12 +37,12 @@ public class ButtonManager : MonoBehaviour
         DOTween.PauseAll();
         Time.timeScale = 0f;
 
-        gameManager.SetIsGamePause(true);
+        gameManager.IsGamePause = true;
         return;
     }
     public void ButtonResumeGame()
     {
-        if (gameManager.GetIsGameOver() == true)
+        if (gameManager.IsGameOver == true)
             return;
 
         this.btnPauseGame.gameObject.SetActive(true);
@@ -53,12 +53,12 @@ public class ButtonManager : MonoBehaviour
         DOTween.PlayAll();
         Time.timeScale = 1.0f;
 
-        gameManager.SetIsGamePause(false);
+        gameManager.IsGamePause = false;
         return;
     }
     public void ButtonIncreaseSpeed(float speed)
     {
-        if (gameManager.GetIsGamePause() == true || gameManager.GetIsGameOver() == true)
+        if (gameManager.IsGamePause == true || gameManager.IsGameOver == true)
             return;
 
         this.btnIncreaseSpeed.gameObject.SetActive(false);
@@ -69,7 +69,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonDecreaseSpeed(float speed)
     {
-        if (gameManager.GetIsGamePause() == true || gameManager.GetIsGameOver() == true)
+        if (gameManager.IsGamePause == true || gameManager.IsGameOver == true)
             return;
 
         this.btnIncreaseSpeed.gameObject.SetActive(true);

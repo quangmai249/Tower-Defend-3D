@@ -60,6 +60,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -120,6 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522dc39702e4f864e8e840c42b58289e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopTurretCanvas: {fileID: 1108018951759142075, guid: 8189ef2e8c0949d408a93350eee11f56, type: 3}
+  shopTurretCanvas: {fileID: 2972257899915444850, guid: 8189ef2e8c0949d408a93350eee11f56, type: 3}
   canvasShopTag: Canvas Shop Turrets
   btnConfirmTag: Button Confirm Shop Turret

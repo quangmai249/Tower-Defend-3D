@@ -32,7 +32,7 @@ public class Turrets : MonoBehaviour
         gameManager = GameManager.Instance;
         uiManager = UIManager.Instance;
 
-        gameStats = gameManager.GetGameStats();
+        gameStats = gameManager.GameStats;
     }
     private void Start()
     {
@@ -70,7 +70,7 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        if (gameManager.GetIsGameOver() == true || gameManager.GetIsGamePause() == true)
+        if (gameManager.IsGameOver == true || gameManager.IsGamePause == true)
             return;
 
         rend.material.color = Color.green;
@@ -81,7 +81,7 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (gameManager.GetIsGameOver() == true || gameManager.GetIsGamePause() == true)
+        if (gameManager.IsGameOver == true || gameManager.IsGamePause == true)
             return;
 
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);

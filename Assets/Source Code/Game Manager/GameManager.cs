@@ -11,11 +11,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] int maxWave = 10;
     [SerializeField] int lives = 3;
     [SerializeField] float gold = 800;
+
+    [SerializeField] float timeDurationEnemyMoving = 30f;
+
+    [SerializeField] bool isGameWinLevel = false;
     [SerializeField] bool isGameOver = false;
     [SerializeField] bool isGamePause = false;
 
     public static GameManager Instance;
     private GameStats gameStats;
+
     private void Awake()
     {
         this.gameStats = new GameStats(this.gold, this.lives, this.waveStart, this.maxWave);
@@ -30,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         this.isGameOver = false;
         this.isGamePause = false;
+        this.isGameWinLevel = false;
         Time.timeScale = 1;
     }
     private void Update()
@@ -43,26 +49,9 @@ public class GameManager : MonoBehaviour
             this.isGameOver = true;
         }
     }
-    public GameStats GetGameStats()
-    {
-        return this.gameStats;
-    }
-    public void SetIsGameOver(bool b)
-    {
-        this.isGameOver = b;
-        return;
-    }
-    public bool GetIsGameOver()
-    {
-        return this.isGameOver;
-    }
-    public void SetIsGamePause(bool b)
-    {
-        this.isGamePause = b;
-        return;
-    }
-    public bool GetIsGamePause()
-    {
-        return this.isGamePause;
-    }
+    public bool IsGameWinLevel { get => this.isGameWinLevel; set => this.isGameWinLevel = value; }
+    public bool IsGameOver { get => this.isGameOver; set => this.isGameOver = value; }
+    public bool IsGamePause { get => isGamePause; set => isGamePause = value; }
+    public float TimeDurationEnemyMoving { get => timeDurationEnemyMoving; set => timeDurationEnemyMoving = value; }
+    public GameStats GameStats { get => this.gameStats; set => this.gameStats = value; }
 }

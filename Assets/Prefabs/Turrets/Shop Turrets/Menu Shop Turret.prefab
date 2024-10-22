@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7413527229109033762}
   - component: {fileID: 1021426906158089704}
   - component: {fileID: 1389317722012507959}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Menu Shop Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6707503673776560740}
   - component: {fileID: 126833933711894758}
   - component: {fileID: 2270649699571222833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 5503489244618100846}
   - component: {fileID: 7259195456956524642}
   - component: {fileID: 7582132024008077262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button Confirm
   m_TagString: Button Confirm Shop Turret
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 3}
+  m_SizeDelta: {x: 35, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5503489244618100846
 CanvasRenderer:
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 2272050380574619960}
   - component: {fileID: 8059673214380075013}
   - component: {fileID: 320693351840498792}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button Confirm
   m_TagString: Button Confirm Shop Turret
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 3}
+  m_SizeDelta: {x: 35, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2272050380574619960
 CanvasRenderer:
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 142461019488421910}
   - component: {fileID: 6599623511068038629}
   - component: {fileID: 5277407364035496986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button Blue Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 1772372924300561737}
   - component: {fileID: 1252768018871710963}
   - component: {fileID: 8307676877182601727}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 2562594368548625380}
   - component: {fileID: 9210905046898534973}
   - component: {fileID: 6122790239132277856}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button Red Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -881,7 +881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -20}
+  m_AnchoredPosition: {x: -20, y: -15}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3818451882166138771
@@ -1006,7 +1006,7 @@ GameObject:
   - component: {fileID: 2590717168541424956}
   - component: {fileID: 8356347391809616626}
   - component: {fileID: 6339330713599113036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button Confirm
   m_TagString: Button Confirm Shop Turret
   m_Icon: {fileID: 0}
@@ -1030,7 +1030,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 3}
+  m_SizeDelta: {x: 35, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2590717168541424956
 CanvasRenderer:
@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 1036605626372927351}
   - component: {fileID: 6805673255978333021}
   - component: {fileID: 4005606259153772217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button Confirm
   m_TagString: Button Confirm Shop Turret
   m_Icon: {fileID: 0}
@@ -1162,7 +1162,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 3}
+  m_SizeDelta: {x: 35, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1036605626372927351
 CanvasRenderer:
@@ -1269,7 +1269,7 @@ GameObject:
   - component: {fileID: 6954154665303993250}
   - component: {fileID: 84962996655919372}
   - component: {fileID: 4773372534168437273}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 8659614566970785125}
   - component: {fileID: 168945700818377568}
   - component: {fileID: 8383958173898170884}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button Yellow Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1472,7 +1472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -20}
+  m_AnchoredPosition: {x: 20, y: -15}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5952404766394967178
@@ -1598,7 +1598,7 @@ GameObject:
   - component: {fileID: 4045020253739343456}
   - component: {fileID: 8163063231572295808}
   - component: {fileID: 4094080513209388984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button White Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1747,7 +1747,7 @@ GameObject:
   - component: {fileID: 3155863986674166958}
   - component: {fileID: 6009840400002064322}
   - component: {fileID: 7086893357319061260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7899586179864598993}
   - component: {fileID: 4995136165017834998}
   - component: {fileID: 32119976548596591}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas Upgrade Turret
   m_TagString: Canvas Upgrade Turrets
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 234533046962974435, guid: 815b1eabca92d9540a1cb46e3dd75097, type: 3}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &32119976548596591
 MonoBehaviour:
   m_ObjectHideFlags: 0

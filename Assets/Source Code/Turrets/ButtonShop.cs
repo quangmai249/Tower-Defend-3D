@@ -43,7 +43,6 @@ public class ButtonShop : MonoBehaviour
     public void ButtonSelectTurret()
     {
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
-
         this.confirm.SetActive(true);
         return;
     }

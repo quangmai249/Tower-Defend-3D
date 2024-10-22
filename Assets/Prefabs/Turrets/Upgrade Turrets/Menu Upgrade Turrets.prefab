@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9128430962713545707}
   - component: {fileID: 8472386551234380164}
   - component: {fileID: 9207035370326286610}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Button Sell Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6326103983224927716}
   - component: {fileID: 340762431447633744}
   - component: {fileID: 1866721742280753587}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text Sell Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 1111408774274047721}
   - component: {fileID: 5928763181786345880}
   - component: {fileID: 7155927573695908694}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Button Confirm Sell Turret
   m_TagString: Button Confirm Upgrade Turret
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 1735219571497608406}
   - component: {fileID: 752191192860100923}
   - component: {fileID: 1115744454384429168}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text Price Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 6614533494635374680}
   - component: {fileID: 3278153747406155441}
   - component: {fileID: 2411421375150918046}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Button Confirm Upgrade Turret
   m_TagString: Button Confirm Upgrade Turret
   m_Icon: {fileID: 0}
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 4752881558565675086}
   - component: {fileID: 2690456641019171983}
   - component: {fileID: 633459486780282204}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Button Upgrade Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 1229778838519452603}
   - component: {fileID: 4303169938675946325}
   - component: {fileID: 3182284018441246967}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Menu Upgrade Turrets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -879,7 +879,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 3}
+  m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4303169938675946325
 CanvasRenderer:

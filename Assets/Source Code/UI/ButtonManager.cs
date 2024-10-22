@@ -10,6 +10,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] GameObject btnDecreaseSpeed;
     [SerializeField] GameObject btnPauseGame;
     [SerializeField] GameObject btnResumeGame;
+    [SerializeField] GameObject btnReadyPlayGame;
     private GameManager gameManager;
     private void Awake()
     {
@@ -23,6 +24,19 @@ public class ButtonManager : MonoBehaviour
         this.btnDecreaseSpeed.gameObject.SetActive(false);
         this.btnPauseGame.gameObject.SetActive(true);
         this.btnResumeGame.gameObject.SetActive(false);
+        this.btnReadyPlayGame.gameObject.SetActive(true);
+    }
+    private void Update()
+    {
+        if (gameManager.IsGameOver == true)
+        {
+            this.btnIncreaseSpeed.gameObject.SetActive(false);
+            this.btnDecreaseSpeed.gameObject.SetActive(false);
+            this.btnPauseGame.gameObject.SetActive(false);
+            this.btnResumeGame.gameObject.SetActive(false);
+            this.btnReadyPlayGame.gameObject.SetActive(false);
+            return;
+        }
     }
     public void ButtonPauseGame()
     {

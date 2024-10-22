@@ -126,9 +126,9 @@ MonoBehaviour:
   menuUpgradeTurrets: {fileID: 5451835207022191732, guid: bac054b9a46b9b049a67e50a668ef4e2, type: 3}
   canvasUpgradeTag: Canvas Upgrade Turrets
   btnConfirmTag: Button Confirm Upgrade Turret
-  priceTurrets: 200
-  priceUpgrade: 100
-  priceSell: 150
+  priceTurrets: 400
+  priceUpgrade: 200
+  priceSell: 300
   range: 6
   damage: 15
 --- !u!114 &-3668544928689665656

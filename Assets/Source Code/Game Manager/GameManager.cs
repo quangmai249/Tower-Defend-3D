@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour
     [Header("Game Stats")]
     [SerializeField] int waveStart = 1;
     [SerializeField] int maxWave = 10;
-    [SerializeField] int lives = 3;
-    [SerializeField] float gold = 800;
+    [SerializeField] int lives = 10;
+    [SerializeField] float gold = 1000;
 
-    [SerializeField] float timeDurationEnemyMoving = 30f;
+    [SerializeField] float timeDurationEnemyMoving = 60f;
 
     [SerializeField] bool isGameWinLevel = false;
     [SerializeField] bool isGameOver = false;

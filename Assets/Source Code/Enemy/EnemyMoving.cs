@@ -66,12 +66,15 @@ public class EnemyMoving : MonoBehaviour
     }
     private Vector3[] ArrayPointEnemyMoving()
     {
-        Vector3[] res = new Vector3[this.arrayPoint.Length];
-        res[0] = this.arrayPoint[1];
-        res[this.arrayPoint.Length - 1] = this.arrayPoint[this.arrayPoint.Length - 1];
+        List<Vector3> ls = new List<Vector3>();
+        Vector3 randVec = RandomVector3Path(this.randPath);
+
         for (int i = 1; i < this.arrayPoint.Length - 1; i++)
-            res[i] = this.arrayPoint[i] + RandomVector3Path(this.randPath);
-        return res;
+            ls.Add(this.arrayPoint[i] + randVec);
+
+        ls.RemoveAt(0);
+        ls.Add(this.lastPoint);
+        return ls.ToArray();
     }
     private Vector3 RandomVector3Path(float rand)
     {

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6707503673776560740}
   - component: {fileID: 126833933711894758}
   - component: {fileID: 2270649699571222833}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Text Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 8659614566970785125}
   - component: {fileID: 168945700818377568}
   - component: {fileID: 8383958173898170884}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Button Yellow Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -22,6 +22,7 @@ public class EnemySpawn : MonoBehaviour
 
     [Header("Spawn Enemy")]
     [SerializeField] Vector3 posSpawn;
+    [SerializeField] float randPath = 1f;
     [SerializeField] float timeSpawn = 1.5f;
 
     [SerializeField] readonly string levelDesignTag = "Level Design";
@@ -101,7 +102,7 @@ public class EnemySpawn : MonoBehaviour
         {
             if (this.wave <= 3)
             {
-                this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First();
+                this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First() + RandomVector3Path(this.randPath);
                 GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject, 0);
                 temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
             }
@@ -109,7 +110,7 @@ public class EnemySpawn : MonoBehaviour
             {
                 for (int j = 0; j < pathManager.GetListFileNodePath().Count; j++)
                 {
-                    this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First();
+                    this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First() + RandomVector3Path(this.randPath); ;
                     GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject, j);
                     temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (j + 1)));
                 }
@@ -131,5 +132,9 @@ public class EnemySpawn : MonoBehaviour
             secondStartCountdown--;
         }
         wave++;
+    }
+    private Vector3 RandomVector3Path(float rand)
+    {
+        return new Vector3(Random.Range(-rand, rand), 0, Random.Range(-rand, rand));
     }
 }

@@ -1,10 +1,14 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [Header("Path")]
-    [SerializeField] Level level = Level.LEVEL_1;
+    [Header("Level")]
+    [SerializeField] TextMeshProUGUI textNotify;
+    [SerializeField] TMPro.TMP_Dropdown tMP_Dropdown;
+    [SerializeField] string level;
 
     [Header("Node Building")]
     [SerializeField] GameObject nodeBuilding;
@@ -21,8 +25,31 @@ public class LevelManager : MonoBehaviour
     private FilePath hidden_file_node_building;
     private void Start()
     {
-        StartSaveListNodePathToFile();
-        StartSaveListNodeBuildingToFile();
+        this.textNotify.text = string.Empty;
+        this.tMP_Dropdown.ClearOptions();
+        this.tMP_Dropdown.captionText.text = Level.LEVEL_1.ToString();
+
+        foreach (var item in Enum.GetValues(typeof(Level)))
+        {
+            TMPro.TMP_Dropdown.OptionData temp = new TMPro.TMP_Dropdown.OptionData();
+            temp.text = item.ToString();
+            this.tMP_Dropdown.options.Add(temp);
+        }
+    }
+    public void GetValueLevelDesign()
+    {
+        try
+        {
+            this.level = this.tMP_Dropdown.options[this.tMP_Dropdown.value].text;
+            StartSaveListNodePathToFile();
+            StartSaveListNodeBuildingToFile();
+            this.textNotify.text = $"Saved {this.level} successfully!";
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+            this.textNotify.text = $"Saved {this.level} unsuccessfully!";
+        }
     }
     private void StartSaveListNodeBuildingToFile()
     {

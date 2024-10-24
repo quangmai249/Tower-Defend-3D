@@ -4341,6 +4341,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 192515598}
     - target: {fileID: 8019499079800398042, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019499079800398042, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: m_Name
       value: Level Design
       objectReference: {fileID: 0}
@@ -4465,6 +4469,10 @@ PrefabInstance:
     - target: {fileID: 7227655126977185174, guid: a14760c75cb4ed5418e7ff65f1b74665, type: 3}
       propertyPath: m_Name
       value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713725748295776318, guid: a14760c75cb4ed5418e7ff65f1b74665, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8030885968994982407, guid: a14760c75cb4ed5418e7ff65f1b74665, type: 3}
       propertyPath: m_LocalPosition.x

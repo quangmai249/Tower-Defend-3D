@@ -43,7 +43,7 @@ public class FilePath
     }
     private void CheckPathExisted()
     {
-        if (File.Exists(this.GetPath()))
+        if (File.Exists(this.path))
         {
             Debug.LogError($"File {this.path} EXISTED!");
             return;

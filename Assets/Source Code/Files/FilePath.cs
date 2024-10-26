@@ -7,6 +7,7 @@ public class FilePath
 {
     private string name;
     private string path;
+    private string notify;
     private List<Transform> lsPos;
     private StreamWriter streamWriter = null;
     public FilePath(string path, string name)
@@ -41,27 +42,32 @@ public class FilePath
     {
         return $"{this.path}/{this.name}";
     }
+    public string GetNotify()
+    {
+        return $"{this.notify}";
+    }
     private void CheckPathExisted()
     {
-        if (File.Exists(this.path))
+        if (File.Exists(this.GetPath()))
         {
-            Debug.LogError($"File {this.path} EXISTED!");
+            this.notify = $"{this.GetPath()} exists!";
             return;
         }
         else
         {
             Directory.CreateDirectory(this.path);
-            Debug.Log($"Create new folder {this.path} SUCCESSFULLY!");
-
             if (this.lsPos.Count > 0)
             {
                 SaveDataListTramsform(this.streamWriter, this.lsPos);
-                Debug.Log($"Saved file {this.path} SUCCESSFULLY!");
+                this.notify = $"Save {this.GetPath()} is sucessfully!";
+                return;
             }
             else
-                Debug.LogError("List transform is NULL!");
+            {
+                this.notify = $"List transform is not null!";
+                return;
+            }
 
-            return;
         }
     }
     private void SaveDataListTramsform(StreamWriter s, List<Transform> ls)

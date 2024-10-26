@@ -29,9 +29,6 @@ public class NodeBuilding : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        if (gameManager.IsGameOver == true || gameManager.IsGamePause == true)
-            return;
-
         rend.material.color = Color.green;
     }
     private void OnMouseExit()

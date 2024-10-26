@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2661089608826270217}
   - component: {fileID: 4757996193250519017}
   - component: {fileID: 8743419279647451739}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Image HP Bar Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8489591145773970029}
   - component: {fileID: 4261436099394512067}
   - component: {fileID: 1473415408887852219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Image HP Bar Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 8401533769808800301}
   - component: {fileID: 7335308125331421868}
   - component: {fileID: 951579435557553277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Image HP Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 679558603191680367}
   - component: {fileID: 9168411408680573726}
   - component: {fileID: 5664431174093081011}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -289,6 +289,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -348,8 +351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrayPoint: []
+  lastPoint: {x: 0, y: 0, z: 0}
   randPath: 1
-  timeDuration: 60
   timeDurationSlowing: 0.75
   isSlowing: 0
 --- !u!114 &679558603191680367
@@ -5170,6 +5173,9 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5238,7 +5244,7 @@ GameObject:
   - component: {fileID: 4091746681031903328}
   - component: {fileID: 2842373154597873092}
   - component: {fileID: 7543711146696669551}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

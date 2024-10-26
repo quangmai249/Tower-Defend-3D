@@ -76,6 +76,9 @@ public class EnemySpawn : MonoBehaviour
     }
     public void ButtonReadyPlayGame()
     {
+        if (gameManager.IsGamePause == true || gameManager.IsGameOver == true)
+            return;
+
         this.isReady = true;
         this.btnReadyPlayGame.gameObject.SetActive(false);
         this.secondStartCountdown = this.defaultSecondCountdownPerWave;
@@ -103,7 +106,7 @@ public class EnemySpawn : MonoBehaviour
             if (this.wave <= 3)
             {
                 this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First() + RandomVector3Path(this.randPath);
-                GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject, 0);
+                GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject);
                 temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
             }
             else
@@ -111,7 +114,7 @@ public class EnemySpawn : MonoBehaviour
                 for (int j = 0; j < pathManager.GetListFileNodePath().Count; j++)
                 {
                     this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First() + RandomVector3Path(this.randPath); ;
-                    GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject, j);
+                    GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject);
                     temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (j + 1)));
                 }
             }

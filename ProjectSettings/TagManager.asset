@@ -6,12 +6,13 @@ TagManager:
   tags:
   - Path Manager
   - Enemy
-  - Turrets
+  - Enemy Manager
   - Bullet
+  - Turrets
   - Level Design
   - Shop Turrets
+  - Node Path
   - Node Building
-  - Enemy Manager
   - Button Confirm Shop Turret
   - Button Confirm Upgrade Turret
   - Canvas Shop Turrets

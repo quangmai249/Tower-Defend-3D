@@ -6,21 +6,22 @@ using TMPro;
 using UnityEngine;
 public class PathManager : MonoBehaviour
 {
+    [SerializeField] string default_path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/";
+
     private List<FilePath> lsFilePath = new List<FilePath>();
     private LevelDesign levelDesign;
-    private SingletonNodePath singletonNodePath;
 
     private int numberPath = 0;
 
-    private readonly string path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/FileNodePath/";
+    private readonly string path = "FileNodePath/";
     private readonly string levelDesignTag = "Level Design";
     private void Awake()
     {
-        singletonNodePath = SingletonNodePath.Instance;
         levelDesign = GameObject.FindGameObjectWithTag(this.levelDesignTag).GetComponent<LevelDesign>();
     }
     private void Start()
     {
+        this.default_path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/";
         SetListFilePath(this.lsFilePath);
         CheckListFilePath(this.lsFilePath);
     }
@@ -30,14 +31,14 @@ public class PathManager : MonoBehaviour
     }
     public string GetPath()
     {
-        return this.path + levelDesign.GetLevel();
+        return this.default_path + this.path + levelDesign.GetLevel();
     }
     private void SetListFilePath(List<FilePath> ls)
     {
-        this.numberPath = Directory.GetFiles(this.path + levelDesign.GetLevel(), "*", SearchOption.AllDirectories).Length;
+        this.numberPath = Directory.GetFiles(this.GetPath(), "*", SearchOption.AllDirectories).Length;
         for (int i = 0; i < this.numberPath; i++)
         {
-            FilePath temp = new FilePath(this.path + levelDesign.GetLevel(), levelDesign.GetLevel() + (i + 1));
+            FilePath temp = new FilePath(this.GetPath(), levelDesign.GetLevel() + (i + 1));
             ls.Add(temp);
         }
     }

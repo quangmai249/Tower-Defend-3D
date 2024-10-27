@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     private readonly string hidden_path_node = "FileNodePath/";
     private readonly string hidden_path_node_building = "FileNodeBuilding/";
 
+    private TMPro.TMP_Dropdown.OptionData optionData;
     private FilePath hidden_file_node_path;
     private FilePath hidden_file_node_building;
     private void Start()
@@ -44,9 +45,9 @@ public class LevelManager : MonoBehaviour
 
         foreach (var item in Enum.GetValues(typeof(Level)))
         {
-            TMPro.TMP_Dropdown.OptionData temp = new TMPro.TMP_Dropdown.OptionData();
-            temp.text = item.ToString();
-            this.tMP_Dropdown.options.Add(temp);
+            this.optionData = new TMPro.TMP_Dropdown.OptionData();
+            this.optionData.text = item.ToString();
+            this.tMP_Dropdown.options.Add(this.optionData);
         }
     }
     private void Update()

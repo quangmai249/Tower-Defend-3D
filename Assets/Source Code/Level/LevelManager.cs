@@ -59,6 +59,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Menu Game");
         return;
     }
+    public void ButtonEditLevel()
+    {
+        SceneManager.LoadScene("Scene Edit Level");
+        return;
+    }
     public void ButtonSaveOffline()
     {
         this.tMP_InputField.text = string.Empty;

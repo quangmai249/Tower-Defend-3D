@@ -42,4 +42,12 @@ public class BulletSimple : MonoBehaviour
         }
         this.fireCountdown -= Time.deltaTime;
     }
+    public float GetFireCountdown()
+    {
+        return this.fireCountdown;
+    }
+    public void SetFireCountdown(float fireCountdown)
+    {
+        this.fireCountdown = fireCountdown;
+    }
 }

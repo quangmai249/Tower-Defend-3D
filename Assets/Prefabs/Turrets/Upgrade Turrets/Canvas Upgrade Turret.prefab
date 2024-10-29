@@ -190,6 +190,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1735219571497608406, guid: ff5ab4bc59c30ff44a8ba3b5e98de82d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735219571497608406, guid: ff5ab4bc59c30ff44a8ba3b5e98de82d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8254279869807509551, guid: ff5ab4bc59c30ff44a8ba3b5e98de82d, type: 3}
       propertyPath: m_Name
       value: Menu Upgrade Turrets

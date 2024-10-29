@@ -17,6 +17,7 @@ TagManager:
   - Button Confirm Upgrade Turret
   - Canvas Shop Turrets
   - Canvas Upgrade Turrets
+  - Text Turret Stats
   layers:
   - Default
   - TransparentFX

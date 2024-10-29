@@ -125,8 +125,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeBuilding: {fileID: 3573715583782016384, guid: c8b39bdaf00bdaf409d4b02c03fbbdc7, type: 3}
   menuUpgradeTurrets: {fileID: 5451835207022191732, guid: bac054b9a46b9b049a67e50a668ef4e2, type: 3}
+  canvasShopTag: Canvas Shop Turrets
   canvasUpgradeTag: Canvas Upgrade Turrets
   btnConfirmTag: Button Confirm Upgrade Turret
+  yPos: 2
+  textTurretStatsTag: Text Turret Stats
+  turretTypes: 2
   priceTurrets: 300
   priceUpgrade: 150
   priceSell: 200

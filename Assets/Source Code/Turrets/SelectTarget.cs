@@ -28,4 +28,10 @@ public static class SelectTarget
         foreach (var item in GameObject.FindGameObjectsWithTag(tag))
             item.gameObject.SetActive(b);
     }
+    public static GameObject SelectFirstGameObjectWithTag(string tag)
+    {
+        foreach (var item in GameObject.FindGameObjectsWithTag(tag))
+            return item;
+        return null;
+    }
 }

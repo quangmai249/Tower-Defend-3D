@@ -66,3 +66,4 @@ MonoBehaviour:
   btnDecreaseSpeed: {fileID: 0}
   btnPauseGame: {fileID: 0}
   btnResumeGame: {fileID: 0}
+  btnReadyPlayGame: {fileID: 0}

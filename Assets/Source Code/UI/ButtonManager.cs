@@ -11,15 +11,16 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] GameObject btnPauseGame;
     [SerializeField] GameObject btnResumeGame;
     [SerializeField] GameObject btnReadyPlayGame;
+    [SerializeField] string gameManagerTag = "GameController";
+    private GameObject gameObjManager;
     private GameManager gameManager;
     private void Awake()
     {
-        gameManager = GameManager.Instance;
+        gameObjManager = SelectTarget.SelectFirstGameObjectWithTag(this.gameManagerTag);
+        gameManager = gameObjManager.GetComponent<GameManager>();
     }
     private void Start()
     {
-        gameManager.IsGameOver = false;
-        gameManager.IsGamePause = false;
         this.btnIncreaseSpeed.gameObject.SetActive(true);
         this.btnDecreaseSpeed.gameObject.SetActive(false);
         this.btnPauseGame.gameObject.SetActive(true);

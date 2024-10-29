@@ -27,7 +27,7 @@ public class ButtonShop : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         this.confirm.SetActive(false);
-        this.textPrice.text = turretStats.PriceTurret.ToString();
+        this.textPrice.text = $"-{turretStats.PriceTurret.ToString()}$";
 
         this.nodeBuildingParent = this.gameObject.transform.parent.parent.parent.gameObject;
         this.menuShop = this.gameObject.transform.parent.parent.gameObject;

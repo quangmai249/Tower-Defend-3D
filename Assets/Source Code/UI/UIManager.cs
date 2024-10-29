@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         gameStats = gameManager.GameStats;
+
         this.textNotEnoughGold.text = string.Empty;
         this.panelGameOver.SetActive(false);
     }

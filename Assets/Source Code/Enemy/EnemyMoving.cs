@@ -60,17 +60,17 @@ public class EnemyMoving : MonoBehaviour
     {
         this.tween =
         gameObject.transform
-            .DOPath(ArrayPointEnemyMoving(), gameManager.TimeDurationEnemyMoving, PathType.Linear)
+            .DOPath(ArrayPointEnemyMoving(gameObject.transform.position.y), gameManager.TimeDurationEnemyMoving, PathType.Linear)
             .SetEase(Ease.Linear)
             .SetLookAt(0.001f);
     }
-    private Vector3[] ArrayPointEnemyMoving()
+    private Vector3[] ArrayPointEnemyMoving(float yPos)
     {
         List<Vector3> ls = new List<Vector3>();
         Vector3 randVec = RandomVector3Path(this.randPath);
 
         for (int i = 1; i < this.arrayPoint.Length - 1; i++)
-            ls.Add(this.arrayPoint[i] + randVec);
+            ls.Add(new Vector3(this.arrayPoint[i].x, yPos, this.arrayPoint[i].z) + randVec);
 
         ls.RemoveAt(0);
         ls.Add(this.lastPoint);

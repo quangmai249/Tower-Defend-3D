@@ -9,6 +9,7 @@ public class NodeBuilding : MonoBehaviour
     [SerializeField] GameObject shopTurretCanvas;
     [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
     [SerializeField] string btnConfirmTag = "Button Confirm Shop Turret";
+    [SerializeField] float yPos = 2f;
 
     private Renderer rend;
     private Color color;
@@ -46,6 +47,7 @@ public class NodeBuilding : MonoBehaviour
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
 
         this.shopCanvas.gameObject.SetActive(true);
-        this.shopCanvas.gameObject.transform.position = this.gameObject.transform.position;
+        this.shopCanvas.gameObject.transform.position
+            = new Vector3(this.transform.position.x, this.yPos, this.transform.position.z);
     }
 }

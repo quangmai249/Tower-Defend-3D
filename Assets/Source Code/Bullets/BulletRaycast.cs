@@ -5,11 +5,11 @@ using UnityEngine;
 
 public static class BulletRaycast
 {
-    public static void Shooting(GameObject pos, Vector3 distance, float damage, bool isLaser)
+    public static void Shooting(Vector3 pos, Vector3 distance, float damage, bool isLaser)
     {
         EnemyManager enemyManager;
         RaycastHit hit;
-        Physics.Raycast(pos.transform.position, distance, out hit);
+        Physics.Raycast(pos, distance, out hit);
         if (hit.collider != null)
         {
             enemyManager = hit.collider.gameObject.GetComponent<EnemyManager>();

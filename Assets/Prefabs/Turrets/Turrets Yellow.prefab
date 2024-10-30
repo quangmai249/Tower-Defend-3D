@@ -129,6 +129,7 @@ MonoBehaviour:
   canvasUpgradeTag: Canvas Upgrade Turrets
   btnConfirmTag: Button Confirm Upgrade Turret
   yPos: 2
+  imageTurret: {fileID: 21300000, guid: 93e4f30740238934cbbfd6ddada0064a, type: 3}
   textTurretStatsTag: Text Turret Stats
   turretTypes: 2
   priceTurrets: 300

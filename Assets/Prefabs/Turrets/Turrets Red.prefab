@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7817674391239492667}
   - component: {fileID: 5851984839577998476}
   - component: {fileID: -3668544928689665656}
+  - component: {fileID: -3262879011341413265}
   m_Layer: 0
   m_Name: Turrets Red
   m_TagString: Turrets
@@ -128,8 +129,10 @@ MonoBehaviour:
   canvasUpgradeTag: Canvas Upgrade Turrets
   btnConfirmTag: Button Confirm Upgrade Turret
   yPos: 2
+  imageTurret: {fileID: 21300000, guid: 2c9899b32b58cac4b8184d91c410e705, type: 3}
   textTurretStatsTag: Text Turret Stats
-  turretTypes: 1
+  imgTurretStatsTag: Image Turret Stats
+  turretTypes: 0
   priceTurrets: 400
   priceUpgrade: 200
   priceSell: 300
@@ -149,4 +152,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireCountdown: 1
   defaultFireCountdown: 1
+  bulletTag: Bullet
   target: {fileID: 0}
+--- !u!114 &-3262879011341413265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572517066504377506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306d5bd1608fa2347ac9ec8a4def679a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6606573848824112769, guid: 21384277deb1f3542b6cc303457913f5, type: 3}
+  lsBulletPooling: []
+  defaultBulletQuantity: 5

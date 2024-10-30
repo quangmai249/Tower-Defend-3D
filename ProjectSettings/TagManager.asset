@@ -18,6 +18,7 @@ TagManager:
   - Canvas Shop Turrets
   - Canvas Upgrade Turrets
   - Text Turret Stats
+  - Image Turret Stats
   layers:
   - Default
   - TransparentFX

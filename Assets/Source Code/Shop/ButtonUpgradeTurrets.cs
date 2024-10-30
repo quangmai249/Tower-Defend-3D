@@ -59,10 +59,16 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         if (gameStats.Gold < this.turretStats.PriceUpgradeTurret)
         {
             uiManager.SetActiveTextNotEnoughGold(true);
-            uiManager.SetTextNotEnoughGold($"You do not have enough money to upgrade" +
-                $" {(this.turret.name).Replace("(Clone)", "")}!");
+            uiManager.SetTextNotEnoughGold($"You do not have enough money to upgrade {(this.turret.name).Replace("(Clone)", "")}!");
             return;
         }
+        else if (this.turretStats.LevelTurret == 5)
+        {
+            uiManager.SetActiveTextNotEnoughGold(true);
+            uiManager.SetTextNotEnoughGold($"{(this.turret.name).Replace("(Clone)", "")} was max level!");
+            return;
+        }
+
         uiManager.SetActiveTextNotEnoughGold(false);
         gameStats.Gold -= this.turretStats.PriceUpgradeTurret;
 
@@ -89,6 +95,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     private void StartUpgradeTurretStats()
     {
         TurretStats res = this.turretStats;
+        res.LevelTurret++;
         res.PriceTurret = this.turretStats.PriceTurret;
         res.PriceUpgradeTurret += Mathf.Round(this.turretStats.PriceUpgradeTurret * (upgradeturretStatsPercent / 100));
         res.PriceSellTurret += Mathf.Round(this.turretStats.PriceSellTurret * (upgradeturretStatsPercent / 100));
@@ -115,7 +122,8 @@ public class ButtonUpgradeTurrets : MonoBehaviour
             go.GetComponent<TextMeshProUGUI>().text = string.Empty;
         else
         {
-            go.GetComponent<TextMeshProUGUI>().text = $"Name: {this.turret.gameObject.name.Replace("(Clone)", "")}\n";
+            go.GetComponent<TextMeshProUGUI>().text = $"Level: {this.turretStats.LevelTurret}\n";
+            go.GetComponent<TextMeshProUGUI>().text += $"Name: {this.turret.gameObject.name.Replace("(Clone)", "")}\n";
             go.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.turretStats.DamagedTurret}\n";
             go.GetComponent<TextMeshProUGUI>().text += $"Range: {this.turretStats.RangeTurret}\n";
             SetRateFireTextStatsOf(go);
@@ -127,7 +135,9 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         if (this.turretTypes.ToString().Equals("Simple"))
         {
             if (this.turret.GetComponent<BulletSimple>() != null)
+            {
                 go.GetComponent<TextMeshProUGUI>().text += $"Rate of fire: {this.turret.GetComponent<BulletSimple>().GetFireCountdown()}\n";
+            }
             else
                 Debug.Log($"Please check Component Bullet in this Turret!");
         }

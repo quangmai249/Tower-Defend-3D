@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turrets : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class Turrets : MonoBehaviour
     [SerializeField] float yPos = 2f;
 
     [Header("Stats")]
+    [SerializeField] Sprite imageTurret;
     [SerializeField] string textTurretStatsTag = "Text Turret Stats";
+    [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     [Header("Turret Stats")]
     [SerializeField] TurretTypes turretTypes = TurretTypes.Simple;
+    [SerializeField] int levelTurret = 1;
+    [SerializeField] int maxlevelTurret = 5;
     [SerializeField] float priceTurrets = 100f;
     [SerializeField] float priceUpgrade = 50f;
     [SerializeField] float priceSell = 50f;
@@ -43,7 +48,8 @@ public class Turrets : MonoBehaviour
     }
     private void Start()
     {
-        turretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage);
+        this.levelTurret = 1;
+        turretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage, this.levelTurret);
 
         this.upgradeTurrets
             = Instantiate(menuUpgradeTurrets, new Vector3(this.gameObject.transform.position.x, this.yPos, this.gameObject.transform.position.z)
@@ -70,6 +76,7 @@ public class Turrets : MonoBehaviour
     }
     private void Update()
     {
+        this.levelTurret = this.turretStats.LevelTurret;
         this.priceTurrets = this.turretStats.PriceTurret;
         this.priceUpgrade = this.turretStats.PriceUpgradeTurret;
         this.priceSell = this.turretStats.PriceSellTurret;
@@ -98,6 +105,7 @@ public class Turrets : MonoBehaviour
 
         this.upgradeTurrets.gameObject.SetActive(true);
         this.SetTextStats();
+        this.SetImageStats();
         return;
     }
     private void OnDrawGizmos()
@@ -109,10 +117,16 @@ public class Turrets : MonoBehaviour
     private void SetTextStats()
     {
         GameObject go = SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag);
-        go.GetComponent<TextMeshProUGUI>().text = $"Name: {this.gameObject.name.Replace("(Clone)", "")}\n";
+        go.GetComponent<TextMeshProUGUI>().text = $"Level: {this.levelTurret}\n";
+        go.GetComponent<TextMeshProUGUI>().text += $"Name: {this.gameObject.name.Replace("(Clone)", "")}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.damage}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Range: {this.range}\n";
         SetRateFireTextStatsOf(go);
+    }
+    private void SetImageStats()
+    {
+        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.white;
+        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = this.imageTurret.texture;
     }
     private void SetRateFireTextStatsOf(GameObject go)
     {
@@ -134,11 +148,7 @@ public class Turrets : MonoBehaviour
     }
     public TurretStats GetTurretStats()
     {
-        return new TurretStats(Mathf.Round(this.priceTurrets)
-            , Mathf.Round(this.priceUpgrade)
-            , Mathf.Round(this.priceSell)
-            , this.range
-            , this.damage);
+        return new TurretStats(Mathf.Round(this.priceTurrets), Mathf.Round(this.priceUpgrade), Mathf.Round(this.priceSell), this.range, this.damage, this.levelTurret);
     }
     public void SetTurretStats(TurretStats tStats)
     {
@@ -147,5 +157,9 @@ public class Turrets : MonoBehaviour
     public TurretTypes GetTurretTypes()
     {
         return this.turretTypes;
+    }
+    public int GetMaxLevelTurret()
+    {
+        return this.maxlevelTurret;
     }
 }

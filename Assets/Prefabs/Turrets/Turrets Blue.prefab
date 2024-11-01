@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4670376671493535362}
   m_Layer: 0
   m_Name: Turrets Blue
-  m_TagString: Turrets
+  m_TagString: Blue Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,8 @@ MonoBehaviour:
   textTurretStatsTag: Text Turret Stats
   imgTurretStatsTag: Image Turret Stats
   turretTypes: 0
+  levelTurret: 1
+  maxlevelTurret: 5
   priceTurrets: 100
   priceUpgrade: 50
   priceSell: 75

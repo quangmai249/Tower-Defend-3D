@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textNotEnoughGold;
     [SerializeField] TextMeshProUGUI textGold;
     [SerializeField] TextMeshProUGUI textLives;
+
+    [Header("Stats")]
+    [SerializeField] string textTurretStatsTag = "Text Turret Stats";
+    [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     private GameManager gameManager;
     private GameStats gameStats;
@@ -42,6 +47,10 @@ public class UIManager : MonoBehaviour
         {
             this.panelGameOver.SetActive(true);
             this.textNumberRoundSurvived.text = (gameStats.WaveStart).ToString();
+
+            SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
+            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
+            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
 
             DOTween.KillAll();
             Time.timeScale = 0f;

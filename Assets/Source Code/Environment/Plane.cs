@@ -10,11 +10,20 @@ public class Plane : MonoBehaviour
     [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
     [SerializeField] string textTurretStatsTag = "Text Turret Stats";
     [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
+
+    private GameObject textTurretStats;
+    private GameObject imgTurretStats;
     private void Start()
     {
-        SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
-        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
-        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
+        this.textTurretStats = SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag);
+        this.imgTurretStats = SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag);
+
+        if (this.textTurretStats != null && this.imgTurretStats != null)
+        {
+            SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
+            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
+            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
+        }
     }
     public void ClickedOutSite()
     {
@@ -22,8 +31,12 @@ public class Plane : MonoBehaviour
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
-        SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
-        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
-        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
+
+        if (this.textTurretStats != null && this.imgTurretStats != null)
+        {
+            SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
+            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
+            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
+        }
     }
 }

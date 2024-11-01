@@ -12,7 +12,9 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     [SerializeField] Vector3 defaultRotaion = new Vector3(90f, 0, 0);
     [SerializeField] float upgradeturretStatsPercent = 50f;
 
-    [SerializeField] string btnConfirmTag = "Button Confirm Upgrade Turret";
+    [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
+    [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
+    [SerializeField] string btnCanvasShopTag = "Canvas Shop Turrets";
     [SerializeField] string textTurretStatsTag = "Text Turret Stats";
 
     private GameObject turret;
@@ -50,7 +52,8 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     }
     public void ButtonUpgradeTurret()
     {
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasShopTag);
         this.btnConfirm.SetActive(true);
         return;
     }
@@ -79,7 +82,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     }
     public void ButtonSellTurret()
     {
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
         this.btnConfirm.SetActive(true);
         return;
     }
@@ -87,6 +90,9 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     {
         singletonBuilding.InstantiateAt(this.turret.transform.position);
         gameStats.Gold += this.turretStats.PriceSellTurret;
+
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasShopTag);
 
         this.SetTextStats(false);
         Destroy(this.turret.gameObject);

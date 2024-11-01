@@ -280,8 +280,8 @@ RectTransform:
   m_GameObject: {fileID: 1904586551944663253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.66999996, y: 0.66999996, z: 0.66999996}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6683878637540697168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -412,8 +412,8 @@ RectTransform:
   m_GameObject: {fileID: 3411753820103820918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.66999996, y: 0.66999996, z: 0.66999996}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8371263154229342187}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -666,7 +666,8 @@ MonoBehaviour:
   turret: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
   confirm: {fileID: 6995434670252520572}
   textPrice: {fileID: 4773372534168437273}
-  btnConfirmTag: Button Confirm Shop Turret
+  btnConfirmShopTurretTag: Button Confirm Shop Turret
+  btnConfirmUpgradeTurretTag: Button Confirm Upgrade Turret
 --- !u!1 &4543455886686266236
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +994,8 @@ MonoBehaviour:
   turret: {fileID: 5572517066504377506, guid: 483fb39ff3e951645b892efde6bc6e96, type: 3}
   confirm: {fileID: 4654215782516090828}
   textPrice: {fileID: 8307676877182601727}
-  btnConfirmTag: Button Confirm Shop Turret
+  btnConfirmShopTurretTag: Button Confirm Shop Turret
+  btnConfirmUpgradeTurretTag: Button Confirm Upgrade Turret
 --- !u!1 &4654215782516090828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,8 +1024,8 @@ RectTransform:
   m_GameObject: {fileID: 4654215782516090828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.66999996, y: 0.66999996, z: 0.66999996}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5512067346944867638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1154,8 +1156,8 @@ RectTransform:
   m_GameObject: {fileID: 6995434670252520572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.66999996, y: 0.66999996, z: 0.66999996}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6813577052338763910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1584,7 +1586,8 @@ MonoBehaviour:
   turret: {fileID: 5572517066504377506, guid: f03e61fb93ee06d44b68fadcdf9873b4, type: 3}
   confirm: {fileID: 3411753820103820918}
   textPrice: {fileID: 2270649699571222833}
-  btnConfirmTag: Button Confirm Shop Turret
+  btnConfirmShopTurretTag: Button Confirm Shop Turret
+  btnConfirmUpgradeTurretTag: Button Confirm Upgrade Turret
 --- !u!1 &8725963374904001558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,7 +1738,8 @@ MonoBehaviour:
   turret: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
   confirm: {fileID: 1904586551944663253}
   textPrice: {fileID: 7086893357319061260}
-  btnConfirmTag: Button Confirm Shop Turret
+  btnConfirmShopTurretTag: Button Confirm Shop Turret
+  btnConfirmUpgradeTurretTag: Button Confirm Upgrade Turret
 --- !u!1 &8830586354813508445
 GameObject:
   m_ObjectHideFlags: 0

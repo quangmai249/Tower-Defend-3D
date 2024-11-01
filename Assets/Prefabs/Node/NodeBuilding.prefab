@@ -125,5 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopTurretCanvas: {fileID: 2972257899915444850, guid: 8189ef2e8c0949d408a93350eee11f56, type: 3}
   canvasShopTag: Canvas Shop Turrets
+  canvasUpgradeTag: Canvas Upgrade Turrets
   btnConfirmTag: Button Confirm Shop Turret
+  gameManagerTag: GameController
   yPos: 2
+  textTurretStatsTag: Text Turret Stats
+  imgTurretStatsTag: Image Turret Stats

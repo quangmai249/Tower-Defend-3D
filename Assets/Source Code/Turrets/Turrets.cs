@@ -62,8 +62,7 @@ public class Turrets : MonoBehaviour
             uiManager.SetActiveTextNotEnoughGold(true);
             uiManager.SetTextNotEnoughGold($"You do not have enough money to build {(this.gameObject.name).Replace("(Clone)", "")}!");
 
-            GameObject nodeBuilding = singletonBuilding.InstantiateAt(this.gameObject.transform.position);
-            nodeBuilding.transform.parent = this.gameObject.transform.parent.transform;
+            singletonBuilding.InstantiateAt(this.gameObject.transform.position);
             Destroy(this.gameObject);
         }
         else
@@ -99,9 +98,9 @@ public class Turrets : MonoBehaviour
         if (gameManager.IsGameOver == true || gameManager.IsGamePause == true)
             return;
 
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
 
         this.upgradeTurrets.gameObject.SetActive(true);
         this.SetTextStats();

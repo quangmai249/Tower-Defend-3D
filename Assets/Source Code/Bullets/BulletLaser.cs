@@ -55,7 +55,7 @@ public class BulletLaser : MonoBehaviour
             this.effectLaser.SetActive(true);
 
             BulletRaycast.Shooting(this.gameObject.transform.position
-                , this.turretStats.RangeTurret * this.gameObject.transform.position
+                , (this.target.transform.position - this.gameObject.transform.position)
                 , this.turretStats.DamagedTurret, true);
 
             this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true, this.timeDurationSlowing);

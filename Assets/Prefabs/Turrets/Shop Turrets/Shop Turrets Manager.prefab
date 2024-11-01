@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46e5abc35956594f93f1b90db524985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whiteTurret: {fileID: 0}
+  blueTurret: {fileID: 0}
+  redTurret: {fileID: 0}
+  yellowTurret: {fileID: 0}

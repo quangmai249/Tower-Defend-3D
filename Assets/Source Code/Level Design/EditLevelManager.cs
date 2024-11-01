@@ -19,6 +19,8 @@ public class EditLevelManager : MonoBehaviour
     [SerializeField] GameObject nodeBuilding;
     [SerializeField] GameObject nodePath;
     [SerializeField] List<GameObject> lsNode;
+    [SerializeField] string nodeBuildingTag = "Node Building";
+    [SerializeField] string nodePathTag = "Node Path";
 
     [Header("Path")]
     [SerializeField] TMPro.TMP_Dropdown tMP_Dropdown;
@@ -53,7 +55,7 @@ public class EditLevelManager : MonoBehaviour
     {
         this.textNotify.text = string.Empty;
         this.btnEdit.gameObject.SetActive(true);
-        StartReadNodeBuilding();
+        this.StartReadNodeBuilding();
         return;
     }
     public void ButtonHome()
@@ -110,15 +112,15 @@ public class EditLevelManager : MonoBehaviour
         {
             FilePath f = new FilePath(path, this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString());
 
-            foreach (var item in GameObject.FindGameObjectsWithTag("Node Building"))
-                Destroy(item.gameObject);
+            foreach (var item in GameObject.FindGameObjectsWithTag(this.nodeBuildingTag))
+                item.gameObject.SetActive(false);
 
-            foreach (var item in GameObject.FindGameObjectsWithTag("Node Path"))
+            foreach (var item in GameObject.FindGameObjectsWithTag(this.nodePathTag))
                 Destroy(item.gameObject);
 
             Vector3[] vec = f.ReadFromFile();
             foreach (var item in vec)
-                singletonBuilding.InstantiateAt(item).gameObject.transform.SetParent(this.nodeBuilding.transform);
+                singletonBuilding.InstantiateAt(item);
 
             StartReadNodePath();
         }

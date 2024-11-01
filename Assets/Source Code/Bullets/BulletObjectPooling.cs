@@ -11,7 +11,7 @@ public class BulletObjectPooling : MonoBehaviour
     private GameObject _bullet;
     private void Awake()
     {
-        CreateObjectPooling(this.defaultBulletQuantity);
+        this.CreateObjectPooling(this.defaultBulletQuantity);
     }
     private void CreateObjectPooling(int defaultQuantity)
     {
@@ -20,21 +20,20 @@ public class BulletObjectPooling : MonoBehaviour
             this._bullet = Instantiate(this.bullet);
             this._bullet.gameObject.transform.SetParent(this.gameObject.transform);
             this._bullet.gameObject.SetActive(false);
-            lsBulletPooling.Add(this._bullet);
+            this.lsBulletPooling.Add(this._bullet);
         }
     }
     public GameObject GetBulletPooling(string tag)
     {
-        foreach (GameObject item in lsBulletPooling)
+        foreach (GameObject item in this.lsBulletPooling)
         {
             if (item.activeSelf == false && item.tag == tag)
                 return item;
         }
-
         GameObject go = Instantiate(this.bullet);
         go.gameObject.transform.SetParent(this.gameObject.transform);
         go.gameObject.SetActive(false);
-        lsBulletPooling.Add(go);
+        this.lsBulletPooling.Add(go);
         return go;
     }
 }

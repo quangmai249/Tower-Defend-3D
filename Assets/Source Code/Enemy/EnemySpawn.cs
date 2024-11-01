@@ -37,10 +37,10 @@ public class EnemySpawn : MonoBehaviour
     private GameStats gameStats;
     private void Awake()
     {
-        singletonEnemy = GameObject.FindGameObjectWithTag(enemyManagerTag).GetComponent<SingletonEnemy>();
-        gameManager = GameObject.FindGameObjectWithTag(gameManagerTag).GetComponent<GameManager>();
-        levelDesign = GameObject.FindGameObjectWithTag(levelDesignTag).GetComponent<LevelDesign>();
-        pathManager = GameObject.FindGameObjectWithTag(pathManagerTag).GetComponent<PathManager>();
+        singletonEnemy = GameObject.FindGameObjectWithTag(this.enemyManagerTag).GetComponent<SingletonEnemy>();
+        gameManager = GameObject.FindGameObjectWithTag(this.gameManagerTag).GetComponent<GameManager>();
+        levelDesign = GameObject.FindGameObjectWithTag(this.levelDesignTag).GetComponent<LevelDesign>();
+        pathManager = GameObject.FindGameObjectWithTag(this.pathManagerTag).GetComponent<PathManager>();
     }
     void Start()
     {

@@ -521,6 +521,8 @@ MonoBehaviour:
   nodeBuilding: {fileID: 1299640669}
   nodePath: {fileID: 1963917132}
   lsNode: []
+  nodeBuildingTag: Node Building
+  nodePathTag: Node Path
   tMP_Dropdown: {fileID: 432687650}
   default_path: F:/unity/Build Game Folders/Tower Defend 3D/Resources/
 --- !u!1 &356507194
@@ -2659,6 +2661,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeBuilding: {fileID: 8871131286083600613, guid: 1454dd65d8a78e94e9bf4143eedaf8ee, type: 3}
+  lsNodeBuildingPooling: []
+  numPool: 20
+  nodeBuildingTag: Node Building
 --- !u!1 &1368257418
 GameObject:
   m_ObjectHideFlags: 0

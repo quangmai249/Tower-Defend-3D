@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8673979000082310654}
   m_Layer: 0
   m_Name: Turrets Yellow
-  m_TagString: Turrets
+  m_TagString: Yellow Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,10 @@ MonoBehaviour:
   yPos: 2
   imageTurret: {fileID: 21300000, guid: 93e4f30740238934cbbfd6ddada0064a, type: 3}
   textTurretStatsTag: Text Turret Stats
+  imgTurretStatsTag: Image Turret Stats
   turretTypes: 2
+  levelTurret: 1
+  maxlevelTurret: 5
   priceTurrets: 300
   priceUpgrade: 150
   priceSell: 200

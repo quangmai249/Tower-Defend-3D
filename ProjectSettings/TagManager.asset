@@ -7,10 +7,7 @@ TagManager:
   - Path Manager
   - Enemy
   - Enemy Manager
-  - Bullet
-  - Turrets
   - Level Design
-  - Shop Turrets
   - Node Path
   - Node Building
   - Button Confirm Shop Turret
@@ -19,6 +16,11 @@ TagManager:
   - Canvas Upgrade Turrets
   - Text Turret Stats
   - Image Turret Stats
+  - Bullet
+  - White Turret
+  - Blue Turret
+  - Red Turret
+  - Yellow Turret
   layers:
   - Default
   - TransparentFX
@@ -26,11 +28,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Shop Turrets
-  - Upgrade Turrets
-  - Enemy
-  - Enemy 1
-  - Enemy 2
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -55,9 +57,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Shop Turrets
-    uniqueID: 1448876553
     locked: 0
   m_RenderingLayers:
   - Default

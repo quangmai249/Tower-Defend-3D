@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3547749356798793157}
   m_Layer: 0
   m_Name: Building Manager
-  m_TagString: Node Building
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeBuilding: {fileID: 3573715583782016384, guid: c8b39bdaf00bdaf409d4b02c03fbbdc7, type: 3}
+  lsNodeBuildingPooling: []
+  numPool: 20
+  nodeBuildingTag: Node Building
 --- !u!114 &3547749356798793157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +62,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrPosNodeBuilding: []
+  default_path: F:/unity/Build Game Folders/Tower Defend 3D/Resources/

@@ -1,15 +1,23 @@
 using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class NodeBuilding : MonoBehaviour
 {
     [SerializeField] GameObject shopTurretCanvas;
     [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
+    [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";
     [SerializeField] string btnConfirmTag = "Button Confirm Shop Turret";
+    [SerializeField] string gameManagerTag = "GameController";
     [SerializeField] float yPos = 2f;
+
+    [Header("Stats")]
+    [SerializeField] string textTurretStatsTag = "Text Turret Stats";
+    [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     private Renderer rend;
     private Color color;
@@ -17,7 +25,8 @@ public class NodeBuilding : MonoBehaviour
     private GameObject shopCanvas;
     private void Awake()
     {
-        gameManager = GameManager.Instance;
+        gameManager = GameObject.FindGameObjectWithTag(this.gameManagerTag)
+            .GetComponent<GameManager>();
     }
     private void Start()
     {
@@ -45,6 +54,10 @@ public class NodeBuilding : MonoBehaviour
 
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
+
+        SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
+        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
 
         this.shopCanvas.gameObject.SetActive(true);
         this.shopCanvas.gameObject.transform.position

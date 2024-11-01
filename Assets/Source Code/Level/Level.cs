@@ -8,4 +8,6 @@ public enum Level
     LEVEL_6,
     LEVEL_7,
     LEVEL_8,
+    LEVEL_9,
+    LEVEL_10,
 }

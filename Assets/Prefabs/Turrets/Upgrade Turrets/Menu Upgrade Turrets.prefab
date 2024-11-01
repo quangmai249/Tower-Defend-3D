@@ -152,7 +152,10 @@ MonoBehaviour:
   textSellTurret: {fileID: 1866721742280753587}
   defaultRotaion: {x: 90, y: 0, z: 0}
   upgradeturretStatsPercent: 10
-  btnConfirmTag: Button Confirm Upgrade Turret
+  btnConfirmUpgradeTag: Button Confirm Upgrade Turret
+  btnConfirmShopTag: Button Confirm Shop Turret
+  btnCanvasShopTag: Canvas Shop Turrets
+  textTurretStatsTag: Text Turret Stats
 --- !u!1 &3352430450540174565
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,8 +320,8 @@ RectTransform:
   m_GameObject: {fileID: 3594636394738541268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.84, y: 0.84, z: 0.84}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2463050541407903294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -585,8 +588,8 @@ RectTransform:
   m_GameObject: {fileID: 6369648564156009231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.84, y: 0.84, z: 0.84}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8339317072294543783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -841,7 +844,10 @@ MonoBehaviour:
   textSellTurret: {fileID: 1866721742280753587}
   defaultRotaion: {x: 90, y: 0, z: 0}
   upgradeturretStatsPercent: 10
-  btnConfirmTag: Button Confirm Upgrade Turret
+  btnConfirmUpgradeTag: Button Confirm Upgrade Turret
+  btnConfirmShopTag: Button Confirm Shop Turret
+  btnCanvasShopTag: Canvas Shop Turrets
+  textTurretStatsTag: Text Turret Stats
 --- !u!1 &8254279869807509551
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,8 @@ public class ButtonShop : MonoBehaviour
     [SerializeField] GameObject turret;
     [SerializeField] GameObject confirm;
     [SerializeField] TextMeshPro textPrice;
-    [SerializeField] string btnConfirmTag = "Button Confirm Shop Turret";
+    [SerializeField] string btnConfirmShopTurretTag = "Button Confirm Shop Turret";
+    [SerializeField] string btnConfirmUpgradeTurretTag = "Button Confirm Upgrade Turret";
 
     private Vector3 nodePos;
     private SingletonTurrets singletonTurrets;
@@ -42,7 +43,8 @@ public class ButtonShop : MonoBehaviour
     }
     public void ButtonSelectTurret()
     {
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTurretTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTurretTag);
         this.confirm.SetActive(true);
         return;
     }
@@ -55,6 +57,6 @@ public class ButtonShop : MonoBehaviour
     {
         singletonTurrets.SetTurretBuilding(this.turret);
         singletonTurrets.InstantiateTurretsAt(this.nodePos);
-        Destroy(this.nodeBuildingParent.gameObject);
+        this.nodeBuildingParent.gameObject.SetActive(false);
     }
 }

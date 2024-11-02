@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonUpgradeTurrets : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
     [SerializeField] string btnCanvasShopTag = "Canvas Shop Turrets";
     [SerializeField] string textTurretStatsTag = "Text Turret Stats";
+    //[SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     private GameObject turret;
     private GameObject menuUpgrade;
@@ -95,7 +97,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasShopTag);
 
         this.SetTextStats(false);
-        Destroy(this.turret.gameObject);
+        this.turret.gameObject.SetActive(false);
         return;
     }
     private void StartUpgradeTurretStats()
@@ -123,16 +125,16 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     }
     private void SetTextStats(bool isActive)
     {
-        GameObject go = SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag);
+        GameObject goText = SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag);
         if (isActive == false)
-            go.GetComponent<TextMeshProUGUI>().text = string.Empty;
+            goText.GetComponent<TextMeshProUGUI>().text = string.Empty;
         else
         {
-            go.GetComponent<TextMeshProUGUI>().text = $"Level: {this.turretStats.LevelTurret}\n";
-            go.GetComponent<TextMeshProUGUI>().text += $"Name: {this.turret.gameObject.name.Replace("(Clone)", "")}\n";
-            go.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.turretStats.DamagedTurret}\n";
-            go.GetComponent<TextMeshProUGUI>().text += $"Range: {this.turretStats.RangeTurret}\n";
-            SetRateFireTextStatsOf(go);
+            goText.GetComponent<TextMeshProUGUI>().text = $"Level: {this.turretStats.LevelTurret}\n";
+            goText.GetComponent<TextMeshProUGUI>().text += $"Name: {this.turret.gameObject.name.Replace("(Clone)", "")}\n";
+            goText.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.turretStats.DamagedTurret}\n";
+            goText.GetComponent<TextMeshProUGUI>().text += $"Range: {this.turretStats.RangeTurret}\n";
+            SetRateFireTextStatsOf(goText);
         }
     }
     private void SetRateFireTextStatsOf(GameObject go)

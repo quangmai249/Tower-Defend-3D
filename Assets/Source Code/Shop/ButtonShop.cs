@@ -22,12 +22,13 @@ public class ButtonShop : MonoBehaviour
     private void Awake()
     {
         singletonTurrets = SingletonTurrets.Instance;
-        turretStats = this.turret.GetComponent<Turrets>().GetTurretStats();
+        turretStats = this.turret.gameObject.GetComponent<Turrets>().GetTurretStats();
     }
     private void Start()
     {
         this.gameObject.SetActive(true);
         this.confirm.SetActive(false);
+
         this.textPrice.text = $"-{turretStats.PriceTurret.ToString()}$";
 
         this.nodeBuildingParent = this.gameObject.transform.parent.parent.parent.gameObject;
@@ -55,8 +56,15 @@ public class ButtonShop : MonoBehaviour
     }
     private void StartBuildingTurret()
     {
-        singletonTurrets.SetTurretBuilding(this.turret);
-        singletonTurrets.InstantiateTurretsAt(this.nodePos);
+        if (this.turret.tag == "White Turret")
+            singletonTurrets.InstantiateBlueTurretsAt(this.nodePos);
+        else if (this.turret.tag == "Blue Turret")
+            singletonTurrets.InstantiateBlueTurretsAt(this.nodePos);
+        else if (this.turret.tag == "Red Turret")
+            singletonTurrets.InstantiateRedTurretsAt(this.nodePos);
+        else if (this.turret.tag == "Yellow Turret")
+            singletonTurrets.InstantiateYellowTurretsAt(this.nodePos);
+
         this.nodeBuildingParent.gameObject.SetActive(false);
     }
 }

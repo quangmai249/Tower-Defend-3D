@@ -44,7 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46e5abc35956594f93f1b90db524985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteTurret: {fileID: 0}
-  blueTurret: {fileID: 0}
-  redTurret: {fileID: 0}
-  yellowTurret: {fileID: 0}
+  numPool: 20
+  blueTurretsTag: Blue Turret
+  blueTurrets: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
+  lsBlueTurrets: []
+  redTurretsTag: Red Turret
+  redTurrets: {fileID: 5572517066504377506, guid: 483fb39ff3e951645b892efde6bc6e96, type: 3}
+  lsRedTurrets: []
+  yellowTurretsTag: Yellow Turret
+  yellowTurrets: {fileID: 5572517066504377506, guid: f03e61fb93ee06d44b68fadcdf9873b4, type: 3}
+  lsYellowTurrets: []

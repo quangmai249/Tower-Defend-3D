@@ -29,7 +29,7 @@ public class ButtonManager : MonoBehaviour
     }
     private void Update()
     {
-        if (gameManager.IsGameOver == true)
+        if (gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
         {
             this.btnIncreaseSpeed.gameObject.SetActive(false);
             this.btnDecreaseSpeed.gameObject.SetActive(false);
@@ -41,7 +41,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonPauseGame()
     {
-        if (gameManager.IsGameOver == true)
+        if (gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
 
         this.btnPauseGame.gameObject.SetActive(false);
@@ -57,7 +57,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonResumeGame()
     {
-        if (gameManager.IsGameOver == true)
+        if (gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
 
         this.btnPauseGame.gameObject.SetActive(true);
@@ -73,7 +73,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonIncreaseSpeed(float speed)
     {
-        if (gameManager.IsGamePause == true || gameManager.IsGameOver == true)
+        if (gameManager.IsGamePause == true || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
 
         this.btnIncreaseSpeed.gameObject.SetActive(false);
@@ -84,7 +84,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonDecreaseSpeed(float speed)
     {
-        if (gameManager.IsGamePause == true || gameManager.IsGameOver == true)
+        if (gameManager.IsGamePause == true || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
 
         this.btnIncreaseSpeed.gameObject.SetActive(true);

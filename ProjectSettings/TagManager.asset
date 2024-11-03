@@ -21,6 +21,7 @@ TagManager:
   - Blue Turret
   - Red Turret
   - Yellow Turret
+  - UI Manager
   layers:
   - Default
   - TransparentFX

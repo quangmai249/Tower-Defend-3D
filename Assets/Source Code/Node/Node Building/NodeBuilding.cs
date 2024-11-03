@@ -11,7 +11,9 @@ public class NodeBuilding : MonoBehaviour
     [SerializeField] GameObject shopTurretCanvas;
     [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
     [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";
-    [SerializeField] string btnConfirmTag = "Button Confirm Shop Turret";
+    [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
+    [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
+
     [SerializeField] string gameManagerTag = "GameController";
     [SerializeField] float yPos = 2f;
 
@@ -49,10 +51,12 @@ public class NodeBuilding : MonoBehaviour
     {
         rend.material.color = Color.green;
 
-        if (gameManager.IsGameOver == true || gameManager.IsGamePause == true)
+        if (gameManager.IsGameOver == true || gameManager.IsGamePause == true || gameManager.IsGameWinLevel)
             return;
 
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
+
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
 

@@ -55,10 +55,8 @@ public class EnemySpawn : MonoBehaviour
     }
     void Update()
     {
-        if (gameManager.IsGameOver == true)
-        {
+        if (gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
-        }
 
         if (wave <= maxWave + 1 && this.isReady == true)
         {
@@ -68,15 +66,13 @@ public class EnemySpawn : MonoBehaviour
         }
 
         if (wave == maxWave && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-        {
             gameManager.IsGameWinLevel = true;
-        }
 
         SetTextCountdown();
     }
     public void ButtonReadyPlayGame()
     {
-        if (gameManager.IsGamePause == true || gameManager.IsGameOver == true)
+        if (gameManager.IsGamePause == true || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
 
         this.isReady = true;

@@ -16,6 +16,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
     [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
     [SerializeField] string btnCanvasShopTag = "Canvas Shop Turrets";
+    [SerializeField] string btnCanvasUpgradeTag = "Canvas Upgrade Turrets";
     [SerializeField] string textTurretStatsTag = "Text Turret Stats";
     //[SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
@@ -84,20 +85,24 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     }
     public void ButtonSellTurret()
     {
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
         this.btnConfirm.SetActive(true);
         return;
     }
     public void ButtonConfirmSellTurret()
     {
-        singletonBuilding.InstantiateAt(this.turret.transform.position);
         gameStats.Gold += this.turretStats.PriceSellTurret;
+        this.SetTextStats(false);
+
+        singletonBuilding.InstantiateAt(this.turret.transform.position);
+        this.turret.gameObject.SetActive(false);
 
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasShopTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
 
-        this.SetTextStats(false);
-        this.turret.gameObject.SetActive(false);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasShopTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasUpgradeTag);
         return;
     }
     private void StartUpgradeTurretStats()

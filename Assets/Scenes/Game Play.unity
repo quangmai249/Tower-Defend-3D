@@ -4333,6 +4333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6182148508886767599, guid: ab920740fa8d02d44a8a4305992be6dc, type: 3}
+      propertyPath: m_TagString
+      value: UI Manager
+      objectReference: {fileID: 0}
     - target: {fileID: 6506999475728814566, guid: ab920740fa8d02d44a8a4305992be6dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 960.7376

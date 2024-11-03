@@ -30,7 +30,9 @@ public class SingletonTurrets : MonoBehaviour
             return;
         }
         Instance = this;
-
+    }
+    private void Start()
+    {
         this.CreateObjectPooling(this.numPool);
     }
     public GameObject InstantiateBlueTurretsAt(Vector3 pos)
@@ -80,7 +82,7 @@ public class SingletonTurrets : MonoBehaviour
     }
     private GameObject InstantiateTurret(GameObject go)
     {
-        GameObject res = Instantiate(go);
+        GameObject res = Instantiate(go).gameObject;
         res.gameObject.transform.SetParent(this.gameObject.transform);
         res.gameObject.SetActive(false);
         return res;

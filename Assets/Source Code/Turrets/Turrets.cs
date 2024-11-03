@@ -10,7 +10,8 @@ public class Turrets : MonoBehaviour
     [SerializeField] GameObject menuUpgradeTurrets;
     [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
     [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";
-    [SerializeField] string btnConfirmTag = "Button Confirm Upgrade Turret";
+    [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
+    [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
     [SerializeField] float yPos = 2f;
 
     [Header("Stats")]
@@ -28,6 +29,9 @@ public class Turrets : MonoBehaviour
     [SerializeField] float range = 6f;
     [SerializeField] float damage = 10f;
 
+    [Header("Manger")]
+    [SerializeField] string uiManagerTag = "UI Manager";
+
     private Renderer rend;
     private Color color;
     private GameObject upgradeTurrets;
@@ -42,8 +46,8 @@ public class Turrets : MonoBehaviour
     {
         singletonBuilding = SingletonBuilding.Instance;
         gameManager = GameManager.Instance;
-        uiManager = UIManager.Instance;
 
+        uiManager = SelectTarget.SelectFirstGameObjectWithTag(this.uiManagerTag).GetComponent<UIManager>();
         gameStats = gameManager.GameStats;
     }
     private void Start()
@@ -84,7 +88,7 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        if (gameManager.IsGameOver == true || gameManager.IsGamePause == true)
+        if (gameManager.IsGameOver == true || gameManager.IsGamePause == true || gameManager.IsGameWinLevel == true)
             return;
 
         rend.material.color = Color.green;
@@ -95,11 +99,13 @@ public class Turrets : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (gameManager.IsGameOver == true || gameManager.IsGamePause == true)
+        if (gameManager.IsGameOver == true || gameManager.IsGamePause == true || gameManager.IsGameWinLevel == true)
             return;
 
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
+
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
 
         this.upgradeTurrets.gameObject.SetActive(true);

@@ -34,7 +34,7 @@ public class BulletLaser : MonoBehaviour
         this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
         target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
 
-        if (this.target == null || gameManager.IsGameOver == true)
+        if (this.target == null || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
         {
             this.lineRenderer.enabled = false;
 

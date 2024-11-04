@@ -44,16 +44,23 @@ public class LevelContent : MonoBehaviour
     }
     private void CreateObjectPooling(int defaultNumPooling)
     {
+        //for (int i = 1; i <= defaultNumPooling; i++)
+        //{
+        //    PlayerPrefs.SetInt($"LEVEL_{i}", 0);
+        //    PlayerPrefs.Save();
+        //}
+
         for (int i = 1; i <= defaultNumPooling; i++)
         {
             this._btnLevel = Instantiate(this.btnLevel);
             this._btnLevel.gameObject.name = $"LEVEL_{i}";
             this._btnLevel.gameObject.transform.SetParent(this.gameObject.transform);
             this._btnLevel.SetActive(false);
-            lsButtonLevel.Add(this._btnLevel);
 
-            PlayerPrefs.SetInt($"{this._btnLevel.gameObject.name}", 0);
-            PlayerPrefs.Save();
+            if (PlayerPrefs.GetInt(this._btnLevel.gameObject.name) == 1)
+                this._btnLevel.SetActive(true);
+
+            lsButtonLevel.Add(this._btnLevel);
         }
 
         for (int i = 1; i < 4; i++)

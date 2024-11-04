@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject panelGameOver;
+    [SerializeField] GameObject panelGameWin;
+    [SerializeField] TextMeshProUGUI textLevelWin;
     [SerializeField] TextMeshProUGUI textNumberRoundSurvived;
     [SerializeField] TextMeshProUGUI textNotEnoughGold;
     [SerializeField] TextMeshProUGUI textGold;
@@ -19,6 +22,7 @@ public class UIManager : MonoBehaviour
 
     private GameManager gameManager;
     private GameStats gameStats;
+    private LevelDesign levelDesign;
 
     public static UIManager Instance;
     private void Awake()
@@ -37,25 +41,37 @@ public class UIManager : MonoBehaviour
 
         this.textNotEnoughGold.text = string.Empty;
         this.panelGameOver.SetActive(false);
+        this.panelGameWin.SetActive(false);
     }
     private void Update()
     {
         textGold.text = $"{gameStats.Gold}$";
         textLives.text = $"{gameStats.Lives} LIVES";
 
+        if (gameManager.IsGameWinLevel == true)
+        {
+            this.panelGameWin.SetActive(true);
+            this.textLevelWin.text = PlayerPrefs.GetString("LEVEL").ToString();
+            this.HiddenObjectsWhenOver();
+            return;
+        }
+
         if (gameManager.IsGameOver == true)
         {
             this.panelGameOver.SetActive(true);
             this.textNumberRoundSurvived.text = (gameStats.WaveStart).ToString();
-
-            SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
-            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
-            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
-
-            DOTween.KillAll();
-            Time.timeScale = 0f;
+            this.HiddenObjectsWhenOver();
             return;
         }
+    }
+    private void HiddenObjectsWhenOver()
+    {
+        SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
+        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
+        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
+
+        DOTween.KillAll();
+        Time.timeScale = 0f;
     }
     public void SetTextNotEnoughGold(string text)
     {

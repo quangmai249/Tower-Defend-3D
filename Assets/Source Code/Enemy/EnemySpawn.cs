@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,8 +47,8 @@ public class EnemySpawn : MonoBehaviour
     {
         gameStats = gameManager.GameStats;
 
-        wave = gameStats.WaveStart;
-        maxWave = gameStats.MaxWave;
+        this.wave = gameStats.WaveStart;
+        this.maxWave = gameStats.MaxWave;
 
         this.isReady = false;
         textWave.text = string.Empty;
@@ -58,15 +59,31 @@ public class EnemySpawn : MonoBehaviour
         if (gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
 
-        if (wave <= maxWave + 1 && this.isReady == true)
+        if (wave <= maxWave && this.isReady == true)
         {
             StartCoroutine(nameof(StartCountdown));
             StartCoroutine(nameof(StartSpawn));
+            StartCoroutine(nameof(StartActiveButtonReady));
             this.isReady = false;
         }
 
-        if (wave == maxWave && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        if (wave > maxWave && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            for (int i = 1; i < 100; i++)
+            {
+                if (PlayerPrefs.GetString("LEVEL").Equals($"LEVEL_{i}"))
+                {
+                    if (PlayerPrefs.GetInt($"LEVEL_{i + 1}") == 0)
+                    {
+                        PlayerPrefs.SetInt($"LEVEL_{i + 1}", 1);
+                        PlayerPrefs.Save();
+                    }
+                    break;
+                }
+            }
+
             gameManager.IsGameWinLevel = true;
+        }
 
         SetTextCountdown();
     }
@@ -85,11 +102,11 @@ public class EnemySpawn : MonoBehaviour
         {
             textCountdown.text = "";
             textWave.text = $"Final wave";
+            this.btnReadyPlayGame.gameObject.SetActive(false);
         }
-        else if (secondStartCountdown >= 0)
-        {
+
+        if (secondStartCountdown >= 0)
             textCountdown.text = secondStartCountdown.ToString();
-        }
         else
             textCountdown.text = string.Empty;
     }
@@ -116,9 +133,6 @@ public class EnemySpawn : MonoBehaviour
             }
             yield return new WaitForSeconds(timeSpawn);
         }
-
-        yield return new WaitForSeconds(5f);
-        this.btnReadyPlayGame.gameObject.SetActive(true);
     }
     IEnumerator StartCountdown()
     {
@@ -131,6 +145,11 @@ public class EnemySpawn : MonoBehaviour
             secondStartCountdown--;
         }
         wave++;
+    }
+    IEnumerator StartActiveButtonReady()
+    {
+        yield return new WaitForSeconds(this.defaultSecondCountdownPerWave + 2f);
+        this.btnReadyPlayGame.gameObject.SetActive(true);
     }
     private Vector3 RandomVector3Path(float rand)
     {

@@ -103,4 +103,9 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("Menu Game");
         return;
     }
+    public void ButtonNextWhenWinGame()
+    {
+        SceneManager.LoadScene("Level Scene");
+        return;
+    }
 }

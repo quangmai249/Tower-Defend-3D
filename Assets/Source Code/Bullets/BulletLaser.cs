@@ -32,6 +32,8 @@ public class BulletLaser : MonoBehaviour
     void Update()
     {
         this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
+
+        this.timeDurationSlowing = this.turretStats.RateTurret;
         target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
 
         if (this.target == null || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)

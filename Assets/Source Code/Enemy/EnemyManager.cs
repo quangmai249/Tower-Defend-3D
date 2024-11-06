@@ -7,7 +7,7 @@ public class EnemyManager : MonoBehaviour
 {
     [SerializeField] float goldReward = 100f;
     [SerializeField] float enemyHP = 100f;
-    [SerializeField] float defaultHP;
+    [SerializeField] float defaultHP = 100f;
     [SerializeField] Image imgHPBar;
     [SerializeField] Image imgHPBarFade;
     [SerializeField] Image imgHPBarBackground;
@@ -19,19 +19,11 @@ public class EnemyManager : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         gameStats = gameManager.GameStats;
-
         this.defaultHP = this.enemyHP;
     }
     private void Start()
     {
-        this.imgHPBar.color = Color.green;
-        this.imgHPBar.fillAmount = this.enemyHP / this.defaultHP;
-
-        this.imgHPBarFade.color = Color.white;
-        this.imgHPBarFade.fillAmount = this.enemyHP / this.defaultHP;
-
-        this.imgHPBarBackground.color = Color.black;
-        this.imgHPBarBackground.fillAmount = this.enemyHP / this.defaultHP;
+        this.SetDefaultHPEnemy();
     }
     private void Update()
     {
@@ -47,8 +39,8 @@ public class EnemyManager : MonoBehaviour
             this.parDeath.transform.parent = this.gameObject.transform.parent.transform;
             Destroy(this.parDeath.gameObject, 2f);
 
-            DOTween.Kill(this.gameObject.transform);
-            Destroy(this.gameObject);
+            this.enemyHP = this.defaultHP;
+            this.gameObject.SetActive(false);
         }
     }
     public void SetEnemyHP(float t)
@@ -68,6 +60,19 @@ public class EnemyManager : MonoBehaviour
             return;
         }
         return;
+    }
+    public void SetDefaultHPEnemy()
+    {
+        this.enemyHP = this.defaultHP;
+
+        this.imgHPBar.color = Color.green;
+        this.imgHPBar.fillAmount = this.enemyHP / this.defaultHP;
+
+        this.imgHPBarFade.color = Color.white;
+        this.imgHPBarFade.fillAmount = this.enemyHP / this.defaultHP;
+
+        this.imgHPBarBackground.color = Color.black;
+        this.imgHPBarBackground.fillAmount = this.enemyHP / this.defaultHP;
     }
     private IEnumerator ChangeImageHPBarFade()
     {

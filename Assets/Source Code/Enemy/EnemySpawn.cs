@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
@@ -119,16 +120,18 @@ public class EnemySpawn : MonoBehaviour
             if (this.wave <= 3)
             {
                 this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First() + RandomVector3Path(this.randPath);
-                GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject);
+                GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn.x, this.posSpawn.z);
                 temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
+                this.SetDefaultEnemy(temp, this.posSpawn);
             }
             else
             {
                 for (int j = 0; j < pathManager.GetListFileNodePath().Count; j++)
                 {
                     this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First() + RandomVector3Path(this.randPath); ;
-                    GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn, this.gameObject);
+                    GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn.x, this.posSpawn.z);
                     temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (j + 1)));
+                    this.SetDefaultEnemy(temp, this.posSpawn);
                 }
             }
             yield return new WaitForSeconds(timeSpawn);
@@ -154,5 +157,11 @@ public class EnemySpawn : MonoBehaviour
     private Vector3 RandomVector3Path(float rand)
     {
         return new Vector3(Random.Range(-rand, rand), 0, Random.Range(-rand, rand));
+    }
+    private void SetDefaultEnemy(GameObject go, Vector3 posSpawn)
+    {
+        go.gameObject.transform.position = new Vector3(posSpawn.x, go.transform.position.y, posSpawn.z);
+        go.GetComponent<EnemyManager>().SetDefaultHPEnemy();
+        go.GetComponent<EnemyMoving>().Moving();
     }
 }

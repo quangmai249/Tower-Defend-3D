@@ -36,11 +36,8 @@ public class SingletonBuilding : MonoBehaviour
             if (item.activeSelf == false && item.tag == tag)
                 return item;
         }
-        GameObject go = Instantiate(this.nodeBuilding);
-        go.gameObject.transform.SetParent(this.gameObject.transform);
-        go.gameObject.SetActive(false);
-        this.lsNodeBuildingPooling.Add(go);
-        return go;
+        this.CreateObjectPooling(this.numPool);
+        return GetNodeBuildingPooling(this.nodeBuildingTag);
     }
     private void CreateObjectPooling(int defaultQuantity)
     {

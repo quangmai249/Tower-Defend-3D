@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2661089608826270217}
   - component: {fileID: 4757996193250519017}
   - component: {fileID: 8743419279647451739}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Image HP Bar Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8489591145773970029}
   - component: {fileID: 4261436099394512067}
   - component: {fileID: 1473415408887852219}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Image HP Bar Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 8401533769808800301}
   - component: {fileID: 7335308125331421868}
   - component: {fileID: 951579435557553277}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Image HP Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 679558603191680367}
   - component: {fileID: 9168411408680573726}
   - component: {fileID: 5664431174093081011}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ Transform:
   m_GameObject: {fileID: 4371903954904197440}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 10.353936, y: 0.5, z: 18.63415}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -350,8 +350,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b083506f9537c447b56a50b7eff9e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrayPoint: []
-  lastPoint: {x: 0, y: 0, z: 0}
+  arrayPoint:
+  - {x: 11.3, y: 0, z: 18.26}
+  - {x: 11.35, y: 0, z: 16.84}
+  - {x: 10.8, y: 0, z: 15.53}
+  - {x: 9.71, y: 0, z: 14.49}
+  - {x: 8.51, y: 0, z: 13.62}
+  - {x: 6.9800005, y: 0, z: 12.64}
+  - {x: 5.2300005, y: 0, z: 11.87}
+  - {x: 3.53, y: 0, z: 11.1}
+  - {x: 1.73, y: 0, z: 10.17}
+  - {x: -0.01999998, y: 0, z: 9.4}
+  - {x: -1.82, y: 0, z: 8.74}
+  - {x: -3.57, y: 0, z: 8.08}
+  - {x: -4.44, y: 0, z: 7.21}
+  - {x: -5.1, y: 0, z: 5.73}
+  - {x: -4.66, y: 0, z: 4.42}
+  - {x: -3.79, y: 0, z: 3.33}
+  - {x: -2.81, y: 0, z: 2.24}
+  - {x: -1.94, y: 0, z: 1.26}
+  - {x: -1.01, y: 0, z: 0.27999997}
+  - {x: 0.29999995, y: 0, z: -0.98000026}
+  - {x: 0.60000014, y: 0, z: -2.07}
+  - {x: 0.60000014, y: 0, z: -3.16}
+  - {x: -0.28999996, y: 0, z: -3.9999998}
+  - {x: -1.83, y: 0, z: -4.6900005}
+  - {x: -3.32, y: 0, z: -5.09}
+  - {x: -4.96, y: 0, z: -5.54}
+  - {x: -5.95, y: 0, z: -5.9400005}
+  - {x: -7.49, y: 0, z: -6.3900003}
+  - {x: -9.03, y: 0, z: -6.9400005}
+  - {x: -10.62, y: 0, z: -7.24}
+  - {x: -12.4, y: 0, z: -7.54}
+  - {x: -13.69, y: 0, z: -7.59}
+  - {x: -15.33, y: 0, z: -7.79}
+  - {x: -17.16, y: 0, z: -7.8900003}
+  - {x: -18.9, y: 0, z: -7.9400005}
+  lastPoint: {x: -18.9, y: 0, z: -7.9400005}
   randPath: 1
   timeDurationSlowing: 0.75
   isSlowing: 0
@@ -5244,7 +5279,7 @@ GameObject:
   - component: {fileID: 4091746681031903328}
   - component: {fileID: 2842373154597873092}
   - component: {fileID: 7543711146696669551}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

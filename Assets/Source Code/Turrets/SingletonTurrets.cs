@@ -39,6 +39,7 @@ public class SingletonTurrets : MonoBehaviour
     {
         GameObject res = this.GetNodeBuildingPooling(this.blueTurrets, this.blueTurretsTag, this.lsBlueTurrets);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
+        res.GetComponent<Turrets>().SetDefaultTurret();
         res.gameObject.SetActive(true);
         return res;
     }
@@ -46,6 +47,7 @@ public class SingletonTurrets : MonoBehaviour
     {
         GameObject res = this.GetNodeBuildingPooling(this.redTurrets, this.redTurretsTag, this.lsRedTurrets);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
+        res.GetComponent<Turrets>().SetDefaultTurret();
         res.gameObject.SetActive(true);
         return res;
     }
@@ -53,6 +55,7 @@ public class SingletonTurrets : MonoBehaviour
     {
         GameObject res = this.GetNodeBuildingPooling(this.yellowTurrets, this.yellowTurretsTag, this.lsYellowTurrets);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
+        res.GetComponent<Turrets>().SetDefaultTurret();
         res.gameObject.SetActive(true);
         return res;
     }
@@ -64,12 +67,9 @@ public class SingletonTurrets : MonoBehaviour
                 return item;
         }
 
-        GameObject _go = Instantiate(go);
-        _go.gameObject.transform.SetParent(this.gameObject.transform);
-        _go.gameObject.SetActive(false);
-        lsGo.Add(_go);
-
-        return _go;
+        this._turret = this.InstantiateTurret(go);
+        lsGo.Add(this._turret);
+        return this._turret;
     }
     private void CreateObjectPooling(int defaultQuantity)
     {
@@ -82,9 +82,9 @@ public class SingletonTurrets : MonoBehaviour
     }
     private GameObject InstantiateTurret(GameObject go)
     {
-        GameObject res = Instantiate(go).gameObject;
-        res.gameObject.transform.SetParent(this.gameObject.transform);
-        res.gameObject.SetActive(false);
-        return res;
+        this._turret = Instantiate(go).gameObject;
+        this._turret.gameObject.transform.SetParent(this.gameObject.transform);
+        this._turret.gameObject.SetActive(false);
+        return this._turret;
     }
 }

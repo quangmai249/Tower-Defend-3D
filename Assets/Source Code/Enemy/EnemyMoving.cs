@@ -22,18 +22,14 @@ public class EnemyMoving : MonoBehaviour
         gameManager = GameManager.Instance;
         gameStats = gameManager.GameStats;
     }
-    private void Start()
-    {
-        StartCoroutine(nameof(Moving));
-    }
     private void Update()
     {
         if (gameObject.transform.position == this.lastPoint)
         {
             gameStats.Lives -= 1;
-            DOTween.Kill(this.gameObject.transform);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
+
         if (isSlowing == true)
         {
             this.tween.timeScale = timeDurationSlowing;
@@ -56,10 +52,10 @@ public class EnemyMoving : MonoBehaviour
         this.isSlowing = b;
         this.timeDurationSlowing = timeDurationSlowing;
     }
-    private void Moving()
+    public void Moving()
     {
-        this.tween =
-        gameObject.transform
+        this.gameObject.transform.DORestart();
+        this.tween = gameObject.transform
             .DOPath(ArrayPointEnemyMoving(gameObject.transform.position.y), gameManager.TimeDurationEnemyMoving, PathType.Linear)
             .SetEase(Ease.Linear)
             .SetLookAt(0.001f);
@@ -72,7 +68,6 @@ public class EnemyMoving : MonoBehaviour
         for (int i = 1; i < this.arrayPoint.Length - 1; i++)
             ls.Add(new Vector3(this.arrayPoint[i].x, yPos, this.arrayPoint[i].z) + randVec);
 
-        ls.RemoveAt(0);
         ls.Add(this.lastPoint);
         return ls.ToArray();
     }

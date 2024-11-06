@@ -79,8 +79,8 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         gameStats.Gold -= this.turretStats.PriceUpgradeTurret;
 
         this.StartUpgradeTurretStats();
-        this.btnConfirm.SetActive(false);
         this.SetTextStats(true);
+        this.btnConfirm.SetActive(false);
         return;
     }
     public void ButtonSellTurret()
@@ -108,6 +108,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     private void StartUpgradeTurretStats()
     {
         TurretStats res = this.turretStats;
+
         res.LevelTurret++;
         res.PriceTurret = this.turretStats.PriceTurret;
         res.PriceUpgradeTurret += Mathf.Round(this.turretStats.PriceUpgradeTurret * (upgradeturretStatsPercent / 100));
@@ -115,18 +116,13 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         res.RangeTurret += this.turretStats.RangeTurret * (upgradeturretStatsPercent / 300);
         res.DamagedTurret += this.turretStats.DamagedTurret * (upgradeturretStatsPercent / 100);
 
-        this.SetBulletRateFire();
-        this.turret.GetComponent<Turrets>().SetTurretStats(res);
-    }
-    private void SetBulletRateFire()
-    {
-        BulletLaser bulletLaser = this.turret.GetComponent<BulletLaser>();
-        if (bulletLaser != null)
-            bulletLaser.SetTimeSlowing(bulletLaser.GetTimeSlowing() - (bulletLaser.GetTimeSlowing() * (upgradeturretStatsPercent / 300)));
+        if (this.turret.GetComponent<BulletLaser>() != null)
+            res.RateTurret += this.turretStats.RateTurret * (upgradeturretStatsPercent / 300);
 
-        BulletSimple bulletSimple = this.turret.GetComponent<BulletSimple>();
-        if (bulletSimple != null)
-            bulletSimple.SetFireCountdown(bulletSimple.GetFireCountdown() - (bulletSimple.GetFireCountdown() * (upgradeturretStatsPercent / 300)));
+        if (this.turret.GetComponent<BulletSimple>() != null)
+            res.RateTurret -= this.turretStats.RateTurret * (upgradeturretStatsPercent / 300);
+
+        this.turret.GetComponent<Turrets>().SetTurretStats(res);
     }
     private void SetTextStats(bool isActive)
     {
@@ -139,28 +135,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
             goText.GetComponent<TextMeshProUGUI>().text += $"Name: {this.turret.gameObject.name.Replace("(Clone)", "")}\n";
             goText.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.turretStats.DamagedTurret}\n";
             goText.GetComponent<TextMeshProUGUI>().text += $"Range: {this.turretStats.RangeTurret}\n";
-            SetRateFireTextStatsOf(goText);
-        }
-    }
-    private void SetRateFireTextStatsOf(GameObject go)
-    {
-        this.turretTypes = this.turret.GetComponent<Turrets>().GetTurretTypes();
-        if (this.turretTypes.ToString().Equals("Simple"))
-        {
-            if (this.turret.GetComponent<BulletSimple>() != null)
-            {
-                go.GetComponent<TextMeshProUGUI>().text += $"Rate of fire: {this.turret.GetComponent<BulletSimple>().GetFireCountdown()}\n";
-            }
-            else
-                Debug.Log($"Please check Component Bullet in this Turret!");
-        }
-
-        if (this.turretTypes.ToString().Equals("Laser"))
-        {
-            if (this.turret.GetComponent<BulletLaser>() != null)
-                go.GetComponent<TextMeshProUGUI>().text += $"Slow down Rate of fire: {this.turret.GetComponent<BulletLaser>().GetTimeSlowing()}\n";
-            else
-                Debug.Log($"Please check Component Bullet in this Turret!");
+            goText.GetComponent<TextMeshProUGUI>().text += $"Rate: {this.turretStats.RateTurret}\n";
         }
     }
 }

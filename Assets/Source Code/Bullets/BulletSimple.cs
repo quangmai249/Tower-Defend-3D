@@ -27,7 +27,10 @@ public class BulletSimple : MonoBehaviour
     void Update()
     {
         this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
+
+        this.defaultFireCountdown = this.turretStats.RateTurret;
         this.target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
+
         if (this.target == null || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
         else

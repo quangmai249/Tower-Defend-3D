@@ -47,10 +47,8 @@ public class ButtonShop : MonoBehaviour
     {
         if (this.turret.tag == "Blue Turret")
             singletonTurrets.InstantiateBlueTurretsAt(this.gameObject.transform.parent.transform.position);
-
         if (this.turret.tag == "Red Turret")
             singletonTurrets.InstantiateRedTurretsAt(this.gameObject.transform.parent.transform.position);
-
         if (this.turret.tag == "Yellow Turret")
             singletonTurrets.InstantiateYellowTurretsAt(this.gameObject.transform.parent.transform.position);
 

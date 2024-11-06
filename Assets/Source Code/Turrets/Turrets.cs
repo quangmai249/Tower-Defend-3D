@@ -28,6 +28,7 @@ public class Turrets : MonoBehaviour
     [SerializeField] float priceSell = 50f;
     [SerializeField] float range = 6f;
     [SerializeField] float damage = 10f;
+    [SerializeField] float rate = 1f;
 
     [Header("Manger")]
     [SerializeField] string uiManagerTag = "UI Manager";
@@ -42,6 +43,7 @@ public class Turrets : MonoBehaviour
 
     private GameStats gameStats;
     private TurretStats turretStats;
+    private TurretStats defaultTurretStats;
     private void Awake()
     {
         singletonBuilding = SingletonBuilding.Instance;
@@ -49,11 +51,12 @@ public class Turrets : MonoBehaviour
 
         uiManager = SelectTarget.SelectFirstGameObjectWithTag(this.uiManagerTag).GetComponent<UIManager>();
         gameStats = gameManager.GameStats;
+        this.defaultTurretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage, this.levelTurret, this.rate);
     }
     private void Start()
     {
         this.levelTurret = 1;
-        turretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage, this.levelTurret);
+        this.turretStats = this.defaultTurretStats;
 
         this.upgradeTurrets
             = Instantiate(menuUpgradeTurrets, new Vector3(this.gameObject.transform.position.x, this.yPos, this.gameObject.transform.position.z)
@@ -85,6 +88,7 @@ public class Turrets : MonoBehaviour
         this.priceSell = this.turretStats.PriceSellTurret;
         this.range = this.turretStats.RangeTurret;
         this.damage = this.turretStats.DamagedTurret;
+        this.rate = this.turretStats.RateTurret;
     }
     private void OnMouseEnter()
     {
@@ -102,6 +106,9 @@ public class Turrets : MonoBehaviour
         if (gameManager.IsGameOver == true || gameManager.IsGamePause == true || gameManager.IsGameWinLevel == true)
             return;
 
+        this.SetTextStats();
+        this.SetImageStats();
+
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
 
@@ -109,8 +116,6 @@ public class Turrets : MonoBehaviour
         SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
 
         this.upgradeTurrets.gameObject.SetActive(true);
-        this.SetTextStats();
-        this.SetImageStats();
         return;
     }
     private void OnDrawGizmos()
@@ -126,34 +131,20 @@ public class Turrets : MonoBehaviour
         go.GetComponent<TextMeshProUGUI>().text += $"Name: {this.gameObject.name.Replace("(Clone)", "")}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.damage}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Range: {this.range}\n";
-        SetRateFireTextStatsOf(go);
+        go.GetComponent<TextMeshProUGUI>().text += $"Rate: {this.rate}\n";
     }
     private void SetImageStats()
     {
         SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.white;
         SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = this.imageTurret.texture;
     }
-    private void SetRateFireTextStatsOf(GameObject go)
+    public void SetDefaultTurret()
     {
-        if (this.turretTypes.ToString().Equals("Simple"))
-        {
-            if (this.gameObject.GetComponent<BulletSimple>() != null)
-                go.GetComponent<TextMeshProUGUI>().text += $"Rate of fire: {this.gameObject.GetComponent<BulletSimple>().GetFireCountdown()}\n";
-            else
-                Debug.Log($"Please check Component Bullet in this Turret!");
-        }
-
-        if (this.turretTypes.ToString().Equals("Laser"))
-        {
-            if (this.gameObject.GetComponent<BulletLaser>() != null)
-                go.GetComponent<TextMeshProUGUI>().text += $"Slow down Rate of fire: {this.gameObject.GetComponent<BulletLaser>().GetTimeSlowing()}\n";
-            else
-                Debug.Log($"Please check Component Bullet in this Turret!");
-        }
+        this.turretStats = this.defaultTurretStats;
     }
     public TurretStats GetTurretStats()
     {
-        return new TurretStats(Mathf.Round(this.priceTurrets), Mathf.Round(this.priceUpgrade), Mathf.Round(this.priceSell), this.range, this.damage, this.levelTurret);
+        return new TurretStats(Mathf.Round(this.priceTurrets), Mathf.Round(this.priceUpgrade), Mathf.Round(this.priceSell), this.range, this.damage, this.levelTurret, this.rate);
     }
     public void SetTurretStats(TurretStats tStats)
     {

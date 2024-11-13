@@ -10,6 +10,7 @@ public class EnemyMoving : MonoBehaviour
     [SerializeField] Vector3 lastPoint;
 
     [SerializeField] float randPath = 1f;
+    [SerializeField] float timeDuration = 60f;
     [SerializeField] float timeDurationSlowing;
     [SerializeField] bool isSlowing = false;
 
@@ -26,7 +27,7 @@ public class EnemyMoving : MonoBehaviour
     {
         if (gameObject.transform.position == this.lastPoint)
         {
-            gameStats.Lives -= 1;
+            gameStats.Lives -= this.gameObject.GetComponent<EnemyManager>().GetEnemyDamage();
             this.gameObject.SetActive(false);
         }
 
@@ -56,7 +57,7 @@ public class EnemyMoving : MonoBehaviour
     {
         this.gameObject.transform.DORestart();
         this.tween = gameObject.transform
-            .DOPath(ArrayPointEnemyMoving(gameObject.transform.position.y), gameManager.TimeDurationEnemyMoving, PathType.Linear)
+            .DOPath(ArrayPointEnemyMoving(gameObject.transform.position.y), this.timeDuration, PathType.Linear)
             .SetEase(Ease.Linear)
             .SetLookAt(0.001f);
     }

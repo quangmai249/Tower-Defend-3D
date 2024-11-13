@@ -353,6 +353,7 @@ MonoBehaviour:
   arrayPoint: []
   lastPoint: {x: 0, y: 0, z: 0}
   randPath: 1
+  timeDuration: 30
   timeDurationSlowing: 0.75
   isSlowing: 0
 --- !u!114 &679558603191680367
@@ -368,8 +369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldReward: 100
-  enemyHP: 100
-  defaultHP: 0
+  defaultHP: 50
+  enemyHP: 0
   imgHPBar: {fileID: 951579435557553277}
   imgHPBarFade: {fileID: 1473415408887852219}
   imgHPBarBackground: {fileID: 8743419279647451739}

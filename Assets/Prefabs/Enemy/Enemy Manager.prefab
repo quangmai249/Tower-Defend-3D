@@ -48,3 +48,7 @@ MonoBehaviour:
   - {fileID: 4371903954904197440, guid: b78a702b44659d0469cbbc5dc9a1f3e2, type: 3}
   - {fileID: 4371903954904197440, guid: 6ce41a3a983fa104fbf149222d644390, type: 3}
   - {fileID: 4371903954904197440, guid: 1853c3e217b8f924792fb4e8cb534a16, type: 3}
+  - {fileID: 6227163583215410654, guid: 11c46236171989e4b851eaad02d3f89b, type: 3}
+  enemyLs: []
+  numPool: 20
+  enemyTag: Enemy

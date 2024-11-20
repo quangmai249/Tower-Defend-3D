@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +26,6 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] float randPath = 1f;
     [SerializeField] float timeSpawn = 1.5f;
 
-    [SerializeField] readonly string enemyTag = "Enemy";
     [SerializeField] readonly string levelDesignTag = "Level Design";
     [SerializeField] readonly string pathManagerTag = "Path Manager";
     [SerializeField] readonly string enemyManagerTag = "Enemy Manager";
@@ -69,7 +67,7 @@ public class EnemySpawn : MonoBehaviour
             this.isReady = false;
         }
 
-        if (wave > maxWave && GameObject.FindGameObjectsWithTag(this.enemyTag).Length == 0)
+        if (wave > maxWave && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
             for (int i = 1; i < 100; i++)
             {
@@ -116,20 +114,12 @@ public class EnemySpawn : MonoBehaviour
     {
         yield return new WaitForSeconds(secondStartCountdown);
 
-        if (this.wave >= this.maxWave)
-        {
-            this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First() + RandomVector3Path(this.randPath);
-            GameObject temp = singletonEnemy.InstantiateBossEnemysAt(this.posSpawn.x, this.posSpawn.z);
-            temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
-            this.SetDefaultEnemy(temp, this.posSpawn);
-        }
-
         for (int i = 0; i < this.wave; i++)
         {
             if (this.wave <= 3)
             {
                 this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First() + RandomVector3Path(this.randPath);
-                GameObject temp = singletonEnemy.InstantiateEnemysAt(this.posSpawn.x, this.posSpawn.z, this.enemyTag);
+                GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn.x, this.posSpawn.z);
                 temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
                 this.SetDefaultEnemy(temp, this.posSpawn);
             }
@@ -138,7 +128,7 @@ public class EnemySpawn : MonoBehaviour
                 for (int j = 0; j < pathManager.GetListFileNodePath().Count; j++)
                 {
                     this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First() + RandomVector3Path(this.randPath); ;
-                    GameObject temp = singletonEnemy.InstantiateEnemysAt(this.posSpawn.x, this.posSpawn.z, this.enemyTag);
+                    GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn.x, this.posSpawn.z);
                     temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (j + 1)));
                     this.SetDefaultEnemy(temp, this.posSpawn);
                 }

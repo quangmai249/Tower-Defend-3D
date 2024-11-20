@@ -3709,7 +3709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1544100556
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4966,32 +4966,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2469453237291751300, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
       propertyPath: numPool
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 2469453237291751300, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
-      propertyPath: bossEnemy
-      value: 
-      objectReference: {fileID: 6227163583215410654, guid: 11c46236171989e4b851eaad02d3f89b, type: 3}
-    - target: {fileID: 2469453237291751300, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
-      propertyPath: lsEnemy.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2469453237291751300, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
-      propertyPath: 'lsEnemy.Array.data[0]'
-      value: 
-      objectReference: {fileID: 4371903954904197440, guid: b78a702b44659d0469cbbc5dc9a1f3e2, type: 3}
-    - target: {fileID: 2469453237291751300, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
-      propertyPath: 'lsEnemy.Array.data[1]'
-      value: 
-      objectReference: {fileID: 4371903954904197440, guid: 6ce41a3a983fa104fbf149222d644390, type: 3}
-    - target: {fileID: 2469453237291751300, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
-      propertyPath: 'lsEnemy.Array.data[2]'
-      value: 
-      objectReference: {fileID: 4371903954904197440, guid: 1853c3e217b8f924792fb4e8cb534a16, type: 3}
-    - target: {fileID: 2469453237291751300, guid: 102468cd64de2a34683b35cacb2e9245, type: 3}
-      propertyPath: 'lsEnemy.Array.data[3]'
-      value: 
-      objectReference: {fileID: 4371903954904197440, guid: 1853c3e217b8f924792fb4e8cb534a16, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5853,7 +5829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: maxWave
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3121309707161660943, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: m_Name

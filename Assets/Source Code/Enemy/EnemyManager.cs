@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] int enemyDamage = 1;
-    [SerializeField] float defaultHP = 100f;
-    [SerializeField] float enemyHP = 0f;
     [SerializeField] float goldReward = 100f;
+    [SerializeField] float enemyHP = 100f;
+    [SerializeField] float defaultHP = 100f;
     [SerializeField] Image imgHPBar;
     [SerializeField] Image imgHPBarFade;
     [SerializeField] Image imgHPBarBackground;
@@ -20,7 +19,7 @@ public class EnemyManager : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         gameStats = gameManager.GameStats;
-        this.enemyHP = this.defaultHP;
+        this.defaultHP = this.enemyHP;
     }
     private void Start()
     {
@@ -61,10 +60,6 @@ public class EnemyManager : MonoBehaviour
             return;
         }
         return;
-    }
-    public int GetEnemyDamage()
-    {
-        return this.enemyDamage;
     }
     public void SetDefaultHPEnemy()
     {

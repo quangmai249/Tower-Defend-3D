@@ -7,7 +7,7 @@ using UnityEngine;
 public class NodeBuildingManager : MonoBehaviour
 {
     [SerializeField] Vector3[] arrPosNodeBuilding;
-    [SerializeField] string default_path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/";
+    [SerializeField] string default_path = "C:/Tower Defend 3D/";
 
     private FilePath filePath;
     private SingletonBuilding singletonBuilding;

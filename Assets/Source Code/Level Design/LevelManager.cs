@@ -43,10 +43,10 @@ public class LevelManager : MonoBehaviour
         this.tMP_Dropdown.ClearOptions();
         this.tMP_Dropdown.captionText.text = Level.LEVEL_1.ToString();
 
-        foreach (var item in Enum.GetValues(typeof(Level)))
+        foreach (var level in Enum.GetNames(typeof(Level)))
         {
             this.optionData = new TMPro.TMP_Dropdown.OptionData();
-            this.optionData.text = item.ToString();
+            this.optionData.text = level;
             this.tMP_Dropdown.options.Add(this.optionData);
         }
     }

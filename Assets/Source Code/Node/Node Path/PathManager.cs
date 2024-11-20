@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 public class PathManager : MonoBehaviour
 {
-    [SerializeField] string default_path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/";
+    [SerializeField] string default_path = "C:/Tower Defend 3D/";
 
     private List<FilePath> lsFilePath = new List<FilePath>();
     private LevelDesign levelDesign;
@@ -21,7 +21,6 @@ public class PathManager : MonoBehaviour
     }
     private void Start()
     {
-        this.default_path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/";
         SetListFilePath(this.lsFilePath);
         CheckListFilePath(this.lsFilePath);
     }

@@ -1,9 +1,6 @@
 using DG.Tweening;
-using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -22,8 +19,6 @@ public class UIManager : MonoBehaviour
 
     private GameManager gameManager;
     private GameStats gameStats;
-    private LevelDesign levelDesign;
-
     public static UIManager Instance;
     private void Awake()
     {

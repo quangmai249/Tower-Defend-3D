@@ -29,11 +29,11 @@ public class LevelContent : MonoBehaviour
 
         this.textButtonPlayGame.text = "NONE";
 
-        foreach (var item in Enum.GetValues(typeof(Level)))
+        foreach (var level in Enum.GetNames(typeof(Level)))
         {
             foreach (var temp in lsButtonLevel)
             {
-                if (item.ToString().Equals(temp.gameObject.name.ToString()) && PlayerPrefs.GetInt(item.ToString()) == 1)
+                if (level.Equals(temp.gameObject.name.ToString()) && PlayerPrefs.GetInt(level) == 1)
                 {
                     temp.gameObject.SetActive(true);
                     temp.GetComponentInChildren<TextMeshProUGUI>().text = temp.gameObject.name;

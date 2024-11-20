@@ -5636,6 +5636,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3547749356798793157, guid: 9ef7ca1793dfad948b231fea6c214c87, type: 3}
+      propertyPath: default_path
+      value: C:/Tower Defend 3D/
+      objectReference: {fileID: 0}
     - target: {fileID: 3902076380231170918, guid: 9ef7ca1793dfad948b231fea6c214c87, type: 3}
       propertyPath: m_Name
       value: Building Manager
@@ -5693,6 +5697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 175045494059034100, guid: 91a21ab6fed666f4ca42030192e28a04, type: 3}
+      propertyPath: default_path
+      value: C:/Tower Defend 3D/
+      objectReference: {fileID: 0}
     - target: {fileID: 664680810078282474, guid: 91a21ab6fed666f4ca42030192e28a04, type: 3}
       propertyPath: m_Name
       value: Path Manager
@@ -5752,7 +5760,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: level
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: checking
@@ -5829,7 +5837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: maxWave
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3121309707161660943, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: m_Name

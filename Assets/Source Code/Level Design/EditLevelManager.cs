@@ -44,10 +44,10 @@ public class EditLevelManager : MonoBehaviour
         this.panelConfirm.gameObject.SetActive(false);
         this.btnEdit.gameObject.SetActive(false);
 
-        foreach (var item in Enum.GetValues(typeof(Level)))
+        foreach (var level in Enum.GetNames(typeof(Level)))
         {
             this.optionData = new TMPro.TMP_Dropdown.OptionData();
-            this.optionData.text = item.ToString();
+            this.optionData.text = level;
             this.tMP_Dropdown.options.Add(this.optionData);
         }
     }

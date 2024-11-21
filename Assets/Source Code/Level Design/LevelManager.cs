@@ -11,7 +11,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject panelConfirm;
     [SerializeField] TextMeshProUGUI textConfirm;
     [SerializeField] TextMeshProUGUI textNotify;
-    [SerializeField] TMPro.TMP_InputField tMP_InputField;
     [SerializeField] TMPro.TMP_Dropdown tMP_Dropdown;
     [SerializeField] string level;
 
@@ -24,7 +23,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<Transform> lsNodePath;
 
     [Header("Link Default")]
-    [SerializeField] string default_path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/";
+    [SerializeField] string default_path = "F:/Tower Defend 3D/";
 
     private readonly string hidden_path_node = "FileNodePath/";
     private readonly string hidden_path_node_building = "FileNodeBuilding/";
@@ -34,11 +33,9 @@ public class LevelManager : MonoBehaviour
     private FilePath hidden_file_node_building;
     private void Start()
     {
-        this.default_path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/";
-
-        this.panelConfirm.gameObject.SetActive(false);
-        this.textNotify.text = string.Empty;
         this.textConfirm.text = string.Empty;
+        this.textNotify.text = string.Empty;
+        this.panelConfirm.gameObject.SetActive(false);
 
         this.tMP_Dropdown.ClearOptions();
         this.tMP_Dropdown.captionText.text = Level.LEVEL_1.ToString();
@@ -52,7 +49,8 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        this.textConfirm.text = $"Are you sure create level {this.tMP_Dropdown.captionText.text}?";
+        this.level = this.tMP_Dropdown.captionText.text;
+        this.textConfirm.text = $"Are you sure create level {this.level}?";
     }
     public void ButtonMenuGame()
     {
@@ -66,8 +64,6 @@ public class LevelManager : MonoBehaviour
     }
     public void ButtonSaveOffline()
     {
-        this.tMP_InputField.text = string.Empty;
-        this.textNotify.text = string.Empty;
         this.panelConfirm.gameObject.SetActive(true);
         return;
     }
@@ -78,22 +74,8 @@ public class LevelManager : MonoBehaviour
     }
     public void ButtonConfirmSaveOffline()
     {
-        if (this.tMP_InputField.text.ToString() == string.Empty)
-        {
-            this.textNotify.text = $"Link to Save {this.tMP_Dropdown.captionText.text} is not NULL!";
-            return;
-        }
-        else
-        {
-            this.level = this.tMP_Dropdown.options[this.tMP_Dropdown.value].text;
-            StartSaveListNodePathToFile();
-            StartSaveListNodeBuildingToFile();
-            return;
-        }
-    }
-    public void ButtonGetLinkSaveDefault()
-    {
-        this.tMP_InputField.text = this.default_path.ToString();
+        StartSaveListNodePathToFile();
+        StartSaveListNodeBuildingToFile();
         return;
     }
     private void StartSaveListNodeBuildingToFile()
@@ -102,7 +84,7 @@ public class LevelManager : MonoBehaviour
         this.lsBuilding.RemoveAt(0);
 
         this.hidden_file_node_building
-            = new FilePath(this.tMP_InputField.text + this.hidden_path_node_building + this.level.ToString(), this.level.ToString());
+            = new FilePath(this.default_path + this.hidden_path_node_building + this.level, this.level);
         this.hidden_file_node_building.SetListVector(this.lsBuilding);
         this.hidden_file_node_building.StartSaveToFile();
         this.textNotify.text = this.hidden_file_node_building.GetNotify();
@@ -122,7 +104,7 @@ public class LevelManager : MonoBehaviour
             }
 
             this.hidden_file_node_path
-                = new FilePath(this.tMP_InputField.text + this.hidden_path_node + this.level.ToString(), this.level.ToString() + count);
+                = new FilePath(this.default_path + this.hidden_path_node + this.level, this.level + count);
 
             this.hidden_file_node_path.SetListVector(this.lsNodePath);
             this.hidden_file_node_path.StartSaveToFile();

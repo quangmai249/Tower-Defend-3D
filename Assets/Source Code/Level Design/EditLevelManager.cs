@@ -8,23 +8,21 @@ using UnityEngine.SceneManagement;
 public class EditLevelManager : MonoBehaviour
 {
     [Header("Confirm")]
-    [SerializeField] GameObject btnEdit;
-    [SerializeField] GameObject panelConfirm;
-    [SerializeField] GameObject btnConfirm;
-    [SerializeField] GameObject btnCancel;
-    [SerializeField] TextMeshProUGUI textConfirm;
-    [SerializeField] TextMeshProUGUI textNotify;
+    [SerializeField] GameObject panelConfirmDel;
+    [SerializeField] GameObject btnConfirmDel;
+    [SerializeField] GameObject btnCancelDel;
+    [SerializeField] TextMeshProUGUI textNotifyDel;
+    [SerializeField] TextMeshProUGUI textConfirmDel;
+    [SerializeField] string level;
 
     [Header("Node")]
-    [SerializeField] GameObject nodeBuilding;
-    [SerializeField] GameObject nodePath;
-    [SerializeField] List<GameObject> lsNode;
     [SerializeField] string nodeBuildingTag = "Node Building";
     [SerializeField] string nodePathTag = "Node Path";
 
     [Header("Path")]
+    [SerializeField] TextMeshProUGUI textNotifyCommon;
     [SerializeField] TMPro.TMP_Dropdown tMP_Dropdown;
-    [SerializeField] string default_path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/";
+    [SerializeField] string default_path = "F:/Tower Defend 3D/Resources/";
 
     private readonly string pathNodeBuilding = "FileNodeBuilding/";
     private readonly string pathNodePath = "FileNodePath/";
@@ -37,12 +35,11 @@ public class EditLevelManager : MonoBehaviour
         singletonBuilding = SingletonBuilding.Instance;
         singletonNodePath = SingletonNodePath.Instance;
 
-        this.default_path = "F:/unity/Build Game Folders/Tower Defend 3D/Resources/";
-        this.tMP_Dropdown.options.Clear();
+        this.textNotifyDel.text = string.Empty;
+        this.textNotifyCommon.text = string.Empty;
 
-        this.textNotify.text = string.Empty;
-        this.panelConfirm.gameObject.SetActive(false);
-        this.btnEdit.gameObject.SetActive(false);
+        this.tMP_Dropdown.options.Clear();
+        this.panelConfirmDel.gameObject.SetActive(false);
 
         foreach (var level in Enum.GetNames(typeof(Level)))
         {
@@ -51,11 +48,16 @@ public class EditLevelManager : MonoBehaviour
             this.tMP_Dropdown.options.Add(this.optionData);
         }
     }
+    private void Update()
+    {
+        this.level = this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString();
+        this.textConfirmDel.text = $"Are you sure delete {this.level}?";
+    }
     public void ButtonLoadNode()
     {
-        this.textNotify.text = string.Empty;
-        this.btnEdit.gameObject.SetActive(true);
         this.StartReadNodeBuilding();
+        this.StartReadNodePath();
+        this.textNotifyCommon.text = this.level + " loading...";
         return;
     }
     public void ButtonHome()
@@ -65,20 +67,18 @@ public class EditLevelManager : MonoBehaviour
     }
     public void ButtonDeleteLevel()
     {
-        this.panelConfirm.gameObject.SetActive(true);
-        this.textConfirm.text = $"Are you sure delete {this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString()}?";
+        this.panelConfirmDel.gameObject.SetActive(true);
         return;
     }
     public void ButtonCancel()
     {
-        this.panelConfirm.gameObject.SetActive(false);
-        this.btnEdit.gameObject.SetActive(false);
+        this.panelConfirmDel.gameObject.SetActive(false);
         return;
     }
     public void ButtonConfirmDelete()
     {
-        string path_node_building = this.default_path + this.pathNodeBuilding + this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString();
-        string path_node_path = this.default_path + this.pathNodePath + this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString();
+        string path_node_building = this.default_path + this.pathNodeBuilding + this.level;
+        string path_node_path = this.default_path + this.pathNodePath + this.level;
 
         try
         {
@@ -90,71 +90,62 @@ public class EditLevelManager : MonoBehaviour
             foreach (var item in directoryInfoNodePath.GetFiles())
                 item.Delete();
 
-            this.textConfirm.text
-                = $"Delete {this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString()} successfully!";
+            directoryInfoNodeBuilding.Delete();
+            directoryInfoNodePath.Delete();
+
+            this.textNotifyDel.text
+                = $"Delete {this.level} successfully!";
             return;
         }
         catch (Exception ex)
         {
-            this.textNotify.text = ex.Message.ToString();
+            this.textNotifyDel.text = ex.Message.ToString();
             return;
         }
     }
-    public void ButtonDesignLevel()
-    {
-        SceneManager.LoadScene("Scene Design Level");
-        return;
-    }
     private void StartReadNodeBuilding()
     {
-        string path = this.default_path + this.pathNodeBuilding + this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString();
+        string path = this.default_path + this.pathNodeBuilding + this.level;
         try
         {
-            FilePath f = new FilePath(path, this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString());
+            FilePath f = new FilePath(path, this.level);
 
             foreach (var item in GameObject.FindGameObjectsWithTag(this.nodeBuildingTag))
                 item.gameObject.SetActive(false);
-
             foreach (var item in GameObject.FindGameObjectsWithTag(this.nodePathTag))
                 Destroy(item.gameObject);
 
             Vector3[] vec = f.ReadFromFile();
             foreach (var item in vec)
                 singletonBuilding.InstantiateAt(item);
-
-            StartReadNodePath();
         }
         catch (Exception ex)
         {
-            this.btnEdit.gameObject.SetActive(false);
-            this.textNotify.text = ex.Message.ToString();
+            this.textNotifyCommon.text = ex.Message.ToString();
             return;
         }
     }
     private void StartReadNodePath()
     {
-        string path = this.default_path + this.pathNodePath + this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString();
+        string path = this.default_path + this.pathNodePath + this.level;
 
         try
         {
             for (int i = 0; i < Directory.GetFiles(path).Length; i++)
             {
-                FilePath f = new FilePath(path, this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString() + (i + 1));
-
+                FilePath f = new FilePath(path, this.level + (i + 1));
                 Vector3[] vec = f.ReadFromFile();
 
                 GameObject g = singletonNodePath.InstantiateNodePathAt(vec[0]);
-                g.gameObject.transform.SetParent(this.nodePath.transform);
+                g.gameObject.transform.SetParent(this.gameObject.transform);
 
                 for (int j = 1; j < vec.Length; j++)
-                    singletonNodePath.InstantiateNodePathAt(vec[j]).transform.SetParent(g.gameObject.transform);
+                    singletonNodePath.InstantiateNodePathAt(vec[j]).gameObject.transform.SetParent(g.gameObject.transform);
             }
-            this.textNotify.text = this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString();
         }
         catch (Exception ex)
         {
-            this.btnEdit.gameObject.SetActive(false);
-            this.textNotify.text = ex.Message.ToString();
+            this.textNotifyCommon.text = ex.Message.ToString();
             return;
         }
     }

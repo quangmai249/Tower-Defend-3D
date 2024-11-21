@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textConfirm;
     [SerializeField] TextMeshProUGUI textNotify;
     [SerializeField] TMPro.TMP_Dropdown tMP_Dropdown;
+    [SerializeField] int numPool = 50;
     [SerializeField] string level;
 
     [Header("Node Building")]
@@ -48,7 +49,7 @@ public class LevelManager : MonoBehaviour
     }
     public void ButtonMenuGame()
     {
-        SceneManager.LoadScene("Menu Game");
+        SceneManager.LoadScene("Splash Scene");
         return;
     }
     public void ButtonSaveOffline()
@@ -70,6 +71,24 @@ public class LevelManager : MonoBehaviour
         StartSaveListNodePathToFile();
         StartSaveListNodeBuildingToFile();
         return;
+    }
+    public void ButtonResetLevelGame()
+    {
+        for (int i = 1; i <= this.numPool; i++)
+        {
+            if (i < 3)
+            {
+                PlayerPrefs.SetInt($"LEVEL_{i}", 1);
+                PlayerPrefs.Save();
+            }
+            else
+            {
+                PlayerPrefs.SetInt($"LEVEL_{i}", 0);
+                PlayerPrefs.Save();
+            }
+        }
+
+        Debug.Log("Reset level done!");
     }
     private void StartSaveListNodeBuildingToFile()
     {

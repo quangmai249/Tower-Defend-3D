@@ -3,6 +3,7 @@ using Firebase.Storage;
 using System;
 using System.Collections;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class SaveNodeToFirebase : MonoBehaviour
     [SerializeField] GameObject buttonSaveToLocal;
     [SerializeField] GameObject buttonLoadFromLocal;
     [SerializeField] GameObject buttonDeleteFromLocal;
+    [SerializeField] GameObject buttonResetLevel;
 
     [Header("GUI Saving")]
     [SerializeField] TextMeshProUGUI textNotify;
@@ -29,6 +31,7 @@ public class SaveNodeToFirebase : MonoBehaviour
     [Header("Stats")]
     [SerializeField] bool isSaving = false;
     [SerializeField] bool isStartSaving = false;
+    [SerializeField] int maxNodePath = 12;
     [SerializeField] float timeSaving;
     [SerializeField] float defaultTimeSaving = 5f;
     [SerializeField] string level;
@@ -109,9 +112,13 @@ public class SaveNodeToFirebase : MonoBehaviour
     private void UploadFileNodePath(FirebaseStorage firebaseStorage, StorageReference storageReference, string linkFirebase, string linkLocal)
     {
         int count = 1;
+        storageReference = firebaseStorage.GetReferenceFromUrl(linkFirebase);
+
+        for (int i = 1; i <= this.maxNodePath; i++)
+            storageReference.Child(this.level + i).DeleteAsync();
+
         foreach (var file in Directory.GetFiles(linkLocal))
         {
-            storageReference = firebaseStorage.GetReferenceFromUrl(linkFirebase);
             storageReference.Child(this.level + count).PutFileAsync(file).ContinueWith((Task<StorageMetadata> task) =>
             {
                 if (task.IsFaulted || task.IsCanceled)
@@ -149,5 +156,6 @@ public class SaveNodeToFirebase : MonoBehaviour
         buttonLoadFromLocal.gameObject.SetActive(isActive);
         buttonDeleteFromLocal.gameObject.SetActive(isActive);
         buttonBackToHome.gameObject.SetActive(isActive);
+        buttonResetLevel.gameObject.SetActive(isActive);
     }
 }

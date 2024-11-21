@@ -44,12 +44,6 @@ public class LevelContent : MonoBehaviour
     }
     private void CreateObjectPooling(int defaultNumPooling)
     {
-        //for (int i = 1; i <= defaultNumPooling; i++)
-        //{
-        //    PlayerPrefs.SetInt($"LEVEL_{i}", 0);
-        //    PlayerPrefs.Save();
-        //}
-
         for (int i = 1; i <= defaultNumPooling; i++)
         {
             this._btnLevel = Instantiate(this.btnLevel);
@@ -61,12 +55,6 @@ public class LevelContent : MonoBehaviour
                 this._btnLevel.SetActive(true);
 
             lsButtonLevel.Add(this._btnLevel);
-        }
-
-        for (int i = 1; i < 4; i++)
-        {
-            PlayerPrefs.SetInt($"LEVEL_{i}", 1);
-            PlayerPrefs.Save();
         }
     }
     public void SetTextButtonPlayGame(string text)

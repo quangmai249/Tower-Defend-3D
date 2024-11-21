@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -9,13 +8,12 @@ public class EditLevelManager : MonoBehaviour
 {
     [Header("Confirm")]
     [SerializeField] GameObject panelConfirmDel;
-    [SerializeField] GameObject btnConfirmDel;
-    [SerializeField] GameObject btnCancelDel;
     [SerializeField] TextMeshProUGUI textNotifyDel;
     [SerializeField] TextMeshProUGUI textConfirmDel;
     [SerializeField] string level;
 
     [Header("Node")]
+    [SerializeField] GameObject panelConfirmSaveToLocal;
     [SerializeField] string nodeBuildingTag = "Node Building";
     [SerializeField] string nodePathTag = "Node Path";
 
@@ -40,6 +38,7 @@ public class EditLevelManager : MonoBehaviour
 
         this.tMP_Dropdown.options.Clear();
         this.panelConfirmDel.gameObject.SetActive(false);
+        this.panelConfirmSaveToLocal.gameObject.SetActive(false);
 
         foreach (var level in Enum.GetNames(typeof(Level)))
         {
@@ -50,14 +49,16 @@ public class EditLevelManager : MonoBehaviour
     }
     private void Update()
     {
-        this.level = this.tMP_Dropdown.options[this.tMP_Dropdown.value].text.ToString();
+        this.level = this.tMP_Dropdown.captionText.text.ToString();
         this.textConfirmDel.text = $"Are you sure delete {this.level}?";
     }
     public void ButtonLoadNode()
     {
+        this.textNotifyCommon.text = this.level + " loading...";
+        this.panelConfirmDel.gameObject.SetActive(false);
+        this.panelConfirmSaveToLocal.gameObject.SetActive(false);
         this.StartReadNodeBuilding();
         this.StartReadNodePath();
-        this.textNotifyCommon.text = this.level + " loading...";
         return;
     }
     public void ButtonHome()
@@ -67,12 +68,16 @@ public class EditLevelManager : MonoBehaviour
     }
     public void ButtonDeleteLevel()
     {
+        this.textNotifyDel.text = string.Empty;
         this.panelConfirmDel.gameObject.SetActive(true);
+        this.panelConfirmSaveToLocal.gameObject.SetActive(false);
         return;
     }
     public void ButtonCancel()
     {
+        this.textNotifyDel.text = string.Empty;
         this.panelConfirmDel.gameObject.SetActive(false);
+        this.panelConfirmSaveToLocal.gameObject.SetActive(false);
         return;
     }
     public void ButtonConfirmDelete()

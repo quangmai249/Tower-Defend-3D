@@ -3,14 +3,16 @@ using Firebase.Storage;
 using System;
 using System.IO;
 using System.Net;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class FirebaseInit : MonoBehaviour
 {
     [SerializeField] Slider slideLoading;
+    [SerializeField] TextMeshProUGUI textNotify;
+
     [SerializeField] int maxNodePath = 12;
     [SerializeField] float defaultTimeLoading = 3f;
-
     [SerializeField] string linkLocal = "C:/Tower Defend 3D";
     [SerializeField] string linkFirebase = "https://firebasestorage.googleapis.com/v0/b/tower-defend-3d-unity-84f17.appspot.com/o/";
     private void Awake()
@@ -54,6 +56,8 @@ public class FirebaseInit : MonoBehaviour
                 {
                     if (!task.IsFaulted && !task.IsCanceled && !File.Exists($"{folderLocal}/{level}/{nameFile}"))
                         webClient.DownloadFile(task.Result, $"{folderLocal}/{level}/{nameFile}");
+                    else
+                        Debug.Log(task.Exception.Message);
                 });
             }
         }
@@ -73,6 +77,8 @@ public class FirebaseInit : MonoBehaviour
             {
                 if (!task.IsFaulted && !task.IsCanceled && !File.Exists($"{folderLocal}/{level}/{level}"))
                     webClient.DownloadFile(task.Result, $"{folderLocal}/{level}/{level}");
+                else
+                    Debug.Log(task.Exception.Message);
             });
         }
     }

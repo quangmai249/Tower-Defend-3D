@@ -1079,6 +1079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slideLoading: {fileID: 1680834346}
+  textNotify: {fileID: 1239279154}
   maxNodePath: 12
   defaultTimeLoading: 3
   linkLocal: C:/Tower Defend 3D/

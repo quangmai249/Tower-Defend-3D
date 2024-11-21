@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,33 +22,28 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<Transform> lsNodePath;
 
     [Header("Link Default")]
+    [SerializeField] GameObject panelConfirmDelete;
     [SerializeField] string default_path = "F:/Tower Defend 3D/";
 
     private readonly string hidden_path_node = "FileNodePath/";
     private readonly string hidden_path_node_building = "FileNodeBuilding/";
 
-    private TMPro.TMP_Dropdown.OptionData optionData;
     private FilePath hidden_file_node_path;
     private FilePath hidden_file_node_building;
     private void Start()
     {
         this.textConfirm.text = string.Empty;
         this.textNotify.text = string.Empty;
+
         this.panelConfirm.gameObject.SetActive(false);
+        this.panelConfirmDelete.gameObject.SetActive(false);
 
         this.tMP_Dropdown.ClearOptions();
         this.tMP_Dropdown.captionText.text = Level.LEVEL_1.ToString();
-
-        foreach (var level in Enum.GetNames(typeof(Level)))
-        {
-            this.optionData = new TMPro.TMP_Dropdown.OptionData();
-            this.optionData.text = level;
-            this.tMP_Dropdown.options.Add(this.optionData);
-        }
     }
     private void Update()
     {
-        this.level = this.tMP_Dropdown.captionText.text;
+        this.level = this.tMP_Dropdown.captionText.text.ToString();
         this.textConfirm.text = $"Are you sure create level {this.level}?";
     }
     public void ButtonMenuGame()
@@ -57,19 +51,18 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Menu Game");
         return;
     }
-    public void ButtonEditLevel()
-    {
-        SceneManager.LoadScene("Scene Edit Level");
-        return;
-    }
     public void ButtonSaveOffline()
     {
+        this.textNotify.text = string.Empty;
         this.panelConfirm.gameObject.SetActive(true);
+        this.panelConfirmDelete.gameObject.SetActive(false);
         return;
     }
     public void ButtonCancel()
     {
+        this.textNotify.text = string.Empty;
         this.panelConfirm.SetActive(false);
+        this.panelConfirmDelete.gameObject.SetActive(false);
         return;
     }
     public void ButtonConfirmSaveOffline()

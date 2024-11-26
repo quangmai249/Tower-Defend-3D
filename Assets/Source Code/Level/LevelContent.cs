@@ -8,7 +8,6 @@ public class LevelContent : MonoBehaviour
     [SerializeField] GameObject btnLevel;
     [SerializeField] TextMeshProUGUI textButtonPlayGame;
     [SerializeField] List<GameObject> lsButtonLevel;
-    [SerializeField] int numPool = 50;
     private GameObject _btnLevel;
     public static LevelContent Instance;
     private void Awake()
@@ -20,7 +19,7 @@ public class LevelContent : MonoBehaviour
         }
         Instance = this;
 
-        CreateObjectPooling(this.numPool);
+        CreateObjectPooling(Enum.GetValues(typeof(Level)).Length);
     }
     private void Start()
     {

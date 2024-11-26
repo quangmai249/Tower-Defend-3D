@@ -1,44 +1,81 @@
 using Firebase.Extensions;
 using Firebase.Storage;
 using System;
+using System.Collections;
 using System.IO;
 using System.Net;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class FirebaseInit : MonoBehaviour
 {
-    [SerializeField] Slider slideLoading;
+    [SerializeField] Image imgTimeLoading;
     [SerializeField] TextMeshProUGUI textNotify;
 
     [SerializeField] int maxNodePath = 12;
-    [SerializeField] float defaultTimeLoading = 3f;
     [SerializeField] string linkLocal = "C:/Tower Defend 3D";
     [SerializeField] string linkFirebase = "https://firebasestorage.googleapis.com/v0/b/tower-defend-3d-unity-84f17.appspot.com/o/";
     private void Awake()
     {
-        WebClient webClient = new WebClient();
-        FirebaseStorage firebaseStorage = FirebaseStorage.DefaultInstance;
-
-        this.CheckingNodePath(firebaseStorage, webClient);
-        this.CheckingNodeBuilding(firebaseStorage, webClient);
-    }
-    private void Start()
-    {
-        slideLoading.value = 0f;
-        slideLoading.minValue = 0f;
-        slideLoading.maxValue = this.defaultTimeLoading;
+        StartCoroutine(nameof(this.CoroutineTimeLoading));
     }
     private void Update()
     {
-        if (this.slideLoading.value >= this.slideLoading.maxValue)
+        if (this.imgTimeLoading.fillAmount == 1f)
         {
-            SceneManager.LoadScene("Menu Game");
+            //SceneManager.LoadScene("Menu Game");
+            Debug.Log("Done!");
             return;
         }
+    }
+    private IEnumerator CoroutineTimeLoading()
+    {
+        this.imgTimeLoading.fillAmount = 0f;
+        this.textNotify.text = $"We need to check some Recourses in a short time!\n (If this is the first time you start, you should Connect the Internet!)";
+
+        yield return new WaitForEndOfFrame();
+        if (this.CheckRecourseFiles() == true)
+        {
+            while (this.imgTimeLoading.fillAmount < 1)
+            {
+                yield return new WaitForSeconds(1f);
+                this.imgTimeLoading.fillAmount += 0.25f;
+            }
+        }
         else
-            slideLoading.value += Time.deltaTime;
+        {
+            WebClient webClient = new WebClient();
+            FirebaseStorage firebaseStorage = FirebaseStorage.DefaultInstance;
+            this.CheckingNodePath(firebaseStorage, webClient);
+            this.CheckingNodeBuilding(firebaseStorage, webClient);
+
+            StartCoroutine(nameof(this.CoroutineResetLevel));
+            StartCoroutine(nameof(this.CoroutineTimeLoading));
+        }
+    }
+    private bool CheckRecourseFiles()
+    {
+        bool res = false;
+        foreach (var level in Enum.GetNames(typeof(Level)))
+        {
+            if (!Directory.Exists($"{this.linkLocal}/FileNodeBuilding/{level}") || !Directory.Exists($"{this.linkLocal}/FileNodePath/{level}"))
+                return false;
+            else res = true;
+        }
+        return res;
+    }
+    private IEnumerator CoroutineResetLevel()
+    {
+        yield return new WaitForEndOfFrame();
+
+        PlayerPrefs.SetInt($"LEVEL_1", 1);
+        PlayerPrefs.Save();
+
+        for (int i = 2; i <= Enum.GetValues(typeof(Level)).Length; i++)
+        {
+            PlayerPrefs.SetInt($"LEVEL_{i}", 0);
+            PlayerPrefs.Save();
+        }
     }
     private void CheckingNodePath(FirebaseStorage firebaseStorage, WebClient webClient)
     {

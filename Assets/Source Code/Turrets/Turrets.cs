@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Turrets : MonoBehaviour
 {
-    [SerializeField] GameObject nodeBuilding;
     [SerializeField] GameObject menuUpgradeTurrets;
     [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
     [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";

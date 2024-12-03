@@ -6,6 +6,7 @@ using System.IO;
 using System.Net;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class FirebaseInit : MonoBehaviour
 {
@@ -23,8 +24,7 @@ public class FirebaseInit : MonoBehaviour
     {
         if (this.imgTimeLoading.fillAmount == 1f)
         {
-            //SceneManager.LoadScene("Menu Game");
-            Debug.Log("Done!");
+            SceneManager.LoadScene("Menu Game");
             return;
         }
     }
@@ -95,11 +95,6 @@ public class FirebaseInit : MonoBehaviour
                 {
                     if (!task.IsFaulted && !task.IsCanceled && !File.Exists($"{folderLocal}/{level}/{nameFile}"))
                         webClient.DownloadFile(task.Result, $"{folderLocal}/{level}/{nameFile}");
-                    //else
-                    //{
-                    //    Debug.Log(task.Exception.Message);
-                    //    return;
-                    //}
                 });
             }
         }
@@ -119,11 +114,6 @@ public class FirebaseInit : MonoBehaviour
             {
                 if (!task.IsFaulted && !task.IsCanceled && !File.Exists($"{folderLocal}/{level}/{level}"))
                     webClient.DownloadFile(task.Result, $"{folderLocal}/{level}/{level}");
-                //else
-                //{
-                //    Debug.Log(task.Exception.Message);
-                //    return;
-                //}
             });
         }
     }

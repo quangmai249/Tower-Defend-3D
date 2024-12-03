@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ButtonShop : MonoBehaviour
 {
@@ -47,8 +43,10 @@ public class ButtonShop : MonoBehaviour
     {
         if (this.turret.tag == "Blue Turret")
             singletonTurrets.InstantiateBlueTurretsAt(this.gameObject.transform.parent.transform.position);
-        if (this.turret.tag == "Red Turret")
-            singletonTurrets.InstantiateRedTurretsAt(this.gameObject.transform.parent.transform.position);
+        if (this.turret.tag == "Second Turret")
+            singletonTurrets.InstantiateSecondTurretsAt(this.gameObject.transform.parent.transform.position);
+        if (this.turret.tag == "Third Turret")
+            singletonTurrets.InstantiateThirdTurretsAt(this.gameObject.transform.parent.transform.position);
         if (this.turret.tag == "Yellow Turret")
             singletonTurrets.InstantiateYellowTurretsAt(this.gameObject.transform.parent.transform.position);
 

@@ -10,6 +10,7 @@ public static class BulletRaycast
         EnemyManager enemyManager;
         RaycastHit hit;
         Physics.Raycast(pos, distance, out hit);
+
         if (hit.collider != null)
         {
             enemyManager = hit.collider.gameObject.GetComponent<EnemyManager>();

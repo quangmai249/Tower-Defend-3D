@@ -6,14 +6,11 @@ public class BulletSimple : MonoBehaviour
 {
     [Header("Bullets")]
     [SerializeField] float fireCountdown = 1f;
-    [SerializeField] float defaultFireCountdown = 1f;
-    [SerializeField] string bulletTag = "Bullet";
 
     [Header("Enemies")]
     [SerializeField] GameObject target;
     [SerializeField] readonly string enemyTag = "Enemy";
 
-    private GameObject _bullet;
     private GameManager gameManager;
     private TurretStats turretStats;
     private void Awake()
@@ -22,13 +19,12 @@ public class BulletSimple : MonoBehaviour
     }
     private void Start()
     {
-        this.fireCountdown = defaultFireCountdown;
+        this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
+        this.fireCountdown = this.turretStats.RateTurret;
     }
     void Update()
     {
         this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
-
-        this.defaultFireCountdown = this.turretStats.RateTurret;
         this.target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
 
         if (this.target == null || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
@@ -41,33 +37,18 @@ public class BulletSimple : MonoBehaviour
     }
     private void StartSpawnBullet()
     {
+        this.fireCountdown -= Time.deltaTime;
         if (this.fireCountdown <= 0)
         {
-            this._bullet = this.gameObject.GetComponent<BulletObjectPooling>().GetBulletPooling(this.bulletTag); ;
-            this._bullet.transform.position = this.gameObject.transform.position;
-            this._bullet.SetActive(true);
+            BulletRaycast.Shooting(this.gameObject.transform.position
+                , this.turretStats.RangeTurret * this.gameObject.transform.forward
+                , this.turretStats.DamagedTurret, false);
 
-            StartCoroutine(nameof(this.StartDamage), this._bullet);
-
-            this._bullet.gameObject.transform
-                .DOMove(this.target.gameObject.transform.position, defaultFireCountdown);
-
-            this.fireCountdown = defaultFireCountdown;
+            this.fireCountdown = this.turretStats.RateTurret;
         }
-        this.fireCountdown -= Time.deltaTime;
     }
-    private IEnumerator StartDamage(GameObject go)
+    public GameObject GetTarget()
     {
-        yield return new WaitForSeconds(this.defaultFireCountdown);
-        BulletRaycast.Shooting(this.gameObject.transform.position, this.turretStats.RangeTurret * this.gameObject.transform.forward, this.turretStats.DamagedTurret, false);
-        go.gameObject.SetActive(false);
-    }
-    public float GetFireCountdown()
-    {
-        return this.fireCountdown;
-    }
-    public void SetFireCountdown(float defaultFireCountdown)
-    {
-        this.defaultFireCountdown = defaultFireCountdown;
+        return this.target;
     }
 }

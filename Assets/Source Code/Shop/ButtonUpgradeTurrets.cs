@@ -116,11 +116,11 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         res.RangeTurret += this.turretStats.RangeTurret * (upgradeturretStatsPercent / 300);
         res.DamagedTurret += this.turretStats.DamagedTurret * (upgradeturretStatsPercent / 100);
 
-        if (this.turret.GetComponent<BulletLaser>() != null)
-            res.RateTurret += this.turretStats.RateTurret * (upgradeturretStatsPercent / 300);
+        //if (this.turret.GetComponent<BulletLaser>() != null)
+        //    res.RateTurret += this.turretStats.RateTurret * (upgradeturretStatsPercent / 300);
 
-        if (this.turret.GetComponent<BulletSimple>() != null)
-            res.RateTurret -= this.turretStats.RateTurret * (upgradeturretStatsPercent / 300);
+        //if (this.turret.GetComponent<BulletSimple>() != null)
+        //    res.RateTurret -= this.turretStats.RateTurret * (upgradeturretStatsPercent / 300);
 
         this.turret.GetComponent<Turrets>().SetTurretStats(res);
     }

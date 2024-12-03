@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 4751275707950311956}
   - component: {fileID: 431310270249163334}
   - component: {fileID: -653839869405320302}
-  - component: {fileID: -8746141403368484816}
+  - component: {fileID: 1459035694074198900}
+  - component: {fileID: 2269574702582854216}
+  - component: {fileID: 1543974779601562256}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Second Turret
@@ -118,7 +120,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -228,10 +230,10 @@ MonoBehaviour:
   priceUpgrade: 50
   priceSell: 75
   range: 6
-  damage: 5
+  damage: 10
   rate: 2
   uiManagerTag: UI Manager
---- !u!114 &-8746141403368484816
+--- !u!114 &1459035694074198900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,11 +242,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 3226583421603586234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd8921b3e0957e24c9e1da99b6e2614f, type: 3}
+  m_Script: {fileID: 11500000, guid: 36fc7cb829b61864d91123cdbf855b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireCountdown: 1
   target: {fileID: 0}
+  enemyTag: Enemy
+--- !u!114 &2269574702582854216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3226583421603586234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a625d8837642348977e0099597102d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8963397114939042992}
+  par: {fileID: 4575022808678379898}
+  audioSource: {fileID: 431310270249163334}
+  speed: 0.25
+  bulletTag: Bullet
+  bulletCannon: {fileID: 0}
+--- !u!114 &1543974779601562256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3226583421603586234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306d5bd1608fa2347ac9ec8a4def679a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7390452758466146488, guid: dc0af88b7083c994f8e982ec06008552, type: 3}
+  lsBulletPooling: []
+  defaultBulletQuantity: 5
+  bulletTag: Bullet
 --- !u!1001 &4575022808697632130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -256,18 +292,6 @@ PrefabInstance:
     - target: {fileID: 159918, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
       propertyPath: m_Name
       value: sprite_realExplosion_c_example
-      objectReference: {fileID: 0}
-    - target: {fileID: 494610, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 494610, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 494610, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 494610, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -309,59 +333,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 494610, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: lengthInSec
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: ShapeModule.type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: ShapeModule.arc.mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: InitialModule.startSizeY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: InitialModule.startSizeZ.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: InitialModule.startRotationX.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: InitialModule.startRotationY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19930934, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
-      propertyPath: m_MaxParticleSize
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
+--- !u!198 &4575022808678379898 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19842296, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}
+  m_PrefabInstance: {fileID: 4575022808697632130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4575022808697731472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 494610, guid: a0040bf7072bc2f4e82d887d50a9c5e2, type: 3}

@@ -89,6 +89,7 @@ public class SingletonTurrets : MonoBehaviour
         for (int i = 0; i < defaultQuantity; i++)
         {
             lsBlueTurrets.Add(InstantiateTurret(this.blueTurrets));
+            lsSecondTurrets.Add(InstantiateTurret(this.secondTurret));
             lsThirdTurrets.Add(InstantiateTurret(this.thirdTurret));
             lsYellowTurrets.Add(InstantiateTurret(this.yellowTurrets));
         }

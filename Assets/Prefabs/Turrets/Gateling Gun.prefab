@@ -16038,7 +16038,8 @@ GameObject:
   - component: {fileID: 5723343781926240063}
   - component: {fileID: 7778818609593885622}
   - component: {fileID: 4549493331033038738}
-  - component: {fileID: 5915068622617522441}
+  - component: {fileID: 4302074893870252293}
+  - component: {fileID: 49735229592500854}
   - component: {fileID: 2915759072606591901}
   m_Layer: 0
   m_Name: Gateling Gun
@@ -16257,7 +16258,7 @@ MonoBehaviour:
   damage: 5
   rate: 0.5
   uiManagerTag: UI Manager
---- !u!114 &5915068622617522441
+--- !u!114 &4302074893870252293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16266,11 +16267,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1979706888108350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd8921b3e0957e24c9e1da99b6e2614f, type: 3}
+  m_Script: {fileID: 11500000, guid: 36fc7cb829b61864d91123cdbf855b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  objRotation: {fileID: 1157879558086612}
+  enemyTag: Enemy
+--- !u!114 &49735229592500854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979706888108350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a873d685c771b1f4fb1808dc25158e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireCountdown: 1
-  target: {fileID: 0}
 --- !u!114 &2915759072606591901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16283,8 +16298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b69716e19a3e1e4898ab08942ca3481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   animator: {fileID: 5969180800587848747}
-  animationClip: {fileID: 7400000, guid: 5c79017d95f45824e8134909395a5c8e, type: 2}
-  particleSystem: {fileID: 198562569527715984}
+  par: {fileID: 198562569527715984}
   audioSource: {fileID: 7778818609593885622}

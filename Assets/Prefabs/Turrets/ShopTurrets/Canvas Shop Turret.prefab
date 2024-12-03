@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &7010960911717118308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +157,10 @@ PrefabInstance:
     - target: {fileID: 3411753820103820918, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413598749448173826, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
+      propertyPath: m_Name
+      value: Button Second Turret
       objectReference: {fileID: 0}
     - target: {fileID: 6009840400002064322, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
       propertyPath: m_SortingLayer

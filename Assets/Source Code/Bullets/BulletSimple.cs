@@ -9,10 +9,11 @@ public class BulletSimple : MonoBehaviour
 
     [Header("Enemies")]
     [SerializeField] GameObject target;
-    [SerializeField] readonly string enemyTag = "Enemy";
+    [SerializeField] string enemyTag = "Enemy";
 
     private GameManager gameManager;
     private TurretStats turretStats;
+    private bool isGatelingGunShooting;
     private void Awake()
     {
         gameManager = GameManager.Instance;
@@ -28,15 +29,25 @@ public class BulletSimple : MonoBehaviour
         this.target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
 
         if (this.target == null || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
+        {
+            this.isGatelingGunShooting = false;
             return;
+        }
         else
         {
             this.gameObject.transform.LookAt(this.target.transform.position);
-            StartSpawnBullet();
+            this.StartShooting();
         }
     }
-    private void StartSpawnBullet()
+    private void StartShooting()
     {
+        this.GatelingGunShooting();
+    }
+    private void GatelingGunShooting()
+    {
+        if (isGatelingGunShooting == false)
+            return;
+
         this.fireCountdown -= Time.deltaTime;
         if (this.fireCountdown <= 0)
         {
@@ -46,6 +57,10 @@ public class BulletSimple : MonoBehaviour
 
             this.fireCountdown = this.turretStats.RateTurret;
         }
+    }
+    public void SetGatelingGunShooting(bool isShoot)
+    {
+        this.isGatelingGunShooting = isShoot;
     }
     public GameObject GetTarget()
     {

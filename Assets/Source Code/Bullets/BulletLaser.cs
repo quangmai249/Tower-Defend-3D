@@ -6,6 +6,7 @@ public class BulletLaser : MonoBehaviour
 {
     [Header("Bullets")]
     [SerializeField] GameObject objEffectLaser;
+    [SerializeField] Vector3 laserPos = new Vector3(0, 1.5f, 0);
     [SerializeField] float timeDurationSlowing = 0.75f;
 
     [Header("Enemies")]
@@ -50,7 +51,7 @@ public class BulletLaser : MonoBehaviour
             this.gameObject.transform.LookAt(this.target.transform.position);
 
             this.lineRenderer.enabled = true;
-            this.lineRenderer.SetPosition(0, this.gameObject.transform.position);
+            this.lineRenderer.SetPosition(0, this.gameObject.transform.position + this.laserPos);
             this.lineRenderer.SetPosition(1, this.target.transform.position);
 
             this.effectLaser.transform.position = this.target.transform.position;
@@ -62,13 +63,5 @@ public class BulletLaser : MonoBehaviour
 
             this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true, this.timeDurationSlowing);
         }
-    }
-    public float GetTimeSlowing()
-    {
-        return this.timeDurationSlowing;
-    }
-    public void SetTimeSlowing(float time)
-    {
-        this.timeDurationSlowing = time;
     }
 }

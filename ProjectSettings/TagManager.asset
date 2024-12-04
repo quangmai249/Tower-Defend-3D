@@ -21,6 +21,7 @@ TagManager:
   - Third Turret
   - Second Turret
   - First Turret
+  - Fourth Turret
   layers:
   - Default
   - TransparentFX

@@ -42,8 +42,8 @@ public class ButtonShop : MonoBehaviour
             singletonTurrets.InstantiateSecondTurretsAt(this.gameObject.transform.parent.transform.position);
         if (this.turret.tag == "Third Turret")
             singletonTurrets.InstantiateThirdTurretsAt(this.gameObject.transform.parent.transform.position);
-        if (this.turret.tag == "Yellow Turret")
-            singletonTurrets.InstantiateYellowTurretsAt(this.gameObject.transform.parent.transform.position);
+        if (this.turret.tag == "Fourth Turret")
+            singletonTurrets.InstantiateFourthTurretsAt(this.gameObject.transform.parent.transform.position);
 
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTurretTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTurretTag);

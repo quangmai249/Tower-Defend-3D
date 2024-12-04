@@ -5,7 +5,7 @@ public class SingletonTurrets : MonoBehaviour
 {
     [SerializeField] int numPool = 20;
 
-    [Header("Blue")]
+    [Header("First Turret")]
     [SerializeField] string firstTurretTag = "First Turret";
     [SerializeField] GameObject firstTurret;
     [SerializeField] List<GameObject> lsFirstTurret;
@@ -20,10 +20,10 @@ public class SingletonTurrets : MonoBehaviour
     [SerializeField] GameObject thirdTurret;
     [SerializeField] List<GameObject> lsThirdTurrets;
 
-    [Header("Yellow")]
-    [SerializeField] string yellowTurretsTag = "Yellow Turret";
-    [SerializeField] GameObject yellowTurrets;
-    [SerializeField] List<GameObject> lsYellowTurrets;
+    [Header("Fourth Turret")]
+    [SerializeField] string fourthTurretTag = "Fourth Turret";
+    [SerializeField] GameObject fourthTurret;
+    [SerializeField] List<GameObject> lsFourthTurret;
 
     private GameObject _turret;
     public static SingletonTurrets Instance;
@@ -64,9 +64,9 @@ public class SingletonTurrets : MonoBehaviour
         res.gameObject.SetActive(true);
         return res;
     }
-    public GameObject InstantiateYellowTurretsAt(Vector3 pos)
+    public GameObject InstantiateFourthTurretsAt(Vector3 pos)
     {
-        GameObject res = this.GetNodeBuildingPooling(this.yellowTurrets, this.yellowTurretsTag, this.lsYellowTurrets);
+        GameObject res = this.GetNodeBuildingPooling(this.fourthTurret, this.fourthTurretTag, this.lsFourthTurret);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
         res.GetComponent<Turrets>().SetDefaultTurret();
         res.gameObject.SetActive(true);
@@ -91,7 +91,7 @@ public class SingletonTurrets : MonoBehaviour
             lsFirstTurret.Add(InstantiateTurret(this.firstTurret));
             lsSecondTurrets.Add(InstantiateTurret(this.secondTurret));
             lsThirdTurrets.Add(InstantiateTurret(this.thirdTurret));
-            lsYellowTurrets.Add(InstantiateTurret(this.yellowTurrets));
+            lsFourthTurret.Add(InstantiateTurret(this.fourthTurret));
         }
     }
     private GameObject InstantiateTurret(GameObject go)

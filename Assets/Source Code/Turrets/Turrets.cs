@@ -19,9 +19,7 @@ public class Turrets : MonoBehaviour
     [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     [Header("Turret Stats")]
-    [SerializeField] TurretTypes turretTypes = TurretTypes.Simple;
     [SerializeField] int levelTurret = 1;
-    [SerializeField] int maxlevelTurret = 5;
     [SerializeField] float priceTurrets = 100f;
     [SerializeField] float priceUpgrade = 50f;
     [SerializeField] float priceSell = 50f;
@@ -148,13 +146,5 @@ public class Turrets : MonoBehaviour
     public void SetTurretStats(TurretStats tStats)
     {
         this.turretStats = tStats;
-    }
-    public TurretTypes GetTurretTypes()
-    {
-        return this.turretTypes;
-    }
-    public int GetMaxLevelTurret()
-    {
-        return this.maxlevelTurret;
     }
 }

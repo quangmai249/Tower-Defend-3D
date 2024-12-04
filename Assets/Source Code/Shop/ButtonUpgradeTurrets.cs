@@ -18,7 +18,6 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     [SerializeField] string btnCanvasShopTag = "Canvas Shop Turrets";
     [SerializeField] string btnCanvasUpgradeTag = "Canvas Upgrade Turrets";
     [SerializeField] string textTurretStatsTag = "Text Turret Stats";
-    //[SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     private GameObject turret;
     private GameObject menuUpgrade;
@@ -27,7 +26,6 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     private GameStats gameStats;
     private UIManager uiManager;
 
-    private TurretTypes turretTypes;
     private TurretStats turretStats;
     private SingletonBuilding singletonBuilding;
     private void Awake()
@@ -116,11 +114,9 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         res.RangeTurret += this.turretStats.RangeTurret * (upgradeturretStatsPercent / 300);
         res.DamagedTurret += this.turretStats.DamagedTurret * (upgradeturretStatsPercent / 100);
 
-        //if (this.turret.GetComponent<BulletLaser>() != null)
-        //    res.RateTurret += this.turretStats.RateTurret * (upgradeturretStatsPercent / 300);
-
-        //if (this.turret.GetComponent<BulletSimple>() != null)
-        //    res.RateTurret -= this.turretStats.RateTurret * (upgradeturretStatsPercent / 300);
+        if (this.turret.GetComponent<BulletLaser>() != null)
+            this.turret.GetComponent<BulletLaser>()
+                .SetTimeSlowing(this.turret.GetComponent<BulletLaser>().GetTimeSlowing() * 0.85f);
 
         this.turret.GetComponent<Turrets>().SetTurretStats(res);
     }
@@ -136,6 +132,8 @@ public class ButtonUpgradeTurrets : MonoBehaviour
             goText.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.turretStats.DamagedTurret}\n";
             goText.GetComponent<TextMeshProUGUI>().text += $"Range: {this.turretStats.RangeTurret}\n";
             goText.GetComponent<TextMeshProUGUI>().text += $"Rate: {this.turretStats.RateTurret}\n";
+            if (this.turret.GetComponent<BulletLaser>() != null)
+                goText.GetComponent<TextMeshProUGUI>().text += $"Time Slowing: {this.turret.GetComponent<BulletLaser>().GetTimeSlowing()}\n";
         }
     }
 }

@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using UnityEngine;
 
 public class BulletDoubleBarrelGun : MonoBehaviour
@@ -5,6 +6,11 @@ public class BulletDoubleBarrelGun : MonoBehaviour
     [SerializeField] float fireCountdown = 1f;
     private LookAtTarget lookAtTarget;
     private TurretStats turretStats;
+    private GameManager gameManager;
+    private void Awake()
+    {
+        gameManager = GameManager.Instance;
+    }
     private void Start()
     {
         this.turretStats = this.gameObject.transform.GetComponent<Turrets>().GetTurretStats();
@@ -13,11 +19,10 @@ public class BulletDoubleBarrelGun : MonoBehaviour
     }
     void Update()
     {
+        if (lookAtTarget.IsActiveEffects() == false)
+            return;
         this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
-        if (lookAtTarget.GetTarget() != null)
-        {
-            this.StartShooting();
-        }
+        this.StartShooting();
     }
     private void StartShooting()
     {

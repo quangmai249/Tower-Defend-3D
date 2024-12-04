@@ -129,6 +129,8 @@ public class Turrets : MonoBehaviour
         go.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.damage}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Range: {this.range}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Rate: {this.rate}\n";
+        if (this.gameObject.GetComponent<BulletLaser>() != null)
+            go.GetComponent<TextMeshProUGUI>().text += $"Time Slowing: {this.gameObject.GetComponent<BulletLaser>().GetTimeSlowing()}\n";
     }
     private void SetImageStats()
     {

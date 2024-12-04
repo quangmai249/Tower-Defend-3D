@@ -9,35 +9,27 @@ public class BulletLaser : MonoBehaviour
     [SerializeField] Vector3 laserPos = new Vector3(0, 1.5f, 0);
     [SerializeField] float timeDurationSlowing = 0.75f;
 
-    [Header("Enemies")]
-    [SerializeField] GameObject target;
-    [SerializeField] readonly string enemyTag = "Enemy";
-
+    private GameObject target;
     private GameObject effectLaser;
     private LineRenderer lineRenderer;
 
-    private GameManager gameManager;
     private TurretStats turretStats;
+    private LookAtTarget lookAtTarget;
     private void Awake()
     {
-        gameManager = GameManager.Instance;
         this.lineRenderer = GetComponent<LineRenderer>();
         this.lineRenderer.positionCount = 2;
     }
     void Start()
     {
+        this.lookAtTarget = GetComponent<LookAtTarget>();
         this.lineRenderer.enabled = false;
         this.effectLaser = Instantiate(this.objEffectLaser);
         this.effectLaser.transform.parent = this.gameObject.transform;
     }
     void Update()
     {
-        this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
-
-        this.timeDurationSlowing = this.turretStats.RateTurret;
-        target = SelectTarget.StartSelectTarget(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
-
-        if (this.target == null || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
+        if (lookAtTarget.IsActiveEffects() == false)
         {
             this.lineRenderer.enabled = false;
 
@@ -46,22 +38,29 @@ public class BulletLaser : MonoBehaviour
 
             return;
         }
-        else
-        {
-            this.gameObject.transform.LookAt(this.target.transform.position);
 
-            this.lineRenderer.enabled = true;
-            this.lineRenderer.SetPosition(0, this.gameObject.transform.position + this.laserPos);
-            this.lineRenderer.SetPosition(1, this.target.transform.position);
+        this.target = lookAtTarget.GetTarget();
 
-            this.effectLaser.transform.position = this.target.transform.position;
-            this.effectLaser.SetActive(true);
+        this.lineRenderer.enabled = true;
+        this.lineRenderer.SetPosition(0, this.gameObject.transform.position + this.laserPos);
+        this.lineRenderer.SetPosition(1, this.target.transform.position);
 
-            BulletRaycast.Shooting(this.gameObject.transform.position
-                , (this.target.transform.position - this.gameObject.transform.position)
-                , this.turretStats.DamagedTurret, true);
+        this.effectLaser.transform.position = this.target.transform.position;
+        this.effectLaser.SetActive(true);
 
-            this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true, this.timeDurationSlowing);
-        }
+        this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
+        BulletRaycast.Shooting(this.gameObject.transform.position
+            , (this.target.transform.position - this.gameObject.transform.position)
+            , this.turretStats.DamagedTurret, true);
+
+        this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true, this.timeDurationSlowing);
+    }
+    public void SetTimeSlowing(float timeSlowing)
+    {
+        this.timeDurationSlowing = timeSlowing;
+    }
+    public float GetTimeSlowing()
+    {
+        return this.timeDurationSlowing;
     }
 }

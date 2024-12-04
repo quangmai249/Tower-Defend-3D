@@ -1,4 +1,5 @@
 using DG.Tweening;
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using UnityEngine;
 
@@ -21,7 +22,10 @@ public class CannonEffects : MonoBehaviour
     }
     private void Update()
     {
-        if (lookAtTarget.GetTarget() != null && animator.GetBool("IsAttack") == false && audioSource.isPlaying == false)
+        if (lookAtTarget.IsActiveEffects() == false)
+            return;
+
+        if (animator.GetBool("IsAttack") == false && audioSource.isPlaying == false)
         {
             StartCoroutine(nameof(this.CoroutineAniStartAttack));
             StartCoroutine(nameof(this.CoroutineAniStopAttack));

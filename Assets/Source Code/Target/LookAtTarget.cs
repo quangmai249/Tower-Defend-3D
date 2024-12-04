@@ -29,6 +29,14 @@ public class LookAtTarget : MonoBehaviour
             this.gameObject.transform.LookAt(this.target.transform.position);
         }
     }
+    public bool IsActiveEffects()
+    {
+        if (this.target == null || gameManager.IsGamePause == true || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
+        {
+            return false;
+        }
+        return true;
+    }
     public GameObject GetTarget()
     {
         return this.target;

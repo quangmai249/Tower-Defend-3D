@@ -13,14 +13,16 @@ public class GatelingGunEffetcts : MonoBehaviour
     }
     private void Update()
     {
-        if (lookAtTarget.GetTarget() != null && par.isPlaying == false && animator.GetBool("IsAttack") == false)
+        if (lookAtTarget.IsActiveEffects() == false)
         {
-            StartCoroutine(nameof(this.CoroutineAniStartAttack));
+            if (animator.GetBool("IsAttack") == true)
+                StartCoroutine(nameof(this.CoroutineAniStopAttack));
+            return;
         }
 
-        if (lookAtTarget.GetTarget() == null && animator.GetBool("IsAttack") == true)
+        if (par.isPlaying == false && animator.GetBool("IsAttack") == false)
         {
-            StartCoroutine(nameof(this.CoroutineAniStopAttack));
+            StartCoroutine(nameof(this.CoroutineAniStartAttack));
         }
     }
     IEnumerator CoroutineAniStartAttack()

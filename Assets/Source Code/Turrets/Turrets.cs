@@ -47,9 +47,9 @@ public class Turrets : MonoBehaviour
     {
         singletonBuilding = SingletonBuilding.Instance;
         gameManager = GameManager.Instance;
+        gameStats = gameManager.GameStats;
 
         uiManager = SelectTarget.SelectFirstGameObjectWithTag(this.uiManagerTag).GetComponent<UIManager>();
-        gameStats = gameManager.GameStats;
         this.defaultTurretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage, this.levelTurret, this.rate);
     }
     private void Start()

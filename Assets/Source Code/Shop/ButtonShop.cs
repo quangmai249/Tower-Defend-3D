@@ -10,22 +10,17 @@ public class ButtonShop : MonoBehaviour
     [SerializeField] string btnConfirmUpgradeTurretTag = "Button Confirm Upgrade Turret";
 
     private SingletonTurrets singletonTurrets;
-    private SingletonBuilding singletonBuilding;
     private TurretStats turretStats;
-
-    private GameObject menuShop;
     private void Awake()
     {
         singletonTurrets = SingletonTurrets.Instance;
-        singletonBuilding = SingletonBuilding.Instance;
-        turretStats = this.turret.gameObject.GetComponent<Turrets>().GetTurretStats();
     }
     private void Start()
     {
         this.gameObject.SetActive(true);
         this.confirm.SetActive(false);
+        turretStats = this.turret.gameObject.GetComponent<Turrets>().GetTurretStats();
         this.textPrice.text = $"-{turretStats.PriceTurret.ToString()}$";
-        this.menuShop = this.gameObject.transform.parent.parent.gameObject;
     }
     public void ButtonSelectTurret()
     {
@@ -41,8 +36,8 @@ public class ButtonShop : MonoBehaviour
     }
     private void StartBuildingTurret()
     {
-        if (this.turret.tag == "Blue Turret")
-            singletonTurrets.InstantiateBlueTurretsAt(this.gameObject.transform.parent.transform.position);
+        if (this.turret.tag == "First Turret")
+            singletonTurrets.InstantiateFirstTurretsAt(this.gameObject.transform.parent.transform.position);
         if (this.turret.tag == "Second Turret")
             singletonTurrets.InstantiateSecondTurretsAt(this.gameObject.transform.parent.transform.position);
         if (this.turret.tag == "Third Turret")

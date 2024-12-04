@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7010960911717118308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,18 +118,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 142461019488421910, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 142461019488421910, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 142461019488421910, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 865565567195309987, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
       propertyPath: m_Name
       value: Menu Shop Turret
@@ -137,30 +125,6 @@ PrefabInstance:
     - target: {fileID: 1252768018871710963, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
       propertyPath: m_SortingLayer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1281194532213303701, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2562594368548625380, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2562594368548625380, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2562594368548625380, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3411753820103820918, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413598749448173826, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Name
-      value: Button Second Turret
       objectReference: {fileID: 0}
     - target: {fileID: 6009840400002064322, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
       propertyPath: m_SortingLayer
@@ -245,26 +209,6 @@ PrefabInstance:
     - target: {fileID: 7413527229109033762, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8323837584428786156, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8659614566970785125, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8659614566970785125, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8659614566970785125, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8725963374904001558, guid: 831a39447632ade4289293a3c1e69cac, type: 3}
-      propertyPath: m_Name
-      value: Button First Turret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

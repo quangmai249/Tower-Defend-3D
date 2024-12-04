@@ -17,13 +17,10 @@ TagManager:
   - Text Turret Stats
   - Image Turret Stats
   - Bullet
-  - White Turret
-  - Blue Turret
-  - Red Turret
-  - Yellow Turret
   - UI Manager
   - Third Turret
   - Second Turret
+  - First Turret
   layers:
   - Default
   - TransparentFX

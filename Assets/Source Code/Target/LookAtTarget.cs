@@ -13,7 +13,7 @@ public class LookAtTarget : MonoBehaviour
     }
     void Start()
     {
-        this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
+        this.turretStats = this.gameObject.transform.GetComponent<Turrets>().GetTurretStats();
     }
     void Update()
     {

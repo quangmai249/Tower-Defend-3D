@@ -1420,26 +1420,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8004831309456872985, guid: 51e940f2662a8614fb9cbd49290f95c4, type: 3}
-      propertyPath: redTurrets
-      value: 
-      objectReference: {fileID: 1979706888108350, guid: f72d03e48b3dbfd4ca0f692e695377c3, type: 3}
-    - target: {fileID: 8004831309456872985, guid: 51e940f2662a8614fb9cbd49290f95c4, type: 3}
-      propertyPath: blueTurrets
-      value: 
-      objectReference: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
-    - target: {fileID: 8004831309456872985, guid: 51e940f2662a8614fb9cbd49290f95c4, type: 3}
-      propertyPath: thirdTurret
-      value: 
-      objectReference: {fileID: 1979706888108350, guid: f72d03e48b3dbfd4ca0f692e695377c3, type: 3}
-    - target: {fileID: 8004831309456872985, guid: 51e940f2662a8614fb9cbd49290f95c4, type: 3}
-      propertyPath: yellowTurrets
-      value: 
-      objectReference: {fileID: 5572517066504377506, guid: f03e61fb93ee06d44b68fadcdf9873b4, type: 3}
-    - target: {fileID: 8004831309456872985, guid: 51e940f2662a8614fb9cbd49290f95c4, type: 3}
-      propertyPath: thirdTurretTag
-      value: Third Turret
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

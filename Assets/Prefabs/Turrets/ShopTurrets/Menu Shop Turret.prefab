@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6707503673776560740}
   - component: {fileID: 126833933711894758}
   - component: {fileID: 2270649699571222833}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 6599623511068038629}
   - component: {fileID: 5277407364035496986}
   m_Layer: 6
-  m_Name: Button Blue Turret
+  m_Name: Button Second Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7216981, g: 0.74025154, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db22697328f9d64e8d99823eb53ebdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turret: {fileID: 1979706888108350, guid: f72d03e48b3dbfd4ca0f692e695377c3, type: 3}
+  turret: {fileID: 3648111044007193933, guid: a9009a164edda2d458fc233262f56f5a, type: 3}
   confirm: {fileID: 4654215782516090828}
   textPrice: {fileID: 8307676877182601727}
   btnConfirmShopTurretTag: Button Confirm Shop Turret
@@ -1449,7 +1449,7 @@ GameObject:
   - component: {fileID: 8659614566970785125}
   - component: {fileID: 168945700818377568}
   - component: {fileID: 8383958173898170884}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button Yellow Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9931742, g: 1, b: 0.4198113, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1602,7 +1602,7 @@ GameObject:
   - component: {fileID: 8163063231572295808}
   - component: {fileID: 4094080513209388984}
   m_Layer: 6
-  m_Name: Button White Turret
+  m_Name: Button First Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1735,7 +1735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db22697328f9d64e8d99823eb53ebdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turret: {fileID: 6857864328098014445, guid: 69311d9e17e02404e99ce81c49016320, type: 3}
+  turret: {fileID: 1000012105359850, guid: 16e71322676cb6840a252ad4f7fc2d26, type: 3}
   confirm: {fileID: 1904586551944663253}
   textPrice: {fileID: 7086893357319061260}
   btnConfirmShopTurretTag: Button Confirm Shop Turret

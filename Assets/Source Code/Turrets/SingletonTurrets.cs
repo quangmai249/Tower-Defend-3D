@@ -6,9 +6,9 @@ public class SingletonTurrets : MonoBehaviour
     [SerializeField] int numPool = 20;
 
     [Header("Blue")]
-    [SerializeField] string blueTurretsTag = "Blue Turret";
-    [SerializeField] GameObject blueTurrets;
-    [SerializeField] List<GameObject> lsBlueTurrets;
+    [SerializeField] string firstTurretTag = "First Turret";
+    [SerializeField] GameObject firstTurret;
+    [SerializeField] List<GameObject> lsFirstTurret;
 
     [Header("Second Turret")]
     [SerializeField] string secondTurretTag = "Second Turret";
@@ -40,9 +40,9 @@ public class SingletonTurrets : MonoBehaviour
     {
         this.CreateObjectPooling(this.numPool);
     }
-    public GameObject InstantiateBlueTurretsAt(Vector3 pos)
+    public GameObject InstantiateFirstTurretsAt(Vector3 pos)
     {
-        GameObject res = this.GetNodeBuildingPooling(this.blueTurrets, this.blueTurretsTag, this.lsBlueTurrets);
+        GameObject res = this.GetNodeBuildingPooling(this.firstTurret, this.firstTurretTag, this.lsFirstTurret);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
         res.GetComponent<Turrets>().SetDefaultTurret();
         res.gameObject.SetActive(true);
@@ -88,7 +88,7 @@ public class SingletonTurrets : MonoBehaviour
     {
         for (int i = 0; i < defaultQuantity; i++)
         {
-            lsBlueTurrets.Add(InstantiateTurret(this.blueTurrets));
+            lsFirstTurret.Add(InstantiateTurret(this.firstTurret));
             lsSecondTurrets.Add(InstantiateTurret(this.secondTurret));
             lsThirdTurrets.Add(InstantiateTurret(this.thirdTurret));
             lsYellowTurrets.Add(InstantiateTurret(this.yellowTurrets));

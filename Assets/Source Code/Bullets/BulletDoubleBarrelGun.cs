@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletGatelingGun : MonoBehaviour
+public class BulletDoubleBarrelGun : MonoBehaviour
 {
     [SerializeField] float fireCountdown = 1f;
     private LookAtTarget lookAtTarget;

@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5076717872328464351}
-  - component: {fileID: 6142227204179745353}
+  - component: {fileID: 2686937079795287651}
   - component: {fileID: 4751275707950311956}
-  - component: {fileID: 431310270249163334}
-  - component: {fileID: -653839869405320302}
-  - component: {fileID: 1459035694074198900}
-  - component: {fileID: 2269574702582854216}
-  - component: {fileID: 1543974779601562256}
+  - component: {fileID: 4421711519087654053}
+  - component: {fileID: 8330241505944117710}
+  - component: {fileID: 7952542006599002249}
+  - component: {fileID: 6041869317579183325}
+  - component: {fileID: 6871222437805592199}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Second Turret
@@ -39,7 +39,7 @@ Transform:
   - {fileID: 8053377398944783428}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6142227204179745353
+--- !u!65 &2686937079795287651
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +58,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.25, y: 2, z: 2}
+  m_Size: {x: 1.5, y: 2, z: 1.75}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!23 &4751275707950311956
 MeshRenderer:
@@ -105,7 +105,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!82 &431310270249163334
+--- !u!82 &4421711519087654053
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +202,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-653839869405320302
+--- !u!114 &8330241505944117710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,11 +229,11 @@ MonoBehaviour:
   priceTurrets: 100
   priceUpgrade: 50
   priceSell: 75
-  range: 6
-  damage: 10
+  range: 7
+  damage: 8
   rate: 2
   uiManagerTag: UI Manager
---- !u!114 &1459035694074198900
+--- !u!114 &7952542006599002249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   enemyTag: Enemy
---- !u!114 &2269574702582854216
+--- !u!114 &6041869317579183325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,11 +261,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8963397114939042992}
   par: {fileID: 4575022808678379898}
-  audioSource: {fileID: 431310270249163334}
+  audioSource: {fileID: 4421711519087654053}
   speed: 0.25
   bulletTag: Bullet
   bulletCannon: {fileID: 0}
---- !u!114 &1543974779601562256
+--- !u!114 &6871222437805592199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

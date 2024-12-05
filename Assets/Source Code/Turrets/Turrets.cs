@@ -6,12 +6,17 @@ using UnityEngine.UI;
 
 public class Turrets : MonoBehaviour
 {
+    [Header("Menu")]
     [SerializeField] GameObject menuUpgradeTurrets;
     [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
     [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";
     [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
     [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
     [SerializeField] float yPos = 2f;
+
+    [Header("Particles")]
+    [SerializeField] ParticleSystem par_upgrade;
+    [SerializeField] ParticleSystem par_maxLevel;
 
     [Header("Stats")]
     [SerializeField] Sprite imageTurret;
@@ -20,6 +25,7 @@ public class Turrets : MonoBehaviour
 
     [Header("Turret Stats")]
     [SerializeField] int levelTurret = 1;
+    [SerializeField] int maxLevelTurret = 5;
     [SerializeField] float priceTurrets = 100f;
     [SerializeField] float priceUpgrade = 50f;
     [SerializeField] float priceSell = 50f;
@@ -48,7 +54,7 @@ public class Turrets : MonoBehaviour
         gameStats = gameManager.GameStats;
 
         uiManager = SelectTarget.SelectFirstGameObjectWithTag(this.uiManagerTag).GetComponent<UIManager>();
-        this.defaultTurretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage, this.levelTurret, this.rate);
+        this.defaultTurretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage, this.levelTurret, this.maxLevelTurret, this.rate);
     }
     private void Start()
     {
@@ -129,6 +135,7 @@ public class Turrets : MonoBehaviour
         go.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.damage}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Range: {this.range}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Rate: {this.rate}\n";
+
         if (this.gameObject.GetComponent<BulletLaser>() != null)
             go.GetComponent<TextMeshProUGUI>().text += $"Time Slowing: {this.gameObject.GetComponent<BulletLaser>().GetTimeSlowing()}\n";
     }
@@ -143,10 +150,24 @@ public class Turrets : MonoBehaviour
     }
     public TurretStats GetTurretStats()
     {
-        return new TurretStats(Mathf.Round(this.priceTurrets), Mathf.Round(this.priceUpgrade), Mathf.Round(this.priceSell), this.range, this.damage, this.levelTurret, this.rate);
+        return new TurretStats(Mathf.Round(this.priceTurrets), Mathf.Round(this.priceUpgrade), Mathf.Round(this.priceSell), this.range, this.damage, this.levelTurret, this.maxLevelTurret, this.rate);
     }
     public void SetTurretStats(TurretStats tStats)
     {
         this.turretStats = tStats;
+    }
+    public void ActiveParUpgrade()
+    {
+        this.par_upgrade.Play();
+    }
+    public void ActiveParMaxLevelTurret()
+    {
+        this.par_maxLevel.Play();
+    }
+    public bool IsMaxLevel()
+    {
+        if (this.levelTurret == this.turretStats.MaxLevelTurret)
+            return true;
+        return false;
     }
 }

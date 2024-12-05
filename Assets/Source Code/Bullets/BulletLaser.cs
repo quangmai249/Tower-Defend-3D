@@ -9,7 +9,6 @@ public class BulletLaser : MonoBehaviour
     [SerializeField] Vector3 laserPos = new Vector3(0, 1.5f, 0);
     [SerializeField] float timeDurationSlowing = 0.75f;
 
-    private GameObject target;
     private GameObject effectLaser;
     private LineRenderer lineRenderer;
 
@@ -39,21 +38,23 @@ public class BulletLaser : MonoBehaviour
             return;
         }
 
-        this.target = lookAtTarget.GetTarget();
+        if (lookAtTarget.GetTarget() != null)
+        {
+            this.lineRenderer.enabled = true;
+            this.lineRenderer.SetPosition(0, this.gameObject.transform.position + this.laserPos);
+            this.lineRenderer.SetPosition(1, lookAtTarget.GetPosTarget());
 
-        this.lineRenderer.enabled = true;
-        this.lineRenderer.SetPosition(0, this.gameObject.transform.position + this.laserPos);
-        this.lineRenderer.SetPosition(1, this.target.transform.position);
+            this.effectLaser.transform.position = lookAtTarget.GetPosTarget();
+            this.effectLaser.SetActive(true);
 
-        this.effectLaser.transform.position = this.target.transform.position;
-        this.effectLaser.SetActive(true);
+            this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
 
-        this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
-        BulletRaycast.Shooting(this.gameObject.transform.position
-            , (this.target.transform.position - this.gameObject.transform.position)
-            , this.turretStats.DamagedTurret, true);
+            BulletRaycast.Shooting(this.gameObject.transform.position
+                , (lookAtTarget.GetPosTarget() - this.gameObject.transform.position)
+                , this.turretStats.DamagedTurret, true);
 
-        this.target.gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true, this.timeDurationSlowing);
+            lookAtTarget.GetTarget().gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true, this.timeDurationSlowing);
+        }
     }
     public void SetTimeSlowing(float timeSlowing)
     {

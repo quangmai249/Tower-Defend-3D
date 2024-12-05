@@ -1,5 +1,4 @@
 using DG.Tweening;
-using DG.Tweening.Core.Easing;
 using System.Collections;
 using UnityEngine;
 
@@ -14,6 +13,7 @@ public class CannonEffects : MonoBehaviour
     [SerializeField] string bulletTag = "Bullet";
     [SerializeField] GameObject bulletCannon;
 
+    private GameObject target;
     private LookAtTarget lookAtTarget;
     private BulletObjectPooling bulletObjectPooling;
     private void Start()
@@ -42,10 +42,12 @@ public class CannonEffects : MonoBehaviour
         yield return new WaitForEndOfFrame();
         this.bulletCannon = bulletObjectPooling.GetBulletPooling(this.bulletTag);
         this.bulletCannon.SetActive(true);
-        this.bulletCannon.transform.DOMove(lookAtTarget.GetTarget().transform.position, this.speed);
+
+        if (lookAtTarget.GetTarget() != null)
+            this.bulletCannon.transform.DOMove(lookAtTarget.GetPosTarget(), this.speed);
 
         yield return new WaitForSeconds(this.speed);
-        this.par_target.transform.position = lookAtTarget.GetTarget().transform.position;
+        this.par_target.transform.position = lookAtTarget.GetPosTarget();
         this.par_target.Play();
     }
     IEnumerator CoroutineAniStopAttack()

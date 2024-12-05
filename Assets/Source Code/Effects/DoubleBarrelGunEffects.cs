@@ -22,11 +22,11 @@ public class DoubleBarrelGunEffects : MonoBehaviour
             return;
         }
 
+        if (lookAtTarget.GetTarget() != null)
+            par_target.transform.position = lookAtTarget.GetPosTarget();
+
         if (animator.GetBool("IsAttack") == false)
-        {
-            par_target.transform.position = lookAtTarget.GetTarget().transform.position;
             StartCoroutine(nameof(this.CoroutineAniStartAttack));
-        }
     }
     IEnumerator CoroutineAniStartAttack()
     {

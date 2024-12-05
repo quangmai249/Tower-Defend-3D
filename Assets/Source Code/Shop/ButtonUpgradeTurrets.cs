@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class ButtonUpgradeTurrets : MonoBehaviour
 {
+    [Header("UI")]
     [SerializeField] GameObject btnConfirm;
     [SerializeField] TextMeshProUGUI textPriceUpgrade;
     [SerializeField] TextMeshProUGUI textSellTurret;
 
+    [Header("Transform")]
     [SerializeField] Vector3 defaultRotaion = new Vector3(90f, 0, 0);
     [SerializeField] float upgradeturretStatsPercent = 50f;
 
+    [Header("Name Tag")]
     [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
     [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
     [SerializeField] string btnCanvasShopTag = "Canvas Shop Turrets";
@@ -39,6 +42,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         gameStats = gameManager.GameStats;
 
         this.btnConfirm.SetActive(false);
+
         this.turret = this.gameObject.transform.parent.parent.parent.gameObject;
         this.menuUpgrade = this.gameObject.transform.parent.parent.gameObject;
     }
@@ -64,12 +68,14 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         {
             uiManager.SetActiveTextNotEnoughGold(true);
             uiManager.SetTextNotEnoughGold($"You do not have enough money to upgrade {(this.turret.name).Replace("(Clone)", "")}!");
+            StartCoroutine(nameof(this.CoroutineResetTextNotifyGold));
             return;
         }
-        else if (this.turretStats.LevelTurret == 5)
+        else if (this.turret.GetComponent<Turrets>().IsMaxLevel() == true)
         {
             uiManager.SetActiveTextNotEnoughGold(true);
             uiManager.SetTextNotEnoughGold($"{(this.turret.name).Replace("(Clone)", "")} was max level!");
+            StartCoroutine(nameof(this.CoroutineResetTextNotifyGold));
             return;
         }
 
@@ -78,7 +84,15 @@ public class ButtonUpgradeTurrets : MonoBehaviour
 
         this.StartUpgradeTurretStats();
         this.SetTextStats(true);
+
         this.btnConfirm.SetActive(false);
+        this.menuUpgrade.SetActive(false);
+
+        this.turret.GetComponent<Turrets>().ActiveParUpgrade();
+
+        if (this.turretStats.LevelTurret == this.turretStats.MaxLevelTurret)
+            this.turret.GetComponent<Turrets>().ActiveParMaxLevelTurret();
+
         return;
     }
     public void ButtonSellTurret()
@@ -135,5 +149,10 @@ public class ButtonUpgradeTurrets : MonoBehaviour
             if (this.turret.GetComponent<BulletLaser>() != null)
                 goText.GetComponent<TextMeshProUGUI>().text += $"Time Slowing: {this.turret.GetComponent<BulletLaser>().GetTimeSlowing()}\n";
         }
+    }
+    IEnumerator CoroutineResetTextNotifyGold()
+    {
+        yield return new WaitForSeconds(3f);
+        uiManager.SetActiveTextNotEnoughGold(false);
     }
 }

@@ -21,11 +21,11 @@ public class GatelingGunEffetcts : MonoBehaviour
             return;
         }
 
+        if (lookAtTarget.GetTarget() != null)
+            par_target.transform.position = lookAtTarget.GetPosTarget();
+
         if (par.isPlaying == false && animator.GetBool("IsAttack") == false)
-        {
-            par_target.transform.position = lookAtTarget.GetTarget().transform.position;
             StartCoroutine(nameof(this.CoroutineAniStartAttack));
-        }
     }
     IEnumerator CoroutineAniStartAttack()
     {

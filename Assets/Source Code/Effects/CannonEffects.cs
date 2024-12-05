@@ -7,6 +7,7 @@ public class CannonEffects : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] ParticleSystem par;
+    [SerializeField] ParticleSystem par_target;
     [SerializeField] AudioSource audioSource;
 
     [SerializeField] float speed = 0.25f;
@@ -42,6 +43,10 @@ public class CannonEffects : MonoBehaviour
         this.bulletCannon = bulletObjectPooling.GetBulletPooling(this.bulletTag);
         this.bulletCannon.SetActive(true);
         this.bulletCannon.transform.DOMove(lookAtTarget.GetTarget().transform.position, this.speed);
+
+        yield return new WaitForSeconds(this.speed);
+        this.par_target.transform.position = lookAtTarget.GetTarget().transform.position;
+        this.par_target.Play();
     }
     IEnumerator CoroutineAniStopAttack()
     {

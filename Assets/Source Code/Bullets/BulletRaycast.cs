@@ -17,8 +17,6 @@ public static class BulletRaycast
             if (enemyManager != null)
             {
                 enemyManager.SetEnemyHP(-damage);
-                if (isLaser == false)
-                    enemyManager.GetComponent<ParticleSystem>().Play();
             }
         }
     }

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CannonEffects : MonoBehaviour
 {
+    [Header("Properties")]
     [SerializeField] Animator animator;
     [SerializeField] ParticleSystem par;
     [SerializeField] ParticleSystem par_target;
     [SerializeField] AudioSource audioSource;
 
+    [Header("Stats")]
     [SerializeField] float speed = 0.25f;
     [SerializeField] string bulletTag = "Bullet";
     [SerializeField] GameObject bulletCannon;

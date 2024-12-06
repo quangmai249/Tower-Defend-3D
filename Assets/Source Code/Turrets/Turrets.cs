@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using TMPro;
@@ -17,6 +18,7 @@ public class Turrets : MonoBehaviour
     [Header("Particles")]
     [SerializeField] ParticleSystem par_upgrade;
     [SerializeField] ParticleSystem par_maxLevel;
+    [SerializeField] ParticleSystem par_selected;
 
     [Header("Stats")]
     [SerializeField] Sprite imageTurret;
@@ -36,8 +38,6 @@ public class Turrets : MonoBehaviour
     [Header("Manger")]
     [SerializeField] string uiManagerTag = "UI Manager";
 
-    private Renderer rend;
-    private Color color;
     private GameObject upgradeTurrets;
 
     private SingletonBuilding singletonBuilding;
@@ -79,8 +79,6 @@ public class Turrets : MonoBehaviour
         {
             uiManager.SetActiveTextNotEnoughGold(false);
             gameStats.Gold -= turretStats.PriceTurret;
-            this.rend = GetComponent<Renderer>();
-            this.color = this.rend.material.color;
         }
     }
     private void Update()
@@ -92,17 +90,29 @@ public class Turrets : MonoBehaviour
         this.range = this.turretStats.RangeTurret;
         this.damage = this.turretStats.DamagedTurret;
         this.rate = this.turretStats.RateTurret;
+
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            this.par_selected.Stop();
+        }
     }
     private void OnMouseEnter()
     {
         if (gameManager.IsGameOver == true || gameManager.IsGamePause == true || gameManager.IsGameWinLevel == true)
             return;
 
-        rend.material.color = Color.green;
+        this.par_selected.gameObject.SetActive(true);
+        this.par_selected.transform.position = this.gameObject.transform.position + (Vector3.up / 2);
+
+        if (this.par_selected.isPlaying == false)
+        {
+            this.par_selected.transform.DOScale(this.ScaleParSelected(this.gameObject.GetComponent<Turrets>().GetTurretStats().RangeTurret), 2f);
+            this.par_selected.Play();
+        }
     }
     private void OnMouseExit()
     {
-        rend.material.color = this.color;
+        this.par_selected.gameObject.SetActive(false);
     }
     private void OnMouseDown()
     {
@@ -138,6 +148,10 @@ public class Turrets : MonoBehaviour
 
         if (this.gameObject.GetComponent<BulletLaser>() != null)
             go.GetComponent<TextMeshProUGUI>().text += $"Time Slowing: {this.gameObject.GetComponent<BulletLaser>().GetTimeSlowing()}\n";
+    }
+    private Vector3 ScaleParSelected(float range)
+    {
+        return new Vector3(range, 1, range);
     }
     private void SetImageStats()
     {

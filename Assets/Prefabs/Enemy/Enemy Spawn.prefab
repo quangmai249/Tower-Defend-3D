@@ -47,10 +47,14 @@ MonoBehaviour:
   btnReadyPlayGame: {fileID: 0}
   textCountdown: {fileID: 0}
   textWave: {fileID: 0}
+  yPosEnemyHome: 5
+  enemyHome: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+  protectedBase: {fileID: 0}
   isReady: 0
   secondStartCountdown: -1
   defaultSecondCountdownPerWave: 3
   wave: 1
   maxWave: 20
   posSpawn: {x: 0, y: 0, z: 0}
+  randPath: 1
   timeSpawn: 1.5

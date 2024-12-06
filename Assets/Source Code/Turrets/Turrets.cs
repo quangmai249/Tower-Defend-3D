@@ -102,6 +102,7 @@ public class Turrets : MonoBehaviour
             return;
 
         this.par_selected.gameObject.SetActive(true);
+        this.par_selected.transform.localScale = Vector3.one;
         this.par_selected.transform.position = this.gameObject.transform.position + (Vector3.up / 2);
 
         if (this.par_selected.isPlaying == false)

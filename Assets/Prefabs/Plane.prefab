@@ -161,8 +161,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 18, y: 9, z: 9}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3170896080716277470}
   m_Father: {fileID: 0}
@@ -234,6 +234,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasShopTag: Canvas Shop Turrets
   canvasUpgradeTag: Canvas Upgrade Turrets
+  btnConfirmShopTag: Button Confirm Shop Turret
+  btnConfirmUpgradeTag: Button Confirm Upgrade Turret
+  textTurretStatsTag: Text Turret Stats
+  imgTurretStatsTag: Image Turret Stats
 --- !u!1 &7328229859662245571
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] TextMeshProUGUI textCountdown;
     [SerializeField] TextMeshProUGUI textWave;
 
+    [Header("Particles")]
+    [SerializeField] float yPosEnemyHome = 5f;
+    [SerializeField] GameObject enemyHome;
+    [SerializeField] GameObject protectedBase;
+
     [Header("Countdown")]
     [SerializeField] bool isReady = false;
     [SerializeField] int secondStartCountdown = -1;
@@ -26,6 +31,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] float randPath = 1f;
     [SerializeField] float timeSpawn = 1.5f;
 
+    [Header("Name Tag")]
     [SerializeField] readonly string levelDesignTag = "Level Design";
     [SerializeField] readonly string pathManagerTag = "Path Manager";
     [SerializeField] readonly string enemyManagerTag = "Enemy Manager";
@@ -38,21 +44,33 @@ public class EnemySpawn : MonoBehaviour
     private GameStats gameStats;
     private void Awake()
     {
-        singletonEnemy = GameObject.FindGameObjectWithTag(this.enemyManagerTag).GetComponent<SingletonEnemy>();
-        gameManager = GameObject.FindGameObjectWithTag(this.gameManagerTag).GetComponent<GameManager>();
-        levelDesign = GameObject.FindGameObjectWithTag(this.levelDesignTag).GetComponent<LevelDesign>();
-        pathManager = GameObject.FindGameObjectWithTag(this.pathManagerTag).GetComponent<PathManager>();
+        this.singletonEnemy = GameObject.FindGameObjectWithTag(this.enemyManagerTag).GetComponent<SingletonEnemy>();
+        this.gameManager = GameObject.FindGameObjectWithTag(this.gameManagerTag).GetComponent<GameManager>();
+        this.levelDesign = GameObject.FindGameObjectWithTag(this.levelDesignTag).GetComponent<LevelDesign>();
+        this.pathManager = GameObject.FindGameObjectWithTag(this.pathManagerTag).GetComponent<PathManager>();
     }
     void Start()
     {
-        gameStats = gameManager.GameStats;
+        this.gameStats = gameManager.GameStats;
 
         this.wave = gameStats.WaveStart;
         this.maxWave = gameStats.MaxWave;
 
         this.isReady = false;
-        textWave.text = string.Empty;
-        textCountdown.text = string.Empty;
+        this.textWave.text = string.Empty;
+        this.textCountdown.text = string.Empty;
+
+        for (int i = 0; i < pathManager.GetListFileNodePath().Count; i++)
+        {
+            GameObject enemyHome = Instantiate(this.enemyHome);
+            enemyHome.transform.parent = this.gameObject.transform;
+            enemyHome.transform.position = pathManager.GetListFileNodePath()[i].ReadFromFile().First() + (Vector3.up * yPosEnemyHome);
+
+            GameObject protectedBase = Instantiate(this.protectedBase);
+            protectedBase.transform.parent = this.gameObject.transform;
+            protectedBase.transform.position = pathManager.GetListFileNodePath()[i].ReadFromFile().Last();
+        }
+
     }
     void Update()
     {
@@ -119,6 +137,7 @@ public class EnemySpawn : MonoBehaviour
             if (this.wave <= 3)
             {
                 this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First() + RandomVector3Path(this.randPath);
+
                 GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn.x, this.posSpawn.z);
                 temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
                 this.SetDefaultEnemy(temp, this.posSpawn);
@@ -127,7 +146,8 @@ public class EnemySpawn : MonoBehaviour
             {
                 for (int j = 0; j < pathManager.GetListFileNodePath().Count; j++)
                 {
-                    this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First() + RandomVector3Path(this.randPath); ;
+                    this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First() + RandomVector3Path(this.randPath);
+
                     GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn.x, this.posSpawn.z);
                     temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (j + 1)));
                     this.SetDefaultEnemy(temp, this.posSpawn);

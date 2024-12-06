@@ -7,19 +7,16 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    [Header("Stats")]
     [SerializeField] float maxScale = 30;
     [SerializeField] float minScale = 10;
     [SerializeField] float maxVerticalMoving = 0;
     [SerializeField] float minVerticalMoving = -15;
     [SerializeField] float rangeHorizontalMoving = 5;
     [SerializeField] float speedMoveCamera = 10;
-    [SerializeField] float locationYCamera;
 
+    [Header("Positions")]
     [SerializeField] Vector3 pos;
-    private void Start()
-    {
-        locationYCamera = this.gameObject.transform.position.y;
-    }
     private void Update()
     {
         TranslateCamera();

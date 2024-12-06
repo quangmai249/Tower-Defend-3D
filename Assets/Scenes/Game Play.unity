@@ -5508,7 +5508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3187913936522113056, guid: 815b1eabca92d9540a1cb46e3dd75097, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.440338
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3187913936522113056, guid: 815b1eabca92d9540a1cb46e3dd75097, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5560,6 +5560,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1551810371}
     - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: protectedBase
+      value: 
+      objectReference: {fileID: 3060088426372616897, guid: 6c7d072facdf4274a8705bdd9f1c34d4, type: 3}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
       propertyPath: textCountdown
       value: 
       objectReference: {fileID: 1336127002}
@@ -5609,7 +5613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7130413593553510949, guid: a4908cea459589f4a936f88798924318, type: 3}
       propertyPath: m_Name
-      value: Enemy Spawn
+      value: GameObject Spawn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6277,7 +6281,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: level
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: checking
@@ -6421,9 +6425,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
-    - target: {fileID: 7713725748295776318, guid: a14760c75cb4ed5418e7ff65f1b74665, type: 3}
-      propertyPath: m_Colors.m_NormalColor.a
-      value: 0
+    - target: {fileID: 8030885968994982407, guid: a14760c75cb4ed5418e7ff65f1b74665, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030885968994982407, guid: a14760c75cb4ed5418e7ff65f1b74665, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8030885968994982407, guid: a14760c75cb4ed5418e7ff65f1b74665, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6464,6 +6472,10 @@ PrefabInstance:
     - target: {fileID: 8030885968994982407, guid: a14760c75cb4ed5418e7ff65f1b74665, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8030885968994982407, guid: a14760c75cb4ed5418e7ff65f1b74665, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

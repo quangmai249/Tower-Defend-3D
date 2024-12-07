@@ -22,6 +22,7 @@ TagManager:
   - Second Turret
   - First Turret
   - Fourth Turret
+  - Sound Manger
   layers:
   - Default
   - TransparentFX

@@ -68,7 +68,10 @@ public class EnemySpawn : MonoBehaviour
 
             GameObject protectedBase = Instantiate(this.protectedBase);
             protectedBase.transform.parent = this.gameObject.transform;
-            protectedBase.transform.position = pathManager.GetListFileNodePath()[i].ReadFromFile().Last();
+            protectedBase.transform.position = new Vector3(
+                pathManager.GetListFileNodePath()[i].ReadFromFile().Last().x,
+                protectedBase.transform.position.y,
+                pathManager.GetListFileNodePath()[i].ReadFromFile().Last().z);
         }
 
     }
@@ -138,7 +141,7 @@ public class EnemySpawn : MonoBehaviour
             {
                 this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First() + RandomVector3Path(this.randPath);
 
-                GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn.x, this.posSpawn.z);
+                GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn);
                 temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
                 this.SetDefaultEnemy(temp, this.posSpawn);
             }
@@ -148,7 +151,7 @@ public class EnemySpawn : MonoBehaviour
                 {
                     this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First() + RandomVector3Path(this.randPath);
 
-                    GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn.x, this.posSpawn.z);
+                    GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn);
                     temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (j + 1)));
                     this.SetDefaultEnemy(temp, this.posSpawn);
                 }

@@ -41,8 +41,4 @@ public class LookAtTarget : MonoBehaviour
     {
         return this.target;
     }
-    public Vector3 GetPosTarget()
-    {
-        return this.target.transform.position;
-    }
 }

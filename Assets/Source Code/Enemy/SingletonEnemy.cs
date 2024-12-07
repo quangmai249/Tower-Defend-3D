@@ -27,10 +27,10 @@ public class SingletonEnemy : MonoBehaviour
         CreateEnemyObjectPooling(this.lsEnemy, this.numPool);
         this.yPos = lsEnemy[0].gameObject.transform.position.y;
     }
-    public GameObject InstantiateTurretsAt(float xPos, float zPos)
+    public GameObject InstantiateTurretsAt(Vector3 pos)
     {
         GameObject res = this.GetEnemyPooling(this.enemyTag);
-        res.transform.position = new Vector3(xPos, this.yPos, zPos);
+        res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
         res.gameObject.SetActive(true);
         return res;
     }

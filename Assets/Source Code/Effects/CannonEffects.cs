@@ -46,10 +46,10 @@ public class CannonEffects : MonoBehaviour
         this.bulletCannon.SetActive(true);
 
         if (lookAtTarget.GetTarget() != null)
-            this.bulletCannon.transform.DOMove(lookAtTarget.GetPosTarget(), this.speed);
+            this.bulletCannon.transform.DOMove(lookAtTarget.GetTarget().transform.position, this.speed);
 
         yield return new WaitForSeconds(this.speed);
-        this.par_target.transform.position = lookAtTarget.GetPosTarget();
+        this.par_target.transform.position = lookAtTarget.GetTarget().transform.position;
         this.par_target.Play();
     }
     IEnumerator CoroutineAniStopAttack()

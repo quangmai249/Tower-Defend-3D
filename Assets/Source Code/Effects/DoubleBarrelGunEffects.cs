@@ -23,7 +23,7 @@ public class DoubleBarrelGunEffects : MonoBehaviour
         }
 
         if (lookAtTarget.GetTarget() != null)
-            par_target.transform.position = lookAtTarget.GetPosTarget();
+            par_target.transform.position = lookAtTarget.GetTarget().transform.position;
 
         if (animator.GetBool("IsAttack") == false)
             StartCoroutine(nameof(this.CoroutineAniStartAttack));

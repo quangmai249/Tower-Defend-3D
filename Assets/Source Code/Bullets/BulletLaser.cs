@@ -42,15 +42,15 @@ public class BulletLaser : MonoBehaviour
         {
             this.lineRenderer.enabled = true;
             this.lineRenderer.SetPosition(0, this.gameObject.transform.position + this.laserPos);
-            this.lineRenderer.SetPosition(1, lookAtTarget.GetPosTarget());
+            this.lineRenderer.SetPosition(1, lookAtTarget.GetTarget().transform.position);
 
-            this.effectLaser.transform.position = lookAtTarget.GetPosTarget();
+            this.effectLaser.transform.position = lookAtTarget.GetTarget().transform.position;
             this.effectLaser.SetActive(true);
 
             this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
 
             BulletRaycast.Shooting(this.gameObject.transform.position
-                , (lookAtTarget.GetPosTarget() - this.gameObject.transform.position)
+                , (lookAtTarget.GetTarget().transform.position - this.gameObject.transform.position)
                 , this.turretStats.DamagedTurret, true);
 
             lookAtTarget.GetTarget().gameObject.GetComponent<EnemyMoving>().SetIsSlowing(true, this.timeDurationSlowing);

@@ -22,7 +22,7 @@ public class GatelingGunEffetcts : MonoBehaviour
         }
 
         if (lookAtTarget.GetTarget() != null)
-            par_target.transform.position = lookAtTarget.GetPosTarget();
+            par_target.transform.position = lookAtTarget.GetTarget().transform.position;
 
         if (par.isPlaying == false && animator.GetBool("IsAttack") == false)
             StartCoroutine(nameof(this.CoroutineAniStartAttack));

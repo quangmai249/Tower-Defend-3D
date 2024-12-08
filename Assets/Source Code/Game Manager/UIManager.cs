@@ -24,12 +24,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textLives;
     [SerializeField] TextMeshProUGUI textFPS;
 
+    [Header("Volume")]
+    [SerializeField] TextMeshProUGUI textVolumeMusic;
+    [SerializeField] TextMeshProUGUI textVolumeFXSound;
+
     [Header("Stats")]
     [SerializeField] string textTurretStatsTag = "Text Turret Stats";
     [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     private GameManager gameManager;
     private GameStats gameStats;
+    private AudioManager audioManager;
     public static UIManager Instance;
     private void Awake()
     {
@@ -39,14 +44,18 @@ public class UIManager : MonoBehaviour
             return;
         }
         Instance = this;
+
     }
     private void Start()
     {
+        audioManager = AudioManager.Instance;
         gameManager = GameManager.Instance;
+
         gameStats = gameManager.GameStats;
 
         this.toggleMuteMusic.isOn = true;
         this.toggleMuteFXSound.isOn = true;
+        this.toggleFullScreen.isOn = true;
 
         this.textNotEnoughGold.text = string.Empty;
         this.panelGameOver.SetActive(false);
@@ -76,14 +85,19 @@ public class UIManager : MonoBehaviour
         }
 
         textFPS.text = $"{Mathf.Round(1f / Time.unscaledDeltaTime).ToString()} FPS";
+
+        textVolumeMusic.text = $"{Mathf.Round(audioManager.VolumeMusic * 100).ToString()}";
+        textVolumeFXSound.text = $"{Mathf.Round(audioManager.VolumeFXSound * 100).ToString()}";
     }
-    public bool GetToggleMusic()
+    public bool ToggleMusic { get => this.toggleMuteMusic.isOn; }
+    public bool ToggleFXSound { get => this.toggleMuteFXSound.isOn; }
+    public void SetToggleMusic(bool isOn)
     {
-        return toggleMuteMusic.isOn;
+        toggleMuteMusic.isOn = isOn;
     }
-    public bool GetToggleFXSound()
+    public void SetToggleFXSound(bool isOn)
     {
-        return toggleMuteFXSound.isOn;
+        toggleMuteFXSound.isOn = isOn;
     }
     public bool GetToogleFullScreen()
     {

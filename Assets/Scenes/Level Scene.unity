@@ -524,6 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118519eb5ef6ff947817268304dc5b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonStartPlay: {fileID: 466265169}
 --- !u!4 &480597354
 Transform:
   m_ObjectHideFlags: 0
@@ -606,7 +607,6 @@ MonoBehaviour:
   btnLevel: {fileID: 7109630016061554221, guid: 40ddd6701d1670446845b2040e84168f, type: 3}
   textButtonPlayGame: {fileID: 291603761}
   lsButtonLevel: []
-  numPool: 50
 --- !u!114 &709750026
 MonoBehaviour:
   m_ObjectHideFlags: 0

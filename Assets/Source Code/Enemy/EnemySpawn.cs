@@ -143,12 +143,12 @@ public class EnemySpawn : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        if (this.lsEnemyBossAtLevel[levelDesign.GetLevelTypeInt() - 1] != null)
+        for (int i = 0; i < pathManager.GetListFileNodePath().Count; i++)
         {
             this.enemyBoss = Instantiate(this.lsEnemyBossAtLevel[levelDesign.GetLevelTypeInt() - 1]);
             this.enemyBoss.gameObject.transform.parent = this.gameObject.transform;
 
-            this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First() + RandomVector3Path(this.randPath);
+            this.posSpawn = pathManager.GetListFileNodePath()[i].ReadFromFile().First() + RandomVector3Path(this.randPath);
             this.enemyBoss.transform.position = new Vector3(this.posSpawn.x, this.enemyBoss.transform.position.y, this.posSpawn.z);
 
             this.enemyBoss.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
@@ -156,6 +156,7 @@ public class EnemySpawn : MonoBehaviour
             this.enemyBoss.gameObject.SetActive(true);
 
             audioManager.ActiveAudioSpawnEnemy(true);
+            yield return new WaitForSeconds(1f);
         }
     }
     IEnumerator StartSpawn()
@@ -190,7 +191,7 @@ public class EnemySpawn : MonoBehaviour
             yield return new WaitForSeconds(timeSpawn);
         }
 
-        if (this.wave > this.maxWave && levelDesign.GetLevelTypeInt() > this.lsEnemyBossAtLevel.Count)
+        if (this.wave > this.maxWave && levelDesign.GetLevelTypeInt() <= this.lsEnemyBossAtLevel.Count)
             StartCoroutine(nameof(this.CoroutineChooseEnemyBoss));
     }
     IEnumerator StartCountdown()

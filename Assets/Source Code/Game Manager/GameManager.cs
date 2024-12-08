@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] int lives = 10;
     [SerializeField] float gold = 1000;
 
+    [Header("Game Speed")]
+    [SerializeField] int gameMaxSpeed = 10;
+
     [Header("Game Controller")]
     [SerializeField] bool isGameWinLevel = false;
     [SerializeField] bool isGameOver = false;
@@ -50,6 +53,7 @@ public class GameManager : MonoBehaviour
     }
     public bool IsGameWinLevel { get => this.isGameWinLevel; set => this.isGameWinLevel = value; }
     public bool IsGameOver { get => this.isGameOver; set => this.isGameOver = value; }
-    public bool IsGamePause { get => isGamePause; set => isGamePause = value; }
+    public bool IsGamePause { get => this.isGamePause; set => isGamePause = value; }
+    public int GameSpeed { get => this.gameMaxSpeed; }
     public GameStats GameStats { get => this.gameStats; set => this.gameStats = value; }
 }

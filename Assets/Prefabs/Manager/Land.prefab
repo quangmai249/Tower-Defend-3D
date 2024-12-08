@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2702533319544434450
 CanvasRenderer:
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1982944566887748749}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Plane, Assembly-CSharp
         m_MethodName: ClickedOutSite
         m_Mode: 1
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 8030885968994982407}
   - component: {fileID: 5695607866555718767}
   - component: {fileID: 7349633754968426287}
-  - component: {fileID: 1982944566887748749}
+  - component: {fileID: 2848537758144220520}
   m_Layer: 0
   m_Name: Land
   m_TagString: Untagged
@@ -220,7 +220,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1982944566887748749
+--- !u!114 &2848537758144220520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7227655126977185174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac8806b6904f8b4d91c137424d970ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 163b7770ab9377e448526ca3b7fd2073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvasShopTag: Canvas Shop Turrets

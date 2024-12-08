@@ -110,5 +110,5 @@ MonoBehaviour:
   maxVerticalMoving: 0
   minVerticalMoving: -15
   rangeHorizontalMoving: 5
-  speedMoveCamera: 10
+  speedMoveCamera: 25
   pos: {x: 0, y: 0, z: 0}

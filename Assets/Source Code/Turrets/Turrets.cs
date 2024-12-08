@@ -35,7 +35,7 @@ public class Turrets : MonoBehaviour
     [SerializeField] float damage = 10f;
     [SerializeField] float rate = 1f;
 
-    [Header("Manger")]
+    [Header("Manager")]
     [SerializeField] string uiManagerTag = "UI Manager";
 
     private GameObject upgradeTurrets;
@@ -43,7 +43,7 @@ public class Turrets : MonoBehaviour
     private SingletonBuilding singletonBuilding;
     private GameManager gameManager;
     private UIManager uiManager;
-
+    private AudioManager audioManager;
     private GameStats gameStats;
     private TurretStats turretStats;
     private TurretStats defaultTurretStats;
@@ -58,6 +58,8 @@ public class Turrets : MonoBehaviour
     }
     private void Start()
     {
+        audioManager = AudioManager.Instance;
+
         this.levelTurret = 1;
         this.turretStats = this.defaultTurretStats;
 
@@ -91,10 +93,7 @@ public class Turrets : MonoBehaviour
         this.damage = this.turretStats.DamagedTurret;
         this.rate = this.turretStats.RateTurret;
 
-        if (Input.GetKey(KeyCode.Mouse1))
-        {
-            this.par_selected.Stop();
-        }
+        this.gameObject.GetComponent<AudioSource>().volume = audioManager.VolumeFXSound;
     }
     private void OnMouseEnter()
     {

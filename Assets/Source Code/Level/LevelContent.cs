@@ -8,7 +8,10 @@ public class LevelContent : MonoBehaviour
     [SerializeField] GameObject btnLevel;
     [SerializeField] TextMeshProUGUI textButtonPlayGame;
     [SerializeField] List<GameObject> lsButtonLevel;
+
     private GameObject _btnLevel;
+    private LevelSelection _levelSelection;
+
     public static LevelContent Instance;
     private void Awake()
     {
@@ -26,6 +29,7 @@ public class LevelContent : MonoBehaviour
         PlayerPrefs.SetString("LEVEL", string.Empty);
         PlayerPrefs.Save();
 
+        _levelSelection = LevelSelection.Instance;
         this.textButtonPlayGame.text = "NONE";
 
         foreach (var level in Enum.GetNames(typeof(Level)))
@@ -59,5 +63,7 @@ public class LevelContent : MonoBehaviour
     public void SetTextButtonPlayGame(string text)
     {
         this.textButtonPlayGame.text = text;
+        if (_levelSelection.GetButtonStartPlay().activeSelf == false)
+            _levelSelection.GetButtonStartPlay().SetActive(true);
     }
 }

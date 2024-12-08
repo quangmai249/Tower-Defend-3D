@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Plane : MonoBehaviour
+public class LandManager : MonoBehaviour
 {
     [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
     [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";

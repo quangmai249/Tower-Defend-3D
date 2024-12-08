@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveStart: 1
-  maxWave: 10
-  lives: 20
-  gold: 10000000
-  timeDurationEnemyMoving: 60
+  maxWave: 5
+  lives: 4000
+  gold: 100000
+  gameMaxSpeed: 20
   isGameWinLevel: 0
   isGameOver: 0
   isGamePause: 0

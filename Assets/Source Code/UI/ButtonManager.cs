@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Reflection;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,8 +14,12 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] GameObject btnResumeGame;
     [SerializeField] GameObject btnReadyPlayGame;
 
+    [Header("Text")]
+    [SerializeField] TextMeshProUGUI textIncreaseSpeed;
+
     [Header("Name Tag")]
     [SerializeField] string gameManagerTag = "GameController";
+
     private GameObject gameObjManager;
     private GameManager gameManager;
     private void Awake()
@@ -24,6 +29,7 @@ public class ButtonManager : MonoBehaviour
     }
     private void Start()
     {
+        this.textIncreaseSpeed.text = $"x{gameManager.GameSpeed.ToString()} SPEED";
         this.btnIncreaseSpeed.gameObject.SetActive(true);
         this.btnDecreaseSpeed.gameObject.SetActive(false);
         this.btnPauseGame.gameObject.SetActive(true);
@@ -74,7 +80,7 @@ public class ButtonManager : MonoBehaviour
         gameManager.IsGamePause = false;
         return;
     }
-    public void ButtonIncreaseSpeed(float speed)
+    public void ButtonIncreaseSpeed()
     {
         if (gameManager.IsGamePause == true || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
@@ -82,10 +88,10 @@ public class ButtonManager : MonoBehaviour
         this.btnIncreaseSpeed.gameObject.SetActive(false);
         this.btnDecreaseSpeed.gameObject.SetActive(true);
 
-        Time.timeScale = speed;
+        Time.timeScale = gameManager.GameSpeed;
         return;
     }
-    public void ButtonDecreaseSpeed(float speed)
+    public void ButtonDecreaseSpeed()
     {
         if (gameManager.IsGamePause == true || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
             return;
@@ -93,7 +99,7 @@ public class ButtonManager : MonoBehaviour
         this.btnIncreaseSpeed.gameObject.SetActive(true);
         this.btnDecreaseSpeed.gameObject.SetActive(false);
 
-        Time.timeScale = speed;
+        Time.timeScale = 1;
         return;
     }
     public void ButtonRestart()

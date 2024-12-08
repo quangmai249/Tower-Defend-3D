@@ -18,6 +18,7 @@ public class FirebaseInit : MonoBehaviour
     [SerializeField] string linkFirebase = "https://firebasestorage.googleapis.com/v0/b/tower-defend-3d-unity-84f17.appspot.com/o/";
     private void Awake()
     {
+        Screen.fullScreen = true;
         StartCoroutine(nameof(this.CoroutineTimeLoading));
     }
     private void Update()

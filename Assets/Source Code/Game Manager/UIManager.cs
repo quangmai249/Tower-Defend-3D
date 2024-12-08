@@ -5,8 +5,16 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Setting")]
     [SerializeField] GameObject panelGameOver;
     [SerializeField] GameObject panelGameWin;
+    [SerializeField] GameObject pannelSetting;
+    [SerializeField] GameObject pannelPauseGame;
+
+    [Header("Toggle")]
+    [SerializeField] Toggle toggleMuteMusic;
+    [SerializeField] Toggle toggleMuteFXSound;
+    [SerializeField] Toggle toggleFullScreen;
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI textLevelWin;
@@ -37,9 +45,14 @@ public class UIManager : MonoBehaviour
         gameManager = GameManager.Instance;
         gameStats = gameManager.GameStats;
 
+        this.toggleMuteMusic.isOn = true;
+        this.toggleMuteFXSound.isOn = true;
+
         this.textNotEnoughGold.text = string.Empty;
         this.panelGameOver.SetActive(false);
         this.panelGameWin.SetActive(false);
+        this.pannelSetting.SetActive(false);
+        this.pannelPauseGame.SetActive(false);
     }
     private void Update()
     {
@@ -63,6 +76,33 @@ public class UIManager : MonoBehaviour
         }
 
         textFPS.text = $"{Mathf.Round(1f / Time.unscaledDeltaTime).ToString()} FPS";
+    }
+    public bool GetToggleMusic()
+    {
+        return toggleMuteMusic.isOn;
+    }
+    public bool GetToggleFXSound()
+    {
+        return toggleMuteFXSound.isOn;
+    }
+    public bool GetToogleFullScreen()
+    {
+        return toggleFullScreen.isOn;
+    }
+    public void ButtonSetting()
+    {
+        this.pannelPauseGame.SetActive(false);
+        this.pannelSetting.SetActive(true);
+    }
+    public void ButtonExitSetting()
+    {
+        if (toggleFullScreen.isOn == true)
+            Screen.fullScreen = true;
+        else
+            Screen.fullScreen = false;
+
+        this.pannelPauseGame.SetActive(true);
+        this.pannelSetting.SetActive(false);
     }
     private void HiddenObjectsWhenOver()
     {

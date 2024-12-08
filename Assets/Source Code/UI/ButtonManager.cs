@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
+    [Header("Button")]
     [SerializeField] GameObject btnIncreaseSpeed;
     [SerializeField] GameObject btnDecreaseSpeed;
     [SerializeField] GameObject btnPauseGame;
     [SerializeField] GameObject btnResumeGame;
     [SerializeField] GameObject btnReadyPlayGame;
+
+    [Header("Name Tag")]
     [SerializeField] string gameManagerTag = "GameController";
     private GameObject gameObjManager;
     private GameManager gameManager;

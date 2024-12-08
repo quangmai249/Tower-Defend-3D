@@ -9,11 +9,13 @@ public class ButtonShop : MonoBehaviour
     [SerializeField] string btnConfirmShopTurretTag = "Button Confirm Shop Turret";
     [SerializeField] string btnConfirmUpgradeTurretTag = "Button Confirm Upgrade Turret";
 
+    private AudioManager audioManager;
     private SingletonTurrets singletonTurrets;
     private TurretStats turretStats;
     private void Awake()
     {
         singletonTurrets = SingletonTurrets.Instance;
+        audioManager = AudioManager.Instance;
     }
     private void Start()
     {
@@ -48,5 +50,7 @@ public class ButtonShop : MonoBehaviour
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTurretTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTurretTag);
         this.gameObject.transform.parent.parent.parent.gameObject.SetActive(false);
+
+        audioManager.ActiveAudioBuilding(true);
     }
 }

@@ -48,8 +48,8 @@ MonoBehaviour:
   textCountdown: {fileID: 0}
   textWave: {fileID: 0}
   yPosEnemyHome: 5
-  enemyHome: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
-  protectedBase: {fileID: 0}
+  enemyHome: {fileID: 1048570700629992, guid: 8e35ec7e332c3d243ac23e3686bafe01, type: 3}
+  protectedBase: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
   isReady: 0
   secondStartCountdown: -1
   defaultSecondCountdownPerWave: 3

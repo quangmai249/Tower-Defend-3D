@@ -58,4 +58,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83895ab03fa0d754fa21b62fa2a3766e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrPosNodePath: []
+  default_path: C:/Tower Defend 3D/

@@ -26,6 +26,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     private GameObject menuUpgrade;
 
     private GameManager gameManager;
+    private AudioManager audioManager;
     private GameStats gameStats;
     private UIManager uiManager;
 
@@ -36,6 +37,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         singletonBuilding = SingletonBuilding.Instance;
         uiManager = UIManager.Instance;
         gameManager = GameManager.Instance;
+        audioManager = AudioManager.Instance;
     }
     private void Start()
     {
@@ -104,6 +106,8 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     }
     public void ButtonConfirmSellTurret()
     {
+        audioManager.ActiveAudioSelling(true);
+
         gameStats.Gold += this.turretStats.PriceSellTurret;
         this.SetTextStats(false);
 
@@ -115,6 +119,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
 
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasShopTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasUpgradeTag);
+
         return;
     }
     private void StartUpgradeTurretStats()
@@ -133,6 +138,8 @@ public class ButtonUpgradeTurrets : MonoBehaviour
                 .SetTimeSlowing(this.turret.GetComponent<BulletLaser>().GetTimeSlowing() * 0.85f);
 
         this.turret.GetComponent<Turrets>().SetTurretStats(res);
+
+        audioManager.ActiveAudioBuilding(true);
     }
     private void SetTextStats(bool isActive)
     {

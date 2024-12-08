@@ -12,15 +12,22 @@ public class PathManager : MonoBehaviour
     private LevelDesign levelDesign;
 
     private int numberPath = 0;
-
     private readonly string path = "FileNodePath/";
-    private readonly string levelDesignTag = "Level Design";
+
+    public static PathManager Instance;
     private void Awake()
     {
-        levelDesign = GameObject.FindGameObjectWithTag(this.levelDesignTag).GetComponent<LevelDesign>();
+        if (Instance != null)
+        {
+            Debug.LogError($"{this.gameObject.name} is NOT NULL!");
+            return;
+        }
+        Instance = this;
     }
     private void Start()
     {
+        levelDesign = LevelDesign.Instance;
+
         SetListFilePath(this.lsFilePath);
         CheckListFilePath(this.lsFilePath);
     }

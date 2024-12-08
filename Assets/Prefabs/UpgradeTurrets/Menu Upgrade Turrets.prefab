@@ -150,7 +150,7 @@ MonoBehaviour:
   btnConfirm: {fileID: 3594636394738541268}
   textPriceUpgrade: {fileID: 1115744454384429168}
   textSellTurret: {fileID: 1866721742280753587}
-  parUpgrade: {fileID: 0}
+  audioSelling: {fileID: 0}
   defaultRotaion: {x: 90, y: 0, z: 0}
   upgradeturretStatsPercent: 10
   btnConfirmUpgradeTag: Button Confirm Upgrade Turret
@@ -844,7 +844,7 @@ MonoBehaviour:
   btnConfirm: {fileID: 6369648564156009231}
   textPriceUpgrade: {fileID: 1115744454384429168}
   textSellTurret: {fileID: 1866721742280753587}
-  parUpgrade: {fileID: 1743243596157734937}
+  audioSelling: {fileID: 0}
   defaultRotaion: {x: 90, y: 0, z: 0}
   upgradeturretStatsPercent: 10
   btnConfirmUpgradeTag: Button Confirm Upgrade Turret
@@ -1016,11 +1016,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
---- !u!198 &1743243596157734937 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
-  m_PrefabInstance: {fileID: 5094303125299706835}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3017314301364866544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8029142899459995171, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}

@@ -31,26 +31,20 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] float randPath = 1f;
     [SerializeField] float timeSpawn = 1.5f;
 
-    [Header("Name Tag")]
-    [SerializeField] readonly string levelDesignTag = "Level Design";
-    [SerializeField] readonly string pathManagerTag = "Path Manager";
-    [SerializeField] readonly string enemyManagerTag = "Enemy Manager";
-    [SerializeField] readonly string gameManagerTag = "GameController";
-
     private LevelDesign levelDesign;
     private PathManager pathManager;
     private SingletonEnemy singletonEnemy;
     private GameManager gameManager;
     private GameStats gameStats;
-    private void Awake()
-    {
-        this.singletonEnemy = GameObject.FindGameObjectWithTag(this.enemyManagerTag).GetComponent<SingletonEnemy>();
-        this.gameManager = GameObject.FindGameObjectWithTag(this.gameManagerTag).GetComponent<GameManager>();
-        this.levelDesign = GameObject.FindGameObjectWithTag(this.levelDesignTag).GetComponent<LevelDesign>();
-        this.pathManager = GameObject.FindGameObjectWithTag(this.pathManagerTag).GetComponent<PathManager>();
-    }
+    private AudioManager audioManager;
     void Start()
     {
+        this.levelDesign = LevelDesign.Instance;
+        this.pathManager = PathManager.Instance;
+        this.gameManager = GameManager.Instance;
+        this.audioManager = AudioManager.Instance;
+        this.singletonEnemy = SingletonEnemy.Instance;
+
         this.gameStats = gameManager.GameStats;
 
         this.wave = gameStats.WaveStart;
@@ -144,6 +138,8 @@ public class EnemySpawn : MonoBehaviour
                 GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn);
                 temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
                 this.SetDefaultEnemy(temp, this.posSpawn);
+
+                audioManager.ActiveAudioSpawnEnemy(true);
             }
             else
             {
@@ -154,6 +150,8 @@ public class EnemySpawn : MonoBehaviour
                     GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn);
                     temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (j + 1)));
                     this.SetDefaultEnemy(temp, this.posSpawn);
+
+                    audioManager.ActiveAudioSpawnEnemy(true);
                 }
             }
             yield return new WaitForSeconds(timeSpawn);

@@ -52,6 +52,7 @@ MonoBehaviour:
   textNotEnoughGold: {fileID: 0}
   textGold: {fileID: 0}
   textLives: {fileID: 0}
+  textFPS: {fileID: 0}
   textTurretStatsTag: Text Turret Stats
   imgTurretStatsTag: Image Turret Stats
 --- !u!114 &3754768704611311226

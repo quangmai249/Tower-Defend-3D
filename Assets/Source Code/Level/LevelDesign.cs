@@ -13,6 +13,18 @@ public class LevelDesign : MonoBehaviour
     [SerializeField] string linkLocal = "C:/Tower Defend 3D";
     [SerializeField] string linkLocalFileNodeBuilding = "C:/Tower Defend 3D/FileNodeBuilding";
     [SerializeField] string linkLocalFileNodePath = "C:/Tower Defend 3D/FileNodePath";
+
+    public static LevelDesign Instance;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError($"{this.gameObject.name} is NOT NULL!");
+            return;
+        }
+        Instance = this;
+    }
+
     private void Start()
     {
         this.pannelRebootsGame.gameObject.SetActive(false);

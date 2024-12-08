@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcb7344dc394e428287fedc33f753a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScale: 50
-  minScale: 10
+  maxScale: 30
+  minScale: 5
   maxVerticalMoving: 0
   minVerticalMoving: -15
   rangeHorizontalMoving: 5

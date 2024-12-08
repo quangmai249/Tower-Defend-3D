@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -5,6 +6,11 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] List<AudioClip> lsAudioOST;
+    [SerializeField] AudioSource audioSelling;
+    [SerializeField] AudioSource audioBuilding;
+    [SerializeField] AudioSource audioSpawnEnemy;
+    [SerializeField] AudioSource audioProtectedBaseTakeDamage;
+
     private AudioSource audioOST;
     public static AudioManager Instance;
     private void Awake()
@@ -29,5 +35,33 @@ public class AudioManager : MonoBehaviour
             this.audioOST.resource = lsAudioOST[Random.Range(0, lsAudioOST.Count)];
             this.audioOST.Play();
         }
+    }
+    public void ActiveAudioProtectedBaseTakeDamage(bool isPlay)
+    {
+        if (isPlay == true)
+            this.audioProtectedBaseTakeDamage.Play();
+        else
+            this.audioProtectedBaseTakeDamage.Stop();
+    }
+    public void ActiveAudioSpawnEnemy(bool isPlay)
+    {
+        if (isPlay == true)
+            this.audioSpawnEnemy.Play();
+        else
+            this.audioSpawnEnemy.Stop();
+    }
+    public void ActiveAudioBuilding(bool isPlay)
+    {
+        if (isPlay == true)
+            this.audioBuilding.Play();
+        else
+            this.audioBuilding.Stop();
+    }
+    public void ActiveAudioSelling(bool isPlay)
+    {
+        if (isPlay == true)
+            this.audioSelling.Play();
+        else
+            this.audioSelling.Stop();
     }
 }

@@ -7,11 +7,14 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject panelGameOver;
     [SerializeField] GameObject panelGameWin;
+
+    [Header("Text")]
     [SerializeField] TextMeshProUGUI textLevelWin;
     [SerializeField] TextMeshProUGUI textNumberRoundSurvived;
     [SerializeField] TextMeshProUGUI textNotEnoughGold;
     [SerializeField] TextMeshProUGUI textGold;
     [SerializeField] TextMeshProUGUI textLives;
+    [SerializeField] TextMeshProUGUI textFPS;
 
     [Header("Stats")]
     [SerializeField] string textTurretStatsTag = "Text Turret Stats";
@@ -58,6 +61,8 @@ public class UIManager : MonoBehaviour
             this.HiddenObjectsWhenOver();
             return;
         }
+
+        textFPS.text = $"{Mathf.Round(1f / Time.unscaledDeltaTime).ToString()} FPS";
     }
     private void HiddenObjectsWhenOver()
     {

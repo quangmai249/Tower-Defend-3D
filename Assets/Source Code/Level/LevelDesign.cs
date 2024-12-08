@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -49,6 +50,12 @@ public class LevelDesign : MonoBehaviour
         if (this.checking == true)
             return this.level.ToString();
         return PlayerPrefs.GetString("LEVEL");
+    }
+    public int GetLevelTypeInt()
+    {
+        if (this.checking == true)
+            return Int32.Parse(this.level.ToString().Remove(0, 6));
+        return Int32.Parse(PlayerPrefs.GetString("LEVEL"));
     }
     public void ButtonRebootsGame()
     {

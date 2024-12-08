@@ -31,8 +31,16 @@ public class NodeBuildingManager : MonoBehaviour
         singletonBuilding = SingletonBuilding.Instance;
         this.arrPosNodeBuilding = filePath.ReadFromFile();
 
+        StartCoroutine(nameof(this.CoroutineSpawnNodeBuilding));
+    }
+    IEnumerator CoroutineSpawnNodeBuilding()
+    {
+        yield return new WaitForEndOfFrame();
         for (int i = 0; i < this.arrPosNodeBuilding.Length; i++)
+        {
+            yield return new WaitForSeconds(.2f);
             singletonBuilding.InstantiateAt(this.arrPosNodeBuilding[i]);
+        }
     }
     private string GetPath()
     {

@@ -8,6 +8,7 @@ public class ButtonShop : MonoBehaviour
     [SerializeField] TextMeshPro textPrice;
     [SerializeField] string btnConfirmShopTurretTag = "Button Confirm Shop Turret";
     [SerializeField] string btnConfirmUpgradeTurretTag = "Button Confirm Upgrade Turret";
+    [SerializeField] string canvasUpgradeTurretTag = "Canvas Upgrade Turrets";
 
     private AudioManager audioManager;
     private SingletonTurrets singletonTurrets;
@@ -49,6 +50,8 @@ public class ButtonShop : MonoBehaviour
 
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTurretTag);
         SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTurretTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTurretTag);
+
         this.gameObject.transform.parent.parent.parent.gameObject.SetActive(false);
 
         audioManager.ActiveAudioBuilding(true);

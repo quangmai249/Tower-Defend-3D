@@ -5700,6 +5700,50 @@ PrefabInstance:
       propertyPath: btnReadyPlayGame
       value: 
       objectReference: {fileID: 2097780023}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: isSpawnBaseContruction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: lsEnemyBossAtLevel.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: 'lsEnemyBossAtLevel.Array.data[0]'
+      value: 
+      objectReference: {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: 'lsEnemyBossAtLevel.Array.data[1]'
+      value: 
+      objectReference: {fileID: 100116, guid: f1a64314f574ac245a6501ef3a43976d, type: 3}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: 'lsEnemyBossAtLevel.Array.data[2]'
+      value: 
+      objectReference: {fileID: 100116, guid: dad041352be600a42a25eba46c6b0072, type: 3}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: 'lsEnemyBossAtLevel.Array.data[3]'
+      value: 
+      objectReference: {fileID: 6764376183647102268, guid: 2828952e064ada641a66a329a1b8c493, type: 3}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: 'lsEnemyBossAtLevel.Array.data[4]'
+      value: 
+      objectReference: {fileID: 6764376183647102268, guid: d7bdc4a51648efe46b69ee27fb248c58, type: 3}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: 'lsEnemyBossAtLevel.Array.data[5]'
+      value: 
+      objectReference: {fileID: 6764376183647102268, guid: d7bdc4a51648efe46b69ee27fb248c58, type: 3}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: 'lsEnemyBossAtLevel.Array.data[6]'
+      value: 
+      objectReference: {fileID: 6764376183647102268, guid: 2828952e064ada641a66a329a1b8c493, type: 3}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: 'lsEnemyBossAtLevel.Array.data[7]'
+      value: 
+      objectReference: {fileID: 6764376183647102268, guid: 93e64f9a2d11d064f9b016e1b64278f2, type: 3}
+    - target: {fileID: 1364171957559121368, guid: a4908cea459589f4a936f88798924318, type: 3}
+      propertyPath: 'lsEnemyBossAtLevel.Array.data[8]'
+      value: 
+      objectReference: {fileID: 6764376183647102268, guid: 93e64f9a2d11d064f9b016e1b64278f2, type: 3}
     - target: {fileID: 2675610351563814723, guid: a4908cea459589f4a936f88798924318, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6314,6 +6358,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9138276656129093444, guid: 9ef7ca1793dfad948b231fea6c214c87, type: 3}
+      propertyPath: nodeBuilding
+      value: 
+      objectReference: {fileID: 7013115757085300150, guid: 1c2dd86981266bc4c9eb250677f31bad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6384,6 +6432,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
+      propertyPath: checking
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: textLevel
       value: 

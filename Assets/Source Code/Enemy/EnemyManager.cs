@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] bool isBoss;
     [SerializeField] float defaultHP = 100f;
     [SerializeField] float enemySpeed = 60f;
     [SerializeField] float goldReward = 100f;
@@ -13,10 +14,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Image imgHPBarBackground;
     [SerializeField] GameObject parEnemyDeath;
 
+    private bool checkStartDead = true;
+
     private GameObject parDeath;
     private GameManager gameManager;
     private GameStats gameStats;
-
     private EnemyStats enemyStats;
     private void Awake()
     {
@@ -40,8 +42,19 @@ public class EnemyManager : MonoBehaviour
 
             this.parDeath = Instantiate(this.parEnemyDeath.gameObject, this.gameObject.transform.position, this.parEnemyDeath.transform.rotation);
             this.parDeath.transform.parent = this.gameObject.transform.parent.transform;
-            Destroy(this.parDeath.gameObject, 2f);
-            this.gameObject.SetActive(false);
+
+            if (this.isBoss == true && this.checkStartDead == true)
+            {
+                Debug.Log("Boss");
+                StartCoroutine(nameof(this.CoroutineEnemyBossDead));
+                this.checkStartDead = false;
+            }
+
+            if (this.isBoss == false)
+            {
+                Destroy(this.parDeath.gameObject, 2f);
+                this.gameObject.SetActive(false);
+            }
         }
     }
     public EnemyStats GetEnemyStats()
@@ -79,6 +92,32 @@ public class EnemyManager : MonoBehaviour
 
         this.imgHPBarBackground.color = Color.black;
         this.imgHPBarBackground.fillAmount = this.enemyStats.EnemyHP / this.defaultHP;
+    }
+    private float GetDurationAnimation(Animator anim)
+    {
+        float res = 0;
+        AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            switch (clip.name)
+            {
+                case "IsDead":
+                    res = clip.length;
+                    break;
+            }
+        }
+        return res;
+    }
+    private IEnumerator CoroutineEnemyBossDead()
+    {
+        yield return new WaitForEndOfFrame();
+        Animator animator = this.gameObject.GetComponent<Animator>();
+        this.gameObject.GetComponent<EnemyMoving>().StopMoving();
+        animator.SetBool("IsDead", true);
+
+        yield return new WaitForSeconds(this.GetDurationAnimation(animator));
+        Destroy(this.parDeath.gameObject, 2f);
+        this.gameObject.SetActive(false);
     }
     private IEnumerator ChangeImageHPBarFade()
     {

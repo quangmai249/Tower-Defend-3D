@@ -66,6 +66,10 @@ public class EnemyMoving : MonoBehaviour
             .SetEase(Ease.Linear)
             .SetLookAt(0.001f);
     }
+    public void StopMoving()
+    {
+        this.tween.timeScale = 0f;
+    }
     private Vector3[] ArrayPointEnemyMoving(float yPos)
     {
         List<Vector3> ls = new List<Vector3>();

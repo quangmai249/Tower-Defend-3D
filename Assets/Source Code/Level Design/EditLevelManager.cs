@@ -56,7 +56,7 @@ public class EditLevelManager : MonoBehaviour
     }
     public void ButtonLoadNode()
     {
-        this.textNotifyCommon.text = this.level + " loading...";
+        this.textNotifyCommon.text = this.level + " is running!";
         this.panelConfirmDel.gameObject.SetActive(false);
         this.panelConfirmSaveToLocal.gameObject.SetActive(false);
         this.StartReadNodeBuilding();

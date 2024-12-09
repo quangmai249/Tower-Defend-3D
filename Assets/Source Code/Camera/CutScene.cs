@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,9 +16,9 @@ public class CutScene : MonoBehaviour
     }
     private void ResetCutScene()
     {
-        //this.Cam01.gameObject.SetActive(true);
-        //this.Cam02.gameObject.SetActive(true);
-        //this.Cam03.gameObject.SetActive(true);
+        this.Cam01.gameObject.SetActive(true);
+        this.Cam02.gameObject.SetActive(true);
+        this.Cam03.gameObject.SetActive(true);
 
         this.buttonSkip.gameObject.SetActive(false);
 
@@ -26,7 +27,7 @@ public class CutScene : MonoBehaviour
     }
     public void ButtonSkip()
     {
-        SceneManager.LoadScene("Game Play");
+        SceneManager.LoadScene("Menu Game");
     }
     IEnumerator CoroutineButtonSkip()
     {
@@ -39,7 +40,7 @@ public class CutScene : MonoBehaviour
         this.Cam01.gameObject.SetActive(false);
         yield return new WaitForSeconds(5.5f);
         this.Cam02.gameObject.SetActive(false);
-        yield return new WaitForSeconds(12.85f);
-        SceneManager.LoadScene("Game Play");
+        yield return new WaitForSeconds(13f);
+        SceneManager.LoadScene("Menu Game");
     }
 }

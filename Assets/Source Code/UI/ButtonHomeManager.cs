@@ -7,6 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHomeManager : MonoBehaviour
 {
+    [SerializeField] GameObject panelSetting;
+    private void Start()
+    {
+        this.panelSetting.gameObject.SetActive(false);
+    }
+    public void ButtonSetting()
+    {
+        this.panelSetting.gameObject.SetActive(true);
+    }
+    public void ButtonSaveSetting()
+    {
+        this.panelSetting.gameObject.SetActive(false);
+    }
     public void ButtonPlay()
     {
         SceneManager.LoadScene("Level Scene");

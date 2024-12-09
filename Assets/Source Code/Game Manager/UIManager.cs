@@ -8,8 +8,9 @@ public class UIManager : MonoBehaviour
     [Header("Setting")]
     [SerializeField] GameObject panelGameOver;
     [SerializeField] GameObject panelGameWin;
-    [SerializeField] GameObject pannelSetting;
-    [SerializeField] GameObject pannelPauseGame;
+    [SerializeField] GameObject panelSetting;
+    [SerializeField] GameObject panelPauseGame;
+    [SerializeField] GameObject panelConfrimSurrender;
 
     [Header("Toggle")]
     [SerializeField] Toggle toggleMuteMusic;
@@ -60,8 +61,9 @@ public class UIManager : MonoBehaviour
         this.textNotEnoughGold.text = string.Empty;
         this.panelGameOver.SetActive(false);
         this.panelGameWin.SetActive(false);
-        this.pannelSetting.SetActive(false);
-        this.pannelPauseGame.SetActive(false);
+        this.panelSetting.SetActive(false);
+        this.panelPauseGame.SetActive(false);
+        this.panelConfrimSurrender.SetActive(false);
     }
     private void Update()
     {
@@ -103,10 +105,20 @@ public class UIManager : MonoBehaviour
     {
         return toggleFullScreen.isOn;
     }
+    public void ButtonConfirmSurrender()
+    {
+        this.panelPauseGame.gameObject.SetActive(false);
+        this.panelConfrimSurrender.gameObject.SetActive(true);
+    }
+    public void ButtonNoConfirmSurrender()
+    {
+        this.panelConfrimSurrender.gameObject.SetActive(false);
+        this.panelPauseGame.gameObject.SetActive(true);
+    }
     public void ButtonSetting()
     {
-        this.pannelPauseGame.SetActive(false);
-        this.pannelSetting.SetActive(true);
+        this.panelPauseGame.gameObject.SetActive(false);
+        this.panelPauseGame.gameObject.SetActive(true);
     }
     public void ButtonExitSetting()
     {
@@ -115,8 +127,8 @@ public class UIManager : MonoBehaviour
         else
             Screen.fullScreen = false;
 
-        this.pannelPauseGame.SetActive(true);
-        this.pannelSetting.SetActive(false);
+        this.panelPauseGame.SetActive(true);
+        this.panelSetting.SetActive(false);
     }
     private void HiddenObjectsWhenOver()
     {

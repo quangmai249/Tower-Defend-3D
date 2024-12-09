@@ -25,7 +25,7 @@ public class FirebaseInit : MonoBehaviour
     {
         if (this.imgTimeLoading.fillAmount == 1f)
         {
-            SceneManager.LoadScene("Menu Game");
+            SceneManager.LoadScene("Cut Scene");
             return;
         }
     }

@@ -24,7 +24,7 @@ public class LevelSelection : MonoBehaviour
     }
     public void ButtonPlayGame()
     {
-        SceneManager.LoadScene("Cut Scene");
+        SceneManager.LoadScene("Game Play");
         return;
     }
     public void ButtonHomeScreen()

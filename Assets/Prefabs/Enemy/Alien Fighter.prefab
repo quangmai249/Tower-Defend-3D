@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282c3880c87d74f4888d613d5f646126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBoss: 0
   defaultHP: 300
   enemySpeed: 100
   goldReward: 300

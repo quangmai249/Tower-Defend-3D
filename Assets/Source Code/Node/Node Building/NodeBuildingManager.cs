@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -39,7 +40,7 @@ public class NodeBuildingManager : MonoBehaviour
         for (int i = 0; i < this.arrPosNodeBuilding.Length; i++)
         {
             yield return new WaitForSeconds(.2f);
-            singletonBuilding.InstantiateAt(this.arrPosNodeBuilding[i]);
+            GameObject nodeBuilding = singletonBuilding.InstantiateAt(this.arrPosNodeBuilding[i]);
         }
     }
     private string GetPath()

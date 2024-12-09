@@ -237,7 +237,7 @@ MonoBehaviour:
   priceSell: 300
   range: 7
   damage: 10
-  rate: 2
+  rate: 1.5
   uiManagerTag: UI Manager
 --- !u!114 &7952542006599002249
 MonoBehaviour:

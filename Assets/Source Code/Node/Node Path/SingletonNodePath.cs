@@ -5,6 +5,7 @@ using UnityEngine;
 public class SingletonNodePath : MonoBehaviour
 {
     [SerializeField] GameObject nodePath;
+    [SerializeField] GameObject objNodePath;
     public static SingletonNodePath Instance;
     void Awake()
     {

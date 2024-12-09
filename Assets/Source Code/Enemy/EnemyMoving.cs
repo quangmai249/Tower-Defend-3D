@@ -61,7 +61,7 @@ public class EnemyMoving : MonoBehaviour
     {
         this.gameObject.transform.DORestart();
         this.tween = gameObject.transform
-            .DOPath(ArrayPointEnemyMoving(this.gameObject.transform.position.y)
+            .DOPath(this.ArrayPointEnemyMoving(this.gameObject.transform.position.y)
             , this.gameObject.GetComponent<EnemyManager>().GetEnemyStats().EnemySpeed, PathType.Linear)
             .SetEase(Ease.Linear)
             .SetLookAt(0.001f);

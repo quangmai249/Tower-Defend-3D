@@ -55,7 +55,7 @@ public class LevelDesign : MonoBehaviour
     {
         if (this.checking == true)
             return Int32.Parse(this.level.ToString().Remove(0, 6));
-        return Int32.Parse(PlayerPrefs.GetString("LEVEL"));
+        return Int32.Parse(PlayerPrefs.GetString("LEVEL").Remove(0, 6));
     }
     public void ButtonRebootsGame()
     {

@@ -55,6 +55,7 @@ MonoBehaviour:
   defaultSecondCountdownPerWave: 3
   wave: 1
   maxWave: 20
-  posSpawn: {x: 0, y: 0, z: 0}
   randPath: 1
   timeSpawn: 1.5
+  posSpawn: {x: 0, y: 0, z: 0}
+  enemyBoss: {fileID: 0}

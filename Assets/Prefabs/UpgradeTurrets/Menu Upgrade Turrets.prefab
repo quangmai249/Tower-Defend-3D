@@ -150,9 +150,8 @@ MonoBehaviour:
   btnConfirm: {fileID: 3594636394738541268}
   textPriceUpgrade: {fileID: 1115744454384429168}
   textSellTurret: {fileID: 1866721742280753587}
-  audioSelling: {fileID: 0}
   defaultRotaion: {x: 90, y: 0, z: 0}
-  upgradeturretStatsPercent: 10
+  upgradeTurretStatsPercent: 20
   btnConfirmUpgradeTag: Button Confirm Upgrade Turret
   btnConfirmShopTag: Button Confirm Shop Turret
   btnCanvasShopTag: Canvas Shop Turrets
@@ -844,9 +843,8 @@ MonoBehaviour:
   btnConfirm: {fileID: 6369648564156009231}
   textPriceUpgrade: {fileID: 1115744454384429168}
   textSellTurret: {fileID: 1866721742280753587}
-  audioSelling: {fileID: 0}
   defaultRotaion: {x: 90, y: 0, z: 0}
-  upgradeturretStatsPercent: 10
+  upgradeTurretStatsPercent: 20
   btnConfirmUpgradeTag: Button Confirm Upgrade Turret
   btnConfirmShopTag: Button Confirm Shop Turret
   btnCanvasShopTag: Canvas Shop Turrets
@@ -935,6 +933,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1229778838519452603}
     m_Modifications:
+    - target: {fileID: 1457801184598345654, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2872852699294004516, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
       propertyPath: m_SortingLayer
       value: 0
@@ -943,13 +945,33 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5703413397741319896, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6438269918007519783, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
       propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7155335147208632822, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
       propertyPath: m_Name
       value: Buff
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194351831689376219, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8029142899459995171, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
       propertyPath: m_LocalScale.x

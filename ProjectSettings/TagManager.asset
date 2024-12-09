@@ -23,6 +23,8 @@ TagManager:
   - First Turret
   - Fourth Turret
   - Sound Manger
+  - Enemy Home
+  - Protected Base
   layers:
   - Default
   - TransparentFX

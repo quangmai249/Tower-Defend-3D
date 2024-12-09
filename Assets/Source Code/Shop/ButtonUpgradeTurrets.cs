@@ -13,7 +13,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
 
     [Header("Transform")]
     [SerializeField] Vector3 defaultRotaion = new Vector3(90f, 0, 0);
-    [SerializeField] float upgradeturretStatsPercent = 50f;
+    [SerializeField] float upgradeTurretStatsPercent = 50f;
 
     [Header("Name Tag")]
     [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
@@ -52,8 +52,8 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     {
         turretStats = this.turret.GetComponent<Turrets>().GetTurretStats();
 
-        this.textPriceUpgrade.text = $"-{this.turretStats.PriceUpgradeTurret.ToString()}$ (+{this.upgradeturretStatsPercent.ToString()}% all)";
-        this.textSellTurret.text = $"+{this.turretStats.PriceSellTurret.ToString()}$";
+        this.textPriceUpgrade.text = $"-{this.turretStats.PriceUpgradeTurret}$ (+{this.upgradeTurretStatsPercent}% all)";
+        this.textSellTurret.text = $"+{this.turretStats.PriceSellTurret}$";
 
         this.menuUpgrade.transform.rotation = Quaternion.Euler(this.defaultRotaion);
     }
@@ -128,10 +128,10 @@ public class ButtonUpgradeTurrets : MonoBehaviour
 
         res.LevelTurret++;
         res.PriceTurret = this.turretStats.PriceTurret;
-        res.PriceUpgradeTurret += Mathf.Round(this.turretStats.PriceUpgradeTurret * (upgradeturretStatsPercent / 100));
-        res.PriceSellTurret += Mathf.Round(this.turretStats.PriceSellTurret * (upgradeturretStatsPercent / 100));
-        res.RangeTurret += this.turretStats.RangeTurret * (upgradeturretStatsPercent / 300);
-        res.DamagedTurret += this.turretStats.DamagedTurret * (upgradeturretStatsPercent / 100);
+        res.PriceUpgradeTurret += Mathf.Round(this.turretStats.PriceUpgradeTurret * (upgradeTurretStatsPercent / 100));
+        res.PriceSellTurret += Mathf.Round(this.turretStats.PriceSellTurret * (upgradeTurretStatsPercent / 100));
+        res.RangeTurret += this.turretStats.RangeTurret * (upgradeTurretStatsPercent / 300);
+        res.DamagedTurret += this.turretStats.DamagedTurret * (upgradeTurretStatsPercent / 100);
 
         if (this.turret.GetComponent<BulletLaser>() != null)
             this.turret.GetComponent<BulletLaser>()

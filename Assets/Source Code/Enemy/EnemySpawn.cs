@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,7 +34,6 @@ public class EnemySpawn : MonoBehaviour
 
     [Header("Boss")]
     [SerializeField] GameObject enemyBoss;
-    [SerializeField] List<GameObject> lsEnemyBossAtLevel;
 
     private LevelDesign levelDesign;
     private PathManager pathManager;
@@ -121,22 +120,26 @@ public class EnemySpawn : MonoBehaviour
     }
     IEnumerator CoroutineSpawnBaseConstructor()
     {
+        yield return new WaitForEndOfFrame();
+        for (int i = 0; i < pathManager.GetListFileNodePath().Count; i++)
+        {
+            GameObject protectedBase = Instantiate(this.protectedBase);
+            Vector3 pos = new Vector3(pathManager.GetListFileNodePath()[i].ReadFromFile().Last().x, protectedBase.transform.position.y, pathManager.GetListFileNodePath()[i].ReadFromFile().Last().z);
+            protectedBase.transform.parent = this.gameObject.transform;
+            protectedBase.transform.position = pos;
+        }
+
         yield return new WaitForSeconds(2f);
         for (int i = 0; i < pathManager.GetListFileNodePath().Count; i++)
         {
             GameObject enemyHome = Instantiate(this.enemyHome);
+            Vector3 pos = pathManager.GetListFileNodePath()[i].ReadFromFile().First() + (Vector3.up * yPosEnemyHome);
             enemyHome.transform.parent = this.gameObject.transform;
-            enemyHome.transform.position = pathManager.GetListFileNodePath()[i].ReadFromFile().First() + (Vector3.up * yPosEnemyHome);
-
-            GameObject protectedBase = Instantiate(this.protectedBase);
-            protectedBase.transform.parent = this.gameObject.transform;
-            protectedBase.transform.position = new Vector3(
-                pathManager.GetListFileNodePath()[i].ReadFromFile().Last().x,
-                protectedBase.transform.position.y,
-                pathManager.GetListFileNodePath()[i].ReadFromFile().Last().z);
+            enemyHome.transform.position = new Vector3(pos.x, pos.y * 10f, pos.z);
+            enemyHome.transform.DOMove(pos, 5f);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         this.btnReadyPlayGame.gameObject.SetActive(true);
     }
     IEnumerator CoroutineChooseEnemyBoss()
@@ -145,18 +148,17 @@ public class EnemySpawn : MonoBehaviour
 
         for (int i = 0; i < pathManager.GetListFileNodePath().Count; i++)
         {
-            this.enemyBoss = Instantiate(this.lsEnemyBossAtLevel[levelDesign.GetLevelTypeInt() - 1]);
-            this.enemyBoss.gameObject.transform.parent = this.gameObject.transform;
-
             this.posSpawn = pathManager.GetListFileNodePath()[i].ReadFromFile().First() + RandomVector3Path(this.randPath);
-            this.enemyBoss.transform.position = new Vector3(this.posSpawn.x, this.enemyBoss.transform.position.y, this.posSpawn.z);
+            this.enemyBoss = singletonEnemy.InstantiateBossAt(posSpawn, levelDesign.GetLevelTypeInt());
 
-            this.enemyBoss.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
-            this.SetDefaultEnemy(this.enemyBoss, this.posSpawn);
-            this.enemyBoss.gameObject.SetActive(true);
+            if (enemyBoss != null)
+            {
+                this.enemyBoss.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
+                this.SetDefaultEnemy(this.enemyBoss, this.posSpawn);
 
-            audioManager.ActiveAudioSpawnEnemy(true);
-            yield return new WaitForSeconds(1f);
+                audioManager.ActiveAudioSpawnEnemy(true);
+                yield return new WaitForSeconds(1f);
+            }
         }
     }
     IEnumerator StartSpawn()
@@ -169,7 +171,7 @@ public class EnemySpawn : MonoBehaviour
             {
                 this.posSpawn = pathManager.GetListFileNodePath().First().ReadFromFile().First() + RandomVector3Path(this.randPath);
 
-                GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn);
+                GameObject temp = singletonEnemy.InstantiateEnemysAt(this.posSpawn);
                 temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
                 this.SetDefaultEnemy(temp, this.posSpawn);
 
@@ -181,7 +183,7 @@ public class EnemySpawn : MonoBehaviour
                 {
                     this.posSpawn = pathManager.GetListFileNodePath()[j].ReadFromFile().First() + RandomVector3Path(this.randPath);
 
-                    GameObject temp = singletonEnemy.InstantiateTurretsAt(this.posSpawn);
+                    GameObject temp = singletonEnemy.InstantiateEnemysAt(this.posSpawn);
                     temp.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (j + 1)));
                     this.SetDefaultEnemy(temp, this.posSpawn);
 
@@ -191,7 +193,7 @@ public class EnemySpawn : MonoBehaviour
             yield return new WaitForSeconds(timeSpawn);
         }
 
-        if (this.wave > this.maxWave && levelDesign.GetLevelTypeInt() <= this.lsEnemyBossAtLevel.Count)
+        if (this.wave > this.maxWave)
             StartCoroutine(nameof(this.CoroutineChooseEnemyBoss));
     }
     IEnumerator StartCountdown()

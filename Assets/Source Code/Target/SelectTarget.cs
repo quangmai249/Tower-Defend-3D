@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class SelectTarget
 {
-    public static GameObject StartSelectTarget(Vector3 posOrigin, float range, string enemyTag)
+    public static GameObject StartSelectTargetWithRange(Vector3 posOrigin, float range, string enemyTag)
     {
         GameObject[] lsEnemies = GameObject.FindGameObjectsWithTag(enemyTag);
         foreach (GameObject item in lsEnemies)

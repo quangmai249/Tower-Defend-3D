@@ -2830,8 +2830,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282c3880c87d74f4888d613d5f646126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBoss: 0
   defaultHP: 200
-  enemySpeed: 60
+  enemySpeed: 40
   goldReward: 200
   imgHPBar: {fileID: 747179903938235667}
   imgHPBarFade: {fileID: 3748931120332615413}

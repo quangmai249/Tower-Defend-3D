@@ -236,7 +236,7 @@ MonoBehaviour:
   priceUpgrade: 250
   priceSell: 350
   range: 6
-  damage: 5
+  damage: 6
   rate: 0.5
   uiManagerTag: UI Manager
 --- !u!114 &654063666742302070

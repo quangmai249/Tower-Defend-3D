@@ -120,8 +120,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Plane, Assembly-CSharp
+      - m_Target: {fileID: 2848537758144220520}
+        m_TargetAssemblyTypeName: LandManager, Assembly-CSharp
         m_MethodName: ClickedOutSite
         m_Mode: 1
         m_Arguments:

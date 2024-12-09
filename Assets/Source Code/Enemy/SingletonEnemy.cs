@@ -7,6 +7,8 @@ public class SingletonEnemy : MonoBehaviour
     [SerializeField] List<GameObject> lsEnemy;
     [SerializeField] List<GameObject> enemyLs;
 
+    [SerializeField] List<GameObject> lsEnemyBoss;
+
     [SerializeField] int numPool = 20;
     [SerializeField] string enemyTag = "Enemy";
 
@@ -27,12 +29,24 @@ public class SingletonEnemy : MonoBehaviour
         CreateEnemyObjectPooling(this.lsEnemy, this.numPool);
         this.yPos = lsEnemy[0].gameObject.transform.position.y;
     }
-    public GameObject InstantiateTurretsAt(Vector3 pos)
+    public GameObject InstantiateEnemysAt(Vector3 pos)
     {
         GameObject res = this.GetEnemyPooling(this.enemyTag);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
+        res.gameObject.transform.parent = this.gameObject.transform;
         res.gameObject.SetActive(true);
         return res;
+    }
+    public GameObject InstantiateBossAt(Vector3 pos, int level)
+    {
+        if (lsEnemyBoss.Count >= level)
+        {
+            GameObject res = Instantiate(lsEnemyBoss[level - 1]);
+            res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
+            res.gameObject.SetActive(true);
+            return res;
+        }
+        return null;
     }
     private GameObject GetEnemyPooling(string tag)
     {

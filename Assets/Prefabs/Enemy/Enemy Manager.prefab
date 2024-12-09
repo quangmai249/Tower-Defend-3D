@@ -49,5 +49,9 @@ MonoBehaviour:
   - {fileID: 1906374043378120, guid: 79eac1308df01c1459d5833c9cb6055c, type: 3}
   - {fileID: 1458391615630120, guid: 6d18ca3ac0d2ecd4aa99a8099af486bb, type: 3}
   enemyLs: []
-  numPool: 5
+  lsEnemyBoss:
+  - {fileID: 100116, guid: e5836d050fdb354479bcd0d285bf2f22, type: 3}
+  - {fileID: 100116, guid: f1a64314f574ac245a6501ef3a43976d, type: 3}
+  - {fileID: 100116, guid: dad041352be600a42a25eba46c6b0072, type: 3}
+  numPool: 20
   enemyTag: Enemy

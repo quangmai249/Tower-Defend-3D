@@ -43,10 +43,10 @@ public class Turrets : MonoBehaviour
     private SingletonBuilding singletonBuilding;
     private GameManager gameManager;
     private UIManager uiManager;
-    private AudioManager audioManager;
     private GameStats gameStats;
     private TurretStats turretStats;
     private TurretStats defaultTurretStats;
+
     private void Awake()
     {
         singletonBuilding = SingletonBuilding.Instance;
@@ -58,8 +58,6 @@ public class Turrets : MonoBehaviour
     }
     private void Start()
     {
-        audioManager = AudioManager.Instance;
-
         this.levelTurret = 1;
         this.turretStats = this.defaultTurretStats;
 
@@ -92,8 +90,6 @@ public class Turrets : MonoBehaviour
         this.range = this.turretStats.RangeTurret;
         this.damage = this.turretStats.DamagedTurret;
         this.rate = this.turretStats.RateTurret;
-
-        this.gameObject.GetComponent<AudioSource>().volume = audioManager.VolumeFXSound;
     }
     private void OnMouseEnter()
     {

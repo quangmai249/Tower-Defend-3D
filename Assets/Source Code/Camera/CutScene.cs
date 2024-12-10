@@ -17,12 +17,17 @@ public class CutScene : MonoBehaviour
     [SerializeField] AudioClip audio03;
 
     private AudioSource audioSource;
+    private Setting setting;
     void Start()
     {
         this.audioSource = GetComponent<AudioSource>();
-        this.ResetCutScene();
+
+        this.setting = JsonUtility.FromJson<Setting>(PlayerPrefs.GetString("Setting Game"));
+        this.audioSource.volume = this.setting.volumeMusic;
+
+        this.StartCutScene();
     }
-    private void ResetCutScene()
+    private void StartCutScene()
     {
         this.Cam01.gameObject.SetActive(true);
         this.Cam02.gameObject.SetActive(true);

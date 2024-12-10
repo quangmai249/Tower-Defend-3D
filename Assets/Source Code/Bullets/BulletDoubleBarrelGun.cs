@@ -6,11 +6,6 @@ public class BulletDoubleBarrelGun : MonoBehaviour
     [SerializeField] float fireCountdown = 1f;
     private LookAtTarget lookAtTarget;
     private TurretStats turretStats;
-    private GameManager gameManager;
-    private void Awake()
-    {
-        gameManager = GameManager.Instance;
-    }
     private void Start()
     {
         this.turretStats = this.gameObject.transform.GetComponent<Turrets>().GetTurretStats();

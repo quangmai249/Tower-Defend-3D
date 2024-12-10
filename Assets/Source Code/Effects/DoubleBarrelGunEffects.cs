@@ -8,10 +8,13 @@ public class DoubleBarrelGunEffects : MonoBehaviour
     [SerializeField] ParticleSystem parR;
     [SerializeField] ParticleSystem par_target;
     [SerializeField] AudioSource audioSource;
+
+    private AudioManager audioManager;
     private LookAtTarget lookAtTarget;
     private void Start()
     {
         lookAtTarget = this.gameObject.GetComponent<LookAtTarget>();
+        this.audioManager = AudioManager.Instance;
     }
     private void Update()
     {
@@ -21,6 +24,8 @@ public class DoubleBarrelGunEffects : MonoBehaviour
                 StartCoroutine(nameof(this.CoroutineAniStopAttack));
             return;
         }
+
+        this.audioSource.volume = this.audioManager.GetValueSetting().volumeFXSound;
 
         if (lookAtTarget.GetTarget() != null)
             par_target.transform.position = lookAtTarget.GetTarget().transform.position;

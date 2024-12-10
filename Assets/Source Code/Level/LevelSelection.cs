@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 public class LevelSelection : MonoBehaviour
 {
     [SerializeField] GameObject buttonStartPlay;
+    [SerializeField] AudioSource audioSource;
     public static LevelSelection Instance;
+    private Setting setting;
     private void Awake()
     {
         if (Instance != null)
@@ -16,6 +18,9 @@ public class LevelSelection : MonoBehaviour
     }
     private void Start()
     {
+        this.audioSource = GetComponent<AudioSource>();
+        this.setting = JsonUtility.FromJson<Setting>(PlayerPrefs.GetString("Setting Game"));
+        this.audioSource.volume = this.setting.volumeMusic;
         this.buttonStartPlay.SetActive(false);
     }
     public GameObject GetButtonStartPlay()

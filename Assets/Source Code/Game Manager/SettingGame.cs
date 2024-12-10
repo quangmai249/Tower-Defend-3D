@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SettingGame : MonoBehaviour
 {
+    [Header("Audio Source")]
+    [SerializeField] AudioSource sourceMusicBG;
+
     [Header("Toggle")]
     [SerializeField] Toggle toggleFullScreen;
 
@@ -14,8 +17,6 @@ public class SettingGame : MonoBehaviour
     [Header("Stats")]
     [SerializeField] float volumeMusic;
     [SerializeField] float volumeFXSound;
-    [SerializeField] int resolutionScreenWidth;
-    [SerializeField] int resolutionScreenHeight;
 
     private Setting setting;
     private void Start()
@@ -26,7 +27,14 @@ public class SettingGame : MonoBehaviour
         this.textVolumeMusic.text = $"{Mathf.Round(this.setting.volumeMusic * 100f).ToString()}";
         this.textVolumeFXSound.text = $"{Mathf.Round(this.setting.volumeFXSound * 100f).ToString()}";
 
+        this.sourceMusicBG = GetComponent<AudioSource>();
+        this.sourceMusicBG.Play();
+
         this.panelSetting.gameObject.SetActive(false);
+    }
+    private void Update()
+    {
+        this.sourceMusicBG.volume = this.volumeMusic;
     }
     public void ButtonSetting()
     {
@@ -36,11 +44,15 @@ public class SettingGame : MonoBehaviour
     }
     public void ButtonSaveSetting()
     {
-        this.setting = new Setting(this.toggleFullScreen.isOn, this.volumeMusic, this.volumeFXSound, this.resolutionScreenWidth, this.resolutionScreenHeight);
+        this.setting = new Setting(this.toggleFullScreen.isOn, this.volumeMusic, this.volumeFXSound);
+
         PlayerPrefs.SetString("Setting Game", JsonUtility.ToJson(this.setting));
         PlayerPrefs.Save();
+
         this.SetValueSetting();
         this.panelSetting.gameObject.SetActive(false);
+
+        Screen.fullScreen = this.setting.isToggleFullScreen;
     }
     public void ButtonIncreaseVolumeMusic()
     {
@@ -76,11 +88,15 @@ public class SettingGame : MonoBehaviour
     }
     public void ButtonDefaultSetting()
     {
-        this.setting = new Setting(true, 0.5f, 0.5f, 1920, 1080);
+        this.setting = new Setting(true, 0.5f, 0.5f);
+
         PlayerPrefs.SetString("Setting Game", JsonUtility.ToJson(this.setting));
         PlayerPrefs.Save();
+
         this.SetValueSetting();
         this.panelSetting.gameObject.SetActive(false);
+
+        Screen.fullScreen = this.setting.isToggleFullScreen;
     }
     private void SetValueSetting()
     {
@@ -88,8 +104,5 @@ public class SettingGame : MonoBehaviour
 
         this.volumeMusic = setting.volumeMusic;
         this.volumeFXSound = setting.volumeFXSound;
-
-        this.resolutionScreenHeight = setting.resolutionScreenHeight;
-        this.resolutionScreenWidth = setting.resolutionScreenWidth;
     }
 }

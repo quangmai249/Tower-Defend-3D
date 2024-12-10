@@ -124,7 +124,7 @@ public class FirebaseInit : MonoBehaviour
     IEnumerator CoroutineDefaultSetting()
     {
         yield return new WaitForEndOfFrame();
-        Setting defaultStats = new Setting(true, 0.5f, 0.5f, 1920, 1080);
+        Setting defaultStats = new Setting(true, 0.5f, 0.5f);
         PlayerPrefs.SetString("Setting Game", JsonUtility.ToJson(defaultStats));
         PlayerPrefs.Save();
     }

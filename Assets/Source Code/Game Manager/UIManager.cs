@@ -8,14 +8,8 @@ public class UIManager : MonoBehaviour
     [Header("Setting")]
     [SerializeField] GameObject panelGameOver;
     [SerializeField] GameObject panelGameWin;
-    [SerializeField] GameObject panelSetting;
     [SerializeField] GameObject panelPauseGame;
     [SerializeField] GameObject panelConfrimSurrender;
-
-    [Header("Toggle")]
-    [SerializeField] Toggle toggleMuteMusic;
-    [SerializeField] Toggle toggleMuteFXSound;
-    [SerializeField] Toggle toggleFullScreen;
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI textLevelWin;
@@ -25,17 +19,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textLives;
     [SerializeField] TextMeshProUGUI textFPS;
 
-    [Header("Volume")]
-    [SerializeField] TextMeshProUGUI textVolumeMusic;
-    [SerializeField] TextMeshProUGUI textVolumeFXSound;
-
     [Header("Stats")]
     [SerializeField] string textTurretStatsTag = "Text Turret Stats";
     [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     private GameManager gameManager;
     private GameStats gameStats;
-    private AudioManager audioManager;
     public static UIManager Instance;
     private void Awake()
     {
@@ -49,19 +38,12 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        audioManager = AudioManager.Instance;
         gameManager = GameManager.Instance;
-
         gameStats = gameManager.GameStats;
-
-        this.toggleMuteMusic.isOn = true;
-        this.toggleMuteFXSound.isOn = true;
-        this.toggleFullScreen.isOn = true;
 
         this.textNotEnoughGold.text = string.Empty;
         this.panelGameOver.SetActive(false);
         this.panelGameWin.SetActive(false);
-        this.panelSetting.SetActive(false);
         this.panelPauseGame.SetActive(false);
         this.panelConfrimSurrender.SetActive(false);
     }
@@ -87,23 +69,6 @@ public class UIManager : MonoBehaviour
         }
 
         textFPS.text = $"{Mathf.Round(1f / Time.unscaledDeltaTime).ToString()} FPS";
-
-        textVolumeMusic.text = $"{Mathf.Round(audioManager.VolumeMusic * 100).ToString()}";
-        textVolumeFXSound.text = $"{Mathf.Round(audioManager.VolumeFXSound * 100).ToString()}";
-    }
-    public bool ToggleMusic { get => this.toggleMuteMusic.isOn; }
-    public bool ToggleFXSound { get => this.toggleMuteFXSound.isOn; }
-    public void SetToggleMusic(bool isOn)
-    {
-        toggleMuteMusic.isOn = isOn;
-    }
-    public void SetToggleFXSound(bool isOn)
-    {
-        toggleMuteFXSound.isOn = isOn;
-    }
-    public bool GetToogleFullScreen()
-    {
-        return toggleFullScreen.isOn;
     }
     public void ButtonConfirmSurrender()
     {
@@ -119,16 +84,6 @@ public class UIManager : MonoBehaviour
     {
         this.panelPauseGame.gameObject.SetActive(false);
         this.panelPauseGame.gameObject.SetActive(true);
-    }
-    public void ButtonExitSetting()
-    {
-        if (toggleFullScreen.isOn == true)
-            Screen.fullScreen = true;
-        else
-            Screen.fullScreen = false;
-
-        this.panelPauseGame.SetActive(true);
-        this.panelSetting.SetActive(false);
     }
     private void HiddenObjectsWhenOver()
     {

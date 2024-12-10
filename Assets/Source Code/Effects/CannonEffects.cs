@@ -15,6 +15,7 @@ public class CannonEffects : MonoBehaviour
     [SerializeField] string bulletTag = "Bullet";
     [SerializeField] GameObject bulletCannon;
 
+    private AudioManager audioManager;
     private GameObject target;
     private LookAtTarget lookAtTarget;
     private BulletObjectPooling bulletObjectPooling;
@@ -22,11 +23,14 @@ public class CannonEffects : MonoBehaviour
     {
         lookAtTarget = this.gameObject.GetComponent<LookAtTarget>();
         bulletObjectPooling = this.gameObject.GetComponent<BulletObjectPooling>();
+        this.audioManager = AudioManager.Instance;
     }
     private void Update()
     {
         if (lookAtTarget.IsActiveEffects() == false)
             return;
+
+        this.audioSource.volume = this.audioManager.GetValueSetting().volumeFXSound;
 
         if (animator.GetBool("IsAttack") == false && audioSource.isPlaying == false)
         {

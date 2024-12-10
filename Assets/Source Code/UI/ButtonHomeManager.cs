@@ -1,25 +1,8 @@
-using DG.Tweening;
-using DG.Tweening.Core.Easing;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ButtonHomeManager : MonoBehaviour
 {
-    [SerializeField] GameObject panelSetting;
-    private void Start()
-    {
-        this.panelSetting.gameObject.SetActive(false);
-    }
-    public void ButtonSetting()
-    {
-        this.panelSetting.gameObject.SetActive(true);
-    }
-    public void ButtonSaveSetting()
-    {
-        this.panelSetting.gameObject.SetActive(false);
-    }
     public void ButtonPlay()
     {
         SceneManager.LoadScene("Level Scene");

@@ -10,9 +10,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class FirebaseInit : MonoBehaviour
 {
+    [Header("UI")]
     [SerializeField] Image imgTimeLoading;
     [SerializeField] TextMeshProUGUI textNotify;
 
+    [Header("Stats")]
     [SerializeField] int maxNodePath = 12;
     [SerializeField] string linkLocal = "C:/Tower Defend 3D";
     [SerializeField] string linkFirebase = "https://firebasestorage.googleapis.com/v0/b/tower-defend-3d-unity-84f17.appspot.com/o/";
@@ -52,6 +54,7 @@ public class FirebaseInit : MonoBehaviour
 
             StartCoroutine(nameof(this.CoroutineResetLevel));
             StartCoroutine(nameof(this.CoroutineTimeLoading));
+            StartCoroutine(nameof(this.CoroutineDefaultSetting));
         }
     }
     private bool CheckRecourseFiles()
@@ -117,5 +120,12 @@ public class FirebaseInit : MonoBehaviour
                     webClient.DownloadFile(task.Result, $"{folderLocal}/{level}/{level}");
             });
         }
+    }
+    IEnumerator CoroutineDefaultSetting()
+    {
+        yield return new WaitForEndOfFrame();
+        Setting defaultStats = new Setting(true, 0.5f, 0.5f, 1920, 1080);
+        PlayerPrefs.SetString("Setting Game", JsonUtility.ToJson(defaultStats));
+        PlayerPrefs.Save();
     }
 }

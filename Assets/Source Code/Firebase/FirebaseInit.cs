@@ -20,7 +20,6 @@ public class FirebaseInit : MonoBehaviour
     [SerializeField] string linkFirebase = "https://firebasestorage.googleapis.com/v0/b/tower-defend-3d-unity-84f17.appspot.com/o/";
     private void Awake()
     {
-        Screen.fullScreen = true;
         StartCoroutine(nameof(this.CoroutineTimeLoading));
     }
     private void Update()
@@ -47,14 +46,19 @@ public class FirebaseInit : MonoBehaviour
         }
         else
         {
+            Screen.SetResolution(1920, 1080, true);
+
             WebClient webClient = new WebClient();
             FirebaseStorage firebaseStorage = FirebaseStorage.DefaultInstance;
+
             this.CheckingNodePath(firebaseStorage, webClient);
             this.CheckingNodeBuilding(firebaseStorage, webClient);
 
-            StartCoroutine(nameof(this.CoroutineResetLevel));
-            StartCoroutine(nameof(this.CoroutineTimeLoading));
             StartCoroutine(nameof(this.CoroutineDefaultSetting));
+
+            StartCoroutine(nameof(this.CoroutineResetLevel));
+
+            StartCoroutine(nameof(this.CoroutineTimeLoading));
         }
     }
     private bool CheckRecourseFiles()
@@ -70,7 +74,7 @@ public class FirebaseInit : MonoBehaviour
     }
     private IEnumerator CoroutineResetLevel()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(1f);
 
         PlayerPrefs.SetInt($"LEVEL_1", 1);
         PlayerPrefs.Save();

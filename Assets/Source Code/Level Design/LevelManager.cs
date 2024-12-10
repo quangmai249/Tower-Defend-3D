@@ -81,6 +81,12 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt($"LEVEL_{i}", 0);
             PlayerPrefs.Save();
         }
+
+        Setting setting = new Setting(true, 0.5f, 0.5f);
+        PlayerPrefs.SetString("Setting Game", JsonUtility.ToJson(setting));
+        PlayerPrefs.Save();
+
+        Debug.Log(PlayerPrefs.GetString("Setting Game"));
         Debug.Log("Reset level done!");
     }
     private void StartSaveListNodeBuildingToFile()

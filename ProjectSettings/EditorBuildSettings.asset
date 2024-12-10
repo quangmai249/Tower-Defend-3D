@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Splash Scene.unity
     guid: e754b403dbecbb74fbf908b960e99c69
   - enabled: 1
+    path: Assets/Scenes/Cut Scene.unity
+    guid: 815292930ccd7564d89f514e81485001
+  - enabled: 1
     path: Assets/Scenes/Menu Game.unity
     guid: 1433c1b3215b6e743ad37118555a37c1
   - enabled: 1
     path: Assets/Scenes/Level Scene.unity
     guid: fda1a6c9460886f49881352c4b6a9cf2
-  - enabled: 1
-    path: Assets/Scenes/Cut Scene.unity
-    guid: 815292930ccd7564d89f514e81485001
   - enabled: 1
     path: Assets/Scenes/Game Play.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab

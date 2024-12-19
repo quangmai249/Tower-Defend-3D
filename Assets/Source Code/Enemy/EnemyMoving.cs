@@ -12,29 +12,9 @@ public class EnemyMoving : MonoBehaviour
     [SerializeField] float timeDurationSlowing;
     [SerializeField] bool isSlowing = false;
 
-    private AudioManager audioManager;
-    private GameManager gameManager;
-    private GameStats gameStats;
     private Tween tween;
-
-    private void Awake()
-    {
-        gameManager = GameManager.Instance;
-        gameStats = gameManager.GameStats;
-    }
-    private void Start()
-    {
-        audioManager = AudioManager.Instance;
-    }
     private void Update()
     {
-        if (gameObject.transform.position == this.lastPoint)
-        {
-            gameStats.Lives -= 1;
-            audioManager.ActiveAudioProtectedBaseTakeDamage(true);
-            this.gameObject.SetActive(false);
-        }
-
         if (isSlowing == true)
         {
             this.tween.timeScale = timeDurationSlowing;

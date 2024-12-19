@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -182,6 +186,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -495,6 +503,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -551,6 +563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (84)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -569,6 +585,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -624,6 +644,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1188,6 +1212,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -1243,6 +1271,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1941,6 +1973,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -1997,6 +2033,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (94)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2015,6 +2055,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -2070,6 +2114,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3179,6 +3227,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -3234,6 +3286,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4016,6 +4072,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -4071,6 +4131,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (87)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4199,6 +4263,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -4254,6 +4322,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4600,6 +4672,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -4656,6 +4732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4674,6 +4754,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -4730,6 +4814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4748,6 +4836,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -4803,6 +4895,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5246,6 +5342,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -5301,6 +5401,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5756,6 +5860,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -5811,6 +5919,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6593,6 +6705,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -6649,6 +6765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6667,6 +6787,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -6722,6 +6846,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7644,6 +7772,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -7700,6 +7832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7718,6 +7854,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -7773,6 +7913,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8348,6 +8492,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -8403,6 +8551,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8749,6 +8901,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -8805,6 +8961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8823,6 +8983,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -8879,6 +9043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8897,6 +9065,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -8953,6 +9125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8971,6 +9147,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -9026,6 +9206,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9372,6 +9556,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -9427,6 +9615,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9773,6 +9965,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -9828,6 +10024,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10719,6 +10919,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -10775,6 +10979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10793,6 +11001,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -10848,6 +11060,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11085,6 +11301,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -11141,6 +11361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11159,6 +11383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -11214,6 +11442,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11642,6 +11874,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -11697,6 +11933,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11934,6 +12174,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -11989,6 +12233,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12226,6 +12474,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -12281,6 +12533,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13632,6 +13888,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -13688,6 +13948,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13706,6 +13970,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -13761,6 +14029,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14107,6 +14379,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -14162,6 +14438,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14508,6 +14788,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -14563,6 +14847,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14800,6 +15088,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -14856,6 +15148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14874,6 +15170,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -14929,6 +15229,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16365,6 +16669,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -16420,6 +16728,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16766,6 +17078,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -16822,6 +17138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16840,6 +17160,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -16896,6 +17220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (89)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16914,6 +17242,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -16970,6 +17302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16988,6 +17324,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -17043,6 +17383,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17171,6 +17515,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -17227,6 +17575,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (70)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17245,6 +17597,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -17301,6 +17657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (91)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17319,6 +17679,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -17374,6 +17738,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17502,6 +17870,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -17557,6 +17929,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (88)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17685,6 +18061,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -17740,6 +18120,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18522,6 +18906,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -18578,6 +18966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18596,6 +18988,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -18652,6 +19048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18670,6 +19070,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -18725,6 +19129,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18962,6 +19370,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -19018,6 +19430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19036,6 +19452,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -19092,6 +19512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (90)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19110,6 +19534,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -19165,6 +19593,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19293,6 +19725,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -19349,6 +19785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19367,6 +19807,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -19422,6 +19866,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19485,6 +19933,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -19540,6 +19992,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19668,6 +20124,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -19723,6 +20183,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19851,6 +20315,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -19906,6 +20374,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20034,6 +20506,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -20089,6 +20565,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20326,6 +20806,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -20381,6 +20865,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20945,6 +21433,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -21000,6 +21492,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (96)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21128,6 +21624,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -21183,6 +21683,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21311,6 +21815,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -21371,6 +21879,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 21085cfc4f7ff8a4291ed42a85f27537, type: 2}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21602,6 +22114,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -21657,6 +22173,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (95)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22548,6 +23068,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -22603,6 +23127,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (92)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22731,6 +23259,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -22786,6 +23318,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23317,6 +23853,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -23372,6 +23912,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23926,6 +24470,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -23981,6 +24529,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24241,6 +24793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -24301,6 +24857,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 21085cfc4f7ff8a4291ed42a85f27537, type: 2}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24314,6 +24874,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -24369,6 +24933,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24715,6 +25283,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -24770,6 +25342,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25990,6 +26566,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -26045,6 +26625,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (78)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26518,6 +27102,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -26574,6 +27162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26592,6 +27184,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -26648,6 +27244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26697,6 +27297,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -26752,6 +27356,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26989,6 +27597,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -27044,6 +27656,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27717,6 +28333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -27772,6 +28392,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27900,6 +28524,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -27955,6 +28583,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28441,6 +29073,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -28496,6 +29132,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28733,6 +29373,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -28789,6 +29433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28807,6 +29455,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -28863,6 +29515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28881,6 +29537,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -28936,6 +29596,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29173,6 +29837,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -29228,6 +29896,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29356,6 +30028,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -29411,6 +30087,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29539,6 +30219,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -29595,6 +30279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29613,6 +30301,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -29669,6 +30361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (93)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29687,6 +30383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -29747,6 +30447,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 21085cfc4f7ff8a4291ed42a85f27537, type: 2}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29869,6 +30573,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -29924,6 +30632,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30270,6 +30982,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -30326,6 +31042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30344,6 +31064,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -30399,6 +31123,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30636,6 +31364,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -30691,6 +31423,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31473,6 +32209,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -31528,6 +32268,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32201,6 +32945,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -32256,6 +33004,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32384,6 +33136,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -32440,6 +33196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32458,6 +33218,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -32514,6 +33278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space Ship (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32532,6 +33300,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -32587,6 +33359,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32982,6 +33758,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -33037,6 +33817,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33383,6 +34167,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1589336045}
     m_Modifications:
+    - target: {fileID: -4857225175735543866, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2030217353239699666, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -33438,6 +34226,10 @@ PrefabInstance:
     - target: {fileID: 3060088426372616897, guid: 481351381d17b144594f0cceef6ef608, type: 3}
       propertyPath: m_Name
       value: Space Ship (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232750334493289934, guid: 481351381d17b144594f0cceef6ef608, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

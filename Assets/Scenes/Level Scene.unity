@@ -526,6 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonStartPlay: {fileID: 466265169}
+  audioSource: {fileID: 0}
 --- !u!4 &480597354
 Transform:
   m_ObjectHideFlags: 0

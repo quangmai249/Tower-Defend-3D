@@ -2162,7 +2162,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 780b55d2458349f4b91fca04c2846ba5, type: 2}
+  - {fileID: 2100000, guid: 505d626f44c207345ad0ffa64d4cd0c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2270,9 +2270,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBoss: 1
-  defaultHP: 800
-  enemySpeed: 150
-  goldReward: 0
+  defaultHP: 600
+  enemySpeed: 160
+  goldReward: 500
   imgHPBar: {fileID: 4703528498776087345}
   imgHPBarFade: {fileID: 228655396063407048}
   imgHPBarBackground: {fileID: 8892141869590313062}

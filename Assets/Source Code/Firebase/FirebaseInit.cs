@@ -33,7 +33,6 @@ public class FirebaseInit : MonoBehaviour
     private IEnumerator CoroutineTimeLoading()
     {
         this.imgTimeLoading.fillAmount = 0f;
-        this.textNotify.text = $"We need to check some Recourses in a short time!\n (If this is the first time you start, you should Connect the Internet!)";
 
         yield return new WaitForEndOfFrame();
         if (this.CheckRecourseFiles() == true)
@@ -42,6 +41,7 @@ public class FirebaseInit : MonoBehaviour
             {
                 yield return new WaitForSeconds(1f);
                 this.imgTimeLoading.fillAmount += 0.25f;
+                this.textNotify.text = $"Checking for update... {(this.imgTimeLoading.fillAmount * 100).ToString()}%";
             }
         }
         else

@@ -2272,7 +2272,7 @@ MonoBehaviour:
   isBoss: 1
   defaultHP: 500
   enemySpeed: 150
-  goldReward: 0
+  goldReward: 400
   imgHPBar: {fileID: 4703528498776087345}
   imgHPBarFade: {fileID: 228655396063407048}
   imgHPBarBackground: {fileID: 8892141869590313062}

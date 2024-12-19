@@ -6318,17 +6318,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929791506}
   m_CullTransparentMesh: 1
---- !u!114 &1954344985 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3963281866581523066, guid: a88e659eee2789b4a9fd6323a363977f, type: 3}
-  m_PrefabInstance: {fileID: 8292442188989268323}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4109d17f06ea14e4f9a465ac30eec019, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1988732114
 GameObject:
   m_ObjectHideFlags: 0
@@ -7206,42 +7195,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1209843128}
     m_Modifications:
-    - target: {fileID: 547268685555459486, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1954344985}
     - target: {fileID: 2112351182349731393, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 895206681}
-    - target: {fileID: 2112351182349731393, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonDecreaseVolumeMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 2947054638240829991, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1954344985}
-    - target: {fileID: 4221805101326872864, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1954344985}
     - target: {fileID: 5138139890211868965, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 895206681}
-    - target: {fileID: 5138139890211868965, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonSaveSetting
-      objectReference: {fileID: 0}
     - target: {fileID: 6088941206928980457, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 895206681}
-    - target: {fileID: 6088941206928980457, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonIncreaseVolumeFXSound
-      objectReference: {fileID: 0}
     - target: {fileID: 6383000347311829479, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7326,38 +7291,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 895206681}
-    - target: {fileID: 7103103954151628261, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonIncreaseVolumeMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375015497337775954, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1954344985}
     - target: {fileID: 7739655497514999972, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 895206681}
-    - target: {fileID: 7739655497514999972, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonDefaultSetting
-      objectReference: {fileID: 0}
     - target: {fileID: 8010769433465050716, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
       propertyPath: m_Name
       value: Panel Setting Game
       objectReference: {fileID: 0}
-    - target: {fileID: 8877271756491583620, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1954344985}
     - target: {fileID: 8878465128331994958, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 895206681}
-    - target: {fileID: 8878465128331994958, guid: 527aeeed8d588da42b84e16ceb38ec73, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonDecreaseVolumeFXSound
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7955,11 +7900,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: level
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: checking
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: textLevel
@@ -8083,6 +8028,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
+      propertyPath: gold
+      value: 40000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
+      propertyPath: lives
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
+      propertyPath: maxWave
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
+      propertyPath: gameMaxSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3121309707161660943, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: m_Name
       value: Game Manager

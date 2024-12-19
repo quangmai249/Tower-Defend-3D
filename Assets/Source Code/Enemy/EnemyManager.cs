@@ -45,7 +45,6 @@ public class EnemyManager : MonoBehaviour
 
             if (this.isBoss == true && this.checkStartDead == true)
             {
-                Debug.Log("Boss");
                 StartCoroutine(nameof(this.CoroutineEnemyBossDead));
                 this.checkStartDead = false;
             }

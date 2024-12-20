@@ -14,8 +14,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Image imgHPBarBackground;
     [SerializeField] GameObject parEnemyDeath;
 
-    private bool checkStartDead = true;
-
     private GameObject parDeath;
     private GameManager gameManager;
     private GameStats gameStats;
@@ -40,20 +38,15 @@ public class EnemyManager : MonoBehaviour
         {
             gameStats.Gold += this.enemyStats.EnemyRewardGold;
 
-            this.parDeath = Instantiate(this.parEnemyDeath.gameObject, this.gameObject.transform.position, this.parEnemyDeath.transform.rotation);
-            this.parDeath.transform.parent = this.gameObject.transform.parent.transform;
-
-            if (this.isBoss == true && this.checkStartDead == true)
-            {
-                StartCoroutine(nameof(this.CoroutineEnemyBossDead));
-                this.checkStartDead = false;
-            }
-
             if (this.isBoss == false)
             {
+                this.parDeath = Instantiate(this.parEnemyDeath.gameObject, this.gameObject.transform.position, this.parEnemyDeath.transform.rotation);
+                this.parDeath.transform.parent = this.gameObject.transform.parent.transform;
                 Destroy(this.parDeath.gameObject, 2f);
                 this.gameObject.SetActive(false);
             }
+            else
+                this.gameObject.SetActive(false);
         }
     }
     public EnemyStats GetEnemyStats()

@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject panelGameWin;
     [SerializeField] GameObject panelPauseGame;
     [SerializeField] GameObject panelConfrimSurrender;
+    [SerializeField] GameObject panelInstruction;
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI textLevelWin;
@@ -46,6 +47,7 @@ public class UIManager : MonoBehaviour
         this.panelGameWin.SetActive(false);
         this.panelPauseGame.SetActive(false);
         this.panelConfrimSurrender.SetActive(false);
+        this.panelInstruction.SetActive(false);
     }
     private void Update()
     {
@@ -69,6 +71,10 @@ public class UIManager : MonoBehaviour
         }
 
         textFPS.text = $"{Mathf.Round(1f / Time.unscaledDeltaTime).ToString()} FPS";
+    }
+    public void ButtonDisplayInstruction()
+    {
+        this.panelInstruction.SetActive(!this.panelInstruction.activeSelf);
     }
     public void ButtonConfirmSurrender()
     {

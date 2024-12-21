@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BulletCannon : MonoBehaviour
@@ -21,4 +22,5 @@ public class BulletCannon : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+
 }

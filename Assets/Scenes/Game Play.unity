@@ -2930,6 +2930,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sourceMusicBG: {fileID: 0}
+  audioClipWinGame: {fileID: 8300000, guid: 535c66a25c863854bbd2d80f0baa6906, type: 3}
+  audioDefeat: {fileID: 8300000, guid: 6539c3fb0411141468ed85e9e687dc27, type: 3}
   toggleFullScreen: {fileID: 1713887157}
   textVolumeMusic: {fileID: 285419338}
   textVolumeFXSound: {fileID: 1403302108}
@@ -8374,7 +8376,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: level
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: checking
@@ -8508,11 +8510,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: lives
-      value: 2000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: maxWave
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
+      propertyPath: parWinning
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: gameMaxSpeed

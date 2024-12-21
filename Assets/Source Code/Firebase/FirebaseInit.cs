@@ -1,7 +1,7 @@
-using Firebase.Extensions;
-using Firebase.Storage;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using TMPro;
@@ -13,13 +13,27 @@ public class FirebaseInit : MonoBehaviour
     [Header("UI")]
     [SerializeField] Image imgTimeLoading;
     [SerializeField] TextMeshProUGUI textNotify;
+    [SerializeField] TextMeshProUGUI textStatusConnectToInternet;
 
     [Header("Stats")]
-    [SerializeField] int maxNodePath = 12;
-    [SerializeField] string linkLocal = "C:/Tower Defend 3D";
-    [SerializeField] string linkFirebase = "https://firebasestorage.googleapis.com/v0/b/tower-defend-3d-unity-84f17.appspot.com/o/";
-    private void Awake()
+    [SerializeField] string linkLocal = "C:/Tower Defend 3D/";
+    [SerializeField] string apiFirebaseDefault = "https://firebasestorage.googleapis.com/v0/b/tower-defend-3d-unity-84f17.appspot.com/o/";
+
+    [Header("List")]
+    [SerializeField] List<string> lsAddr = new List<string>();
+    [SerializeField] List<string> lsToken = new List<string>();
+
+    private void Start()
     {
+        this.textStatusConnectToInternet.text = string.Empty;
+        this.imgTimeLoading.fillAmount = 0;
+
+        if (!Directory.Exists(this.linkLocal))
+        {
+            StartCoroutine(nameof(this.CoroutineResetLevel));
+            StartCoroutine(nameof(this.CoroutineDefaultSetting));
+        }
+
         StartCoroutine(nameof(this.CoroutineTimeLoading));
     }
     private void Update()
@@ -32,45 +46,65 @@ public class FirebaseInit : MonoBehaviour
     }
     private IEnumerator CoroutineTimeLoading()
     {
-        this.imgTimeLoading.fillAmount = 0f;
-
         yield return new WaitForEndOfFrame();
-        if (this.CheckRecourseFiles() == true)
+
+        this.CheckingForUpdating();
+
+        while (this.imgTimeLoading.fillAmount < 1)
         {
-            while (this.imgTimeLoading.fillAmount < 1)
-            {
-                yield return new WaitForSeconds(1f);
-                this.imgTimeLoading.fillAmount += 0.25f;
-                this.textNotify.text = $"Checking for update... {(this.imgTimeLoading.fillAmount * 100).ToString()}%";
-            }
-        }
-        else
-        {
-            Screen.SetResolution(1920, 1080, true);
-
-            WebClient webClient = new WebClient();
-            FirebaseStorage firebaseStorage = FirebaseStorage.DefaultInstance;
-
-            this.CheckingNodePath(firebaseStorage, webClient);
-            this.CheckingNodeBuilding(firebaseStorage, webClient);
-
-            StartCoroutine(nameof(this.CoroutineDefaultSetting));
-
-            StartCoroutine(nameof(this.CoroutineResetLevel));
-
-            StartCoroutine(nameof(this.CoroutineTimeLoading));
+            yield return new WaitForSeconds(.5f);
+            this.imgTimeLoading.fillAmount += .25f;
+            this.textNotify.text = $"Loading... {(this.imgTimeLoading.fillAmount * 100).ToString()}%";
         }
     }
-    private bool CheckRecourseFiles()
+    private void CheckingForUpdating()
     {
-        bool res = false;
-        foreach (var level in Enum.GetNames(typeof(Level)))
+        try
         {
-            if (!Directory.Exists($"{this.linkLocal}/FileNodeBuilding/{level}") || !Directory.Exists($"{this.linkLocal}/FileNodePath/{level}"))
-                return false;
-            else res = true;
+            using (WebClient webClient = new WebClient())
+            {
+                Stream stream = webClient.OpenRead(this.apiFirebaseDefault);
+                if (stream.CanRead)
+                {
+                    this.textStatusConnectToInternet.text = "You're online. We're checking for updating newest maps!";
+
+                    StreamReader sr = new StreamReader(stream);
+                    FileData res = JsonConvert.DeserializeObject<FileData>(sr.ReadToEnd());
+
+                    foreach (FileItem item in res.Items)
+                    {
+                        lsAddr.Add(FileDownload.GetAddress(webClient, this.apiFirebaseDefault + Uri.EscapeDataString(item.Name)));
+                        lsToken.Add(FileDownload.GetDownloadToken(webClient, this.apiFirebaseDefault + Uri.EscapeDataString(item.Name)));
+                    }
+                    this.GetFilesFromFirebaseStorage(webClient);
+                }
+            }
         }
-        return res;
+        catch (Exception ex)
+        {
+            Debug.Log(ex.Message);
+            this.textStatusConnectToInternet.text = "You're offline. You should connect to the Internet for updating newest maps!";
+        }
+    }
+    private void GetFilesFromFirebaseStorage(WebClient webClient)
+    {
+        foreach (var item in lsAddr)
+        {
+            if (!File.Exists(this.linkLocal + item))
+            {
+                Directory.CreateDirectory(this.SetLinkLocalFile(this.linkLocal, item));
+                webClient.DownloadFile($"{apiFirebaseDefault}{Uri.EscapeDataString(item)}?alt=media&token={lsToken[lsAddr.IndexOf(item)]}"
+                    , this.SetLinkLocalFile(this.linkLocal, item) + "/" + this.SetNameLocalFile(item));
+            }
+        }
+    }
+    private string SetLinkLocalFile(string linkLocal, string name)
+    {
+        return (linkLocal + name).Remove((linkLocal + name).LastIndexOf("/") + 1);
+    }
+    private string SetNameLocalFile(string name)
+    {
+        return name.Substring(name.LastIndexOf("/") + 1);
     }
     private IEnumerator CoroutineResetLevel()
     {
@@ -85,49 +119,10 @@ public class FirebaseInit : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
-    private void CheckingNodePath(FirebaseStorage firebaseStorage, WebClient webClient)
-    {
-        string folderFirebase = $"{this.linkFirebase}FileNodePath%2F";
-        string folderLocal = $"{this.linkLocal}FileNodePath";
-
-        foreach (var level in Enum.GetNames(typeof(Level)))
-        {
-            if (!Directory.Exists($"{folderLocal}/{level}"))
-                Directory.CreateDirectory($"{folderLocal}/{level}");
-
-            for (int i = 1; i <= this.maxNodePath; i++)
-            {
-                string nameFile = level + i;
-                StorageReference storageReference = firebaseStorage.GetReferenceFromUrl($"{folderFirebase}{level}%2F{nameFile}");
-                storageReference.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
-                {
-                    if (!task.IsFaulted && !task.IsCanceled && !File.Exists($"{folderLocal}/{level}/{nameFile}"))
-                        webClient.DownloadFile(task.Result, $"{folderLocal}/{level}/{nameFile}");
-                });
-            }
-        }
-    }
-    private void CheckingNodeBuilding(FirebaseStorage firebaseStorage, WebClient webClient)
-    {
-        string folderFirebase = $"{this.linkFirebase}FileNodeBuilding%2F";
-        string folderLocal = $"{this.linkLocal}FileNodeBuilding";
-
-        foreach (var level in Enum.GetNames(typeof(Level)))
-        {
-            if (!Directory.Exists($"{folderLocal}/{level}"))
-                Directory.CreateDirectory($"{folderLocal}/{level}");
-
-            StorageReference storageReference = firebaseStorage.GetReferenceFromUrl($"{folderFirebase}{level}%2F{level}");
-            storageReference.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
-            {
-                if (!task.IsFaulted && !task.IsCanceled && !File.Exists($"{folderLocal}/{level}/{level}"))
-                    webClient.DownloadFile(task.Result, $"{folderLocal}/{level}/{level}");
-            });
-        }
-    }
     IEnumerator CoroutineDefaultSetting()
     {
         yield return new WaitForEndOfFrame();
+        Screen.SetResolution(1920, 1080, true);
         Setting defaultStats = new Setting(true, 0.5f, 0.5f);
         PlayerPrefs.SetString("Setting Game", JsonUtility.ToJson(defaultStats));
         PlayerPrefs.Save();

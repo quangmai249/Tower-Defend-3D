@@ -5,6 +5,8 @@ public class SettingGame : MonoBehaviour
 {
     [Header("Audio Source")]
     [SerializeField] AudioSource sourceMusicBG;
+    [SerializeField] AudioClip audioClipWinGame;
+    [SerializeField] AudioClip audioDefeat;
 
     [Header("Toggle")]
     [SerializeField] Toggle toggleFullScreen;
@@ -19,8 +21,13 @@ public class SettingGame : MonoBehaviour
     [SerializeField] float volumeFXSound;
 
     private Setting setting;
+    private GameManager gameManager;
     private void Start()
     {
+        gameManager = GameManager.Instance;
+        gameManager.IsGameOver = false;
+        gameManager.IsGameWinLevel = false;
+
         this.setting = JsonUtility.FromJson<Setting>(PlayerPrefs.GetString("Setting Game"));
         this.SetValueSetting();
 
@@ -35,6 +42,18 @@ public class SettingGame : MonoBehaviour
     private void Update()
     {
         this.sourceMusicBG.volume = this.volumeMusic;
+        if (gameManager.IsGameWinLevel == true && this.sourceMusicBG.clip != audioClipWinGame)
+        {
+            this.sourceMusicBG.clip = audioClipWinGame;
+            this.sourceMusicBG.loop = false;
+            this.sourceMusicBG.Play();
+        }
+        if (gameManager.IsGameOver == true && this.sourceMusicBG.clip != audioDefeat)
+        {
+            this.sourceMusicBG.clip = audioDefeat;
+            this.sourceMusicBG.loop = false;
+            this.sourceMusicBG.Play();
+        }
     }
     public void ButtonSetting()
     {

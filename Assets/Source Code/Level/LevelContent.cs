@@ -1,13 +1,18 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using TMPro;
 using UnityEngine;
 
 public class LevelContent : MonoBehaviour
 {
     [SerializeField] GameObject btnLevel;
+    [SerializeField] GameObject btnUpdateNewestLevel;
     [SerializeField] TextMeshProUGUI textButtonPlayGame;
     [SerializeField] List<GameObject> lsButtonLevel;
+    [SerializeField] int countLevelLocal;
 
     private GameObject _btnLevel;
     private LevelSelection _levelSelection;
@@ -21,11 +26,37 @@ public class LevelContent : MonoBehaviour
             return;
         }
         Instance = this;
-
-        CreateObjectPooling(Enum.GetValues(typeof(Level)).Length);
     }
     private void Start()
     {
+        try
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                Stream stream = webClient.OpenRead("https://firebasestorage.googleapis.com/v0/b/tower-defend-3d-unity-84f17.appspot.com/o/");
+                if (stream.CanRead)
+                {
+                    StreamReader streamReader = new StreamReader(stream);
+                    FileData fileData = JsonConvert.DeserializeObject<FileData>(streamReader.ReadToEnd());
+
+                    foreach (var item in fileData.Items)
+                    {
+                        if (item.Name.Contains("FileNodeBuilding") && !File.Exists("C:/Tower Defend 3D/" + item.Name))
+                        {
+                            this.btnUpdateNewestLevel.gameObject.SetActive(true);
+                        }
+                    }
+                }
+            };
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex.Message.ToString());
+            this.countLevelLocal = Directory.GetDirectories("C:/Tower Defend 3D/FileNodeBuilding/").Length;
+            Debug.Log(this.countLevelLocal);
+            CreateObjectPooling(this.countLevelLocal);
+        }
+
         PlayerPrefs.SetString("LEVEL", string.Empty);
         PlayerPrefs.Save();
 

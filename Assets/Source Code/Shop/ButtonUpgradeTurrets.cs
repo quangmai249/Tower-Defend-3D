@@ -15,13 +15,6 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     [SerializeField] Vector3 defaultRotaion = new Vector3(90f, 0, 0);
     [SerializeField] float upgradeTurretStatsPercent = 50f;
 
-    [Header("Name Tag")]
-    [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
-    [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
-    [SerializeField] string btnCanvasShopTag = "Canvas Shop Turrets";
-    [SerializeField] string btnCanvasUpgradeTag = "Canvas Upgrade Turrets";
-    [SerializeField] string textTurretStatsTag = "Text Turret Stats";
-
     private GameObject turret;
     private GameObject menuUpgrade;
 
@@ -59,8 +52,8 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     }
     public void ButtonUpgradeTurret()
     {
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasShopTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmUpgradeTurret);
         this.btnConfirm.SetActive(true);
         return;
     }
@@ -99,8 +92,10 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     }
     public void ButtonSellTurret()
     {
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
+
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmUpgradeTurret);
+
         this.btnConfirm.SetActive(true);
         return;
     }
@@ -114,11 +109,11 @@ public class ButtonUpgradeTurrets : MonoBehaviour
         singletonBuilding.InstantiateAt(this.turret.transform.position);
         this.turret.gameObject.SetActive(false);
 
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmUpgradeTurret);
 
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnCanvasUpgradeTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagCanvasShopTurrets);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagCanvasUpgradeTurrets);
 
         return;
     }
@@ -143,7 +138,7 @@ public class ButtonUpgradeTurrets : MonoBehaviour
     }
     private void SetTextStats(bool isActive)
     {
-        GameObject goText = SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag);
+        GameObject goText = SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagTextTurretStats);
         if (isActive == false)
             goText.GetComponent<TextMeshProUGUI>().text = string.Empty;
         else

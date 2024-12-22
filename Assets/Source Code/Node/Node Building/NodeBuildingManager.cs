@@ -15,10 +15,9 @@ public class NodeBuildingManager : MonoBehaviour
     private LevelDesign levelDesign;
 
     private readonly string path = "FileNodeBuilding/";
-    private readonly string levelDesignTag = "Level Design";
     private void Awake()
     {
-        levelDesign = GameObject.FindGameObjectWithTag(this.levelDesignTag).GetComponent<LevelDesign>();
+        levelDesign = GameObject.FindGameObjectWithTag(GameObjectTagManager.TagLevelDesign).GetComponent<LevelDesign>();
         filePath = new FilePath(this.GetPath(), levelDesign.GetLevel());
     }
     private void Start()

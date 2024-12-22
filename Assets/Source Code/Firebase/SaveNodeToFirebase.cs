@@ -26,7 +26,6 @@ public class SaveNodeToFirebase : MonoBehaviour
 
     [Header("Pathing")]
     [SerializeField] string linkFirebase = "gs://tower-defend-3d-unity-84f17.appspot.com";
-    [SerializeField] string linkLocal = "F:/Tower Defend 3D/Resources";
 
     [Header("Stats")]
     [SerializeField] bool isSaving = false;
@@ -91,8 +90,8 @@ public class SaveNodeToFirebase : MonoBehaviour
     }
     private void UploadNodeToFirebase()
     {
-        string _linkLocalNodePath = $"{this.linkLocal}/FileNodePath/{this.level}/";
-        string _linkLocalNodeBuilding = $"{this.linkLocal}/FileNodeBuilding/{this.level}/{this.level}";
+        string _linkLocalNodePath = $"{FileLocalLink.DesignerRootLocal + "/Resources"}/FileNodePath/{this.level}/";
+        string _linkLocalNodeBuilding = $"{FileLocalLink.DesignerRootLocal + "/Resources"}/FileNodeBuilding/{this.level}/{this.level}";
 
         string _linkFirebaseNodePath = $"{this.linkFirebase}/FileNodePath/{this.level}";
         string _linkFirebaseNodeBuilding = $"{this.linkFirebase}/FileNodeBuilding/{this.level}";

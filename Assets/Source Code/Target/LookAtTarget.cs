@@ -3,7 +3,6 @@ using UnityEngine;
 public class LookAtTarget : MonoBehaviour
 {
     [SerializeField] GameObject target;
-    [SerializeField] string enemyTag = "Enemy";
 
     private GameManager gameManager;
     private TurretStats turretStats;
@@ -18,7 +17,7 @@ public class LookAtTarget : MonoBehaviour
     void Update()
     {
         this.turretStats = this.gameObject.GetComponent<Turrets>().GetTurretStats();
-        this.target = SelectTarget.StartSelectTargetWithRange(this.gameObject.transform.position, turretStats.RangeTurret, this.enemyTag);
+        this.target = SelectTarget.StartSelectTargetWithRange(this.gameObject.transform.position, turretStats.RangeTurret, GameObjectTagManager.TagEnemy);
 
         if (this.target == null || gameManager.IsGameOver == true || gameManager.IsGameWinLevel == true)
         {

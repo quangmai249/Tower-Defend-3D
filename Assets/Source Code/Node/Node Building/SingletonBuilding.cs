@@ -9,7 +9,6 @@ public class SingletonBuilding : MonoBehaviour
     [SerializeField] GameObject nodeBuilding;
     [SerializeField] List<GameObject> lsNodeBuildingPooling;
     [SerializeField] int numPool = 20;
-    [SerializeField] string nodeBuildingTag = "Node Building";
     private GameObject _nodeBuilding;
     public static SingletonBuilding Instance;
     private void Awake()
@@ -24,7 +23,7 @@ public class SingletonBuilding : MonoBehaviour
     }
     public GameObject InstantiateAt(Vector3 pos)
     {
-        GameObject res = this.GetNodeBuildingPooling(this.nodeBuildingTag);
+        GameObject res = this.GetNodeBuildingPooling(GameObjectTagManager.TagNodeBuilding);
         res.transform.localPosition = new Vector3(pos.x, this.nodeBuilding.transform.position.y, pos.z);
         res.SetActive(true);
         return res;
@@ -37,7 +36,7 @@ public class SingletonBuilding : MonoBehaviour
                 return item;
         }
         this.CreateObjectPooling(this.numPool);
-        return GetNodeBuildingPooling(this.nodeBuildingTag);
+        return GetNodeBuildingPooling(GameObjectTagManager.TagNodeBuilding);
     }
     private void CreateObjectPooling(int defaultQuantity)
     {

@@ -14,7 +14,7 @@ public class ProtectedBase : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == GameObjectTagManager.TagEnemy)
         {
             if (parAttacked.isPlaying == false)
                 parAttacked.Play();

@@ -75,7 +75,7 @@ public class EnemySpawn : MonoBehaviour
             this.isReady = false;
         }
 
-        if (wave > maxWave && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        if (wave > maxWave && GameObject.FindGameObjectsWithTag(GameObjectTagManager.TagEnemy).Length == 0)
         {
             for (int i = 1; i < 100; i++)
             {

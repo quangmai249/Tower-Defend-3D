@@ -15,7 +15,7 @@ public class BulletCannon : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.tag == GameObjectTagManager.TagEnemy)
         {
             TurretStats turretStats = this.gameObject.transform.parent.GetComponent<Turrets>().GetTurretStats();
             other.gameObject.GetComponent<EnemyManager>().SetEnemyHP(-turretStats.DamagedTurret);

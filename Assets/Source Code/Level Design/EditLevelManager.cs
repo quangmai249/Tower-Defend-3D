@@ -16,8 +16,6 @@ public class EditLevelManager : MonoBehaviour
 
     [Header("Node")]
     [SerializeField] GameObject panelConfirmSaveToLocal;
-    [SerializeField] string nodeBuildingTag = "Node Building";
-    [SerializeField] string nodePathTag = "Node Path";
 
     [Header("Path")]
     [SerializeField] TextMeshProUGUI textNotifyCommon;
@@ -117,9 +115,9 @@ public class EditLevelManager : MonoBehaviour
         {
             FilePath f = new FilePath(path, this.level);
 
-            foreach (var item in GameObject.FindGameObjectsWithTag(this.nodeBuildingTag))
+            foreach (var item in GameObject.FindGameObjectsWithTag(GameObjectTagManager.TagNodeBuilding))
                 item.gameObject.SetActive(false);
-            foreach (var item in GameObject.FindGameObjectsWithTag(this.nodePathTag))
+            foreach (var item in GameObject.FindGameObjectsWithTag(GameObjectTagManager.TagNodePath))
                 Destroy(item.gameObject);
 
             Vector3[] vec = f.ReadFromFile();

@@ -12,7 +12,6 @@ public class CannonEffects : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] float speed = 0.25f;
-    [SerializeField] string bulletTag = "Bullet";
     [SerializeField] GameObject bulletCannon;
 
     private AudioManager audioManager;
@@ -46,7 +45,7 @@ public class CannonEffects : MonoBehaviour
         this.audioSource.Play();
 
         yield return new WaitForEndOfFrame();
-        this.bulletCannon = bulletObjectPooling.GetBulletPooling(this.bulletTag);
+        this.bulletCannon = bulletObjectPooling.GetBulletPooling(GameObjectTagManager.TagBullet);
         this.bulletCannon.SetActive(true);
 
         if (lookAtTarget.GetTarget() != null)

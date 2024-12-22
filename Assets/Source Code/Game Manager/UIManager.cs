@@ -20,10 +20,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textLives;
     [SerializeField] TextMeshProUGUI textFPS;
 
-    [Header("Stats")]
-    [SerializeField] string textTurretStatsTag = "Text Turret Stats";
-    [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
-
     private GameManager gameManager;
     private GameStats gameStats;
     public static UIManager Instance;
@@ -93,9 +89,9 @@ public class UIManager : MonoBehaviour
     }
     private void HiddenObjectsWhenOver()
     {
-        SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
-        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
-        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
+        SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagTextTurretStats).GetComponent<TextMeshProUGUI>().text = string.Empty;
+        SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().texture = null;
+        SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().color = Color.clear;
 
         DOTween.KillAll();
         Time.timeScale = 0f;

@@ -9,10 +9,6 @@ public class Turrets : MonoBehaviour
 {
     [Header("Menu")]
     [SerializeField] GameObject menuUpgradeTurrets;
-    [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
-    [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";
-    [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
-    [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
     [SerializeField] float yPos = 2f;
 
     [Header("Particles")]
@@ -22,8 +18,6 @@ public class Turrets : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] Sprite imageTurret;
-    [SerializeField] string textTurretStatsTag = "Text Turret Stats";
-    [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     [Header("Turret Stats")]
     [SerializeField] int levelTurret = 1;
@@ -35,11 +29,7 @@ public class Turrets : MonoBehaviour
     [SerializeField] float damage = 10f;
     [SerializeField] float rate = 1f;
 
-    [Header("Manager")]
-    [SerializeField] string uiManagerTag = "UI Manager";
-
     private GameObject upgradeTurrets;
-
     private SingletonBuilding singletonBuilding;
     private GameManager gameManager;
     private UIManager uiManager;
@@ -53,7 +43,7 @@ public class Turrets : MonoBehaviour
         gameManager = GameManager.Instance;
         gameStats = gameManager.GameStats;
 
-        uiManager = SelectTarget.SelectFirstGameObjectWithTag(this.uiManagerTag).GetComponent<UIManager>();
+        uiManager = SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagUIManager).GetComponent<UIManager>();
         this.defaultTurretStats = new TurretStats(this.priceTurrets, this.priceUpgrade, this.priceSell, this.range, this.damage, this.levelTurret, this.maxLevelTurret, this.rate);
     }
     private void Start()
@@ -118,11 +108,11 @@ public class Turrets : MonoBehaviour
         this.SetTextStats();
         this.SetImageStats();
 
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmUpgradeTurret);
 
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagCanvasUpgradeTurrets);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagCanvasShopTurrets);
 
         this.upgradeTurrets.gameObject.SetActive(true);
         return;
@@ -135,7 +125,7 @@ public class Turrets : MonoBehaviour
     }
     private void SetTextStats()
     {
-        GameObject go = SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag);
+        GameObject go = SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagTextTurretStats);
         go.GetComponent<TextMeshProUGUI>().text = $"Level: {this.levelTurret}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Name: {this.gameObject.name.Replace("(Clone)", "")}\n";
         go.GetComponent<TextMeshProUGUI>().text += $"Damage: {this.damage}\n";
@@ -151,8 +141,8 @@ public class Turrets : MonoBehaviour
     }
     private void SetImageStats()
     {
-        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.white;
-        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = this.imageTurret.texture;
+        SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().color = Color.white;
+        SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().texture = this.imageTurret.texture;
     }
     public void SetDefaultTurret()
     {

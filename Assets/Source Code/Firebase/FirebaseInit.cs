@@ -16,7 +16,6 @@ public class FirebaseInit : MonoBehaviour
     [SerializeField] TextMeshProUGUI textStatusConnectToInternet;
 
     [Header("Stats")]
-    [SerializeField] string linkLocal = "C:/Tower Defend 3D/";
     [SerializeField] string apiFirebaseDefault = "https://firebasestorage.googleapis.com/v0/b/tower-defend-3d-unity-84f17.appspot.com/o/";
 
     [Header("List")]
@@ -28,7 +27,7 @@ public class FirebaseInit : MonoBehaviour
         this.textStatusConnectToInternet.text = string.Empty;
         this.imgTimeLoading.fillAmount = 0;
 
-        if (!Directory.Exists(this.linkLocal))
+        if (!Directory.Exists(FileLocalLink.UserRootLocal))
         {
             StartCoroutine(nameof(this.CoroutineResetLevel));
             StartCoroutine(nameof(this.CoroutineDefaultSetting));
@@ -46,7 +45,7 @@ public class FirebaseInit : MonoBehaviour
     }
     private IEnumerator CoroutineTimeLoading()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(2f);
 
         this.CheckingForUpdating();
 
@@ -90,11 +89,11 @@ public class FirebaseInit : MonoBehaviour
     {
         foreach (var item in lsAddr)
         {
-            if (!File.Exists(this.linkLocal + item))
+            if (!File.Exists(FileLocalLink.UserRootLocal + "/" + item))
             {
-                Directory.CreateDirectory(this.SetLinkLocalFile(this.linkLocal, item));
+                Directory.CreateDirectory(this.SetLinkLocalFile(FileLocalLink.UserRootLocal + "/", item));
                 webClient.DownloadFile($"{apiFirebaseDefault}{Uri.EscapeDataString(item)}?alt=media&token={lsToken[lsAddr.IndexOf(item)]}"
-                    , this.SetLinkLocalFile(this.linkLocal, item) + "/" + this.SetNameLocalFile(item));
+                    , this.SetLinkLocalFile(FileLocalLink.UserRootLocal + "/", item) + "/" + this.SetNameLocalFile(item));
             }
         }
     }

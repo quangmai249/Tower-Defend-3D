@@ -7,7 +7,6 @@ public class BulletObjectPooling : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] List<GameObject> lsBulletPooling;
     [SerializeField] int defaultBulletQuantity = 5;
-    [SerializeField] string bulletTag = "Bullet";
     private GameObject _bullet;
     private void Awake()
     {
@@ -31,6 +30,6 @@ public class BulletObjectPooling : MonoBehaviour
                 return item;
         }
         this.CreateObjectPooling(this.defaultBulletQuantity);
-        return GetBulletPooling(this.bulletTag);
+        return GetBulletPooling(GameObjectTagManager.TagBullet);
     }
 }

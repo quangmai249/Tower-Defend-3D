@@ -6,22 +6,18 @@ public class SingletonTurrets : MonoBehaviour
     [SerializeField] int numPool = 20;
 
     [Header("First Turret")]
-    [SerializeField] string firstTurretTag = "First Turret";
     [SerializeField] GameObject firstTurret;
     [SerializeField] List<GameObject> lsFirstTurret;
 
     [Header("Second Turret")]
-    [SerializeField] string secondTurretTag = "Second Turret";
     [SerializeField] GameObject secondTurret;
     [SerializeField] List<GameObject> lsSecondTurrets;
 
     [Header("Third Turret")]
-    [SerializeField] string thirdTurretTag = "Third Turret";
     [SerializeField] GameObject thirdTurret;
     [SerializeField] List<GameObject> lsThirdTurrets;
 
     [Header("Fourth Turret")]
-    [SerializeField] string fourthTurretTag = "Fourth Turret";
     [SerializeField] GameObject fourthTurret;
     [SerializeField] List<GameObject> lsFourthTurret;
 
@@ -42,7 +38,7 @@ public class SingletonTurrets : MonoBehaviour
     }
     public GameObject InstantiateFirstTurretsAt(Vector3 pos)
     {
-        GameObject res = this.GetNodeBuildingPooling(this.firstTurret, this.firstTurretTag, this.lsFirstTurret);
+        GameObject res = this.GetNodeBuildingPooling(this.firstTurret, GameObjectTagManager.TagFirstTurret, this.lsFirstTurret);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
         res.GetComponent<Turrets>().SetDefaultTurret();
         res.gameObject.SetActive(true);
@@ -50,7 +46,7 @@ public class SingletonTurrets : MonoBehaviour
     }
     public GameObject InstantiateSecondTurretsAt(Vector3 pos)
     {
-        GameObject res = this.GetNodeBuildingPooling(this.secondTurret, this.secondTurretTag, this.lsSecondTurrets);
+        GameObject res = this.GetNodeBuildingPooling(this.secondTurret, GameObjectTagManager.TagSecondTurret, this.lsSecondTurrets);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
         res.GetComponent<Turrets>().SetDefaultTurret();
         res.gameObject.SetActive(true);
@@ -58,7 +54,7 @@ public class SingletonTurrets : MonoBehaviour
     }
     public GameObject InstantiateThirdTurretsAt(Vector3 pos)
     {
-        GameObject res = this.GetNodeBuildingPooling(this.thirdTurret, this.thirdTurretTag, this.lsThirdTurrets);
+        GameObject res = this.GetNodeBuildingPooling(this.thirdTurret, GameObjectTagManager.TagThirdTurret, this.lsThirdTurrets);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
         res.GetComponent<Turrets>().SetDefaultTurret();
         res.gameObject.SetActive(true);
@@ -66,7 +62,7 @@ public class SingletonTurrets : MonoBehaviour
     }
     public GameObject InstantiateFourthTurretsAt(Vector3 pos)
     {
-        GameObject res = this.GetNodeBuildingPooling(this.fourthTurret, this.fourthTurretTag, this.lsFourthTurret);
+        GameObject res = this.GetNodeBuildingPooling(this.fourthTurret, GameObjectTagManager.TagFourthTurret, this.lsFourthTurret);
         res.transform.position = new Vector3(pos.x, res.transform.position.y, pos.z);
         res.GetComponent<Turrets>().SetDefaultTurret();
         res.gameObject.SetActive(true);

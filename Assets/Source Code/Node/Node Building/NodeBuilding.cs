@@ -9,17 +9,8 @@ using UnityEngine.UIElements;
 public class NodeBuilding : MonoBehaviour
 {
     [SerializeField] GameObject shopTurretCanvas;
-    [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
-    [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";
-    [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
-    [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
-
     [SerializeField] string gameManagerTag = "GameController";
     [SerializeField] float yPos = 2f;
-
-    [Header("Stats")]
-    [SerializeField] string textTurretStatsTag = "Text Turret Stats";
-    [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
 
     private Renderer rend;
     private Color color;
@@ -54,14 +45,14 @@ public class NodeBuilding : MonoBehaviour
         if (gameManager.IsGameOver == true || gameManager.IsGamePause == true || gameManager.IsGameWinLevel)
             return;
 
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
 
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagCanvasShopTurrets);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagCanvasUpgradeTurrets);
 
-        SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
-        SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
+        SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagTextTurretStats).GetComponent<TextMeshProUGUI>().text = string.Empty;
+        SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().color = Color.clear;
 
         this.shopCanvas.gameObject.SetActive(true);
         this.shopCanvas.gameObject.transform.position

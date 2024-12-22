@@ -6,9 +6,6 @@ public class ButtonShop : MonoBehaviour
     [SerializeField] GameObject turret;
     [SerializeField] GameObject confirm;
     [SerializeField] TextMeshPro textPrice;
-    [SerializeField] string btnConfirmShopTurretTag = "Button Confirm Shop Turret";
-    [SerializeField] string btnConfirmUpgradeTurretTag = "Button Confirm Upgrade Turret";
-    [SerializeField] string canvasUpgradeTurretTag = "Canvas Upgrade Turrets";
 
     private AudioManager audioManager;
     private SingletonTurrets singletonTurrets;
@@ -27,8 +24,8 @@ public class ButtonShop : MonoBehaviour
     }
     public void ButtonSelectTurret()
     {
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTurretTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTurretTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
         this.confirm.SetActive(true);
         return;
     }
@@ -39,18 +36,18 @@ public class ButtonShop : MonoBehaviour
     }
     private void StartBuildingTurret()
     {
-        if (this.turret.tag == "First Turret")
+        if (this.turret.tag == GameObjectTagManager.TagFirstTurret)
             singletonTurrets.InstantiateFirstTurretsAt(this.gameObject.transform.parent.transform.position);
-        if (this.turret.tag == "Second Turret")
+        if (this.turret.tag == GameObjectTagManager.TagSecondTurret)
             singletonTurrets.InstantiateSecondTurretsAt(this.gameObject.transform.parent.transform.position);
-        if (this.turret.tag == "Third Turret")
+        if (this.turret.tag == GameObjectTagManager.TagThirdTurret)
             singletonTurrets.InstantiateThirdTurretsAt(this.gameObject.transform.parent.transform.position);
-        if (this.turret.tag == "Fourth Turret")
+        if (this.turret.tag == GameObjectTagManager.TagFourthTurret)
             singletonTurrets.InstantiateFourthTurretsAt(this.gameObject.transform.parent.transform.position);
 
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTurretTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTurretTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTurretTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmUpgradeTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmUpgradeTurret);
 
         this.gameObject.transform.parent.parent.parent.gameObject.SetActive(false);
 

@@ -11,9 +11,6 @@ public class LevelDesign : MonoBehaviour
     [SerializeField] GameObject pannelRebootsGame;
 
     [SerializeField] bool checking = false;
-    [SerializeField] string linkLocal = "C:/Tower Defend 3D";
-    [SerializeField] string linkLocalFileNodeBuilding = "C:/Tower Defend 3D/FileNodeBuilding";
-    [SerializeField] string linkLocalFileNodePath = "C:/Tower Defend 3D/FileNodePath";
 
     public static LevelDesign Instance;
     private void Awake()
@@ -37,10 +34,10 @@ public class LevelDesign : MonoBehaviour
     }
     private void CheckFolderRescourses()
     {
-        if (!Directory.Exists($"{this.linkLocalFileNodeBuilding}/{this.level}")
-            || !Directory.Exists($"{this.linkLocalFileNodePath}/{this.level}")
-            || Directory.GetFiles($"{this.linkLocalFileNodeBuilding}/{this.level}").Length == 0
-            || Directory.GetFiles($"{this.linkLocalFileNodePath}/{this.level}").Length == 0)
+        if (!Directory.Exists(FileLocalLink.UserFolderNodeBuilding + this.level)
+            || !Directory.Exists(FileLocalLink.UserFolderNodePath + this.level)
+            || Directory.GetFiles(FileLocalLink.UserFolderNodeBuilding + this.level).Length == 0
+            || Directory.GetFiles(FileLocalLink.UserFolderNodePath + this.level).Length == 0)
         {
             this.pannelRebootsGame.gameObject.SetActive(true);
         }
@@ -59,19 +56,19 @@ public class LevelDesign : MonoBehaviour
     }
     public void ButtonRebootsGame()
     {
-        if (Directory.Exists(this.linkLocal))
+        if (Directory.Exists(FileLocalLink.UserRootLocal))
         {
-            if (Directory.Exists($"{this.linkLocalFileNodeBuilding}/{this.level}"))
+            if (Directory.Exists(FileLocalLink.UserFolderNodeBuilding + this.level))
             {
-                foreach (var file in Directory.GetFiles($"{this.linkLocalFileNodeBuilding}/{this.level}"))
+                foreach (var file in Directory.GetFiles(FileLocalLink.UserFolderNodeBuilding + this.level))
                 {
                     Directory.Delete(file);
                 }
             }
 
-            if (Directory.Exists($"{this.linkLocalFileNodePath}/{this.level}"))
+            if (Directory.Exists(FileLocalLink.UserFolderNodePath + this.level))
             {
-                foreach (var file in Directory.GetFiles($"{this.linkLocalFileNodePath}/{this.level}"))
+                foreach (var file in Directory.GetFiles(FileLocalLink.UserFolderNodePath + this.level))
                 {
                     File.Delete(file);
                 }

@@ -4,39 +4,32 @@ using UnityEngine.UI;
 
 public class LandManager : MonoBehaviour
 {
-    [SerializeField] string canvasShopTag = "Canvas Shop Turrets";
-    [SerializeField] string canvasUpgradeTag = "Canvas Upgrade Turrets";
-    [SerializeField] string btnConfirmShopTag = "Button Confirm Shop Turret";
-    [SerializeField] string btnConfirmUpgradeTag = "Button Confirm Upgrade Turret";
-    [SerializeField] string textTurretStatsTag = "Text Turret Stats";
-    [SerializeField] string imgTurretStatsTag = "Image Turret Stats";
-
     private GameObject textTurretStats;
     private GameObject imgTurretStats;
     private void Start()
     {
-        this.textTurretStats = SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag);
-        this.imgTurretStats = SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag);
+        this.textTurretStats = SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagTextTurretStats);
+        this.imgTurretStats = SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats);
 
         if (this.textTurretStats != null && this.imgTurretStats != null)
         {
-            SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
-            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
-            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
+            SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagTextTurretStats).GetComponent<TextMeshProUGUI>().text = string.Empty;
+            SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().texture = null;
+            SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().color = Color.clear;
         }
     }
     public void ClickedOutSite()
     {
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.btnConfirmUpgradeTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasShopTag);
-        SelectTarget.SetActiveGameObjecstWithTag(false, this.canvasUpgradeTag);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmUpgradeTurret);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagCanvasShopTurrets);
+        SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagCanvasUpgradeTurrets);
 
         if (this.textTurretStats != null && this.imgTurretStats != null)
         {
-            SelectTarget.SelectFirstGameObjectWithTag(this.textTurretStatsTag).GetComponent<TextMeshProUGUI>().text = string.Empty;
-            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().texture = null;
-            SelectTarget.SelectFirstGameObjectWithTag(this.imgTurretStatsTag).GetComponent<RawImage>().color = Color.clear;
+            SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagTextTurretStats).GetComponent<TextMeshProUGUI>().text = string.Empty;
+            SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().texture = null;
+            SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().color = Color.clear;
         }
     }
 }

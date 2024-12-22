@@ -54,7 +54,7 @@ public class LevelContent : MonoBehaviour
     }
     public void ButtonUpdateNewestVersion()
     {
-        SceneManager.LoadScene("Splash Scene");
+        SceneManager.LoadScene(SceneNameManager.SceneSplash);
         return;
     }
     private void CreateObjectPooling(int defaultNumPooling)

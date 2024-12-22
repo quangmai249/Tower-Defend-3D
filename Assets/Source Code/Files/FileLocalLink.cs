@@ -2,8 +2,8 @@ using Unity.VisualScripting;
 
 public static class FileLocalLink
 {
-    public static string UserRootLocal = "C:/Tower Defend 3D";
-    public static string DesignerRootLocal = "F:/Tower Defend 3D";
+    public static string UserRootLocal = "C:/Tower Defense 3D";
+    public static string DesignerRootLocal = "F:/Tower Defense 3D";
 
     public static string NameFolderNodePath = "FileNodePath";
     public static string NameFolderNodeBuilding = "FileNodeBuilding";

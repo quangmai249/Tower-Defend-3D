@@ -29,12 +29,12 @@ public class LevelSelection : MonoBehaviour
     }
     public void ButtonPlayGame()
     {
-        SceneManager.LoadScene("Game Play");
+        SceneManager.LoadScene(SceneNameManager.SceneGamePlay);
         return;
     }
     public void ButtonHomeScreen()
     {
-        SceneManager.LoadScene("Menu Game");
+        SceneManager.LoadScene(SceneNameManager.SceneMenuGame);
         return;
     }
 }

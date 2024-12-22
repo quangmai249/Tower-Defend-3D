@@ -20,10 +20,6 @@ public class EditLevelManager : MonoBehaviour
     [Header("Path")]
     [SerializeField] TextMeshProUGUI textNotifyCommon;
     [SerializeField] TMPro.TMP_Dropdown tMP_Dropdown;
-    [SerializeField] string default_path = "F:/Tower Defend 3D/Resources/";
-
-    private readonly string pathNodeBuilding = "FileNodeBuilding/";
-    private readonly string pathNodePath = "FileNodePath/";
 
     private TMPro.TMP_Dropdown.OptionData optionData;
     private SingletonBuilding singletonBuilding;
@@ -63,7 +59,7 @@ public class EditLevelManager : MonoBehaviour
     }
     public void ButtonHome()
     {
-        SceneManager.LoadScene("Menu Game");
+        SceneManager.LoadScene(SceneNameManager.SceneMenuGame);
         return;
     }
     public void ButtonDeleteLevel()
@@ -82,8 +78,8 @@ public class EditLevelManager : MonoBehaviour
     }
     public void ButtonConfirmDelete()
     {
-        string path_node_building = this.default_path + this.pathNodeBuilding + this.level;
-        string path_node_path = this.default_path + this.pathNodePath + this.level;
+        string path_node_building = FileLocalLink.DesignerFolderNodeBuilding + this.level;
+        string path_node_path = FileLocalLink.DesignerFolderNodePath + this.level;
 
         try
         {
@@ -110,7 +106,7 @@ public class EditLevelManager : MonoBehaviour
     }
     private void StartReadNodeBuilding()
     {
-        string path = this.default_path + this.pathNodeBuilding + this.level;
+        string path = FileLocalLink.DesignerFolderNodeBuilding + this.level;
         try
         {
             FilePath f = new FilePath(path, this.level);
@@ -132,7 +128,7 @@ public class EditLevelManager : MonoBehaviour
     }
     private void StartReadNodePath()
     {
-        string path = this.default_path + this.pathNodePath + this.level;
+        string path = FileLocalLink.DesignerFolderNodePath + this.level;
 
         try
         {

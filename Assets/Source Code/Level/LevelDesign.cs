@@ -8,8 +8,6 @@ public class LevelDesign : MonoBehaviour
 {
     [SerializeField] Level level = Level.LEVEL_1;
     [SerializeField] TextMeshProUGUI textLevel;
-    [SerializeField] GameObject pannelRebootsGame;
-
     [SerializeField] bool checking = false;
 
     public static LevelDesign Instance;
@@ -25,22 +23,10 @@ public class LevelDesign : MonoBehaviour
 
     private void Start()
     {
-        this.pannelRebootsGame.gameObject.SetActive(false);
         if (this.checking == true)
             this.textLevel.text = level.ToString().Replace('_', ' ');
         else
             this.textLevel.text = PlayerPrefs.GetString("LEVEL").Replace('_', ' ');
-        this.CheckFolderRescourses();
-    }
-    private void CheckFolderRescourses()
-    {
-        if (!Directory.Exists(FileLocalLink.UserFolderNodeBuilding + this.level)
-            || !Directory.Exists(FileLocalLink.UserFolderNodePath + this.level)
-            || Directory.GetFiles(FileLocalLink.UserFolderNodeBuilding + this.level).Length == 0
-            || Directory.GetFiles(FileLocalLink.UserFolderNodePath + this.level).Length == 0)
-        {
-            this.pannelRebootsGame.gameObject.SetActive(true);
-        }
     }
     public string GetLevel()
     {
@@ -74,6 +60,6 @@ public class LevelDesign : MonoBehaviour
                 }
             }
         }
-        SceneManager.LoadScene("Splash Scene");
+        SceneManager.LoadScene(SceneNameManager.SceneSplash);
     }
 }

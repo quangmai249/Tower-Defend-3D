@@ -90,22 +90,24 @@ public class SaveNodeToFirebase : MonoBehaviour
     }
     private void UploadNodeToFirebase()
     {
-        string _linkLocalNodePath = $"{FileLocalLink.DesignerRootLocal + "/Resources"}/FileNodePath/{this.level}/";
-        string _linkLocalNodeBuilding = $"{FileLocalLink.DesignerRootLocal + "/Resources"}/FileNodeBuilding/{this.level}/{this.level}";
+        string _linkLocalNodePath = FileLocalLink.DesignerFolderNodePath + this.level;
+        string _linkLocalNodeBuilding = FileLocalLink.DesignerFolderNodeBuilding + this.level + "/" + this.level;
 
-        string _linkFirebaseNodePath = $"{this.linkFirebase}/FileNodePath/{this.level}";
-        string _linkFirebaseNodeBuilding = $"{this.linkFirebase}/FileNodeBuilding/{this.level}";
-
-        if (!File.Exists(_linkLocalNodeBuilding) || !Directory.Exists(_linkLocalNodePath))
+        if (!File.Exists(_linkLocalNodeBuilding) || Directory.GetFiles(_linkLocalNodePath).Length == 0)
         {
             this.textUploadSucessfully.text = $"Some {this.level} files not found!";
             return;
         }
 
+        string _linkFirebaseNodePath = this.linkFirebase + "/" + FileLocalLink.NameFolderNodePath + "/" + this.level;
+        string _linkFirebaseNodeBuilding = this.linkFirebase + "/" + FileLocalLink.NameFolderNodeBuilding + "/" + this.level;
+
         FirebaseStorage firebaseStorage = FirebaseStorage.DefaultInstance;
         StorageReference storageReference = null;
+
         this.UploadFileNodePath(firebaseStorage, storageReference, _linkFirebaseNodePath, _linkLocalNodePath);
         this.UploadnodeBuilding(firebaseStorage, storageReference, _linkFirebaseNodeBuilding, _linkLocalNodeBuilding);
+
         this.textUploadSucessfully.text = $"{this.level} Uploaded!";
     }
     private void UploadFileNodePath(FirebaseStorage firebaseStorage, StorageReference storageReference, string linkFirebase, string linkLocal)

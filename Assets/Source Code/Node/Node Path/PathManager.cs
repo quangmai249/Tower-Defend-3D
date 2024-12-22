@@ -6,14 +6,9 @@ using TMPro;
 using UnityEngine;
 public class PathManager : MonoBehaviour
 {
-    [SerializeField] string default_path = "C:/Tower Defend 3D/";
-
     private List<FilePath> lsFilePath = new List<FilePath>();
     private LevelDesign levelDesign;
-
     private int numberPath = 0;
-    private readonly string path = "FileNodePath/";
-
     public static PathManager Instance;
     private void Awake()
     {
@@ -37,7 +32,7 @@ public class PathManager : MonoBehaviour
     }
     public string GetPath()
     {
-        return this.default_path + this.path + levelDesign.GetLevel();
+        return FileLocalLink.UserFolderNodePath + levelDesign.GetLevel();
     }
     private void SetListFilePath(List<FilePath> ls)
     {

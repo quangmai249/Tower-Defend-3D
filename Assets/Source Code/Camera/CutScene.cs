@@ -40,7 +40,7 @@ public class CutScene : MonoBehaviour
     }
     public void ButtonSkip()
     {
-        SceneManager.LoadScene("Menu Game");
+        SceneManager.LoadScene(SceneNameManager.SceneMenuGame);
     }
     IEnumerator CoroutineButtonSkip()
     {
@@ -69,6 +69,6 @@ public class CutScene : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
         this.audioSource.Stop();
-        SceneManager.LoadScene("Menu Game");
+        SceneManager.LoadScene(SceneNameManager.SceneMenuGame);
     }
 }

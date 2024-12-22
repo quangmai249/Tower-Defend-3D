@@ -17,14 +17,11 @@ public class ButtonManager : MonoBehaviour
     [Header("Text")]
     [SerializeField] TextMeshProUGUI textIncreaseSpeed;
 
-    [Header("Name Tag")]
-    [SerializeField] string gameManagerTag = "GameController";
-
     private GameObject gameObjManager;
     private GameManager gameManager;
     private void Awake()
     {
-        gameObjManager = SelectTarget.SelectFirstGameObjectWithTag(this.gameManagerTag);
+        gameObjManager = SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagGameManager);
         gameManager = gameObjManager.GetComponent<GameManager>();
     }
     private void Start()
@@ -104,17 +101,17 @@ public class ButtonManager : MonoBehaviour
     }
     public void ButtonRestart()
     {
-        SceneManager.LoadScene("Game Play");
+        SceneManager.LoadScene(SceneNameManager.SceneGamePlay);
         return;
     }
     public void ButtonMenu()
     {
-        SceneManager.LoadScene("Menu Game");
+        SceneManager.LoadScene(SceneNameManager.SceneMenuGame);
         return;
     }
     public void ButtonNextWhenWinGame()
     {
-        SceneManager.LoadScene("Level Scene");
+        SceneManager.LoadScene(SceneNameManager.SceneLevel);
         return;
     }
 }

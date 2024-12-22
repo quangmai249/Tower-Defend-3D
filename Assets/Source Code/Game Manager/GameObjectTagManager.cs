@@ -21,4 +21,5 @@ public static class GameObjectTagManager
     public static string TagButtonConfirmUpgradeTurret = "Button Confirm Upgrade Turret";
     public static string TagTextTurretStats = "Text Turret Stats";
     public static string TagImageTurretStats = "Image Turret Stats";
+    public static string TagGameManager = "GameController";
 }

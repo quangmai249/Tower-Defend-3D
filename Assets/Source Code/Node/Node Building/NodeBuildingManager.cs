@@ -8,13 +8,10 @@ using UnityEngine;
 public class NodeBuildingManager : MonoBehaviour
 {
     [SerializeField] Vector3[] arrPosNodeBuilding;
-    [SerializeField] string default_path = "C:/Tower Defend 3D/";
 
     private FilePath filePath;
     private SingletonBuilding singletonBuilding;
     private LevelDesign levelDesign;
-
-    private readonly string path = "FileNodeBuilding/";
     private void Awake()
     {
         levelDesign = GameObject.FindGameObjectWithTag(GameObjectTagManager.TagLevelDesign).GetComponent<LevelDesign>();
@@ -44,6 +41,6 @@ public class NodeBuildingManager : MonoBehaviour
     }
     private string GetPath()
     {
-        return this.default_path + this.path + levelDesign.GetLevel();
+        return FileLocalLink.UserFolderNodeBuilding + levelDesign.GetLevel();
     }
 }

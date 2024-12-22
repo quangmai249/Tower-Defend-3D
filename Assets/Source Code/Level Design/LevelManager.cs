@@ -23,10 +23,6 @@ public class LevelManager : MonoBehaviour
 
     [Header("Link Default")]
     [SerializeField] GameObject panelConfirmDelete;
-    [SerializeField] string default_path = "F:/Tower Defend 3D/";
-
-    private readonly string hidden_path_node = "FileNodePath/";
-    private readonly string hidden_path_node_building = "FileNodeBuilding/";
 
     private FilePath hidden_file_node_path;
     private FilePath hidden_file_node_building;
@@ -48,7 +44,7 @@ public class LevelManager : MonoBehaviour
     }
     public void ButtonMenuGame()
     {
-        SceneManager.LoadScene("Splash Scene");
+        SceneManager.LoadScene(SceneNameManager.SceneSplash);
         return;
     }
     public void ButtonSaveOffline()
@@ -95,7 +91,7 @@ public class LevelManager : MonoBehaviour
         this.lsBuilding.RemoveAt(0);
 
         this.hidden_file_node_building
-            = new FilePath(this.default_path + this.hidden_path_node_building + this.level, this.level);
+            = new FilePath(FileLocalLink.DesignerFolderNodeBuilding + this.level, this.level);
         this.hidden_file_node_building.SetListVector(this.lsBuilding);
         this.hidden_file_node_building.StartSaveToFile();
         this.textNotify.text = this.hidden_file_node_building.GetNotify();
@@ -115,7 +111,7 @@ public class LevelManager : MonoBehaviour
             }
 
             this.hidden_file_node_path
-                = new FilePath(this.default_path + this.hidden_path_node + this.level, this.level + count);
+                = new FilePath(FileLocalLink.DesignerFolderNodePath + this.level, this.level + count);
 
             this.hidden_file_node_path.SetListVector(this.lsNodePath);
             this.hidden_file_node_path.StartSaveToFile();

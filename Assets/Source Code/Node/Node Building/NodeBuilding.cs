@@ -9,7 +9,6 @@ using UnityEngine.UIElements;
 public class NodeBuilding : MonoBehaviour
 {
     [SerializeField] GameObject shopTurretCanvas;
-    [SerializeField] string gameManagerTag = "GameController";
     [SerializeField] float yPos = 2f;
 
     private Renderer rend;
@@ -18,8 +17,7 @@ public class NodeBuilding : MonoBehaviour
     private GameObject shopCanvas;
     private void Awake()
     {
-        gameManager = GameObject.FindGameObjectWithTag(this.gameManagerTag)
-            .GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag(GameObjectTagManager.TagGameManager).GetComponent<GameManager>();
     }
     private void Start()
     {

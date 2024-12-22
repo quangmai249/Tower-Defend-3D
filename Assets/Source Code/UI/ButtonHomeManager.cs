@@ -10,17 +10,12 @@ public class ButtonHomeManager : MonoBehaviour
     }
     public void ButtonPlay()
     {
-        SceneManager.LoadScene("Level Scene");
+        SceneManager.LoadScene(SceneNameManager.SceneLevel);
         return;
     }
     public void ButtonDesignLevel()
     {
-        SceneManager.LoadScene("Scene Design Level");
-        return;
-    }
-    public void ButtonEditLevel()
-    {
-        SceneManager.LoadScene("Scene Edit Level");
+        SceneManager.LoadScene(SceneNameManager.SceneDesignLevel);
         return;
     }
     public void ExitGame()

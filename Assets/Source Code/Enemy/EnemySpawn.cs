@@ -24,8 +24,8 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] int defaultSecondCountdownPerWave = 3;
 
     [Header("Wave")]
-    [SerializeField] int wave = 1;
-    [SerializeField] int maxWave = 20;
+    [SerializeField] int wave;
+    [SerializeField] int maxWave;
 
     [Header("Spawn Enemy")]
     [SerializeField] float randPath = 1f;
@@ -35,6 +35,7 @@ public class EnemySpawn : MonoBehaviour
     [Header("Boss")]
     [SerializeField] GameObject enemyBoss;
 
+    private bool isError;
     private LevelDesign levelDesign;
     private PathManager pathManager;
     private SingletonEnemy singletonEnemy;
@@ -124,16 +125,29 @@ public class EnemySpawn : MonoBehaviour
         for (int i = 0; i < pathManager.GetListFileNodePath().Count; i++)
         {
             GameObject protectedBase = Instantiate(this.protectedBase);
-            Vector3 pos = new Vector3(pathManager.GetListFileNodePath()[i].ReadFromFile().Last().x, protectedBase.transform.position.y, pathManager.GetListFileNodePath()[i].ReadFromFile().Last().z);
-            protectedBase.transform.parent = this.gameObject.transform;
-            protectedBase.transform.position = pos;
+            try
+            {
+                Vector3 pos = new Vector3(
+                   pathManager.GetListFileNodePath()[i].ReadFromFile().Last().x
+                   , protectedBase.transform.position.y
+                   , pathManager.GetListFileNodePath()[i].ReadFromFile().Last().z);
+                protectedBase.transform.parent = this.gameObject.transform;
+                protectedBase.transform.position = pos;
+            }
+            catch
+            {
+                this.isError = pathManager.GetListFileNodePath()[i].IsError();
+            }
         }
 
         yield return new WaitForSeconds(2f);
         for (int i = 0; i < pathManager.GetListFileNodePath().Count; i++)
         {
             GameObject enemyHome = Instantiate(this.enemyHome);
+
             Vector3 pos = pathManager.GetListFileNodePath()[i].ReadFromFile().First() + (Vector3.up * yPosEnemyHome);
+            this.isError = pathManager.GetListFileNodePath()[i].IsError();
+
             enemyHome.transform.parent = this.gameObject.transform;
             enemyHome.transform.position = new Vector3(pos.x, pos.y * 10f, pos.z);
             enemyHome.transform.DOMove(pos, 5f);
@@ -149,6 +163,8 @@ public class EnemySpawn : MonoBehaviour
         for (int i = 0; i < pathManager.GetListFileNodePath().Count; i++)
         {
             this.posSpawn = pathManager.GetListFileNodePath()[i].ReadFromFile().First() + RandomVector3Path(this.randPath);
+            this.isError = pathManager.GetListFileNodePath()[i].IsError();
+
             this.enemyBoss = singletonEnemy.InstantiateBossAt(posSpawn, levelDesign.GetLevelTypeInt());
 
             if (enemyBoss != null)
@@ -212,6 +228,10 @@ public class EnemySpawn : MonoBehaviour
     {
         yield return new WaitForSeconds(this.defaultSecondCountdownPerWave + 2f);
         this.btnReadyPlayGame.gameObject.SetActive(true);
+    }
+    public bool IsError()
+    {
+        return this.isError;
     }
     private Vector3 RandomVector3Path(float rand)
     {

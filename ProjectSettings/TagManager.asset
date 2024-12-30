@@ -25,6 +25,8 @@ TagManager:
   - Sound Manger
   - Enemy Home
   - Protected Base
+  - Building Manager
+  - Enemy Spawn Manager
   layers:
   - Default
   - TransparentFX

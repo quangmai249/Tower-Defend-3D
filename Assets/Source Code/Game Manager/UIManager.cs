@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject panelPauseGame;
     [SerializeField] GameObject panelConfrimSurrender;
     [SerializeField] GameObject panelInstruction;
+    [SerializeField] GameObject panelReboots;
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI textLevelWin;
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
 
     private GameManager gameManager;
     private GameStats gameStats;
+
     public static UIManager Instance;
     private void Awake()
     {
@@ -44,9 +46,22 @@ public class UIManager : MonoBehaviour
         this.panelPauseGame.SetActive(false);
         this.panelConfrimSurrender.SetActive(false);
         this.panelInstruction.SetActive(false);
+        this.panelReboots.SetActive(false);
+
+        if (GameObject.FindGameObjectWithTag(GameObjectTagManager.TagBuildingManager).GetComponent<NodeBuildingManager>().IsError())
+        {
+            this.panelReboots.gameObject.SetActive(true);
+            return;
+        }
     }
     private void Update()
     {
+        if (GameObject.FindGameObjectWithTag(GameObjectTagManager.TagEnemySpawnManager).GetComponent<EnemySpawn>().IsError())
+        {
+            this.panelReboots.gameObject.SetActive(true);
+            return;
+        }
+
         textGold.text = $"{gameStats.Gold}$";
         textLives.text = $"{gameStats.Lives} LIVES";
 

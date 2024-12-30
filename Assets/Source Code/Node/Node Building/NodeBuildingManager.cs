@@ -9,6 +9,7 @@ public class NodeBuildingManager : MonoBehaviour
 {
     [SerializeField] Vector3[] arrPosNodeBuilding;
 
+    private bool isError;
     private FilePath filePath;
     private SingletonBuilding singletonBuilding;
     private LevelDesign levelDesign;
@@ -26,9 +27,15 @@ public class NodeBuildingManager : MonoBehaviour
         }
 
         singletonBuilding = SingletonBuilding.Instance;
+
         this.arrPosNodeBuilding = filePath.ReadFromFile();
+        this.isError = filePath.IsError();
 
         StartCoroutine(nameof(this.CoroutineSpawnNodeBuilding));
+    }
+    public bool IsError()
+    {
+        return this.isError;
     }
     IEnumerator CoroutineSpawnNodeBuilding()
     {

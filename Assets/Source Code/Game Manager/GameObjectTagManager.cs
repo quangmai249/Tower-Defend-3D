@@ -22,4 +22,6 @@ public static class GameObjectTagManager
     public static string TagTextTurretStats = "Text Turret Stats";
     public static string TagImageTurretStats = "Image Turret Stats";
     public static string TagGameManager = "GameController";
+    public static string TagBuildingManager = "Building Manager";
+    public static string TagEnemySpawnManager = "Enemy Spawn Manager";
 }

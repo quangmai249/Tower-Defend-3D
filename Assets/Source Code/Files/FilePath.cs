@@ -5,15 +5,30 @@ using UnityEngine;
 
 public class FilePath
 {
+    private bool isError;
     private string name;
     private string path;
     private string notify;
     private List<Transform> lsPos;
     private StreamWriter streamWriter = null;
+    // private List<Vector3> res = new List<Vector3>();
     public FilePath(string path, string name)
     {
         this.name = name;
         this.path = path;
+
+        //string read_line = string.Empty;
+        //using (StreamReader streamReader = new StreamReader($"{this.path}/{this.name}"))
+        //{
+        //    while ((read_line = streamReader.ReadLine()) != null)
+        //    {
+        //        string json = RSASecurity.Decrypt(read_line);
+        //        Debug.Log(json);
+        //        Vector3 vec = JsonUtility.FromJson<Vector3>(json);
+        //        res.Add(vec);
+        //    }
+        //    streamReader.Close();
+        //}
     }
     public void SetListVector(List<Transform> position)
     {
@@ -25,18 +40,26 @@ public class FilePath
     }
     public Vector3[] ReadFromFile()
     {
-        List<Vector3> res = new List<Vector3>();
-        string read_line = string.Empty;
-        using (StreamReader streamReader = new StreamReader($"{this.path}/{this.name}"))
+        try
         {
-            while ((read_line = streamReader.ReadLine()) != null)
+            List<Vector3> res = new List<Vector3>();
+            string read_line = string.Empty;
+            using (StreamReader streamReader = new StreamReader($"{this.path}/{this.name}"))
             {
-                Vector3 vec = JsonUtility.FromJson<Vector3>(read_line);
-                res.Add(vec);
+                while ((read_line = streamReader.ReadLine()) != null)
+                {
+                    Vector3 vec = JsonUtility.FromJson<Vector3>(read_line);
+                    res.Add(vec);
+                }
+                streamReader.Close();
             }
-            streamReader.Close();
+            return res.ToArray();
         }
-        return res.ToArray();
+        catch
+        {
+            this.isError = true;
+            return null;
+        }
     }
     public string GetPath()
     {
@@ -45,6 +68,10 @@ public class FilePath
     public string GetNotify()
     {
         return $"{this.notify}";
+    }
+    public bool IsError()
+    {
+        return this.isError;
     }
     private void CheckPathExisted()
     {
@@ -74,8 +101,10 @@ public class FilePath
     {
         using (s = new StreamWriter(this.path + "/" + this.name, append: false))
         {
+            string json = string.Empty;
             foreach (var item in ls)
-                s.WriteLine(JsonUtility.ToJson(item.position));
+                json += JsonUtility.ToJson(item.position) + "\n";
+            //s.Write(RSASecurity.Encrypt(json));
             s.Close();
         }
     }

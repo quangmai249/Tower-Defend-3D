@@ -48,7 +48,7 @@ public class LevelDesign : MonoBehaviour
             {
                 foreach (var file in Directory.GetFiles(FileLocalLink.UserFolderNodeBuilding + this.level))
                 {
-                    Directory.Delete(file);
+                    File.Delete(file);
                 }
             }
 

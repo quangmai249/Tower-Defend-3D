@@ -12,6 +12,7 @@ public class FirebaseInit : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] Image imgTimeLoading;
+    [SerializeField] GameObject panelStatus;
     [SerializeField] TextMeshProUGUI textNotify;
     [SerializeField] TextMeshProUGUI textStatusConnectToInternet;
 
@@ -24,8 +25,8 @@ public class FirebaseInit : MonoBehaviour
 
     private void Start()
     {
+        this.imgTimeLoading.fillAmount = .3f;
         this.textStatusConnectToInternet.text = string.Empty;
-        this.imgTimeLoading.fillAmount = 0;
 
         if (!Directory.Exists(FileLocalLink.UserRootLocal))
         {
@@ -46,14 +47,12 @@ public class FirebaseInit : MonoBehaviour
     private IEnumerator CoroutineTimeLoading()
     {
         yield return new WaitForSeconds(2f);
-
         this.CheckingForUpdating();
-
         while (this.imgTimeLoading.fillAmount < 1)
         {
             yield return new WaitForSeconds(.5f);
-            this.imgTimeLoading.fillAmount += .25f;
-            this.textNotify.text = $"Loading... {(this.imgTimeLoading.fillAmount * 100).ToString()}%";
+            this.imgTimeLoading.fillAmount += .1f;
+            this.textNotify.text = $"Loading... {Math.Round(this.imgTimeLoading.fillAmount * 100).ToString()}%";
         }
     }
     private void CheckingForUpdating()
@@ -65,6 +64,7 @@ public class FirebaseInit : MonoBehaviour
                 Stream stream = webClient.OpenRead(this.apiFirebaseDefault);
                 if (stream.CanRead)
                 {
+                    StartCoroutine(nameof(this.CoroutinePanelStatus));
                     this.textStatusConnectToInternet.text = "You're online. We're checking for updating newest maps!";
 
                     StreamReader sr = new StreamReader(stream);
@@ -117,6 +117,11 @@ public class FirebaseInit : MonoBehaviour
             PlayerPrefs.SetInt($"LEVEL_{i}", 0);
             PlayerPrefs.Save();
         }
+    }
+    IEnumerator CoroutinePanelStatus()
+    {
+        yield return new WaitForEndOfFrame();
+        this.panelStatus.gameObject.SetActive(true);
     }
     IEnumerator CoroutineDefaultSetting()
     {

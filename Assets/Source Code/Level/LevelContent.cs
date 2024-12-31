@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -39,18 +40,22 @@ public class LevelContent : MonoBehaviour
         PlayerPrefs.SetString("LEVEL", string.Empty);
         PlayerPrefs.Save();
 
+        List<GameObject> ls = new List<GameObject>();
         foreach (var temp in lsButtonLevel)
         {
             if (PlayerPrefs.GetInt(temp.gameObject.name) == 1)
             {
                 temp.gameObject.SetActive(true);
                 temp.GetComponentInChildren<TextMeshProUGUI>().text = temp.gameObject.name;
+                temp.GetComponentInChildren<TextMeshProUGUI>().text += "\nPassed this level!";
                 if (CheckFileForUpdating.IsNullLocalFolder(temp.gameObject.name))
                 {
                     temp.gameObject.SetActive(false);
                 }
+                ls.Add(temp);
             }
         }
+        ls.Last().GetComponentInChildren<TextMeshProUGUI>().text = ls.Last().gameObject.name;
     }
     public void ButtonUpdateNewestVersion()
     {

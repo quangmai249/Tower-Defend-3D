@@ -11,7 +11,7 @@ public class LevelDetails : MonoBehaviour
         PlayerPrefs.Save();
 
         LevelContent levelContent = LevelContent.Instance;
-        levelContent.SetTextButtonPlayGame($"PLAY {this.gameObject.name}");
+        levelContent.SetTextButtonPlayGame($"PLAY {this.gameObject.name.Replace("_", " ")}");
 
         return;
     }

@@ -105,8 +105,7 @@ public class Turrets : MonoBehaviour
         if (gameManager.IsGameOver == true || gameManager.IsGamePause == true || gameManager.IsGameWinLevel == true)
             return;
 
-        this.SetTextStats();
-        this.SetImageStats();
+        this.DisplayTurretStats();
 
         SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
         SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmUpgradeTurret);
@@ -143,6 +142,11 @@ public class Turrets : MonoBehaviour
     {
         SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().color = Color.white;
         SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagImageTurretStats).GetComponent<RawImage>().texture = this.imageTurret.texture;
+    }
+    public void DisplayTurretStats()
+    {
+        this.SetImageStats();
+        this.SetTextStats();
     }
     public void SetDefaultTurret()
     {

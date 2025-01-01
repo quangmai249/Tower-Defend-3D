@@ -111,6 +111,18 @@ public class UIManager : MonoBehaviour
         DOTween.KillAll();
         Time.timeScale = 0f;
     }
+    public void DisplayTurretStats(GameObject go)
+    {
+        go = SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagTextTurretStats);
+        go.GetComponent<TextMeshProUGUI>().text = $"Level: {go.GetComponent<TurretStats>().LevelTurret}\n";
+        go.GetComponent<TextMeshProUGUI>().text += $"Name: {go.name.Replace("(Clone)", "")}\n";
+        go.GetComponent<TextMeshProUGUI>().text += $"Damage: {go.GetComponent<TurretStats>().DamagedTurret}\n";
+        go.GetComponent<TextMeshProUGUI>().text += $"Range: {go.GetComponent<TurretStats>().RangeTurret}\n";
+        go.GetComponent<TextMeshProUGUI>().text += $"Rate: {go.GetComponent<TurretStats>().RateTurret}\n";
+
+        if (go.GetComponent<BulletLaser>() != null)
+            go.GetComponent<TextMeshProUGUI>().text += $"Time Slowing: {go.GetComponent<BulletLaser>().GetTimeSlowing()}\n";
+    }
     public void SetTextNotEnoughGold(string text)
     {
         this.textNotEnoughGold.text = text;

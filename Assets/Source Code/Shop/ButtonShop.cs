@@ -19,11 +19,20 @@ public class ButtonShop : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         this.confirm.SetActive(false);
-        turretStats = this.turret.gameObject.GetComponent<Turrets>().GetTurretStats();
+        this.turretStats = this.turret.gameObject.GetComponent<Turrets>().GetTurretStats();
         this.textPrice.text = $"-{turretStats.PriceTurret.ToString()}$";
     }
     public void ButtonSelectTurret()
     {
+        if (this.turret.tag == GameObjectTagManager.TagFirstTurret)
+            this.turret.gameObject.GetComponent<Turrets>().DisplayTurretStats();
+        if (this.turret.tag == GameObjectTagManager.TagSecondTurret)
+            this.turret.gameObject.GetComponent<Turrets>().DisplayTurretStats();
+        if (this.turret.tag == GameObjectTagManager.TagThirdTurret)
+            this.turret.gameObject.GetComponent<Turrets>().DisplayTurretStats();
+        if (this.turret.tag == GameObjectTagManager.TagFourthTurret)
+            this.turret.gameObject.GetComponent<Turrets>().DisplayTurretStats();
+
         SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
         SelectTarget.SetActiveGameObjecstWithTag(false, GameObjectTagManager.TagButtonConfirmShopTurret);
         this.confirm.SetActive(true);

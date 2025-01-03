@@ -107,17 +107,17 @@ public class LevelDesign : MonoBehaviour
     {
         if (Directory.Exists(FileLocalLink.UserRootLocal))
         {
-            if (Directory.Exists(FileLocalLink.UserFolderNodeBuilding + this.level))
+            if (Directory.Exists(FileLocalLink.UserFolderNodeBuilding + this.textLv))
             {
-                foreach (var file in Directory.GetFiles(FileLocalLink.UserFolderNodeBuilding + this.level))
+                foreach (var file in Directory.GetFiles(FileLocalLink.UserFolderNodeBuilding + this.textLv))
                 {
                     File.Delete(file);
                 }
             }
 
-            if (Directory.Exists(FileLocalLink.UserFolderNodePath + this.level))
+            if (Directory.Exists(FileLocalLink.UserFolderNodePath + this.textLv))
             {
-                foreach (var file in Directory.GetFiles(FileLocalLink.UserFolderNodePath + this.level))
+                foreach (var file in Directory.GetFiles(FileLocalLink.UserFolderNodePath + this.textLv))
                 {
                     File.Delete(file);
                 }

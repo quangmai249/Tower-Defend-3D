@@ -14,6 +14,7 @@ public class LevelDesign : MonoBehaviour
     [SerializeField] bool checking = false;
     [SerializeField] LineRenderer lineRenderer;
 
+    private string textLv;
     public static LevelDesign Instance;
     private void Awake()
     {
@@ -28,9 +29,15 @@ public class LevelDesign : MonoBehaviour
     private void Start()
     {
         if (this.checking == true)
+        {
             this.textLevel.text = level.ToString().Replace('_', ' ');
+            this.textLv = level.ToString();
+        }
         else
+        {
             this.textLevel.text = PlayerPrefs.GetString("LEVEL").Replace('_', ' ');
+            this.textLv = PlayerPrefs.GetString("LEVEL");
+        }
 
         StartCoroutine(nameof(this.DrawPathLine));
     }
@@ -40,11 +47,11 @@ public class LevelDesign : MonoBehaviour
 
         yield return new WaitForSeconds(6f);
 
-        for (int i = 0; i < Directory.GetFiles(FileLocalLink.UserFolderNodePath + this.level.ToString()).Length; i++)
+        for (int i = 0; i < Directory.GetFiles(FileLocalLink.UserFolderNodePath + this.textLv).Length; i++)
         {
             yield return new WaitForSeconds(1f);
 
-            FilePath f = new FilePath(FileLocalLink.UserFolderNodePath + this.level.ToString(), this.level.ToString() + (i + 1));
+            FilePath f = new FilePath(FileLocalLink.UserFolderNodePath + this.textLv, this.textLv + (i + 1));
             List<Vector3> vec = new List<Vector3>();
 
             foreach (Vector3 temp in f.ReadFromFile().ToList())

@@ -8825,7 +8825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: checking
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7195104092222315613, guid: 2338e40f8a6e965448356ac35ea6cb4a, type: 3}
       propertyPath: textLevel
@@ -8955,12 +8955,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: gold
-      value: 99999
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: lives
-      value: 999
+      value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
+      propertyPath: maxWave
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726697369593793532, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
+      propertyPath: textLevel
+      value: 
+      objectReference: {fileID: 192515598}
     - target: {fileID: 3121309707161660943, guid: b441fdb84d62a9e4c927a2575e944d4b, type: 3}
       propertyPath: m_Name
       value: Game Manager

@@ -123,6 +123,17 @@ public class LevelDesign : MonoBehaviour
                 }
             }
         }
+
+        PlayerPrefs.SetInt($"LEVEL_1", 1);
+        PlayerPrefs.Save();
+
+        for (int i = 2; i <= Enum.GetValues(typeof(Level)).Length; i++)
+        {
+            PlayerPrefs.SetInt($"LEVEL_{i}", 0);
+            PlayerPrefs.Save();
+        }
+
+
         SceneManager.LoadScene(SceneNameManager.SceneSplash);
     }
 }

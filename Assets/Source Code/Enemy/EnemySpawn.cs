@@ -169,7 +169,7 @@ public class EnemySpawn : MonoBehaviour
 
             if (enemyBoss != null)
             {
-                this.enemyBoss.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + 1));
+                this.enemyBoss.GetComponent<EnemyMoving>().SetArrayPoint(new FilePath(pathManager.GetPath(), levelDesign.GetLevel() + (i + 1)));
                 this.SetDefaultEnemy(this.enemyBoss, this.posSpawn);
 
                 audioManager.ActiveAudioSpawnEnemy(true);

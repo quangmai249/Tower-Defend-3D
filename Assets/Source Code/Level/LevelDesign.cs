@@ -45,15 +45,27 @@ public class LevelDesign : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             FilePath f = new FilePath(FileLocalLink.UserFolderNodePath + this.level.ToString(), this.level.ToString() + (i + 1));
-            List<Vector3> vec = f.ReadFromFile().ToList();
+            List<Vector3> vec = new List<Vector3>();
+
+            foreach (Vector3 temp in f.ReadFromFile().ToList())
+                vec.Add(temp + new Vector3(0, 0.1f, 0));
 
             LineRenderer lineRenderer_new = Instantiate(lineRenderer);
+
+            lineRenderer_new.startWidth = 2f;
+            lineRenderer_new.endWidth = 2f;
+
             lineRenderer_new.gameObject.transform.SetParent(this.gameObject.transform);
             lineRenderer_new.positionCount = vec.Count;
             lineRenderer_new.SetPositions(vec.ToArray());
+
             ls.Add(lineRenderer_new);
         }
 
+        StartCoroutine(nameof(this.CoroutineEnablePathline), ls);
+    }
+    IEnumerator CoroutineEnablePathline(List<LineRenderer> ls)
+    {
         yield return new WaitForSeconds(.5f);
         this.EnablePathLine(ls, false);
         yield return new WaitForSeconds(.5f);

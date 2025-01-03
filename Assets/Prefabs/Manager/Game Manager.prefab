@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveStart: 1
   maxWave: 5
-  lives: 4000
-  gold: 100000
-  gameMaxSpeed: 20
+  lives: 200
+  gold: 2000
+  gameMaxSpeed: 10
   isGameWinLevel: 0
   isGameOver: 0
   isGamePause: 0

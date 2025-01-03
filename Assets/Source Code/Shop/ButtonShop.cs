@@ -7,13 +7,18 @@ public class ButtonShop : MonoBehaviour
     [SerializeField] GameObject confirm;
     [SerializeField] TextMeshPro textPrice;
 
+    private GameManager gameManager;
+    private UIManager uiManager;
     private AudioManager audioManager;
     private SingletonTurrets singletonTurrets;
     private TurretStats turretStats;
     private void Awake()
     {
+        gameManager = GameManager.Instance;
         singletonTurrets = SingletonTurrets.Instance;
         audioManager = AudioManager.Instance;
+
+        uiManager = SelectTarget.SelectFirstGameObjectWithTag(GameObjectTagManager.TagUIManager).GetComponent<UIManager>();
     }
     private void Start()
     {
@@ -40,6 +45,13 @@ public class ButtonShop : MonoBehaviour
     }
     public void ButtonConfirmSelectTurret()
     {
+        if (gameManager.GameStats.Gold < this.turretStats.PriceTurret)
+        {
+            uiManager.SetActiveTextNotEnoughGold(true);
+            uiManager.SetTextNotEnoughGold($"You do not have enough money to build {(this.turret.name).Replace("(Clone)", "")}!");
+            return;
+        }
+
         StartBuildingTurret();
         return;
     }

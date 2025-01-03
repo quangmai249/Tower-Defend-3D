@@ -21,6 +21,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textLives;
     [SerializeField] TextMeshProUGUI textFPS;
 
+    [Header("Particles System")]
+    [SerializeField] ParticleSystem parWinLevel;
+
     private GameManager gameManager;
     private GameStats gameStats;
 
@@ -63,13 +66,17 @@ public class UIManager : MonoBehaviour
         }
 
         textGold.text = $"{gameStats.Gold}$";
-        textLives.text = $"{gameStats.Lives} LIVES";
+        textLives.text = $"{gameStats.Lives}";
 
         if (gameManager.IsGameWinLevel == true)
         {
             this.panelGameWin.SetActive(true);
             this.textLevelWin.text = PlayerPrefs.GetString("LEVEL").ToString();
             this.HiddenObjectsWhenOver();
+
+            if (this.parWinLevel.isPlaying == false)
+                this.parWinLevel.Play();
+
             return;
         }
 

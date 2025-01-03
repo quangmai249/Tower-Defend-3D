@@ -57,15 +57,7 @@ public class Turrets : MonoBehaviour
         this.upgradeTurrets.transform.SetParent(this.gameObject.transform);
         this.upgradeTurrets.gameObject.SetActive(false);
 
-        if (gameStats.Gold < turretStats.PriceTurret)
-        {
-            uiManager.SetActiveTextNotEnoughGold(true);
-            uiManager.SetTextNotEnoughGold($"You do not have enough money to build {(this.gameObject.name).Replace("(Clone)", "")}!");
-
-            singletonBuilding.InstantiateAt(this.gameObject.transform.position);
-            Destroy(this.gameObject);
-        }
-        else
+        if (gameStats.Gold >= turretStats.PriceTurret)
         {
             uiManager.SetActiveTextNotEnoughGold(false);
             gameStats.Gold -= turretStats.PriceTurret;

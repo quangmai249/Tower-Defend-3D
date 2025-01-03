@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : GameStatsLevel
 {
     [Header("Game Stats")]
     [SerializeField] int waveStart = 1;
@@ -21,8 +21,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool isGamePause = false;
 
     public static GameManager Instance;
+    private Level level;
     private GameStats gameStats;
-
+    private LevelDesign levelDesign;
     private void Awake()
     {
         this.gameStats = new GameStats(this.gold, this.lives, this.waveStart, this.maxWave);
@@ -35,10 +36,24 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        levelDesign = LevelDesign.Instance;
+        if (levelDesign != null)
+            this.SetGameStats();
+
         this.isGameOver = false;
         this.isGamePause = false;
         this.isGameWinLevel = false;
         Time.timeScale = 1;
+    }
+    private void SetGameStats()
+    {
+        if (base.SetStatsLevel(this.levelDesign.GetLevel()) != null)
+        {
+            this.GameStats.Gold = base.SetStatsLevel(this.levelDesign.GetLevel()).Gold;
+            this.GameStats.Lives = base.SetStatsLevel(this.levelDesign.GetLevel()).Lives;
+            this.GameStats.WaveStart = base.SetStatsLevel(this.levelDesign.GetLevel()).WaveStart;
+            this.GameStats.MaxWave = base.SetStatsLevel(this.levelDesign.GetLevel()).MaxWave;
+        }
     }
     private void Update()
     {

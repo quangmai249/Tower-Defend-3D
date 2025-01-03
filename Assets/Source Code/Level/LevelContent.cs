@@ -40,22 +40,25 @@ public class LevelContent : MonoBehaviour
         PlayerPrefs.SetString("LEVEL", string.Empty);
         PlayerPrefs.Save();
 
-        List<GameObject> ls = new List<GameObject>();
-        foreach (var temp in lsButtonLevel)
+        if (PlayerPrefs.GetInt("LEVEL_2") == 1)
         {
-            if (PlayerPrefs.GetInt(temp.gameObject.name) == 1)
+            List<GameObject> ls = new List<GameObject>();
+            foreach (var temp in lsButtonLevel)
             {
-                temp.gameObject.SetActive(true);
-                temp.GetComponentInChildren<TextMeshProUGUI>().text = temp.gameObject.name;
-                temp.GetComponentInChildren<TextMeshProUGUI>().text += "\nPassed this level!";
-                if (CheckFileForUpdating.IsNullLocalFolder(temp.gameObject.name))
+                if (PlayerPrefs.GetInt(temp.gameObject.name) == 1)
                 {
-                    temp.gameObject.SetActive(false);
+                    temp.gameObject.SetActive(true);
+                    temp.GetComponentInChildren<TextMeshProUGUI>().text = temp.gameObject.name;
+                    temp.GetComponentInChildren<TextMeshProUGUI>().text += "\nPassed this level!";
+                    if (CheckFileForUpdating.IsNullLocalFolder(temp.gameObject.name))
+                    {
+                        temp.gameObject.SetActive(false);
+                    }
+                    ls.Add(temp);
                 }
-                ls.Add(temp);
             }
+            ls.Last().GetComponentInChildren<TextMeshProUGUI>().text = ls.Last().gameObject.name;
         }
-        ls.Last().GetComponentInChildren<TextMeshProUGUI>().text = ls.Last().gameObject.name;
     }
     public void ButtonUpdateNewestVersion()
     {
@@ -72,7 +75,10 @@ public class LevelContent : MonoBehaviour
             this._btnLevel.SetActive(false);
 
             if (PlayerPrefs.GetInt(this._btnLevel.gameObject.name) == 1)
+            {
                 this._btnLevel.SetActive(true);
+                this._btnLevel.GetComponentInChildren<TextMeshProUGUI>().text = $"LEVEL_{i}";
+            }
 
             lsButtonLevel.Add(this._btnLevel);
         }
